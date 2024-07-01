@@ -2,6 +2,7 @@ package com.crystal.mystia_izakaya;
 
 import com.crystal.mystia_izakaya.event.CommonEvent;
 import com.crystal.mystia_izakaya.registry.BlockRegistry;
+import com.crystal.mystia_izakaya.registry.EntityRegistry;
 import com.crystal.mystia_izakaya.registry.GroupRegistry;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import org.slf4j.Logger;
@@ -26,6 +27,7 @@ public class MystiaIzakaya
         BlockRegistry.BLOCKS.register(modEventBus);
         ItemRegistry.ITEMS.register(modEventBus);
         GroupRegistry.CREATIVE_MODE_TABS.register(modEventBus);
+        EntityRegistry.ENTITY_TYPES.register(modEventBus);
 
         modEventBus.addListener(GroupRegistry::addCreative);
 
