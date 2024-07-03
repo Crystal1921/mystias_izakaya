@@ -4,6 +4,7 @@ import com.crystal.mystia_izakaya.MystiaIzakaya;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -22,8 +23,9 @@ public class DataGenerator {
         ExistingFileHelper efh = event.getExistingFileHelper();
         var generator = event.getGenerator();
         var registries = event.getLookupProvider();
-        var pack = generator.getVanillaPack(true);
+        var vanillaPack = generator.getVanillaPack(true);
         var existingFileHelper = event.getExistingFileHelper();
+        var pack = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> completableFuture = event.getLookupProvider();
 
         //Language
@@ -46,10 +48,15 @@ public class DataGenerator {
                 event.includeServer(),
                 (DataProvider.Factory<LootTableProvider>) pOutput -> new LootTableProvider(pOutput, Collections.emptySet(), getLootTableList(),completableFuture)
         );
+        //Recipe
+        event.getGenerator().addProvider(
+                event.includeServer(),
+                (DataProvider.Factory<RecipeProvider>) pOutput -> new ModRecipe(pOutput,registries)
+        );
         //Tags
-        var blockTagsProvider = pack
+        var blockTagsProvider = vanillaPack
                 .addProvider(packOutput -> new ModTagBlock(packOutput, registries,MystiaIzakaya.MODID , existingFileHelper));
-        pack.addProvider(
+        vanillaPack.addProvider(
                 packOutput -> new ModTagItem(packOutput, registries, blockTagsProvider.contentsGetter(),MystiaIzakaya.MODID , existingFileHelper));
     }
 

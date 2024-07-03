@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "a": {
+      "item": "minecraft:stick"
+    },
+    "b": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "pattern": [
+    "  a",
+    " ab",
+    "a b"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:mystia_fishing_rod"
+  }
+}
