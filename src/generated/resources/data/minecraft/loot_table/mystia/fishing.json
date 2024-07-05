@@ -6,13 +6,53 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:name_tag",
-          "weight": 10
+          "name": "mystia_izakaya:trout",
+          "weight": 8
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:saddle",
-          "weight": 20
+          "name": "mystia_izakaya:lamprey",
+          "weight": 14
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mystia_izakaya:salmon",
+          "weight": 24
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mystia_izakaya:tuna",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mystia_izakaya:premium_tuna",
+          "weight": 34
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mystia_izakaya:pufferfish",
+          "weight": 42
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mystia_izakaya:shrimp",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mystia_izakaya:octopus",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mystia_izakaya:sea_urchin",
+          "weight": 18
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mystia_izakaya:crab",
+          "weight": 10
         }
       ],
       "rolls": 1.0

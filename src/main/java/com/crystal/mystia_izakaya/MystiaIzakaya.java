@@ -4,7 +4,7 @@ import com.crystal.mystia_izakaya.event.CommonEvent;
 import com.crystal.mystia_izakaya.registry.BlockRegistry;
 import com.crystal.mystia_izakaya.registry.EntityRegistry;
 import com.crystal.mystia_izakaya.registry.GroupRegistry;
-import com.crystal.mystia_izakaya.registry.ItemRegistry;
+import com.crystal.mystia_izakaya.registry.items.ItemRegistry;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;

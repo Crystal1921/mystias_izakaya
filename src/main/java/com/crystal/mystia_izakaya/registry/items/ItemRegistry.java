@@ -1,4 +1,4 @@
-package com.crystal.mystia_izakaya.registry;
+package com.crystal.mystia_izakaya.registry.items;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.item.MystiaFishingRod;

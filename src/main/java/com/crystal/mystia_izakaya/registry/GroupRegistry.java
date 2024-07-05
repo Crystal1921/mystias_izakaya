@@ -1,6 +1,8 @@
 package com.crystal.mystia_izakaya.registry;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
+import com.crystal.mystia_izakaya.registry.items.IngredientItem;
+import com.crystal.mystia_izakaya.registry.items.ItemRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -17,6 +19,16 @@ public class GroupRegistry {
             .icon(() -> ItemRegistry.MystiaFishingRod.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(ItemRegistry.MystiaFishingRod.get());
+                output.accept(IngredientItem.Trout.get());
+                output.accept(IngredientItem.Lamprey.get());
+                output.accept(IngredientItem.Salmon.get());
+                output.accept(IngredientItem.Tuna.get());
+                output.accept(IngredientItem.Premium_Tuna.get());
+                output.accept(IngredientItem.Pufferfish.get());
+                output.accept(IngredientItem.Shrimp.get());
+                output.accept(IngredientItem.Octopus.get());
+                output.accept(IngredientItem.Sea_Urchin.get());
+                output.accept(IngredientItem.Crab.get());
             }).build());
 
     public static void addCreative(BuildCreativeModeTabContentsEvent event)

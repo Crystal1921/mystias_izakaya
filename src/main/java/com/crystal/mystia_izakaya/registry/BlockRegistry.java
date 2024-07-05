@@ -1,6 +1,7 @@
 package com.crystal.mystia_izakaya.registry;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
+import com.crystal.mystia_izakaya.registry.items.ItemRegistry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
