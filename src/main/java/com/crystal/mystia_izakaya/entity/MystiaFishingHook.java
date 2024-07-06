@@ -28,6 +28,7 @@ import java.util.List;
 public class MystiaFishingHook extends FishingHook {
     int luck;
     int lureSpeed;
+
     private MystiaFishingHook(EntityType<? extends MystiaFishingHook> pEntityType, Level pLevel, int pLuck, int pLureSpeed) {
         super(pEntityType, pLevel);
         this.noCulling = true;
@@ -35,12 +36,12 @@ public class MystiaFishingHook extends FishingHook {
         this.lureSpeed = Math.max(0, pLureSpeed);
     }
 
-    public MystiaFishingHook( EntityType<? extends MystiaFishingHook> pEntityType, Level pLevel) {
+    public MystiaFishingHook(EntityType<? extends MystiaFishingHook> pEntityType, Level pLevel) {
         this(pEntityType, pLevel, 0, 0);
     }
 
-    public MystiaFishingHook(Player pPlayer, Level pLevel, int pLuck, int pLureSpeed){
-        this(EntityRegistry.Mystia_Fishing_Hook.get(), pLevel ,pLuck,pLureSpeed);
+    public MystiaFishingHook(Player pPlayer, Level pLevel, int pLuck, int pLureSpeed) {
+        this(EntityRegistry.Mystia_Fishing_Hook.get(), pLevel, pLuck, pLureSpeed);
         this.setOwner(pPlayer);
         float f = pPlayer.getXRot();
         float f1 = pPlayer.getYRot();
@@ -48,9 +49,9 @@ public class MystiaFishingHook extends FishingHook {
         float f3 = Mth.sin(-f1 * (float) (Math.PI / 180.0) - (float) Math.PI);
         float f4 = -Mth.cos(-f * (float) (Math.PI / 180.0));
         float f5 = Mth.sin(-f * (float) (Math.PI / 180.0));
-        double d0 = pPlayer.getX() - (double)f3 * 0.3;
+        double d0 = pPlayer.getX() - (double) f3 * 0.3;
         double d1 = pPlayer.getEyeY();
-        double d2 = pPlayer.getZ() - (double)f2 * 0.3;
+        double d2 = pPlayer.getZ() - (double) f2 * 0.3;
         this.moveTo(d0, d1, d2, f1, f);
         Vec3 vec3 = new Vec3(-f3, Mth.clamp(-(f5 / f4), -5.0F, 5.0F), -f2);
         double d3 = vec3.length();
@@ -58,8 +59,8 @@ public class MystiaFishingHook extends FishingHook {
                 0.6 / d3 + this.random.triangle(0.5, 0.0103365), 0.6 / d3 + this.random.triangle(0.5, 0.0103365), 0.6 / d3 + this.random.triangle(0.5, 0.0103365)
         );
         this.setDeltaMovement(vec3);
-        this.setYRot((float)(Mth.atan2(vec3.x, vec3.z) * 180.0F / (float)Math.PI));
-        this.setXRot((float)(Mth.atan2(vec3.y, vec3.horizontalDistance()) * 180.0F / (float)Math.PI));
+        this.setYRot((float) (Mth.atan2(vec3.x, vec3.z) * 180.0F / (float) Math.PI));
+        this.setXRot((float) (Mth.atan2(vec3.y, vec3.horizontalDistance()) * 180.0F / (float) Math.PI));
         this.yRotO = this.getYRot();
         this.xRotO = this.getXRot();
     }
@@ -74,14 +75,14 @@ public class MystiaFishingHook extends FishingHook {
                 if (server == null) {
                     return 0;
                 }
-                LootParams lootparams = new LootParams.Builder((ServerLevel)this.level())
+                LootParams lootparams = new LootParams.Builder((ServerLevel) this.level())
                         .withParameter(LootContextParams.THIS_ENTITY, player)
-                        .withLuck((float)this.luck + player.getLuck())
+                        .withLuck((float) this.luck + player.getLuck())
                         .create(LootContextParamSets.EMPTY);
                 LootTable loottable = server.reloadableRegistries().getLootTable(LootTableRegistry.FISHING);
                 List<ItemStack> list = loottable.getRandomItems(lootparams);
                 CriteriaTriggers.FISHING_ROD_HOOKED.trigger((ServerPlayer) player, pStack, this, list);
-                for(ItemStack selectedItem: list){
+                for (ItemStack selectedItem : list) {
                     ItemEntity itementity = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), selectedItem);
                     double d0 = player.getX() - this.getX();
                     double d1 = player.getY() - this.getY();

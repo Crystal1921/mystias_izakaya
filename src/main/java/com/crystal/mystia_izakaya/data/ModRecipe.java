@@ -1,6 +1,6 @@
 package com.crystal.mystia_izakaya.data;
 
-import com.crystal.mystia_izakaya.registry.items.ItemRegistry;
+import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

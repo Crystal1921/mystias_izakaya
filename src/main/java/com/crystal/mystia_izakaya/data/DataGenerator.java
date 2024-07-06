@@ -39,6 +39,11 @@ public class DataGenerator {
         event.getGenerator().addProvider(
                 event.includeClient(),
                 (DataProvider.Factory<ModItem>) pOutput -> new ModItem(pOutput,MystiaIzakaya.MODID,efh));
+        //BlockState
+        event.getGenerator().addProvider(
+                event.includeClient(),
+                (DataProvider.Factory<ModBlockState>) pOutput -> new ModBlockState(pOutput,MystiaIzakaya.MODID,efh)
+        );
         //Enchantment
         event.getGenerator().addProvider(
                 event.includeServer(),

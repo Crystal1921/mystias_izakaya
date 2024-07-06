@@ -1,4 +1,15 @@
 {
+  "block.mystia_izakaya.grill": "烤架",
+  "item.mystia_izakaya.crab": "螃蟹",
+  "item.mystia_izakaya.lamprey": "八目鳗",
   "item.mystia_izakaya.mystia_fishing_rod": "米斯蒂娅的鱼竿",
+  "item.mystia_izakaya.octopus": "章鱼",
+  "item.mystia_izakaya.premium_tuna": "极上金枪鱼",
+  "item.mystia_izakaya.pufferfish": "河豚",
+  "item.mystia_izakaya.salmon": "三文鱼",
+  "item.mystia_izakaya.sea_urchin": "海胆",
+  "item.mystia_izakaya.shrimp": "虾",
+  "item.mystia_izakaya.trout": "鳟鱼",
+  "item.mystia_izakaya.tuna": "金枪鱼",
   "itemGroup.mystias_izakaya": "东方夜雀食堂"
 }

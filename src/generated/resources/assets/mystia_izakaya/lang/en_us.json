@@ -1,4 +1,15 @@
 {
+  "block.mystia_izakaya.grill": "Grill Block",
+  "item.mystia_izakaya.crab": "Crab",
+  "item.mystia_izakaya.lamprey": "Lamprey",
   "item.mystia_izakaya.mystia_fishing_rod": "Mystia's Fishing Rod",
+  "item.mystia_izakaya.octopus": "Octopus",
+  "item.mystia_izakaya.premium_tuna": "Premium Tuna",
+  "item.mystia_izakaya.pufferfish": "Pufferfish",
+  "item.mystia_izakaya.salmon": "Salmon",
+  "item.mystia_izakaya.sea_urchin": "Sea Urchin",
+  "item.mystia_izakaya.shrimp": "Shrimp",
+  "item.mystia_izakaya.trout": "Trout",
+  "item.mystia_izakaya.tuna": "Tuna",
   "itemGroup.mystias_izakaya": "Mystia's Izakaya"
 }

@@ -1,10 +1,7 @@
 package com.crystal.mystia_izakaya;
 
 import com.crystal.mystia_izakaya.event.CommonEvent;
-import com.crystal.mystia_izakaya.registry.BlockRegistry;
-import com.crystal.mystia_izakaya.registry.EntityRegistry;
-import com.crystal.mystia_izakaya.registry.GroupRegistry;
-import com.crystal.mystia_izakaya.registry.items.ItemRegistry;
+import com.crystal.mystia_izakaya.registry.*;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -25,11 +22,11 @@ public class MystiaIzakaya
         modEventBus.addListener(CommonEvent::commonSetup);
 
         BlockRegistry.BLOCKS.register(modEventBus);
+        BlockEntityRegistry.BLOCK_ENTITY_TYPES.register(modEventBus);
         ItemRegistry.ITEMS.register(modEventBus);
         GroupRegistry.CREATIVE_MODE_TABS.register(modEventBus);
         EntityRegistry.ENTITY_TYPES.register(modEventBus);
 
-        modEventBus.addListener(GroupRegistry::addCreative);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

@@ -1,6 +1,5 @@
 package com.crystal.mystia_izakaya.render.entity;
 
-import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.entity.MystiaFishingHook;
 import com.crystal.mystia_izakaya.entity.model.MystiaFishingHookModel;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -21,8 +20,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
+import static com.crystal.mystia_izakaya.utils.UtilMethod.resourceLocation;
+
 public class FishingHookRenderer extends EntityRenderer<MystiaFishingHook> {
     private final EntityModel<MystiaFishingHook> model;
+
     public FishingHookRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
         model = new MystiaFishingHookModel<>(pContext.bakeLayer(MystiaFishingHookModel.LAYER_LOCATION));
@@ -30,7 +32,7 @@ public class FishingHookRenderer extends EntityRenderer<MystiaFishingHook> {
 
     @Override
     public ResourceLocation getTextureLocation(@NotNull MystiaFishingHook pEntity) {
-        return ResourceLocation.parse(MystiaIzakaya.MODID + ":textures/entity/texture.png");
+        return resourceLocation("textures/entity/texture.png");
     }
 
     @Override
@@ -40,14 +42,14 @@ public class FishingHookRenderer extends EntityRenderer<MystiaFishingHook> {
             pPoseStack.pushPose();
             pPoseStack.pushPose();
             pPoseStack.mulPose(Axis.YN.rotationDegrees(45));
-            pPoseStack.translate(0,-1.4,0);
+            pPoseStack.translate(0, -1.4, 0);
             VertexConsumer buffer = pBuffer.getBuffer(this.model.renderType(this.getTextureLocation(pEntity)));
-            this.model.renderToBuffer(pPoseStack,buffer,pPackedLight, OverlayTexture.NO_OVERLAY);
+            this.model.renderToBuffer(pPoseStack, buffer, pPackedLight, OverlayTexture.NO_OVERLAY);
             pPoseStack.popPose();
 
             float f = player.getAttackAnim(pPartialTick);
             float f1 = Mth.sin(Mth.sqrt(f) * (float) Math.PI);
-            Vec3 vec3 = this.getPlayerHandPos(player, f1, pPartialTick).add(0.0,0.0,0.0);
+            Vec3 vec3 = this.getPlayerHandPos(player, f1, pPartialTick).add(0.0, 0.0, 0.0);
             Vec3 vec31 = pEntity.getPosition(pPartialTick).add(0.0, 0.25, 0.0);
             float f2 = (float) (vec3.x - vec31.x);
             float f3 = (float) (vec3.y - vec31.y);
@@ -75,7 +77,7 @@ public class FishingHookRenderer extends EntityRenderer<MystiaFishingHook> {
             Vec3 vec3 = this.entityRenderDispatcher
                     .camera
                     .getNearPlane()
-                    .getPointOnPlane((float)i * 0.525F, -0.1F)
+                    .getPointOnPlane((float) i * 0.525F, -0.1F)
                     .scale(d4)
                     .yRot(v * 0.5F)
                     .xRot(-v * 0.7F);
@@ -85,15 +87,15 @@ public class FishingHookRenderer extends EntityRenderer<MystiaFishingHook> {
             double d0 = Mth.sin(f);
             double d1 = Mth.cos(f);
             float f1 = pPlayer.getScale();
-            double d2 = (double)i * 0.35 * (double)f1;
-            double d3 = 0.8 * (double)f1;
+            double d2 = (double) i * 0.35 * (double) f1;
+            double d3 = 0.8 * (double) f1;
             float f2 = pPlayer.isCrouching() ? -0.1875F : 0.0F;
-            return pPlayer.getEyePosition(pPartialTick).add(-d1 * d2 - d0 * d3, (double)f2 - 0.45 * (double)f1, -d0 * d2 + d1 * d3);
+            return pPlayer.getEyePosition(pPartialTick).add(-d1 * d2 - d0 * d3, (double) f2 - 0.45 * (double) f1, -d0 * d2 + d1 * d3);
         }
     }
 
     private static float fraction(int pNumerator, int pDenominator) {
-        return (float)pNumerator / (float)pDenominator;
+        return (float) pNumerator / (float) pDenominator;
     }
 
     private static void stringVertex(

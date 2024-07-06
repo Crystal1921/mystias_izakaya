@@ -1,13 +1,10 @@
 package com.crystal.mystia_izakaya.registry;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
-import com.crystal.mystia_izakaya.registry.items.IngredientItem;
-import com.crystal.mystia_izakaya.registry.items.ItemRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -19,21 +16,16 @@ public class GroupRegistry {
             .icon(() -> ItemRegistry.MystiaFishingRod.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(ItemRegistry.MystiaFishingRod.get());
-                output.accept(IngredientItem.Trout.get());
-                output.accept(IngredientItem.Lamprey.get());
-                output.accept(IngredientItem.Salmon.get());
-                output.accept(IngredientItem.Tuna.get());
-                output.accept(IngredientItem.Premium_Tuna.get());
-                output.accept(IngredientItem.Pufferfish.get());
-                output.accept(IngredientItem.Shrimp.get());
-                output.accept(IngredientItem.Octopus.get());
-                output.accept(IngredientItem.Sea_Urchin.get());
-                output.accept(IngredientItem.Crab.get());
+                output.accept(ItemRegistry.Grill_Block.get());
+                output.accept(ItemRegistry.Trout.get());
+                output.accept(ItemRegistry.Lamprey.get());
+                output.accept(ItemRegistry.Salmon.get());
+                output.accept(ItemRegistry.Tuna.get());
+                output.accept(ItemRegistry.Premium_Tuna.get());
+                output.accept(ItemRegistry.Pufferfish.get());
+                output.accept(ItemRegistry.Shrimp.get());
+                output.accept(ItemRegistry.Octopus.get());
+                output.accept(ItemRegistry.Sea_Urchin.get());
+                output.accept(ItemRegistry.Crab.get());
             }).build());
-
-    public static void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(BlockRegistry.EXAMPLE_BLOCK_ITEM);
-    }
 }
