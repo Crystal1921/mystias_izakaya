@@ -5,6 +5,8 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -18,17 +20,33 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class GrillBlock extends BaseEntityBlock{
+public class GrillBlock extends BaseEntityBlock {
     public static final MapCodec<GrillBlock> CODEC = simpleCodec((properties) -> new GrillBlock());
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D);
+
     public GrillBlock() {
         super(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion());
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
+        if (pLevel.isClientSide) {
+            return InteractionResult.SUCCESS;
+        } else {
+            ServerPlayer serverPlayer = (ServerPlayer) pPlayer;
+            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+            if (blockEntity instanceof GrillBlockTE grillBlockTE) {
+                serverPlayer.openMenu(grillBlockTE);
+            }
+            return InteractionResult.CONSUME;
+        }
     }
 
     @Override
@@ -75,6 +93,6 @@ public class GrillBlock extends BaseEntityBlock{
     @Nullable
     @Override
     public BlockEntity newBlockEntity(@NotNull BlockPos pPos, @NotNull BlockState pState) {
-        return new GrillBlockTE(pPos,pState);
+        return new GrillBlockTE(pPos, pState);
     }
 }

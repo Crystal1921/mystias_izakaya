@@ -4,7 +4,7 @@ import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.client.item.MystiaFishingRod;
 import com.crystal.mystia_izakaya.client.item.SeaFoodItem;
-import com.crystal.mystia_izakaya.utils.CookerItemEnum;
+import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -39,5 +39,5 @@ public class ItemRegistry {
 
     //烤八目鳗
     public static final DeferredItem<Item> Grilled_Lamprey = ITEMS.register("grilled_lamprey",
-            () -> new CookedMealItem(CookerItemEnum.Grill, 2, 4.2F, new Item[]{Lamprey.asItem()}, new FoodTagEnum[]{FoodTagEnum.Aquatic}));
+            () -> new CookedMealItem(CookerTypeEnum.Grill, 2, 4.2F, new Item[]{Lamprey.asItem()}, new FoodTagEnum[]{FoodTagEnum.Aquatic}));
 }

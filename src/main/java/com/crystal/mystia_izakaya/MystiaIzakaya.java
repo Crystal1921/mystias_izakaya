@@ -26,6 +26,7 @@ public class MystiaIzakaya
         ItemRegistry.ITEMS.register(modEventBus);
         GroupRegistry.CREATIVE_MODE_TABS.register(modEventBus);
         EntityRegistry.ENTITY_TYPES.register(modEventBus);
+        MenuRegistry.MENU_TYPE.register(modEventBus);
 
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

@@ -1,6 +1,6 @@
 package com.crystal.mystia_izakaya.utils;
 
-public enum CookerItemEnum {
+public enum CookerTypeEnum {
     //煮锅
     Boiling_Pot,
     //烤架
