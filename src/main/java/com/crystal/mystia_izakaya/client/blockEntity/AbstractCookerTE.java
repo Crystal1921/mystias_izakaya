@@ -1,25 +1,20 @@
 package com.crystal.mystia_izakaya.client.blockEntity;
 
-import com.crystal.mystia_izakaya.client.gui.menu.GrillMenu;
-import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
-public class GrillBlockTE extends RandomizableContainerBlockEntity {
-    private NonNullList<ItemStack> items = NonNullList.withSize(6, ItemStack.EMPTY);
-
-    public GrillBlockTE(BlockPos pPos, BlockState pBlockState) {
-        super(BlockEntityRegistry.GRILL.get(), pPos, pBlockState);
+public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity {
+    NonNullList<ItemStack> items = NonNullList.withSize(6, ItemStack.EMPTY);
+    protected AbstractCookerTE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+        super(pType, pPos, pBlockState);
     }
 
     @Override
@@ -39,10 +34,6 @@ public class GrillBlockTE extends RandomizableContainerBlockEntity {
         }
     }
 
-    @Override
-    protected @NotNull Component getDefaultName() {
-        return Component.translatable("block.mystia_izakaya.grill");
-    }
 
     @Override
     protected @NotNull NonNullList<ItemStack> getItems() {
@@ -50,13 +41,8 @@ public class GrillBlockTE extends RandomizableContainerBlockEntity {
     }
 
     @Override
-    protected void setItems(NonNullList<ItemStack> pItems) {
+    protected void setItems(@NotNull NonNullList<ItemStack> pItems) {
         this.items = pItems;
-    }
-
-    @Override
-    protected @NotNull AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pInventory) {
-        return new GrillMenu(pContainerId, pInventory, this);
     }
 
     @Override

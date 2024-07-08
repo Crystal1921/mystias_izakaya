@@ -1,6 +1,6 @@
 package com.crystal.mystia_izakaya.client.block;
 
-import com.crystal.mystia_izakaya.client.blockEntity.GrillTE;
+import com.crystal.mystia_izakaya.client.blockEntity.BoilingPotTE;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -15,14 +15,17 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class GrillBlock extends AbstractHorizontalBlock {
-    public static final MapCodec<GrillBlock> CODEC = simpleCodec((properties) -> new GrillBlock());
-    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D);
+public class BoilingPotBlock extends AbstractHorizontalBlock {
+    public static final MapCodec<BoilingPotBlock> CODEC = simpleCodec((properties) -> new BoilingPotBlock());
+    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 6.0D, 14.0D);
+    protected static final VoxelShape SHAPE1 = Block.box(4.0D, 6.0D, 4.0D, 12.0D, 8.0D, 12.0D);
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
@@ -31,8 +34,8 @@ public class GrillBlock extends AbstractHorizontalBlock {
         } else {
             ServerPlayer serverPlayer = (ServerPlayer) pPlayer;
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof GrillTE grillTE) {
-                serverPlayer.openMenu(grillTE);
+            if (blockEntity instanceof BoilingPotTE boilingPotTE) {
+                serverPlayer.openMenu(boilingPotTE);
             }
             return InteractionResult.CONSUME;
         }
@@ -46,7 +49,13 @@ public class GrillBlock extends AbstractHorizontalBlock {
 
     @SuppressWarnings("all")
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
+        return Shapes.join(SHAPE1,SHAPE, BooleanOp.OR);
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+        return new BoilingPotTE(pPos, pState);
     }
 
     @Override
@@ -62,11 +71,5 @@ public class GrillBlock extends AbstractHorizontalBlock {
                     pPlayer.getRandom().nextGaussian() * 0.2D,
                     0.05f);
         }
-    }
-
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(@NotNull BlockPos pPos, @NotNull BlockState pState) {
-        return new GrillTE(pPos, pState);
     }
 }

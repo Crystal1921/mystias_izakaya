@@ -16,5 +16,9 @@ public class ModBlockState extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         this.horizontalBlock(BlockRegistry.Grill.get(), new ModelFile.UncheckedModelFile(resourceLocation("block/grill")));
+        this.horizontalBlock(BlockRegistry.Boiling_Pot.get(), new ModelFile.UncheckedModelFile(resourceLocation("block/boiling_pot")));
+        this.horizontalBlock(BlockRegistry.Frying_Pan.get(), new ModelFile.UncheckedModelFile(resourceLocation("block/frying_pan")));
+        this.horizontalBlock(BlockRegistry.Steamer.get(), new ModelFile.UncheckedModelFile(resourceLocation("block/steamer")));
+        this.horizontalBlock(BlockRegistry.Cutting_Board.get(), new ModelFile.UncheckedModelFile(resourceLocation("block/cutting_board")));
     }
 }

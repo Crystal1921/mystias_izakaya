@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "mystia_izakaya:block/frying_pan",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "mystia_izakaya:block/frying_pan"
+    },
+    "facing=south": {
+      "model": "mystia_izakaya:block/frying_pan",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mystia_izakaya:block/frying_pan",
+      "y": 270
+    }
+  }
+}

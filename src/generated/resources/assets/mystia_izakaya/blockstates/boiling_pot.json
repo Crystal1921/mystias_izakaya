@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "mystia_izakaya:block/boiling_pot",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "mystia_izakaya:block/boiling_pot"
+    },
+    "facing=south": {
+      "model": "mystia_izakaya:block/boiling_pot",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mystia_izakaya:block/boiling_pot",
+      "y": 270
+    }
+  }
+}

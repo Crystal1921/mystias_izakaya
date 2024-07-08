@@ -13,6 +13,12 @@ public class ModLanguageCN extends LanguageProvider {
     protected void addTranslations() {
         this.add("itemGroup.mystias_izakaya", "东方夜雀食堂");
         this.add(ItemRegistry.MystiaFishingRod.get(), "米斯蒂娅的鱼竿");
+        this.add(ItemRegistry.Grill_Block.get(), "烤架");
+        this.add(ItemRegistry.Boiling_Pot.get(), "煮锅");
+        this.add(ItemRegistry.Frying_Pan.get(), "油锅");
+        this.add(ItemRegistry.Steamer.get(), "蒸锅");
+        this.add(ItemRegistry.Cutting_Board.get(), "料理台");
+
         this.add(ItemRegistry.Trout.get(), "鳟鱼");
         this.add(ItemRegistry.Lamprey.get(), "八目鳗");
         this.add(ItemRegistry.Salmon.get(), "三文鱼");
@@ -23,6 +29,5 @@ public class ModLanguageCN extends LanguageProvider {
         this.add(ItemRegistry.Octopus.get(), "章鱼");
         this.add(ItemRegistry.Sea_Urchin.get(), "海胆");
         this.add(ItemRegistry.Crab.get(), "螃蟹");
-        this.add(ItemRegistry.Grill_Block.get(), "烤架");
     }
 }

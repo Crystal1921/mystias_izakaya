@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "mystia_izakaya:block/steamer",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "mystia_izakaya:block/steamer"
+    },
+    "facing=south": {
+      "model": "mystia_izakaya:block/steamer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mystia_izakaya:block/steamer",
+      "y": 270
+    }
+  }
+}

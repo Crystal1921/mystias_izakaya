@@ -15,17 +15,22 @@ public class GroupRegistry {
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> ItemRegistry.MystiaFishingRod.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(ItemRegistry.MystiaFishingRod.get());
-                output.accept(ItemRegistry.Grill_Block.get());
-                output.accept(ItemRegistry.Trout.get());
-                output.accept(ItemRegistry.Lamprey.get());
-                output.accept(ItemRegistry.Salmon.get());
-                output.accept(ItemRegistry.Tuna.get());
-                output.accept(ItemRegistry.Premium_Tuna.get());
-                output.accept(ItemRegistry.Pufferfish.get());
-                output.accept(ItemRegistry.Shrimp.get());
-                output.accept(ItemRegistry.Octopus.get());
-                output.accept(ItemRegistry.Sea_Urchin.get());
-                output.accept(ItemRegistry.Crab.get());
+                output.accept(ItemRegistry.MystiaFishingRod);
+                output.accept(ItemRegistry.Grill_Block);
+                output.accept(ItemRegistry.Boiling_Pot);
+                output.accept(ItemRegistry.Frying_Pan);
+                output.accept(ItemRegistry.Steamer);
+                output.accept(ItemRegistry.Cutting_Board);
+
+                output.accept(ItemRegistry.Trout);
+                output.accept(ItemRegistry.Lamprey);
+                output.accept(ItemRegistry.Salmon);
+                output.accept(ItemRegistry.Tuna);
+                output.accept(ItemRegistry.Premium_Tuna);
+                output.accept(ItemRegistry.Pufferfish);
+                output.accept(ItemRegistry.Shrimp);
+                output.accept(ItemRegistry.Octopus);
+                output.accept(ItemRegistry.Sea_Urchin);
+                output.accept(ItemRegistry.Crab);
             }).build());
 }

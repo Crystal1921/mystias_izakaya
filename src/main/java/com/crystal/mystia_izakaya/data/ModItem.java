@@ -36,6 +36,10 @@ public class ModItem extends ItemModelProvider {
         this.basicItem(ItemRegistry.Grilled_Lamprey.get());
 
         this.blockItem(ItemRegistry.Grill_Block.get(), "block/grill");
+        this.blockItem(ItemRegistry.Boiling_Pot.get(), "block/boiling_pot");
+        this.blockItem(ItemRegistry.Frying_Pan.get(), "block/frying_pan");
+        this.blockItem(ItemRegistry.Steamer.get(), "block/steamer");
+        this.blockItem(ItemRegistry.Cutting_Board.get(), "block/cutting_board");
     }
 
     public void blockItem(Item item, String path) {

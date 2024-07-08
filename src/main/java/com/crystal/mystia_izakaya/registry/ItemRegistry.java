@@ -15,6 +15,10 @@ public class ItemRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MystiaIzakaya.MODID);
     public static final DeferredItem<Item> MystiaFishingRod = ITEMS.register("mystia_fishing_rod", MystiaFishingRod::new);
     public static final DeferredItem<Item> Grill_Block = ITEMS.register("grill", () -> new BlockItem(BlockRegistry.Grill.get(), new Item.Properties()));
+    public static final DeferredItem<Item> Boiling_Pot = ITEMS.register("boiling_pot", () -> new BlockItem(BlockRegistry.Boiling_Pot.get(), new Item.Properties()));
+    public static final DeferredItem<Item> Frying_Pan = ITEMS.register("frying_pan", () -> new BlockItem(BlockRegistry.Frying_Pan.get(), new Item.Properties()));
+    public static final DeferredItem<Item> Steamer = ITEMS.register("steamer", () -> new BlockItem(BlockRegistry.Steamer.get(), new Item.Properties()));
+    public static final DeferredItem<Item> Cutting_Board = ITEMS.register("cutting_board", () -> new BlockItem(BlockRegistry.Cutting_Board.get(), new Item.Properties()));
 
     //螃蟹
     public static final DeferredItem<Item> Crab = ITEMS.register("crab", () -> new SeaFoodItem(3, 10));

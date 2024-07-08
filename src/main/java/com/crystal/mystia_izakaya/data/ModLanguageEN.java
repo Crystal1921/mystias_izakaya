@@ -13,6 +13,12 @@ public class ModLanguageEN extends LanguageProvider {
     protected void addTranslations() {
         this.add("itemGroup.mystias_izakaya", "Mystia's Izakaya");
         this.add(ItemRegistry.MystiaFishingRod.get(), "Mystia's Fishing Rod");
+        this.add(ItemRegistry.Grill_Block.get(), "Grill Block");
+        this.add(ItemRegistry.Boiling_Pot.get(), "Boiling Pot");
+        this.add(ItemRegistry.Frying_Pan.get(), "Frying Pan");
+        this.add(ItemRegistry.Steamer.get(), "Steamer");
+        this.add(ItemRegistry.Cutting_Board.get(), "Cutting Board");
+
         this.add(ItemRegistry.Trout.get(), "Trout");
         this.add(ItemRegistry.Lamprey.get(), "Lamprey");
         this.add(ItemRegistry.Salmon.get(), "Salmon");
@@ -23,6 +29,5 @@ public class ModLanguageEN extends LanguageProvider {
         this.add(ItemRegistry.Octopus.get(), "Octopus");
         this.add(ItemRegistry.Sea_Urchin.get(), "Sea Urchin");
         this.add(ItemRegistry.Crab.get(), "Crab");
-        this.add(ItemRegistry.Grill_Block.get(), "Grill Block");
     }
 }
