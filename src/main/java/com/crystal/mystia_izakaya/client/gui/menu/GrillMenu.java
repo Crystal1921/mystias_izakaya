@@ -12,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class GrillMenu extends AbstractCookMenu {
     private final ContainerLevelAccess access;
-    private final CookerTypeEnum cookerType = CookerTypeEnum.Grill;
 
     public GrillMenu(int pContainerId, Inventory inventory) {
         this(pContainerId, inventory, new SimpleContainer(6));
@@ -21,6 +20,7 @@ public class GrillMenu extends AbstractCookMenu {
     public GrillMenu(int pContainerId, Inventory inventory, Container container) {
         super(MenuRegistry.Grill_Menu.get(), pContainerId);
         this.access = ContainerLevelAccess.NULL;
+        this.cookerType = CookerTypeEnum.Grill;
         addItems(container);
         addPlayerInventory(inventory);
     }

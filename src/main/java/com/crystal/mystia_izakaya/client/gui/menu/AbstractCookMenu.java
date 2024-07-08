@@ -1,5 +1,6 @@
 package com.crystal.mystia_izakaya.client.gui.menu;
 
+import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -10,9 +11,12 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import static com.crystal.mystia_izakaya.data.ModTagItem.FOOD_INGREDIENTS;
+
 public abstract class AbstractCookMenu extends AbstractContainerMenu {
-    protected final int INV_START = 6;
     protected static final int INV_SIZE = 36;
+    protected final int INV_START = 6;
+    public CookerTypeEnum cookerType = CookerTypeEnum.EMPTY;
 
     protected AbstractCookMenu(@Nullable MenuType<?> pMenuType, int pContainerId) {
         super(pMenuType, pContainerId);
@@ -20,14 +24,24 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
 
     protected void addItems(Container items) {
         for (int i = 0; i < 5; ++i) {
-            addSlot(new Slot(items, i, 17 + i * 25, 110){
+            addSlot(new Slot(items, i, 17 + i * 25, 110) {
                 @Override
                 public int getMaxStackSize(@NotNull ItemStack pStack) {
                     return 1;
                 }
+
+                @Override
+                public boolean mayPlace(@NotNull ItemStack pStack) {
+                    return pStack.getTags().toList().contains(FOOD_INGREDIENTS);
+                }
             });
         }
-        addSlot(new Slot(items, 5, 180, 110));
+        addSlot(new Slot(items, 5, 180, 110){
+            @Override
+            public boolean mayPlace(@NotNull ItemStack pStack) {
+                return false;
+            }
+        });
     }
 
     protected void addPlayerInventory(Inventory inv) {

@@ -32,6 +32,9 @@ public class ModItem extends ItemModelProvider {
         this.basicItem(ItemRegistry.Octopus.get());
         this.basicItem(ItemRegistry.Sea_Urchin.get());
         this.basicItem(ItemRegistry.Crab.get());
+
+        this.basicItem(ItemRegistry.Grilled_Lamprey.get());
+
         this.blockItem(ItemRegistry.Grill_Block.get(), "block/grill");
     }
 

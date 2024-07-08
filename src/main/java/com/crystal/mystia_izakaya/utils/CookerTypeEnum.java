@@ -10,5 +10,7 @@ public enum CookerTypeEnum {
     //蒸锅
     Steamer,
     //料理台
-    Cutting_Board
+    Cutting_Board,
+    //空
+    EMPTY
 }

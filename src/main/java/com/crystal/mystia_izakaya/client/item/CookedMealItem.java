@@ -11,6 +11,7 @@ public class CookedMealItem extends Item {
     public final int level;
     public final Item[] ingredients;
     public final FoodTagEnum[] foodTagEnum;
+
     public CookedMealItem(CookerTypeEnum cookerTypeEnum, int level, float cookingTime, Item[] items, FoodTagEnum[] foodTagEnums) {
         super(new Properties().food(new FoodProperties.Builder()
                 .saturationModifier(0.5F)

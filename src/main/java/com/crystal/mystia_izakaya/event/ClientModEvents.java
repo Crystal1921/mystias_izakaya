@@ -20,9 +20,9 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 public class ClientModEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
-        // Some client setup code
-        MystiaIzakaya.LOGGER.info("HELLO FROM CLIENT SETUP");
-        MystiaIzakaya.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        event.enqueueWork(()->{
+            EntityRenderers.register(EntityRegistry.Mystia_Fishing_Hook.get(), FishingHookRenderer::new);
+        });
     }
 
     @SubscribeEvent
@@ -33,12 +33,5 @@ public class ClientModEvents {
     @SubscribeEvent
     public static void registerEntityLayers(EntityRenderersEvent.RegisterLayerDefinitions evt) {
         evt.registerLayerDefinition(MystiaFishingHookModel.LAYER_LOCATION, MystiaFishingHookModel::createBodyLayer);
-    }
-
-    @SubscribeEvent
-    public static void onClientEvent(FMLClientSetupEvent event){
-        event.enqueueWork(()->{
-            EntityRenderers.register(EntityRegistry.Mystia_Fishing_Hook.get(), FishingHookRenderer::new);
-        });
     }
 }
