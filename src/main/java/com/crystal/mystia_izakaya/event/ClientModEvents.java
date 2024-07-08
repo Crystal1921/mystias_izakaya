@@ -1,12 +1,11 @@
 package com.crystal.mystia_izakaya.event;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
-import com.crystal.mystia_izakaya.client.gui.screen.GrillScreen;
+import com.crystal.mystia_izakaya.client.gui.screen.*;
 import com.crystal.mystia_izakaya.entity.model.MystiaFishingHookModel;
 import com.crystal.mystia_izakaya.registry.EntityRegistry;
 import com.crystal.mystia_izakaya.registry.MenuRegistry;
 import com.crystal.mystia_izakaya.render.entity.FishingHookRenderer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,7 +19,7 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 public class ClientModEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(()->{
+        event.enqueueWork(() -> {
             EntityRenderers.register(EntityRegistry.Mystia_Fishing_Hook.get(), FishingHookRenderer::new);
         });
     }
@@ -28,6 +27,10 @@ public class ClientModEvents {
     @SubscribeEvent
     private static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(MenuRegistry.Grill_Menu.get(), GrillScreen::new);
+        event.register(MenuRegistry.Boiling_Pot_Menu.get(), BoilingPotScreen::new);
+        event.register(MenuRegistry.Cutting_Board_Menu.get(), CuttingBoardScreen::new);
+        event.register(MenuRegistry.Frying_Pan_Menu.get(), FryingPanScreen::new);
+        event.register(MenuRegistry.Steamer_Menu.get(), SteamerScreen::new);
     }
 
     @SubscribeEvent
