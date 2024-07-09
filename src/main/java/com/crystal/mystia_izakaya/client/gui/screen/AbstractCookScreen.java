@@ -12,7 +12,6 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.crystal.mystia_izakaya.utils.UtilMethod.getMatchedItems;
 import static com.crystal.mystia_izakaya.utils.UtilMethod.resourceLocation;
@@ -21,6 +20,7 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
     ResourceLocation BACKGROUND = resourceLocation("textures/gui/cooker_bg.png");
     AbstractCookMenu abstractCookMenu;
     MealList list;
+
     public AbstractCookScreen(T pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         this.list = MealList.getInstance();
@@ -33,7 +33,7 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
     protected void renderBg(@NotNull GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
-        pGuiGraphics.blit(BACKGROUND, i , j, 0, 0, this.imageWidth, this.imageHeight);
+        pGuiGraphics.blit(BACKGROUND, i, j, 0, 0, this.imageWidth, this.imageHeight);
     }
 
     @Override
@@ -52,9 +52,9 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                 .filter(itemStack -> !itemStack.isEmpty())
                 .map(ItemStack::getItem)
                 .toList();
-        List<Item> items = getMatchedItems(list.getMeals(),ingredients.toArray(new Item[0]),menu.cookerType);
+        List<Item> items = getMatchedItems(list.getMeals(), ingredients.toArray(new Item[0]), menu.cookerType);
         for (int k = 0; k < items.size(); k++) {
-            guiGraphics.renderItem(items.get(k).getDefaultInstance(),120 + k * 20,10);
+            guiGraphics.renderItem(items.get(k).getDefaultInstance(), i + 120 + k * 20, j + 10);
         }
     }
 

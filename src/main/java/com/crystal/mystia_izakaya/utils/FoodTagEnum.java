@@ -1,86 +1,94 @@
 package com.crystal.mystia_izakaya.utils;
 
 public enum FoodTagEnum {
-    //昂贵
-    Expensive,
-    //实惠
-    Economical,
-    //大份
-    Large_Portion,
-    //肉
-    Meat,
-    //水产
-    Aquatic,
-    //素
-    Vegetarian,
-    //家常
-    Homecooking,
-    //高级
-    Premium,
-    //传说
-    Legendary,
-    //重油
-    Greasy,
-    //清淡
-    Mild,
-    //下酒
-    Good_Alcohol,
-    //饱腹
-    Filling,
-    //山珍
-    Mountain_Delicacy,
-    //海味
-    Sea_Delicacy,
-    //和风
-    Japanese,
-    //西式
-    Western,
-    //中华
-    Chinese,
-    //咸
-    Salty,
-    //鲜
-    Fresh,
-    //甜
-    Sweet,
-    //生
-    Raw,
-    //招牌
-    Signature,
-    //适合拍照
-    Photogenic,
-    //凉爽
-    Refreshing,
-    //灼热
-    Hot,
-    //力量涌现
-    Strength_Boosting,
-    //猎奇
-    Peculiar,
-    //文化底蕴
-    Culture_Heritage,
-    //菌类
-    Fungus,
-    //不可思议
-    Wonderful,
-    //小巧
-    Small_Portion,
-    //梦幻
-    Dreamy,
-    //特产
-    Specialty,
-    //果味
-    Fruity,
-    //汤羹
-    Soup,
-    //烧烤
-    Grilled,
-    //辣
-    Spicy,
-    //燃起来了
-    Aura_Bursting,
-    //酸
-    Sour,
-    //毒
-    Poison
+    Expensive("昂贵"),
+
+    Economical("实惠"),
+
+    Large_Portion("大份"),
+
+    Meat("肉"),
+
+    Aquatic("水产"),
+
+    Vegetarian("素"),
+
+    Homecooking("家常"),
+
+    Premium("高级"),
+
+    Legendary("传说"),
+
+    Greasy("重油"),
+
+    Mild("清淡"),
+
+    Good_Alcohol("下酒"),
+
+    Filling("饱腹"),
+
+    Mountain_Delicacy("山珍"),
+
+    Sea_Delicacy("海味"),
+
+    Japanese("和风"),
+
+    Western("西式"),
+
+    Chinese("中华"),
+
+    Salty("咸"),
+
+    Fresh("鲜"),
+
+    Sweet("甜"),
+
+    Raw("生"),
+
+    Signature("招牌"),
+
+    Photogenic("适合拍照"),
+
+    Refreshing("凉爽"),
+
+    Hot("灼热"),
+
+    Strength_Boosting("力量涌现"),
+
+    Peculiar("猎奇"),
+
+    Culture_Heritage("文化底蕴"),
+
+    Fungus("菌类"),
+
+    Wonderful("不可思议"),
+
+    Small_Portion("小巧"),
+
+    Dreamy("梦幻"),
+
+    Specialty("特产"),
+
+    Fruity("果味"),
+
+    Soup("汤羹"),
+
+    Grilled("烧烤"),
+
+    Spicy("辣"),
+
+    Aura_Bursting("燃起来了"),
+
+    Sour("酸"),
+
+    Poison("毒");
+
+    final String cn;
+    FoodTagEnum(String cn) {
+        this.cn = cn;
+    }
+
+    public String getCn() {
+        return cn;
+    }
 }

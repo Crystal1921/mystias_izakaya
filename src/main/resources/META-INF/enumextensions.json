@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "MYSTIA_IZAKAYA_LEGEND",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/crystal/mystia_izakaya/utils/RarityEnumExtend",
+        "method": "MystiasRarity"
+      }
+    }
+  ]
+}

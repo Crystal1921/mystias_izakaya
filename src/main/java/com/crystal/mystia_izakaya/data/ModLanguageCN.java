@@ -1,8 +1,12 @@
 package com.crystal.mystia_izakaya.data;
 
+import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
+import com.crystal.mystia_izakaya.utils.FoodTagEnum;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+
+import java.util.Arrays;
 
 public class ModLanguageCN extends LanguageProvider {
     public ModLanguageCN(PackOutput output, String modid, String locale) {
@@ -29,5 +33,8 @@ public class ModLanguageCN extends LanguageProvider {
         this.add(ItemRegistry.Octopus.get(), "章鱼");
         this.add(ItemRegistry.Sea_Urchin.get(), "海胆");
         this.add(ItemRegistry.Crab.get(), "螃蟹");
+
+        Arrays.stream(FoodTagEnum.values()).toList()
+                .forEach(foodTagEnum -> this.add(MystiaIzakaya.MODID + "." + foodTagEnum.name(), foodTagEnum.getCn()));
     }
 }

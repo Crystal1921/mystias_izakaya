@@ -4,8 +4,8 @@ import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,11 @@ import java.util.stream.Collectors;
 
 public class UtilMethod {
     public static ResourceLocation resourceLocation(String name) {
-        return ResourceLocation.parse(MystiaIzakaya.MODID + ":" + name);
+        return ResourceLocation.parse(prefix(name));
+    }
+
+    public static String prefix(String string) {
+        return MystiaIzakaya.MODID + ":" + string;
     }
 
     public static List<Item> getMatchedItems(List<Item> meals, Item[] items, CookerTypeEnum cookerType) {
@@ -41,6 +45,16 @@ public class UtilMethod {
             itemCountMap.put(item, itemCountMap.get(item) - 1);
         }
 
-        return true; // 全部元素都满足条件
+        return true;
+    }
+
+    public static Rarity getRarity(int level) {
+        return switch (level) {
+            case 2 -> Rarity.UNCOMMON;
+            case 3 -> Rarity.RARE;
+            case 4 -> Rarity.EPIC;
+            case 5 -> Rarity.valueOf("MYSTIA_IZAKAYA_LEGEND");
+            default -> Rarity.COMMON;
+        };
     }
 }
