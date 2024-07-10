@@ -40,6 +40,12 @@ public class ModTagItem extends ItemTagsProvider {
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Octopus.get());
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Sea_Urchin.get());
 
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pork.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Beef.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Venison.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Boar_Meat.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Iberico_Pork.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Wagyo_Beef.get());
 
         //this.tag(COOKED_MEAL).add(ItemRegistry.Grilled_Lamprey.getKey());
     }

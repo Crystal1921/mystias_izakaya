@@ -32,5 +32,13 @@ public class GroupRegistry {
                 output.accept(ItemRegistry.Octopus);
                 output.accept(ItemRegistry.Sea_Urchin);
                 output.accept(ItemRegistry.Crab);
+
+                output.accept(ItemRegistry.Pork);
+                output.accept(ItemRegistry.Beef);
+                output.accept(ItemRegistry.Venison);
+                output.accept(ItemRegistry.Boar_Meat);
+                output.accept(ItemRegistry.Iberico_Pork);
+                output.accept(ItemRegistry.Wagyo_Beef);
+
             }).build());
 }

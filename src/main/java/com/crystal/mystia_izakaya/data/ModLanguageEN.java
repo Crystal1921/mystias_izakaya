@@ -16,6 +16,9 @@ public class ModLanguageEN extends LanguageProvider {
     @Override
     protected void addTranslations() {
         this.add("itemGroup.mystias_izakaya", "Mystia's Izakaya");
+        this.add("gui.mystias_izakaya.level", "Level");
+        this.add("gui.mystias_izakaya.cooking_time", "Cooking Time");
+        this.add("gui.mystias_izakaya.tags", "Tags");
         this.add(ItemRegistry.MystiaFishingRod.get(), "Mystia's Fishing Rod");
         this.add(ItemRegistry.Grill_Block.get(), "Grill Block");
         this.add(ItemRegistry.Boiling_Pot.get(), "Boiling Pot");
@@ -33,6 +36,13 @@ public class ModLanguageEN extends LanguageProvider {
         this.add(ItemRegistry.Octopus.get(), "Octopus");
         this.add(ItemRegistry.Sea_Urchin.get(), "Sea Urchin");
         this.add(ItemRegistry.Crab.get(), "Crab");
+
+        this.add(ItemRegistry.Pork.get(),"Pork");
+        this.add(ItemRegistry.Beef.get(),"Beef");
+        this.add(ItemRegistry.Venison.get(),"Venison");
+        this.add(ItemRegistry.Boar_Meat.get(),"Boar Meat");
+        this.add(ItemRegistry.Iberico_Pork.get(),"Iberico Pork");
+        this.add(ItemRegistry.Wagyo_Beef.get(),"Wagyo Beef");
 
         Arrays.stream(FoodTagEnum.values()).toList()
                 .forEach(foodTagEnum -> this.add(MystiaIzakaya.MODID + "." + foodTagEnum.name(), foodTagEnum.name()));

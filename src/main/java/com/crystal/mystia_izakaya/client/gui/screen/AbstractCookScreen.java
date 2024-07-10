@@ -1,6 +1,8 @@
 package com.crystal.mystia_izakaya.client.gui.screen;
 
 import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
+import com.crystal.mystia_izakaya.client.item.CookedMealItem;
+import com.crystal.mystia_izakaya.utils.FoodTagEnum;
 import com.crystal.mystia_izakaya.utils.MealList;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -11,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.util.List;
 
 import static com.crystal.mystia_izakaya.utils.UtilMethod.getMatchedItems;
@@ -20,6 +23,8 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
     ResourceLocation BACKGROUND = resourceLocation("textures/gui/cooker_bg.png");
     AbstractCookMenu abstractCookMenu;
     MealList list;
+    int yellow = Color.YELLOW.getRGB();
+    int black = Color.BLACK.getRGB();
 
     public AbstractCookScreen(T pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -40,12 +45,24 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
     public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
         this.renderTooltip(guiGraphics, pMouseX, pMouseY);
-        renderMealItem(guiGraphics, pMouseX, pMouseY);
-    }
-
-    protected void renderMealItem(GuiGraphics guiGraphics, int pMouseX, int pMouseY) {
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
+        renderMealItem(guiGraphics, pMouseX, pMouseY, i, j);
+    }
+
+    protected void renderMealItem(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int i, int j) {
+        int index = 0;
+        if (pMouseX > (i + 120) && pMouseX < (i + 215) && pMouseY > (j + 10) && pMouseY < (j + 95)) {
+            int dx = pMouseX - i;
+            int dy = pMouseY - j;
+            int x = dx - (dx) % 20 + i;
+            int y = dy - (dy - 11) % 20 + j;
+            guiGraphics.fill(x, y, x + 20, y + 2, yellow);
+            guiGraphics.fill(x, y, x + 2, y + 20, yellow);
+            guiGraphics.fill(x + 18, y, x + 20, y + 20, yellow);
+            guiGraphics.fill(x, y + 18, x + 20, y + 20, yellow);
+            index = (x - i - 120) / 20;
+        }
         List<Item> ingredients = menu.getItems()
                 .stream()
                 .limit(5)//限定前五个格子为材料格
@@ -53,8 +70,20 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                 .map(ItemStack::getItem)
                 .toList();
         List<Item> items = getMatchedItems(list.getMeals(), ingredients.toArray(new Item[0]), menu.cookerType);
-        for (int k = 0; k < items.size(); k++) {
-            guiGraphics.renderItem(items.get(k).getDefaultInstance(), i + 120 + k * 20, j + 10);
+        if (!items.isEmpty()) {
+            for (int k = 0; k < items.size(); k++) {
+                guiGraphics.renderItem(items.get(k).getDefaultInstance(), i + 122 + k * 20, j + 13);
+            }
+            if (index < items.size()) {
+                CookedMealItem cookedMealItem = (CookedMealItem) items.get(index);
+                FoodTagEnum[] foodTagEnums = cookedMealItem.foodTagEnum;
+                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 10, black, false);
+                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15, j + 20, black, false);
+                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.tags").append(":"), i + 15, j + 30, black, false);
+                for (int i1 = 0; i1 < foodTagEnums.length; i1++) {
+                    guiGraphics.drawString(font, Component.translatable("mystia_izakaya." + foodTagEnums[i1].name()), i + 15 + i1 * 25, j + 40, black, false);
+                }
+            }
         }
     }
 

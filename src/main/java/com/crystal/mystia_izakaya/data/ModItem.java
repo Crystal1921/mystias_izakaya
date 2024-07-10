@@ -33,6 +33,13 @@ public class ModItem extends ItemModelProvider {
         this.basicItem(ItemRegistry.Sea_Urchin.get());
         this.basicItem(ItemRegistry.Crab.get());
 
+        this.basicItem(ItemRegistry.Pork.get());
+        this.basicItem(ItemRegistry.Beef.get());
+        this.basicItem(ItemRegistry.Venison.get());
+        this.basicItem(ItemRegistry.Boar_Meat.get());
+        this.basicItem(ItemRegistry.Iberico_Pork.get());
+        this.basicItem(ItemRegistry.Wagyo_Beef.get());
+
         this.basicItem(ItemRegistry.Grilled_Lamprey.get());
 
         this.blockItem(ItemRegistry.Grill_Block.get(), "block/grill");
@@ -51,10 +58,10 @@ public class ModItem extends ItemModelProvider {
                 .transforms()
                 .transform(ItemDisplayContext.GUI).rotation(30, 45, 0).scale(0.6F, 0.6F, 0.6F).end()
                 .transform(ItemDisplayContext.GROUND).scale(0.23F, 0.25F, 0.25F).end()
-                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(0, 45, 0).translation(0,0,-8).end()
-                .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(0, 45, 0).translation(0,0,-8).end()
-                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(75, 135, 0).scale(0.4F,0.4F,0.4F).translation(0,0,0).end()
-                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(75, 135, 0).scale(0.4F,0.4F,0.4F).translation(0,0,0).end()
+                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(0, 45, 0).translation(0, 0, -8).end()
+                .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(0, 45, 0).translation(0, 0, -8).end()
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(75, 135, 0).scale(0.4F, 0.4F, 0.4F).translation(0, 0, 0).end()
+                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(75, 135, 0).scale(0.4F, 0.4F, 0.4F).translation(0, 0, 0).end()
                 .end()
                 .parent(new ModelFile.UncheckedModelFile(resourceLocation(path)));
     }
