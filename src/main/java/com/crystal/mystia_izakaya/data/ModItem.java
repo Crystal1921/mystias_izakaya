@@ -12,7 +12,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.Objects;
 
-import static com.crystal.mystia_izakaya.utils.UtilMethod.resourceLocation;
+import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
 
 public class ModItem extends ItemModelProvider {
     public ModItem(PackOutput output, String modid, ExistingFileHelper existingFileHelper) {

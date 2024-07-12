@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class UtilMethod {
+public class UtilStaticMethod {
     public static ResourceLocation resourceLocation(String name) {
         return ResourceLocation.parse(prefix(name));
     }

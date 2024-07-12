@@ -1,13 +1,12 @@
 package com.crystal.mystia_izakaya.data;
 
+import com.crystal.mystia_izakaya.client.item.CookedMealItem;
+import com.crystal.mystia_izakaya.data.builder.MealRecipeBuilder;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.NotNull;
 
@@ -28,5 +27,12 @@ public class ModRecipe extends RecipeProvider {
                 .define('b', Items.WHITE_WOOL)
                 .unlockedBy("mystia_fishing_rod", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.MystiaFishingRod))
                 .save(output); // Add data to builder
+        CookeMealRecipe((CookedMealItem) ItemRegistry.Grilled_Lamprey.get(),output);
+    }
+
+    private void CookeMealRecipe(CookedMealItem item, RecipeOutput output ) {
+        MealRecipeBuilder.shapelessMeal(RecipeCategory.FOOD, item)
+                .requires(item.ingredients)
+                .save(output);
     }
 }

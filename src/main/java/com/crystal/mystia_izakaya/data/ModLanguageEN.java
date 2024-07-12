@@ -19,6 +19,8 @@ public class ModLanguageEN extends LanguageProvider {
         this.add("gui.mystias_izakaya.level", "Level");
         this.add("gui.mystias_izakaya.cooking_time", "Cooking Time");
         this.add("gui.mystias_izakaya.tags", "Tags");
+        this.add("gui.mystias_izakaya.meal.jei", "Mystia's Izakaya");
+
         this.add(ItemRegistry.MystiaFishingRod.get(), "Mystia's Fishing Rod");
         this.add(ItemRegistry.Grill_Block.get(), "Grill Block");
         this.add(ItemRegistry.Boiling_Pot.get(), "Boiling Pot");

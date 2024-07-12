@@ -16,8 +16,8 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.util.List;
 
-import static com.crystal.mystia_izakaya.utils.UtilMethod.getMatchedItems;
-import static com.crystal.mystia_izakaya.utils.UtilMethod.resourceLocation;
+import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.getMatchedItems;
+import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
 
 public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends AbstractContainerScreen<T> {
     ResourceLocation BACKGROUND = resourceLocation("textures/gui/cooker_bg.png");

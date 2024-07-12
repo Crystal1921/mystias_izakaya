@@ -20,7 +20,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-import static com.crystal.mystia_izakaya.utils.UtilMethod.resourceLocation;
+import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
 
 public class FishingHookRenderer extends EntityRenderer<MystiaFishingHook> {
     private final EntityModel<MystiaFishingHook> model;
