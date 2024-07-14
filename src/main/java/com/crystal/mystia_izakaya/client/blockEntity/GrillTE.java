@@ -21,6 +21,6 @@ public class GrillTE extends AbstractCookerTE {
 
     @Override
     protected @NotNull AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pInventory) {
-        return new GrillMenu(pContainerId, pInventory, this);
+        return new GrillMenu(pContainerId, pInventory, this,this);
     }
 }

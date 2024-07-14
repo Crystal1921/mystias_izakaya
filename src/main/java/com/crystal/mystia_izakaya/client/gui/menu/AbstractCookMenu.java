@@ -1,15 +1,21 @@
 package com.crystal.mystia_izakaya.client.gui.menu;
 
+import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
+import com.crystal.mystia_izakaya.utils.MealList;
+import com.crystal.mystia_izakaya.utils.UtilStaticMethod;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 import static com.crystal.mystia_izakaya.data.ModTagItem.FOOD_INGREDIENTS;
 
@@ -17,9 +23,19 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
     protected static final int INV_SIZE = 36;
     protected final int INV_START = 6;
     public CookerTypeEnum cookerType = CookerTypeEnum.EMPTY;
+    public MealList list = MealList.getInstance();
+    protected AbstractCookerTE cookerTE;
 
-    protected AbstractCookMenu(@Nullable MenuType<?> pMenuType, int pContainerId) {
+    protected AbstractCookMenu(@Nullable MenuType<?> pMenuType, int pContainerId, AbstractCookerTE pCookerTE) {
         super(pMenuType, pContainerId);
+        this.cookerTE = pCookerTE;
+    }
+
+    public boolean clickMenuButton(@NotNull Player pPlayer, int pId) {
+        List<Item> items = UtilStaticMethod.getItems(this.getItems(),this.list.getMeals(),this.cookerType);
+        System.out.println(pId);
+        System.out.printf(cookerTE.toString());
+        return false;
     }
 
     protected void addItems(Container items) {

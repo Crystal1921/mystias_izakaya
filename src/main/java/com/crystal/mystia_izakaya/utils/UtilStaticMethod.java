@@ -2,8 +2,10 @@ package com.crystal.mystia_izakaya.utils;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
+import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 
 import java.util.HashMap;
@@ -56,5 +58,15 @@ public class UtilStaticMethod {
             case 5 -> Rarity.valueOf("MYSTIA_IZAKAYA_LEGEND");
             default -> Rarity.COMMON;
         };
+    }
+
+    public static List<Item> getItems(NonNullList<ItemStack> itemStacks, List<Item> meals, CookerTypeEnum cookerType) {
+        List<Item> ingredients = itemStacks
+                .stream()
+                .limit(5)//限定前五个格子为材料格
+                .filter(itemStack -> !itemStack.isEmpty())
+                .map(ItemStack::getItem)
+                .toList();
+        return getMatchedItems(meals, ingredients.toArray(new Item[0]), cookerType);
     }
 }

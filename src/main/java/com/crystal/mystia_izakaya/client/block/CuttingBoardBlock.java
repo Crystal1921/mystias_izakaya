@@ -2,6 +2,7 @@ package com.crystal.mystia_izakaya.client.block;
 
 import com.crystal.mystia_izakaya.client.blockEntity.BoilingPotTE;
 import com.crystal.mystia_izakaya.client.blockEntity.CuttingBoardTE;
+import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -12,6 +13,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -31,10 +34,16 @@ public class CuttingBoardBlock extends AbstractHorizontalBlock {
             ServerPlayer serverPlayer = (ServerPlayer) pPlayer;
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
             if (blockEntity instanceof CuttingBoardTE cuttingBoardTE) {
-                serverPlayer.openMenu(cuttingBoardTE);
+                serverPlayer.openMenu(cuttingBoardTE, friendlyByteBuf -> friendlyByteBuf.writeBlockPos(pPos));
             }
             return InteractionResult.CONSUME;
         }
+    }
+
+    @javax.annotation.Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        return createCookTicker(pLevel, pBlockEntityType, BlockEntityRegistry.CUTTING_BOARD.get());
     }
 
     @SuppressWarnings("all")

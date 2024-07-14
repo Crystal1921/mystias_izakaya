@@ -33,6 +33,14 @@ public class GroupRegistry {
                 output.accept(ItemRegistry.Sea_Urchin);
                 output.accept(ItemRegistry.Crab);
 
+
+                output.accept(ItemRegistry.Pork);
+                output.accept(ItemRegistry.Beef);
+                output.accept(ItemRegistry.Venison);
+                output.accept(ItemRegistry.Boar_Meat);
+                output.accept(ItemRegistry.Iberico_Pork);
+                output.accept(ItemRegistry.Wagyo_Beef);
+
                 output.accept(ItemRegistry.Tofu);
                 output.accept(ItemRegistry.Potato);
                 output.accept(ItemRegistry.Onion);
@@ -47,13 +55,5 @@ public class GroupRegistry {
                 output.accept(ItemRegistry.Red_Toom);
                 output.accept(ItemRegistry.Tomato);
                 output.accept(ItemRegistry.Broceoli);
-
-                output.accept(ItemRegistry.Pork);
-                output.accept(ItemRegistry.Beef);
-                output.accept(ItemRegistry.Venison);
-                output.accept(ItemRegistry.Boar_Meat);
-                output.accept(ItemRegistry.Iberico_Pork);
-                output.accept(ItemRegistry.Wagyo_Beef);
-
             }).build());
 }

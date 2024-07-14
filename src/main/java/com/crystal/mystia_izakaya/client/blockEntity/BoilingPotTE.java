@@ -21,6 +21,6 @@ public class BoilingPotTE extends AbstractCookerTE {
 
     @Override
     protected @NotNull AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return new BoilingPotMenu(pContainerId, pInventory, this);
+        return new BoilingPotMenu(pContainerId, pInventory, this,this);
     }
 }

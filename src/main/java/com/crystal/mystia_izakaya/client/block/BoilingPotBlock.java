@@ -1,6 +1,7 @@
 package com.crystal.mystia_izakaya.client.block;
 
 import com.crystal.mystia_izakaya.client.blockEntity.BoilingPotTE;
+import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -13,6 +14,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
@@ -35,10 +38,16 @@ public class BoilingPotBlock extends AbstractHorizontalBlock {
             ServerPlayer serverPlayer = (ServerPlayer) pPlayer;
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
             if (blockEntity instanceof BoilingPotTE boilingPotTE) {
-                serverPlayer.openMenu(boilingPotTE);
+                serverPlayer.openMenu(boilingPotTE, friendlyByteBuf -> friendlyByteBuf.writeBlockPos(pPos));
             }
             return InteractionResult.CONSUME;
         }
+    }
+
+    @javax.annotation.Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        return createCookTicker(pLevel, pBlockEntityType, BlockEntityRegistry.BOILING_POT.get());
     }
 
     @Override
@@ -49,7 +58,7 @@ public class BoilingPotBlock extends AbstractHorizontalBlock {
 
     @SuppressWarnings("all")
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Shapes.join(SHAPE1,SHAPE, BooleanOp.OR);
+        return Shapes.join(SHAPE1, SHAPE, BooleanOp.OR);
     }
 
     @Nullable

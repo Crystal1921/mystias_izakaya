@@ -21,6 +21,6 @@ public class FryingPanTE extends AbstractCookerTE{
 
     @Override
     protected @NotNull AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return new FryingPanMenu(pContainerId, pInventory, this);
+        return new FryingPanMenu(pContainerId, pInventory, this,this);
     }
 }

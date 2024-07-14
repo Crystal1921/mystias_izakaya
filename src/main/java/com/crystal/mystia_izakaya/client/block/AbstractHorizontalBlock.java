@@ -1,19 +1,37 @@
 package com.crystal.mystia_izakaya.client.block;
 
+import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+
+import javax.annotation.Nullable;
 
 public abstract class AbstractHorizontalBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final BooleanProperty LIT = BlockStateProperties.LIT;
+
     protected AbstractHorizontalBlock() {
         super(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion());
+    }
+
+    @Nullable
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createCookTicker(
+            Level pLevel, BlockEntityType<T> pServerType, BlockEntityType<? extends AbstractCookerTE> pClientType
+    ) {
+        return pLevel.isClientSide ? null : createTickerHelper(pServerType, pClientType, AbstractCookerTE::serverTick);
     }
 
     @Override
@@ -23,7 +41,7 @@ public abstract class AbstractHorizontalBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING);
+        pBuilder.add(FACING,LIT);
     }
 
     @Override

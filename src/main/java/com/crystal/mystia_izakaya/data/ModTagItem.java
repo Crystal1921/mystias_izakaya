@@ -47,6 +47,21 @@ public class ModTagItem extends ItemTagsProvider {
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Iberico_Pork.get());
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Wagyo_Beef.get());
 
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Tofu.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Potato.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Onion.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pumpkin.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Radish.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Seaweed.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Mushroom.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Truffle.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Bamboo_Shoot.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cucumber.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Chestnut.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Red_Toom.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Tomato.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Broceoli.get());
+
         //this.tag(COOKED_MEAL).add(ItemRegistry.Grilled_Lamprey.getKey());
     }
 }
