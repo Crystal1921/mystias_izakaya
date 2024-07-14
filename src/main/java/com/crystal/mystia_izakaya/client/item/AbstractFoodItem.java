@@ -15,13 +15,15 @@ import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.getRarity;
 public abstract class AbstractFoodItem extends Item {
     int level;
     int price;
+    String name;
     FoodTagEnum[] tagEnums;
 
-    public AbstractFoodItem(Properties pProperties, int level, int price, FoodTagEnum[] tagEnums) {
+    public AbstractFoodItem(Properties pProperties, int level, int price, FoodTagEnum[] tagEnums,String name) {
         super(pProperties.rarity(getRarity(level)));
         this.level = level;
         this.price = price;
         this.tagEnums = tagEnums;
+        this.name = name;
     }
 
     @Override

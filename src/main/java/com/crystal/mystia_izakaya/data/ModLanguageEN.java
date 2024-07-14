@@ -46,6 +46,23 @@ public class ModLanguageEN extends LanguageProvider {
         this.add(ItemRegistry.Iberico_Pork.get(),"Iberico Pork");
         this.add(ItemRegistry.Wagyo_Beef.get(),"Wagyo Beef");
 
+        this.add(ItemRegistry.Tofu.get(), "Tofu");
+        this.add(ItemRegistry.Potato.get(), "Potato");
+        this.add(ItemRegistry.Onion.get(), "Onion");
+        this.add(ItemRegistry.Pumpkin.get(), "Pumpkin");
+        this.add(ItemRegistry.Radish.get(), "Radish");
+        this.add(ItemRegistry.Seaweed.get(), "Seaweed");
+        this.add(ItemRegistry.Mushroom.get(), "Mushroom");
+        this.add(ItemRegistry.Truffle.get(), "Truffle");
+        this.add(ItemRegistry.Bamboo_Shoot.get(),"Bamboo Shoot");
+        this.add(ItemRegistry.Cucumber.get(), "Cucumber");
+        this.add(ItemRegistry.Chestnut.get(), "Chestnut");
+        this.add(ItemRegistry.Red_Toom.get(), "Red Toom");
+        this.add(ItemRegistry.Tomato.get(), "Tomato");
+        this.add(ItemRegistry.Broceoli.get(), "Broceoli");
+
+        this.add(ItemRegistry.Grilled_Lamprey.get(),"Grilled Lamprey");
+
         Arrays.stream(FoodTagEnum.values()).toList()
                 .forEach(foodTagEnum -> this.add(MystiaIzakaya.MODID + "." + foodTagEnum.name(), foodTagEnum.name()));
     }

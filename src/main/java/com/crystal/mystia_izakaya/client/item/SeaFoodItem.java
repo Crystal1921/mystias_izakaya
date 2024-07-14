@@ -8,13 +8,13 @@ import net.minecraft.world.item.Item;
 
 public class SeaFoodItem extends AbstractFoodItem {
     @SuppressWarnings("deprecation")
-    public SeaFoodItem(int level, int price, FoodTagEnum[] tagEnums) {
+    public SeaFoodItem(String name,int level, int price, FoodTagEnum[] tagEnums) {
         super(new Item.Properties().food(new FoodProperties.Builder()
                         .nutrition(level)
                         .saturationModifier(0.3F)
                         .effect(new MobEffectInstance(MobEffects.HUNGER, 300, 2), 1.0F)
                         .alwaysEdible()
                         .build())
-                , level, price, tagEnums);
+                , level, price, tagEnums,name);
     }
 }

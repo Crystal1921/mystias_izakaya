@@ -40,6 +40,21 @@ public class ModItem extends ItemModelProvider {
         this.basicItem(ItemRegistry.Iberico_Pork.get());
         this.basicItem(ItemRegistry.Wagyo_Beef.get());
 
+        this.basicItem(ItemRegistry.Tofu.get());
+        this.basicItem(ItemRegistry.Potato.get());
+        this.basicItem(ItemRegistry.Onion.get());
+        this.basicItem(ItemRegistry.Pumpkin.get());
+        this.basicItem(ItemRegistry.Radish.get());
+        this.basicItem(ItemRegistry.Seaweed.get());
+        this.basicItem(ItemRegistry.Mushroom.get());
+        this.basicItem(ItemRegistry.Truffle.get());
+        this.basicItem(ItemRegistry.Bamboo_Shoot.get());
+        this.basicItem(ItemRegistry.Cucumber.get());
+        this.basicItem(ItemRegistry.Chestnut.get());
+        this.basicItem(ItemRegistry.Red_Toom.get());
+        this.basicItem(ItemRegistry.Tomato.get());
+        this.basicItem(ItemRegistry.Broceoli.get());
+
         this.basicItem(ItemRegistry.Grilled_Lamprey.get());
 
         this.blockItem(ItemRegistry.Grill_Block.get(), "block/grill");

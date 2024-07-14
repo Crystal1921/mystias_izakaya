@@ -46,6 +46,23 @@ public class ModLanguageCN extends LanguageProvider {
         this.add(ItemRegistry.Iberico_Pork.get(),"黑毛猪肉");
         this.add(ItemRegistry.Wagyo_Beef.get(),"和牛");
 
+        this.add(ItemRegistry.Tofu.get(), "豆腐");
+        this.add(ItemRegistry.Potato.get(), "土豆");
+        this.add(ItemRegistry.Onion.get(), "洋葱");
+        this.add(ItemRegistry.Pumpkin.get(), "南瓜");
+        this.add(ItemRegistry.Radish.get(), "萝卜");
+        this.add(ItemRegistry.Seaweed.get(), "海苔");
+        this.add(ItemRegistry.Mushroom.get(), "蘑菇");
+        this.add(ItemRegistry.Truffle.get(), "松露");
+        this.add(ItemRegistry.Bamboo_Shoot.get(),"竹笋");
+        this.add(ItemRegistry.Cucumber.get(), "黄瓜");
+        this.add(ItemRegistry.Chestnut.get(), "板栗");
+        this.add(ItemRegistry.Red_Toom.get(), "香椿");
+        this.add(ItemRegistry.Tomato.get(), "番茄");
+        this.add(ItemRegistry.Broceoli.get(), "西蓝花");
+
+        this.add(ItemRegistry.Grilled_Lamprey.get(),"烤八目鳗");
+
         Arrays.stream(FoodTagEnum.values()).toList()
                 .forEach(foodTagEnum -> this.add(MystiaIzakaya.MODID + "." + foodTagEnum.name(), foodTagEnum.getCn()));
     }

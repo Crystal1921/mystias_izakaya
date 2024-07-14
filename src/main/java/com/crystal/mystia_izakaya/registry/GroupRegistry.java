@@ -33,6 +33,21 @@ public class GroupRegistry {
                 output.accept(ItemRegistry.Sea_Urchin);
                 output.accept(ItemRegistry.Crab);
 
+                output.accept(ItemRegistry.Tofu);
+                output.accept(ItemRegistry.Potato);
+                output.accept(ItemRegistry.Onion);
+                output.accept(ItemRegistry.Pumpkin);
+                output.accept(ItemRegistry.Radish);
+                output.accept(ItemRegistry.Seaweed);
+                output.accept(ItemRegistry.Mushroom);
+                output.accept(ItemRegistry.Truffle);
+                output.accept(ItemRegistry.Bamboo_Shoot);
+                output.accept(ItemRegistry.Cucumber);
+                output.accept(ItemRegistry.Chestnut);
+                output.accept(ItemRegistry.Red_Toom);
+                output.accept(ItemRegistry.Tomato);
+                output.accept(ItemRegistry.Broceoli);
+
                 output.accept(ItemRegistry.Pork);
                 output.accept(ItemRegistry.Beef);
                 output.accept(ItemRegistry.Venison);
