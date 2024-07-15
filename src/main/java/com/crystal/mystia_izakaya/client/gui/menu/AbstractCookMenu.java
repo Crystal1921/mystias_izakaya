@@ -1,6 +1,8 @@
 package com.crystal.mystia_izakaya.client.gui.menu;
 
 import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
+import com.crystal.mystia_izakaya.client.item.CookedMealItem;
+import com.crystal.mystia_izakaya.network.MealInfoPacket;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import com.crystal.mystia_izakaya.utils.MealList;
 import com.crystal.mystia_izakaya.utils.UtilStaticMethod;
@@ -12,6 +14,7 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -32,9 +35,15 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
     }
 
     public boolean clickMenuButton(@NotNull Player pPlayer, int pId) {
-        List<Item> items = UtilStaticMethod.getItems(this.getItems(),this.list.getMeals(),this.cookerType);
-        System.out.println(pId);
-        System.out.printf(cookerTE.toString());
+        List<Item> items = UtilStaticMethod.getItems(this.getItems(), this.list.getMeals(), this.cookerType);
+        if (pId < items.size()) {
+            System.out.println(pId);
+            CookedMealItem targetMeal = (CookedMealItem) items.get(pId);
+            this.cookerTE.cookTime = (int) (targetMeal.cookingTime * 20);
+            this.cookerTE.targetMeal = targetMeal;
+            PacketDistributor.sendToServer(new MealInfoPacket((int) (targetMeal.cookingTime * 20),targetMeal.builtInRegistryHolder(),cookerTE.getBlockPos()));
+            return true;
+        }
         return false;
     }
 
@@ -52,7 +61,7 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
                 }
             });
         }
-        addSlot(new Slot(items, 5, 180, 110){
+        addSlot(new Slot(items, 5, 180, 110) {
             @Override
             public boolean mayPlace(@NotNull ItemStack pStack) {
                 return false;

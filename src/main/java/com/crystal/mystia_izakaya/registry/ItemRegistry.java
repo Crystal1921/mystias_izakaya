@@ -52,7 +52,6 @@ public class ItemRegistry {
     public static final DeferredItem<Item> Red_Toom = ITEMS.register("red_toom",  () -> new VegetableItem("香椿",2,20,new FoodTagEnum[]{Vegetarian,Poison}));
     public static final DeferredItem<Item> Tomato = ITEMS.register("tomato", () -> new VegetableItem("番茄",1,8,new FoodTagEnum[]{Vegetarian}));
     public static final DeferredItem<Item> Broceoli = ITEMS.register("broceoli",  () -> new VegetableItem("西蓝花",2,18,new FoodTagEnum[]{Vegetarian,Homecooking}));
-
     
     public static final DeferredItem<Item> Grilled_Lamprey = ITEMS.register("grilled_lamprey",
             () -> new CookedMealItem(CookerTypeEnum.Grill, 2, 4.2F, new Item[]{Lamprey.asItem()}, new FoodTagEnum[]{Aquatic, Signature, Grilled}));

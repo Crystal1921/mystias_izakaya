@@ -3,7 +3,6 @@ package com.crystal.mystia_izakaya.client.gui.screen;
 import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
-import com.crystal.mystia_izakaya.utils.MealList;
 import com.crystal.mystia_izakaya.utils.UtilStaticMethod;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -89,7 +88,7 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
             }
             if (index < items.size()) {
                 CookedMealItem cookedMealItem = (CookedMealItem) items.get(index);
-                FoodTagEnum[] foodTagEnums = cookedMealItem.foodTagEnum;
+                FoodTagEnum[] foodTagEnums = cookedMealItem.positiveTag;
                 guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 10, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15, j + 20, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.tags").append(":"), i + 15, j + 30, black, false);

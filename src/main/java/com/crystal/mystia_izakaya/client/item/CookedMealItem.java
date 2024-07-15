@@ -10,9 +10,14 @@ public class CookedMealItem extends Item {
     public final float cookingTime;
     public final int level;
     public final Item[] ingredients;
-    public final FoodTagEnum[] foodTagEnum;
+    public final FoodTagEnum[] positiveTag;
+    public final FoodTagEnum[] negativeTag;
 
-    public CookedMealItem(CookerTypeEnum cookerTypeEnum, int level, float cookingTime, Item[] items, FoodTagEnum[] foodTagEnums) {
+    public CookedMealItem(CookerTypeEnum cookerTypeEnum, int level, float cookingTime, Item[] items, FoodTagEnum[] foodTagEnums){
+        this(cookerTypeEnum,level,cookingTime,items,foodTagEnums,new FoodTagEnum[]{});
+    }
+
+    public CookedMealItem(CookerTypeEnum cookerTypeEnum, int level, float cookingTime, Item[] items,FoodTagEnum[] positiveTag, FoodTagEnum[] negativeTag) {
         super(new Properties().food(new FoodProperties.Builder()
                 .saturationModifier(0.5F)
                 .nutrition(level * 2)
@@ -22,6 +27,7 @@ public class CookedMealItem extends Item {
         this.cookingTime = cookingTime;
         this.level = level;
         this.ingredients = items;
-        this.foodTagEnum = foodTagEnums;
+        this.positiveTag = positiveTag;
+        this.negativeTag = negativeTag;
     }
 }

@@ -10,7 +10,7 @@ public class MealList {
     private final List<Item> meals;
 
     private MealList() {
-        meals = List.of(ItemRegistry.Grilled_Lamprey.asItem());
+        meals = List.of(ItemRegistry.Grilled_Lamprey.get());
     }
 
     // 提供公共的访问方法

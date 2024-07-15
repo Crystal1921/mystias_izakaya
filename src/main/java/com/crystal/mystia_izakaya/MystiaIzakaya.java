@@ -1,6 +1,7 @@
 package com.crystal.mystia_izakaya;
 
 import com.crystal.mystia_izakaya.event.CommonEvent;
+import com.crystal.mystia_izakaya.network.MystiaNetwork;
 import com.crystal.mystia_izakaya.registry.*;
 import org.slf4j.Logger;
 
@@ -30,7 +31,8 @@ public class MystiaIzakaya
         RecipeTypeRegistry.RECIPE_TYPES.register(modEventBus);
         RecipeTypeRegistry.RECIPE_SERIALIZERS.register(modEventBus);
 
-
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        modEventBus.addListener(MystiaNetwork::registerPacket);
     }
 }
