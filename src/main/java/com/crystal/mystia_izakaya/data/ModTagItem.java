@@ -58,9 +58,39 @@ public class ModTagItem extends ItemTagsProvider {
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Bamboo_Shoot.get());
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cucumber.get());
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Chestnut.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Red_Toom.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Red_Toon.get());
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Tomato.get());
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Broceoli.get());
+
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Egg.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Ginko_Nut.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cicada_Slough.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Dew.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Flour.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Sticky_Rice.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Ice_Cube.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Grapes.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cream.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lemon.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lotus_Seed.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pine_Nut.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Red_Bean.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cocoa_Bean.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Snow_Fungus.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Peach.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Honey.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Udunmbara.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Butter.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Bamboo.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lunar_Herb.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Chili.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Black_Salt.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Bingdi_Lotus.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cheese.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Sweet_Potato.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Plum.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Flower.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Creeping_Fig.get());
 
         //this.tag(COOKED_MEAL).add(ItemRegistry.Grilled_Lamprey.getKey());
     }

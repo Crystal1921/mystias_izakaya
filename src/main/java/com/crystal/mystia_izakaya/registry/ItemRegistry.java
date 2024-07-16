@@ -49,10 +49,41 @@ public class ItemRegistry {
     public static final DeferredItem<Item> Bamboo_Shoot = ITEMS.register("bamboo_shoot", () -> new VegetableItem("竹笋",3,40,new FoodTagEnum[]{Vegetarian,Mild}));
     public static final DeferredItem<Item> Cucumber = ITEMS.register("cucumber", () -> new VegetableItem("黄瓜",1,7,new FoodTagEnum[]{Vegetarian,Homecooking,Mild}));
     public static final DeferredItem<Item> Chestnut = ITEMS.register("chestnut",  () -> new VegetableItem("板栗",2,10,new FoodTagEnum[]{Vegetarian,Homecooking}));
-    public static final DeferredItem<Item> Red_Toom = ITEMS.register("red_toom",  () -> new VegetableItem("香椿",2,20,new FoodTagEnum[]{Vegetarian,Poison}));
+    public static final DeferredItem<Item> Red_Toon = ITEMS.register("red_toon",  () -> new VegetableItem("香椿",2,20,new FoodTagEnum[]{Vegetarian,Poison}));
     public static final DeferredItem<Item> Tomato = ITEMS.register("tomato", () -> new VegetableItem("番茄",1,8,new FoodTagEnum[]{Vegetarian}));
     public static final DeferredItem<Item> Broceoli = ITEMS.register("broceoli",  () -> new VegetableItem("西蓝花",2,18,new FoodTagEnum[]{Vegetarian,Homecooking}));
-    
+
+    public static final DeferredItem<Item> Egg = ITEMS.register("egg", () -> new VegetableItem("鸡蛋",1,4,new FoodTagEnum[]{Raw}));
+    public static final DeferredItem<Item> Ginko_Nut = ITEMS.register("ginko_nut", () -> new VegetableItem("白果",2,7,new FoodTagEnum[]{Photogenic}));
+    public static final DeferredItem<Item> Cicada_Slough = ITEMS.register("cicada_slough", () -> new VegetableItem("蝉蜕",1,5,new FoodTagEnum[]{Peculiar}));
+    public static final DeferredItem<Item> Dew = ITEMS.register("dew", () -> new VegetableItem("露水",1,10,new FoodTagEnum[]{Mild}));
+    public static final DeferredItem<Item> Flour = ITEMS.register("flour", () -> new VegetableItem("面粉",2,10,new FoodTagEnum[]{Filling}));
+    public static final DeferredItem<Item> Sticky_Rice = ITEMS.register("sticky_rice", () -> new VegetableItem("糯米",3,15,new FoodTagEnum[]{Empty}));
+    public static final DeferredItem<Item> Ice_Cube = ITEMS.register("ice_cube", () -> new VegetableItem("冰块",1,2,new FoodTagEnum[]{Refreshing}));
+    public static final DeferredItem<Item> Grapes = ITEMS.register("grapes", () -> new VegetableItem("葡萄",1,5,new FoodTagEnum[]{Fruity}));
+    public static final DeferredItem<Item> Cream = ITEMS.register("cream", () -> new VegetableItem("奶油",1,9,new FoodTagEnum[]{Homecooking,Sweet,Western}));
+    public static final DeferredItem<Item> Lemon = ITEMS.register("lemon", () -> new VegetableItem("柠檬",1,8,new FoodTagEnum[]{Sour,Fruity}));
+    public static final DeferredItem<Item> Lotus_Seed = ITEMS.register("lotus_seed", () -> new VegetableItem("莲子",3,22,new FoodTagEnum[]{Signature,Mild,Culture_Heritage}));
+    public static final DeferredItem<Item> Pine_Nut = ITEMS.register("pine_nut", () -> new VegetableItem("松子",2,15,new FoodTagEnum[]{Signature,Mild,Premium}));
+    public static final DeferredItem<Item> Red_Bean = ITEMS.register("red_bean", () -> new VegetableItem("红豆",2,18,new FoodTagEnum[]{Homecooking}));
+    public static final DeferredItem<Item> Cocoa_Bean = ITEMS.register("cocoa_bean", () -> new VegetableItem("可可豆",3,22,new FoodTagEnum[]{Sweet,Wonderful}));
+    public static final DeferredItem<Item> Snow_Fungus = ITEMS.register("snow_fungus", () -> new VegetableItem("银耳",3,14,new FoodTagEnum[]{Fungus,Mild}));
+    public static final DeferredItem<Item> Peach = ITEMS.register("peach", () -> new VegetableItem("桃子",3,10,new FoodTagEnum[]{Fruity,Sweet}));
+    public static final DeferredItem<Item> Honey = ITEMS.register("honey", () -> new VegetableItem("蜂蜜",2,15,new FoodTagEnum[]{Sweet}));
+    public static final DeferredItem<Item> Udunmbara = ITEMS.register("udunmbara", () -> new VegetableItem("幻昙华",5,70,new FoodTagEnum[]{Legendary,Dreamy,Wonderful,Premium}));
+    public static final DeferredItem<Item> Butter = ITEMS.register("butter", () -> new VegetableItem("黄油",2,8,new FoodTagEnum[]{Greasy}));
+    public static final DeferredItem<Item> Bamboo = ITEMS.register("bamboo", () -> new VegetableItem("竹子",3,15,new FoodTagEnum[]{Photogenic}));
+    public static final DeferredItem<Item> Lunar_Herb = ITEMS.register("lunar_herb", () -> new VegetableItem("月光草",5,70,new FoodTagEnum[]{Wonderful,Mild,Dreamy,Culture_Heritage}));
+    public static final DeferredItem<Item> Chili = ITEMS.register("chili", () -> new VegetableItem("辣椒",1,2,new FoodTagEnum[]{Spicy}));
+    public static final DeferredItem<Item> Black_Salt = ITEMS.register("black_salt", () -> new VegetableItem("黑盐",1,3,new FoodTagEnum[]{Salty}));
+    public static final DeferredItem<Item> Bingdi_Lotus = ITEMS.register("bingdi_lotus", () -> new VegetableItem("并蒂莲",3,36,new FoodTagEnum[]{Culture_Heritage,Premium,Legendary,Mild,Dreamy}));
+    public static final DeferredItem<Item> Cheese = ITEMS.register("cheese", () -> new VegetableItem("芝士",2,18,new FoodTagEnum[]{Premium,Salty,Fresh}));
+    public static final DeferredItem<Item> Sweet_Potato = ITEMS.register("sweet_potato", () -> new VegetableItem("地瓜",1,8,new FoodTagEnum[]{Filling}));
+    public static final DeferredItem<Item> Plum = ITEMS.register("plum", () -> new VegetableItem("梅子",1,12,new FoodTagEnum[]{Salty,Small_Portion}));
+    public static final DeferredItem<Item> Flower = ITEMS.register("flower", () -> new VegetableItem("鲜花",3,45,new FoodTagEnum[]{Dreamy,Photogenic}));
+    public static final DeferredItem<Item> Creeping_Fig = ITEMS.register("creeping_fig", () -> new VegetableItem("薜荔",2,21,new FoodTagEnum[]{Dreamy,Refreshing}));
+
+
     public static final DeferredItem<Item> Grilled_Lamprey = ITEMS.register("grilled_lamprey",
             () -> new CookedMealItem(CookerTypeEnum.Grill, 2, 4.2F, new Item[]{Lamprey.asItem()}, new FoodTagEnum[]{Aquatic, Signature, Grilled}));
 }

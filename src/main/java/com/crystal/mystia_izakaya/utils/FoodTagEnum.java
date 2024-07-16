@@ -1,6 +1,8 @@
 package com.crystal.mystia_izakaya.utils;
 
 public enum FoodTagEnum {
+    Empty("空"),
+
     Expensive("昂贵"),
 
     Economical("实惠"),

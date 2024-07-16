@@ -58,9 +58,39 @@ public class ModLanguageEN extends LanguageProvider {
         this.add(ItemRegistry.Bamboo_Shoot.get(),"Bamboo Shoot");
         this.add(ItemRegistry.Cucumber.get(), "Cucumber");
         this.add(ItemRegistry.Chestnut.get(), "Chestnut");
-        this.add(ItemRegistry.Red_Toom.get(), "Red Toom");
+        this.add(ItemRegistry.Red_Toon.get(), "Red Toon");
         this.add(ItemRegistry.Tomato.get(), "Tomato");
         this.add(ItemRegistry.Broceoli.get(), "Broceoli");
+
+        this.add(ItemRegistry.Egg.get(),"Egg");
+        this.add(ItemRegistry.Ginko_Nut.get(),"Ginko Nut");
+        this.add(ItemRegistry.Cicada_Slough.get(),"Cicada Slough");
+        this.add(ItemRegistry.Dew.get(),"Dew");
+        this.add(ItemRegistry.Flour.get(),"Flour");
+        this.add(ItemRegistry.Sticky_Rice.get(),"Sticky Rice");
+        this.add(ItemRegistry.Ice_Cube.get(),"Ice Cube");
+        this.add(ItemRegistry.Grapes.get(),"Grapes");
+        this.add(ItemRegistry.Cream.get(),"Cream");
+        this.add(ItemRegistry.Lemon.get(),"Lemon");
+        this.add(ItemRegistry.Lotus_Seed.get(),"Lotus Seed");
+        this.add(ItemRegistry.Pine_Nut.get(),"Pine Nut");
+        this.add(ItemRegistry.Red_Bean.get(),"Red Bean");
+        this.add(ItemRegistry.Cocoa_Bean.get(),"Cocoa Bean");
+        this.add(ItemRegistry.Snow_Fungus.get(),"Snow Fungus");
+        this.add(ItemRegistry.Peach.get(),"Peach");
+        this.add(ItemRegistry.Honey.get(),"Honey");
+        this.add(ItemRegistry.Udunmbara.get(),"Udunmbara");
+        this.add(ItemRegistry.Butter.get(),"Butter");
+        this.add(ItemRegistry.Bamboo.get(),"Bamboo");
+        this.add(ItemRegistry.Lunar_Herb.get(),"Lunar Herb");
+        this.add(ItemRegistry.Chili.get(),"Chili");
+        this.add(ItemRegistry.Black_Salt.get(),"Black Salt");
+        this.add(ItemRegistry.Bingdi_Lotus.get(),"Bingdi Lotus");
+        this.add(ItemRegistry.Cheese.get(),"Cheese");
+        this.add(ItemRegistry.Sweet_Potato.get(),"Sweet Potato");
+        this.add(ItemRegistry.Plum.get(),"Plum");
+        this.add(ItemRegistry.Flower.get(),"Flower");
+        this.add(ItemRegistry.Creeping_Fig.get(),"Creeping Fig");
 
         this.add(ItemRegistry.Grilled_Lamprey.get(),"Grilled Lamprey");
 

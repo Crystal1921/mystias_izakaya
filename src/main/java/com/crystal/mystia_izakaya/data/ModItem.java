@@ -51,11 +51,41 @@ public class ModItem extends ItemModelProvider {
         this.basicItem(ItemRegistry.Bamboo_Shoot.get());
         this.basicItem(ItemRegistry.Cucumber.get());
         this.basicItem(ItemRegistry.Chestnut.get());
-        this.basicItem(ItemRegistry.Red_Toom.get());
+        this.basicItem(ItemRegistry.Red_Toon.get());
         this.basicItem(ItemRegistry.Tomato.get());
         this.basicItem(ItemRegistry.Broceoli.get());
 
         this.basicItem(ItemRegistry.Grilled_Lamprey.get());
+
+        this.basicItem(ItemRegistry.Egg.get());
+        this.basicItem(ItemRegistry.Ginko_Nut.get());
+        this.basicItem(ItemRegistry.Cicada_Slough.get());
+        this.basicItem(ItemRegistry.Dew.get());
+        this.basicItem(ItemRegistry.Flour.get());
+        this.basicItem(ItemRegistry.Sticky_Rice.get());
+        this.basicItem(ItemRegistry.Ice_Cube.get());
+        this.basicItem(ItemRegistry.Grapes.get());
+        this.basicItem(ItemRegistry.Cream.get());
+        this.basicItem(ItemRegistry.Lemon.get());
+        this.basicItem(ItemRegistry.Lotus_Seed.get());
+        this.basicItem(ItemRegistry.Pine_Nut.get());
+        this.basicItem(ItemRegistry.Red_Bean.get());
+        this.basicItem(ItemRegistry.Cocoa_Bean.get());
+        this.basicItem(ItemRegistry.Snow_Fungus.get());
+        this.basicItem(ItemRegistry.Peach.get());
+        this.basicItem(ItemRegistry.Honey.get());
+        this.basicItem(ItemRegistry.Udunmbara.get());
+        this.basicItem(ItemRegistry.Butter.get());
+        this.basicItem(ItemRegistry.Bamboo.get());
+        this.basicItem(ItemRegistry.Lunar_Herb.get());
+        this.basicItem(ItemRegistry.Chili.get());
+        this.basicItem(ItemRegistry.Black_Salt.get());
+        this.basicItem(ItemRegistry.Bingdi_Lotus.get());
+        this.basicItem(ItemRegistry.Cheese.get());
+        this.basicItem(ItemRegistry.Sweet_Potato.get());
+        this.basicItem(ItemRegistry.Plum.get());
+        this.basicItem(ItemRegistry.Flower.get());
+        this.basicItem(ItemRegistry.Creeping_Fig.get());
 
         this.blockItem(ItemRegistry.Grill_Block.get(), "block/grill");
         this.blockItem(ItemRegistry.Boiling_Pot.get(), "block/boiling_pot");
