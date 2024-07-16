@@ -1,17 +1,32 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,lit=false": {
       "model": "mystia_izakaya:block/frying_pan",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,lit=true": {
+      "model": "mystia_izakaya:block/frying_pan",
+      "y": 90
+    },
+    "facing=north,lit=false": {
       "model": "mystia_izakaya:block/frying_pan"
     },
-    "facing=south": {
+    "facing=north,lit=true": {
+      "model": "mystia_izakaya:block/frying_pan"
+    },
+    "facing=south,lit=false": {
       "model": "mystia_izakaya:block/frying_pan",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,lit=true": {
+      "model": "mystia_izakaya:block/frying_pan",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "mystia_izakaya:block/frying_pan",
+      "y": 270
+    },
+    "facing=west,lit=true": {
       "model": "mystia_izakaya:block/frying_pan",
       "y": 270
     }

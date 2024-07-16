@@ -1,6 +1,9 @@
 package com.crystal.mystia_izakaya.client.block;
 
 import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Containers;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -36,7 +39,9 @@ public abstract class AbstractHorizontalBlock extends BaseEntityBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+        return defaultBlockState()
+                .setValue(FACING, pContext.getHorizontalDirection().getOpposite())
+                .setValue(LIT, false);
     }
 
     @Override
@@ -48,5 +53,22 @@ public abstract class AbstractHorizontalBlock extends BaseEntityBlock {
     @SuppressWarnings("all")
     protected RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
+    }
+
+    @Override
+    protected void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+        if (!pState.is(pNewState.getBlock())) {
+            BlockEntity blockentity = pLevel.getBlockEntity(pPos);
+            if (blockentity instanceof AbstractCookerTE abstractCookerTE) {
+                if (pLevel instanceof ServerLevel) {
+                    Containers.dropContents(pLevel, pPos, abstractCookerTE);
+                }
+
+                super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+                pLevel.updateNeighbourForOutputSignal(pPos, this);
+            } else {
+                super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+            }
+        }
     }
 }

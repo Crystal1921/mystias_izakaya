@@ -8,6 +8,6 @@ public class MystiaNetwork {
     public static void registerPacket(final RegisterPayloadHandlersEvent event) {
         // Sets the current network version
         final PayloadRegistrar registrar = event.registrar(MystiaIzakaya.MODID).versioned("1").optional();
-        registrar.playToServer(MealInfoPacket.TYPE,MealInfoPacket.STREAM_CODEC,MealInfoPacket::handle);
+        registrar.playBidirectional(MealInfoPacket.TYPE,MealInfoPacket.STREAM_CODEC,MealInfoPacket::handle);
     }
 }

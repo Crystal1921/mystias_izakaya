@@ -3,8 +3,10 @@ package com.crystal.mystia_izakaya.event;
 import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.gui.screen.*;
 import com.crystal.mystia_izakaya.entity.model.MystiaFishingHookModel;
+import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import com.crystal.mystia_izakaya.registry.EntityRegistry;
 import com.crystal.mystia_izakaya.registry.MenuRegistry;
+import com.crystal.mystia_izakaya.render.block.CookerRender;
 import com.crystal.mystia_izakaya.render.entity.FishingHookRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
@@ -14,14 +16,12 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
-// You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
 @EventBusSubscriber(modid = MystiaIzakaya.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientModEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> {
-            EntityRenderers.register(EntityRegistry.Mystia_Fishing_Hook.get(), FishingHookRenderer::new);
-        });
+        event.enqueueWork(() -> EntityRenderers.register(EntityRegistry.Mystia_Fishing_Hook.get(), FishingHookRenderer::new));
+
     }
 
     @SubscribeEvent
@@ -31,6 +31,11 @@ public class ClientModEvents {
         event.register(MenuRegistry.Cutting_Board_Menu.get(), CuttingBoardScreen::new);
         event.register(MenuRegistry.Frying_Pan_Menu.get(), FryingPanScreen::new);
         event.register(MenuRegistry.Steamer_Menu.get(), SteamerScreen::new);
+    }
+
+    @SubscribeEvent
+    public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(BlockEntityRegistry.GRILL.get(), CookerRender::new);
     }
 
     @SubscribeEvent

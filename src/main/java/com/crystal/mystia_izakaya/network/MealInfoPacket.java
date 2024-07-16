@@ -1,10 +1,7 @@
 package com.crystal.mystia_izakaya.network;
 
 import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
-import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
-import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -16,13 +13,22 @@ import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
 
-public record MealInfoPacket(int cookTime, Holder<Item> cookedMealItem, BlockPos blockPos) implements CustomPacketPayload {
+public record MealInfoPacket(int cookTime, ArrayList<Item> cookedMealItems,
+                             BlockPos blockPos) implements CustomPacketPayload {
     public static final CustomPacketPayload.Type<MealInfoPacket> TYPE = new CustomPacketPayload.Type<>(resourceLocation("meal_info"));
+    public static final StreamCodec<RegistryFriendlyByteBuf, ArrayList<Item>> COLLECTION_STREAM_CODEC =
+            ByteBufCodecs.collection(
+                    ArrayList::new,
+                    ByteBufCodecs.registry(Registries.ITEM),
+                    7
+            );
     public static final StreamCodec<RegistryFriendlyByteBuf, MealInfoPacket> STREAM_CODEC = StreamCodec.composite(
             ByteBufCodecs.INT, MealInfoPacket::cookTime,
-            ByteBufCodecs.holderRegistry(Registries.ITEM), MealInfoPacket::cookedMealItem,
+            COLLECTION_STREAM_CODEC, MealInfoPacket::cookedMealItems,
             BlockPos.STREAM_CODEC, MealInfoPacket::blockPos,
             MealInfoPacket::new);
 
@@ -30,12 +36,12 @@ public record MealInfoPacket(int cookTime, Holder<Item> cookedMealItem, BlockPos
         ctx.enqueueWork(() -> {
             Player player = ctx.player();
             Level level = player.level();
-            if (player.containerMenu instanceof AbstractCookMenu) {
-                if(level.getBlockEntity(message.blockPos) instanceof AbstractCookerTE cookerTE) {
-                    cookerTE.cookTime = message.cookTime;
-                    cookerTE.targetMeal = (CookedMealItem) message.cookedMealItem.value();
-                }
+            if (level.getBlockEntity(message.blockPos) instanceof AbstractCookerTE cookerTE) {
+                cookerTE.cookTime = message.cookTime;
+                cookerTE.setItems(message.cookedMealItems);
+                cookerTE.lit = true;
             }
+
         });
     }
 

@@ -1,9 +1,17 @@
 package com.crystal.mystia_izakaya.client.item;
 
+import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+
+import java.awt.*;
+import java.util.Arrays;
+import java.util.List;
 
 public class CookedMealItem extends Item {
     public final CookerTypeEnum cookerTypeEnum;
@@ -29,5 +37,13 @@ public class CookedMealItem extends Item {
         this.ingredients = items;
         this.positiveTag = positiveTag;
         this.negativeTag = negativeTag;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+        Arrays.stream(positiveTag).toList()
+                .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.GREEN.getRGB())));
+        Arrays.stream(negativeTag).toList()
+                .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.RED.getRGB())));
     }
 }

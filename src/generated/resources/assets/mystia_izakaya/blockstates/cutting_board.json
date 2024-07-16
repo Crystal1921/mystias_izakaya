@@ -1,17 +1,32 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,lit=false": {
       "model": "mystia_izakaya:block/cutting_board",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,lit=true": {
+      "model": "mystia_izakaya:block/cutting_board",
+      "y": 90
+    },
+    "facing=north,lit=false": {
       "model": "mystia_izakaya:block/cutting_board"
     },
-    "facing=south": {
+    "facing=north,lit=true": {
+      "model": "mystia_izakaya:block/cutting_board"
+    },
+    "facing=south,lit=false": {
       "model": "mystia_izakaya:block/cutting_board",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,lit=true": {
+      "model": "mystia_izakaya:block/cutting_board",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "mystia_izakaya:block/cutting_board",
+      "y": 270
+    },
+    "facing=west,lit=true": {
       "model": "mystia_izakaya:block/cutting_board",
       "y": 270
     }

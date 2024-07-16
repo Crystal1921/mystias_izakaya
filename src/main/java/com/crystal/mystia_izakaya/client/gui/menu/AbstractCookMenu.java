@@ -14,20 +14,23 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.crystal.mystia_izakaya.data.ModTagItem.FOOD_INGREDIENTS;
 
 public abstract class AbstractCookMenu extends AbstractContainerMenu {
     protected static final int INV_SIZE = 36;
+    public final MealList list = MealList.getInstance();
+    public final AbstractCookerTE cookerTE;
     protected final int INV_START = 6;
     public CookerTypeEnum cookerType = CookerTypeEnum.EMPTY;
-    public MealList list = MealList.getInstance();
-    protected AbstractCookerTE cookerTE;
 
     protected AbstractCookMenu(@Nullable MenuType<?> pMenuType, int pContainerId, AbstractCookerTE pCookerTE) {
         super(pMenuType, pContainerId);
@@ -36,12 +39,13 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
 
     public boolean clickMenuButton(@NotNull Player pPlayer, int pId) {
         List<Item> items = UtilStaticMethod.getItems(this.getItems(), this.list.getMeals(), this.cookerType);
-        if (pId < items.size()) {
-            System.out.println(pId);
-            CookedMealItem targetMeal = (CookedMealItem) items.get(pId);
-            this.cookerTE.cookTime = (int) (targetMeal.cookingTime * 20);
-            this.cookerTE.targetMeal = targetMeal;
-            PacketDistributor.sendToServer(new MealInfoPacket((int) (targetMeal.cookingTime * 20),targetMeal.builtInRegistryHolder(),cookerTE.getBlockPos()));
+        boolean isCook = pPlayer.level().getBlockState(this.cookerTE.getBlockPos()).getValue(AbstractFurnaceBlock.LIT);
+        if (pId < items.size() && !isCook && this.getItems().get(5).isEmpty()) {
+            CookedMealItem item = (CookedMealItem) items.get(pId);
+            this.cookerTE.getItems().clear();
+            this.cookerTE.setItem(6, item.getDefaultInstance());
+            PacketDistributor.sendToServer(new MealInfoPacket((int) item.cookingTime * 20, cookerTE.getItems().stream().map(ItemStack::getItem).collect(Collectors.toCollection(ArrayList::new)), cookerTE.getBlockPos()));
+            pPlayer.closeContainer();
             return true;
         }
         return false;
