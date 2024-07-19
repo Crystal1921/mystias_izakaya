@@ -1,0 +1,20 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:boar_meat"
+    },
+    {
+      "item": "mystia_izakaya:venison"
+    },
+    {
+      "item": "mystia_izakaya:onion"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:instant_death"
+  }
+}

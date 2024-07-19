@@ -1,0 +1,23 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:udunmbara"
+    },
+    {
+      "item": "mystia_izakaya:cream"
+    },
+    {
+      "item": "mystia_izakaya:grapes"
+    },
+    {
+      "item": "mystia_izakaya:ginko_nut"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:little_sweet_poision"
+  }
+}

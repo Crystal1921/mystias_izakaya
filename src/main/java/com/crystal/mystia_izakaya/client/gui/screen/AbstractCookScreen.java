@@ -1,6 +1,7 @@
 package com.crystal.mystia_izakaya.client.gui.screen;
 
 import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
+import com.crystal.mystia_izakaya.client.item.AbstractFoodItem;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
 import com.crystal.mystia_izakaya.utils.UtilStaticMethod;
@@ -14,7 +15,10 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
 
@@ -96,7 +100,7 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                 List<Item> items = UtilStaticMethod.getItems(menu.getItems(), menu.list.getMeals(), menu.cookerType);
                 if (!items.isEmpty()) {
                     for (int k = 0; k < items.size(); k++) {
-                        guiGraphics.renderItem(items.get(k).getDefaultInstance(), i + 122 + k * 20, j + 13);
+                        guiGraphics.renderItem(items.get(k).getDefaultInstance(), i + 122 + k % 5 * 20, j + 13 + k / 5 * 20);
                     }
                     if (index < items.size()) {
                         item = items.get(index);
@@ -106,12 +110,25 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                 item = target.getItem();
             }
             if (item instanceof CookedMealItem cookedMealItem) {
-                FoodTagEnum[] foodTagEnums = cookedMealItem.positiveTag;
-                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 10, black, false);
-                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15, j + 20, black, false);
-                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.tags").append(":"), i + 15, j + 30, black, false);
-                for (int i1 = 0; i1 < foodTagEnums.length; i1++) {
-                    guiGraphics.drawString(font, Component.translatable("mystia_izakaya." + foodTagEnums[i1].name()), i + 15 + i1 * 25, j + 40, black, false);
+                FoodTagEnum[] positiveTag = cookedMealItem.positiveTag;
+                FoodTagEnum[] negativeTag = cookedMealItem.negativeTag;
+                ArrayList<String> positiveStrings = Arrays.stream(positiveTag).map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString()).collect(Collectors.toCollection(ArrayList::new));
+                List<ItemStack> ingredients = Arrays.stream(cookedMealItem.ingredients).map(Item::getDefaultInstance).toList();
+                List<List<FoodTagEnum>> ingredientTags = new ArrayList<>();
+                menu.getItems().stream()
+                        .limit(5)
+                        .filter(itemStack -> !itemStack.isEmpty())
+                        .filter(itemStack -> !ingredients.contains(itemStack))
+                        .forEach(itemStack -> ingredientTags.add(((AbstractFoodItem)itemStack.getItem()).getTagEnums()));
+                ingredientTags.stream().flatMap(List::stream)
+                        .forEach(foodTagEnum -> positiveStrings.add(Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString()));
+                ArrayList<String> finalStrings = positiveStrings.stream().distinct().collect(Collectors.toCollection(ArrayList::new));
+                guiGraphics.drawString(font, Component.translatable(cookedMealItem.getDescriptionId()),i + 15, j + 10, black, false);
+                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 20, black, false);
+                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15, j + 30, black, false);
+                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.tags").append(":"), i + 15, j + 40, black, false);
+                for (int k = 0; k < finalStrings.size(); k++) {
+                    guiGraphics.drawString(font, finalStrings.get(k), i + 15 + k % 4 * 25, j + 50 + k / 4 * 10, black, false);
                 }
             }
         }

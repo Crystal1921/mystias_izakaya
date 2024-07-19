@@ -1,0 +1,26 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:onion"
+    },
+    {
+      "item": "mystia_izakaya:boar_meat"
+    },
+    {
+      "item": "mystia_izakaya:beef"
+    },
+    {
+      "item": "mystia_izakaya:truffle"
+    },
+    {
+      "item": "mystia_izakaya:tomato"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:scrumptious_storm"
+  }
+}

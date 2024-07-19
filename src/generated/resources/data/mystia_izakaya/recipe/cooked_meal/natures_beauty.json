@@ -1,0 +1,20 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:flower"
+    },
+    {
+      "item": "mystia_izakaya:lunar_herb"
+    },
+    {
+      "item": "mystia_izakaya:cream"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:natures_beauty"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:grapes"
+    },
+    {
+      "item": "mystia_izakaya:creeping_fig"
+    },
+    {
+      "item": "mystia_izakaya:cream"
+    },
+    {
+      "item": "mystia_izakaya:snow_fungus"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:moonlight_over_the_lotus_pond"
+  }
+}

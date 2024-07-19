@@ -1,0 +1,20 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:cheese"
+    },
+    {
+      "item": "mystia_izakaya:ginko_nut"
+    },
+    {
+      "item": "mystia_izakaya:ginko_nut"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:misery_cheese_sticks"
+  }
+}

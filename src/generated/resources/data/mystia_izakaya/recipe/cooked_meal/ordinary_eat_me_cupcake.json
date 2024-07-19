@@ -1,0 +1,20 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:egg"
+    },
+    {
+      "item": "mystia_izakaya:grapes"
+    },
+    {
+      "item": "mystia_izakaya:cream"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:ordinary_eat_me_cupcake"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:peach"
+    },
+    {
+      "item": "mystia_izakaya:cream"
+    },
+    {
+      "item": "mystia_izakaya:creeping_fig"
+    },
+    {
+      "item": "mystia_izakaya:cocoa_bean"
+    },
+    {
+      "item": "mystia_izakaya:flour"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:kittens_water_play"
+  }
+}

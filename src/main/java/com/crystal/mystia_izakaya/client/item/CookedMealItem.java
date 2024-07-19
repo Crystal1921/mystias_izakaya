@@ -12,6 +12,7 @@ import net.minecraft.world.item.TooltipFlag;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class CookedMealItem extends Item {
     public final CookerTypeEnum cookerTypeEnum;
@@ -41,9 +42,9 @@ public class CookedMealItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-        Arrays.stream(positiveTag).toList()
+        Arrays.stream(positiveTag).toList().stream().filter(Objects::nonNull)
                 .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.GREEN.getRGB())));
-        Arrays.stream(negativeTag).toList()
+        Arrays.stream(negativeTag).toList().stream().filter(Objects::nonNull)
                 .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.RED.getRGB())));
     }
 }

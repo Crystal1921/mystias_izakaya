@@ -21,7 +21,7 @@ public class BoilingPotMenu extends AbstractCookMenu {
     public BoilingPotMenu(int pContainerId, Inventory inventory, Container container, BoilingPotTE boilingPotTE) {
         super(MenuRegistry.Boiling_Pot_Menu.get(), pContainerId,boilingPotTE);
         this.access = ContainerLevelAccess.NULL;
-        this.cookerType = CookerTypeEnum.Grill;
+        this.cookerType = CookerTypeEnum.Boiling_Pot;
         addItems(container);
         addPlayerInventory(inventory);
     }

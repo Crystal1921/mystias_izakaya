@@ -1,0 +1,26 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:udunmbara"
+    },
+    {
+      "item": "mystia_izakaya:bamboo_shoot"
+    },
+    {
+      "item": "mystia_izakaya:truffle"
+    },
+    {
+      "item": "mystia_izakaya:pine_nut"
+    },
+    {
+      "item": "mystia_izakaya:lotus_seed"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:buddhas_delight"
+  }
+}

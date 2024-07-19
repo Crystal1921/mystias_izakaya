@@ -1,0 +1,26 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:cocoa_bean"
+    },
+    {
+      "item": "mystia_izakaya:cream"
+    },
+    {
+      "item": "mystia_izakaya:flour"
+    },
+    {
+      "item": "mystia_izakaya:broceoli"
+    },
+    {
+      "item": "mystia_izakaya:mushroom"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:mad_hatters_tea_party"
+  }
+}

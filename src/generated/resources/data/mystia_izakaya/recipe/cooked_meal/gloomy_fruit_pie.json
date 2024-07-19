@@ -1,0 +1,20 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:grapes"
+    },
+    {
+      "item": "mystia_izakaya:lemon"
+    },
+    {
+      "item": "mystia_izakaya:cheese"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:gloomy_fruit_pie"
+  }
+}

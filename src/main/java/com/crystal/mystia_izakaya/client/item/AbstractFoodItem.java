@@ -31,4 +31,8 @@ public abstract class AbstractFoodItem extends Item {
         Arrays.stream(tagEnums).toList()
                 .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name())));
     }
+
+    public List<FoodTagEnum> getTagEnums() {
+        return Arrays.stream(tagEnums).toList();
+    }
 }

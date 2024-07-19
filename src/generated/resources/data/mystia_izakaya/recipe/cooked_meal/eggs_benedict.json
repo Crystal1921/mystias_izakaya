@@ -1,0 +1,23 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:egg"
+    },
+    {
+      "item": "mystia_izakaya:bamboo_shoot"
+    },
+    {
+      "item": "mystia_izakaya:butter"
+    },
+    {
+      "item": "mystia_izakaya:flour"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:eggs_benedict"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:premium_tuna"
+    },
+    {
+      "item": "mystia_izakaya:mushroom"
+    },
+    {
+      "item": "mystia_izakaya:radish"
+    },
+    {
+      "item": "mystia_izakaya:egg"
+    },
+    {
+      "item": "mystia_izakaya:ginko_nut"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:eight_trigram_fish_maws"
+  }
+}

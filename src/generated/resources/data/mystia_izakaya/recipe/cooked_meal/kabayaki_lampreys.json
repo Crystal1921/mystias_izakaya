@@ -1,0 +1,17 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:lamprey"
+    },
+    {
+      "item": "mystia_izakaya:onion"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:kabayaki_lampreys"
+  }
+}

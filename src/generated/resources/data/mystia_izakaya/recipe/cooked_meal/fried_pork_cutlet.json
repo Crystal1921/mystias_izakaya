@@ -1,0 +1,14 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:pork"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:fried_pork_cutlet"
+  }
+}
