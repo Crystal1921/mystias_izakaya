@@ -36,6 +36,10 @@ public class ClientModEvents {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(BlockEntityRegistry.GRILL.get(), CookerRender::new);
+        event.registerBlockEntityRenderer(BlockEntityRegistry.BOILING_POT.get(), CookerRender::new);
+        event.registerBlockEntityRenderer(BlockEntityRegistry.CUTTING_BOARD.get(), CookerRender::new);
+        event.registerBlockEntityRenderer(BlockEntityRegistry.FRYING_PAN.get(), CookerRender::new);
+        event.registerBlockEntityRenderer(BlockEntityRegistry.STEAMER.get(), CookerRender::new);
     }
 
     @SubscribeEvent

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mystia_izakaya:item/mad_hatters_tea_party"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mystia_izakaya:item/golden_crispy_fish_cake"
+  }
+}

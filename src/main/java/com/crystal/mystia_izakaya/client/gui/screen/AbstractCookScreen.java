@@ -25,6 +25,10 @@ import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation
 public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends AbstractContainerScreen<T> {
     final int yellow = Color.YELLOW.getRGB();
     final int black = Color.BLACK.getRGB();
+    final int positiveInColor = new Color(230, 180, 166).getRGB();
+    final int positiveOutColor = new Color(157, 84, 55).getRGB();
+    final int negativeInColor = new Color(93, 69, 58).getRGB();
+    final int negativeOutColor = new Color(0, 0, 0).getRGB();
     final int minX = 120;
     final int minY = 10;
     final int maxX = 215;
@@ -112,23 +116,63 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
             if (item instanceof CookedMealItem cookedMealItem) {
                 FoodTagEnum[] positiveTag = cookedMealItem.positiveTag;
                 FoodTagEnum[] negativeTag = cookedMealItem.negativeTag;
-                ArrayList<String> positiveStrings = Arrays.stream(positiveTag).map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString()).collect(Collectors.toCollection(ArrayList::new));
-                List<ItemStack> ingredients = Arrays.stream(cookedMealItem.ingredients).map(Item::getDefaultInstance).toList();
+                ArrayList<String> negativeStrings = Arrays
+                        .stream(negativeTag)
+                        .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
+                        .collect(Collectors.toCollection(ArrayList::new));
+                ArrayList<String> positiveStrings = Arrays
+                        .stream(positiveTag)
+                        .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
+                        .collect(Collectors.toCollection(ArrayList::new));
+                List<ItemStack> ingredients = Arrays
+                        .stream(cookedMealItem.ingredients)
+                        .map(Item::getDefaultInstance)
+                        .toList();
                 List<List<FoodTagEnum>> ingredientTags = new ArrayList<>();
                 menu.getItems().stream()
                         .limit(5)
                         .filter(itemStack -> !itemStack.isEmpty())
                         .filter(itemStack -> !ingredients.contains(itemStack))
-                        .forEach(itemStack -> ingredientTags.add(((AbstractFoodItem)itemStack.getItem()).getTagEnums()));
+                        .forEach(itemStack -> ingredientTags.add(((AbstractFoodItem) itemStack.getItem()).getTagEnums()));
                 ingredientTags.stream().flatMap(List::stream)
                         .forEach(foodTagEnum -> positiveStrings.add(Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString()));
-                ArrayList<String> finalStrings = positiveStrings.stream().distinct().collect(Collectors.toCollection(ArrayList::new));
-                guiGraphics.drawString(font, Component.translatable(cookedMealItem.getDescriptionId()),i + 15, j + 10, black, false);
+                ArrayList<String> finalStrings = positiveStrings.stream()
+                        .distinct()
+                        .collect(Collectors.toCollection(ArrayList::new));
+                guiGraphics.drawString(font, Component.translatable(cookedMealItem.getDescriptionId()), i + 15, j + 10, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 20, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15, j + 30, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.tags").append(":"), i + 15, j + 40, black, false);
+
+                int stringLength = 0;
+                int stringHeight = 0;
                 for (int k = 0; k < finalStrings.size(); k++) {
-                    guiGraphics.drawString(font, finalStrings.get(k), i + 15 + k % 4 * 25, j + 50 + k / 4 * 10, black, false);
+                    //guiGraphics.fill(i + 15 + stringLength * 10 - 2, j + 50 + stringHeight * 10 - 1,i + 15 + stringLength * 10 + finalStrings.get(k).length() * 9 + 1, j + 50 + stringHeight * 10 + 9,positiveOutColor);
+                    //guiGraphics.fill(i + 15 + stringLength * 10 - 1, j + 50 + stringHeight * 10,i + 15 + stringLength * 10 + finalStrings.get(k).length() * 9, j + 50 + stringHeight * 10 + 8,positiveInColor);
+                    guiGraphics.drawString(font, finalStrings.get(k), i + 15 + stringLength * 10, j + 50 + stringHeight * 10, positiveOutColor, false);
+                    stringLength += finalStrings.get(k).length();
+                    if (finalStrings.size() > k + 1) {
+                        if (stringLength + finalStrings.get(k + 1).length() > 10) {
+                            stringLength = 0;
+                            stringHeight++;
+                        }
+                    }
+                }
+                if (!negativeStrings.isEmpty()) {
+                    if (stringLength + negativeStrings.getFirst().length() > 10) {
+                        stringLength = 0;
+                        stringHeight++;
+                    }
+                    for (int k = 0; k < negativeStrings.size(); k++) {
+                        guiGraphics.drawString(font, negativeStrings.get(k), i + 15 + stringLength * 10, j + 50 + stringHeight * 10, negativeInColor, false);
+                        stringLength += negativeStrings.get(k).length();
+                        if (negativeStrings.size() > k + 1) {
+                            if (stringLength + negativeStrings.get(k + 1).length() > 10) {
+                                stringLength = 0;
+                                stringHeight++;
+                            }
+                        }
+                    }
                 }
             }
         }
