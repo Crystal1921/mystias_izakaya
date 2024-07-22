@@ -18,7 +18,7 @@ public abstract class AbstractFoodItem extends Item {
     String name;
     FoodTagEnum[] tagEnums;
 
-    public AbstractFoodItem(Properties pProperties, int level, int price, FoodTagEnum[] tagEnums,String name) {
+    public AbstractFoodItem(Properties pProperties, int level, int price, FoodTagEnum[] tagEnums, String name) {
         super(pProperties.rarity(getRarity(level)));
         this.level = level;
         this.price = price;

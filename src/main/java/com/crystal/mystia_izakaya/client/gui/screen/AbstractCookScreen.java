@@ -4,6 +4,7 @@ import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
 import com.crystal.mystia_izakaya.client.item.AbstractFoodItem;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
+import com.crystal.mystia_izakaya.utils.TagModify;
 import com.crystal.mystia_izakaya.utils.UtilStaticMethod;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -114,30 +115,31 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                 item = target.getItem();
             }
             if (item instanceof CookedMealItem cookedMealItem) {
-                FoodTagEnum[] positiveTag = cookedMealItem.positiveTag;
-                FoodTagEnum[] negativeTag = cookedMealItem.negativeTag;
-                ArrayList<String> negativeStrings = Arrays
-                        .stream(negativeTag)
+                TagModify tagModify = new TagModify();
+                tagModify.setFull(cookMenu.isFull());
+                ArrayList<String> negativeStrings = cookedMealItem.negativeTag.stream()
                         .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
                         .collect(Collectors.toCollection(ArrayList::new));
-                ArrayList<String> positiveStrings = Arrays
-                        .stream(positiveTag)
-                        .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
-                        .collect(Collectors.toCollection(ArrayList::new));
+                ArrayList<FoodTagEnum> positiveTags = new ArrayList<>(cookedMealItem.positiveTag);
                 List<ItemStack> ingredients = Arrays
                         .stream(cookedMealItem.ingredients)
                         .map(Item::getDefaultInstance)
                         .toList();
-                List<List<FoodTagEnum>> ingredientTags = new ArrayList<>();
-                menu.getItems().stream()
-                        .limit(5)
+                //将多余食材的标签加入展示列表，并标记冲突
+                abstractCookMenu.getIngredientStream()
                         .filter(itemStack -> !itemStack.isEmpty())
                         .filter(itemStack -> !ingredients.contains(itemStack))
-                        .forEach(itemStack -> ingredientTags.add(((AbstractFoodItem) itemStack.getItem()).getTagEnums()));
-                ingredientTags.stream().flatMap(List::stream)
-                        .forEach(foodTagEnum -> positiveStrings.add(Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString()));
-                ArrayList<String> finalStrings = positiveStrings.stream()
+                        .map(itemStack -> ((AbstractFoodItem) itemStack.getItem()).getTagEnums())
+                        .flatMap(List::stream)
+                        .forEach(foodTagEnum -> {
+                            positiveTags.add(foodTagEnum);
+                            tagModify.markConflict(foodTagEnum);
+                        });
+                //清除重复标签
+                ArrayList<String> finalStrings = positiveTags.stream()
                         .distinct()
+                        .filter(foodTagEnum -> !tagModify.isConflict(foodTagEnum))
+                        .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
                         .collect(Collectors.toCollection(ArrayList::new));
                 guiGraphics.drawString(font, Component.translatable(cookedMealItem.getDescriptionId()), i + 15, j + 10, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 20, black, false);

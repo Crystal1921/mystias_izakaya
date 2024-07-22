@@ -22,6 +22,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.crystal.mystia_izakaya.data.ModTagItem.FOOD_INGREDIENTS;
 
@@ -109,5 +110,13 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
             slot.onTake(playerIn, slotStack);
         }
         return itemStack;
+    }
+
+    public Stream<ItemStack> getIngredientStream() {
+        return this.getItems().stream().limit(5);
+    }
+
+    public boolean isFull() {
+        return this.getItems().stream().limit(5).filter(itemStack -> !itemStack.isEmpty()).toList().size() == 5;
     }
 }

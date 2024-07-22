@@ -19,14 +19,10 @@ public class CookedMealItem extends Item {
     public final float cookingTime;
     public final int level;
     public final Item[] ingredients;
-    public final FoodTagEnum[] positiveTag;
-    public final FoodTagEnum[] negativeTag;
+    public final List<FoodTagEnum> positiveTag;
+    public final List<FoodTagEnum> negativeTag;
 
-    public CookedMealItem(CookerTypeEnum cookerTypeEnum, int level, float cookingTime, Item[] items, FoodTagEnum[] foodTagEnums){
-        this(cookerTypeEnum,level,cookingTime,items,foodTagEnums,new FoodTagEnum[]{});
-    }
-
-    public CookedMealItem(CookerTypeEnum cookerTypeEnum, int level, float cookingTime, Item[] items,FoodTagEnum[] positiveTag, FoodTagEnum[] negativeTag) {
+    public CookedMealItem(CookerTypeEnum cookerTypeEnum, int level, float cookingTime, Item[] items, FoodTagEnum[] positiveTag, FoodTagEnum[] negativeTag) {
         super(new Properties().food(new FoodProperties.Builder()
                 .saturationModifier(0.5F)
                 .nutrition(level * 2)
@@ -36,15 +32,17 @@ public class CookedMealItem extends Item {
         this.cookingTime = cookingTime;
         this.level = level;
         this.ingredients = items;
-        this.positiveTag = positiveTag;
-        this.negativeTag = negativeTag;
+        this.positiveTag = Arrays.stream(positiveTag).toList();
+        this.negativeTag = Arrays.stream(negativeTag).toList();
     }
 
     @Override
     public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-        Arrays.stream(positiveTag).toList().stream().filter(Objects::nonNull)
+        positiveTag.stream()
+                .filter(Objects::nonNull)
                 .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.GREEN.getRGB())));
-        Arrays.stream(negativeTag).toList().stream().filter(Objects::nonNull)
+        negativeTag.stream()
+                .filter(Objects::nonNull)
                 .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.RED.getRGB())));
     }
 }
