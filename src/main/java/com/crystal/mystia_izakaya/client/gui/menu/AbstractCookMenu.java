@@ -5,7 +5,9 @@ import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.component.FoodTagComponent;
 import com.crystal.mystia_izakaya.network.MealInfoPacket;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
+import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
+import com.crystal.mystia_izakaya.utils.FoodTagEnum;
 import com.crystal.mystia_izakaya.utils.MealList;
 import com.crystal.mystia_izakaya.utils.UtilStaticMethod;
 import it.unimi.dsi.fastutil.ints.IntList;
@@ -24,6 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -47,14 +50,15 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
         boolean isCook = pPlayer.level().getBlockState(this.cookerTE.getBlockPos()).getValue(AbstractFurnaceBlock.LIT);
         if (pId < items.size() && !isCook && this.getItems().get(5).isEmpty()) {
             CookedMealItem item = (CookedMealItem) items.get(pId);
+            ArrayList<FoodTagEnum> foodTagEnumArrayList = UtilStaticMethod.getPositiveTags(this, item);
+            //判断黑暗料理
+            if (foodTagEnumArrayList.stream().anyMatch(item.negativeTag::contains)) {
+                item = (CookedMealItem) ItemRegistry.Dark_Matter.get().asItem();
+            }
             this.cookerTE.foodTags = UtilStaticMethod.getPositiveTags(this, item);
             ItemStack itemStack = new ItemStack(item);
             IntList intList = getPositiveIntList(this, item);
-            List<Integer> intArray = intList.stream().toList();
-            byte[] byteArray = new byte[intArray.size()];
-            for (int i = 0; i < intArray.size(); i++) {
-                byteArray[i] = intArray.get(i).byteValue();
-            }
+            byte[] byteArray = UtilStaticMethod.getByteArray(intList);
             itemStack.set(ComponentRegistry.FOOD_TAG, new FoodTagComponent(intList));
             this.cookerTE.getItems().clear();
             this.cookerTE.setItem(6, itemStack);

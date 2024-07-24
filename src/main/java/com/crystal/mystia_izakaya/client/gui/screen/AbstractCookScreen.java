@@ -116,9 +116,9 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                         .collect(Collectors.toCollection(ArrayList::new));
                 ArrayList<String> positiveStings = UtilStaticMethod.getPositiveStings(cookMenu, cookedMealItem);
                 guiGraphics.drawString(font, Component.translatable(cookedMealItem.getDescriptionId()), i + 15, j + 10, black, false);
-                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 20, black, false);
-                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15, j + 30, black, false);
-                guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.tags").append(":"), i + 15, j + 40, black, false);
+                guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 20, black, false);
+                guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15, j + 30, black, false);
+                guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.tags").append(":"), i + 15, j + 40, black, false);
 
                 int stringLength = 0;
                 int stringHeight = 0;

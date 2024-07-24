@@ -15,12 +15,13 @@ public class ModLanguageEN extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        this.add("itemGroup.mystias_izakaya", "Mystia's Izakaya");
-        this.add("gui.mystias_izakaya.level", "Level");
-        this.add("gui.mystias_izakaya.cooking_time", "Cooking Time");
-        this.add("gui.mystias_izakaya.tags", "Tags");
-        this.add("gui.mystias_izakaya.meal.jei", "Mystia's Izakaya");
-        this.add("gui.mystias_izakaya.progress", "Progress");
+        this.add("itemGroup.mystia_izakaya", "Mystia's Izakaya");
+        this.add("itemGroup.mystia_izakaya_meal", "Meals");
+        this.add("gui.mystia_izakaya.level", "Level");
+        this.add("gui.mystia_izakaya.cooking_time", "Cooking Time");
+        this.add("gui.mystia_izakaya.tags", "Tags");
+        this.add("gui.mystia_izakaya.meal.jei", "Mystia's Izakaya");
+        this.add("gui.mystia_izakaya.progress", "Progress");
 
         this.add(ItemRegistry.MystiaFishingRod.get(), "Mystia's Fishing Rod");
         this.add(ItemRegistry.Grill_Block.get(), "Grill Block");

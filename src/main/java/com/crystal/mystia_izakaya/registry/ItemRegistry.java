@@ -245,4 +245,6 @@ public class ItemRegistry {
     public static final DeferredItem<Item> Scones = ITEMS.register("scones",() -> new CookedMealItem(CookerTypeEnum.Steamer, 1, 7, new Item[]{Butter.asItem(),Flour.asItem()}, new FoodTagEnum[]{Economical,Filling,Western}, new FoodTagEnum[]{Empty}));
     public static final DeferredItem<Item> Sea_Miso_soup = ITEMS.register("sea_miso_soup",() -> new CookedMealItem(CookerTypeEnum.Boiling_Pot, 1, 6, new Item[]{Seaweed.asItem()}, new FoodTagEnum[]{Economical,Vegetarian,Homecooking,Soup}, new FoodTagEnum[]{Greasy}));
     public static final DeferredItem<Item> Rice_Ball = ITEMS.register("rice_ball",() -> new CookedMealItem(CookerTypeEnum.Cutting_Board, 1, 5, new Item[]{Seaweed.asItem()}, new FoodTagEnum[]{Economical,Vegetarian,Homecooking,Filling,Japanese}, new FoodTagEnum[]{Empty}));
+
+    public static final DeferredItem<Item> Dark_Matter = ITEMS.register("dark_matter", () -> new CookedMealItem(CookerTypeEnum.EMPTY,1,2,new Item[]{},new FoodTagEnum[]{Empty},new FoodTagEnum[]{Empty}));
 }

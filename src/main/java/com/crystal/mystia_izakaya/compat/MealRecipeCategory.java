@@ -38,7 +38,7 @@ public class MealRecipeCategory implements IRecipeCategory<MealRecipe> {
         this.background = guiHelper.createBlankDrawable(160, 125);
         this.slotDraw = guiHelper.getSlotDrawable();
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ItemRegistry.MystiaFishingRod.asItem()));
-        this.localizedName = Component.translatable("gui.mystias_izakaya.meal.jei");
+        this.localizedName = Component.translatable("gui.mystia_izakaya.meal.jei");
     }
 
     @Override

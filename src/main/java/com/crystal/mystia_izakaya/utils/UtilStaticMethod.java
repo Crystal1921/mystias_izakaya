@@ -4,6 +4,7 @@ import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
 import com.crystal.mystia_izakaya.client.item.AbstractFoodItem;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
+import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.core.NonNullList;
@@ -71,6 +72,9 @@ public class UtilStaticMethod {
     }
 
     public static @NotNull ArrayList<FoodTagEnum> getPositiveTags(AbstractCookMenu cookMenu, CookedMealItem cookedMealItem) {
+        if (cookedMealItem.getDefaultInstance().is(ItemRegistry.Dark_Matter)){
+            return new ArrayList<>();
+        }
         TagModify tagModify = new TagModify();
         tagModify.setFull(cookMenu.isFull());
         ArrayList<FoodTagEnum> positiveTags = new ArrayList<>(cookedMealItem.positiveTag);
@@ -105,5 +109,14 @@ public class UtilStaticMethod {
         IntList list = new IntArrayList();
         getPositiveTags(cookMenu, cookedMealItem).forEach(foodTagEnum -> list.add(foodTagEnum.ordinal()));
         return list;
+    }
+
+    public static byte @NotNull [] getByteArray(IntList intList) {
+        List<Integer> intArray = intList.stream().toList();
+        byte[] byteArray = new byte[intArray.size()];
+        for (int i = 0; i < intArray.size(); i++) {
+            byteArray[i] = intArray.get(i).byteValue();
+        }
+        return byteArray;
     }
 }
