@@ -1,8 +1,12 @@
 package com.crystal.mystia_izakaya.client.item;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
+import com.crystal.mystia_izakaya.component.FoodTagComponent;
+import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
+import com.crystal.mystia_izakaya.utils.MealList;
+import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
@@ -38,9 +42,18 @@ public class CookedMealItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-        positiveTag.stream()
-                .filter(Objects::nonNull)
-                .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.GREEN.getRGB())));
+        FoodTagComponent foodTagComponent = pStack.get(ComponentRegistry.FOOD_TAG);
+        FoodTagEnum[] foodTagEnums = MealList.getInstance().getFood();
+        if (foodTagComponent != null){
+            IntList intList = foodTagComponent.intList();
+            intList.intStream().mapToObj(integer -> foodTagEnums[integer])
+                    .filter(Objects::nonNull)
+                    .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.GREEN.getRGB())));
+        } else {
+            positiveTag.stream()
+                    .filter(Objects::nonNull)
+                    .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.GREEN.getRGB())));
+        }
         negativeTag.stream()
                 .filter(Objects::nonNull)
                 .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.RED.getRGB())));

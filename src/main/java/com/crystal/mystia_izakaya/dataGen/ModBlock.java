@@ -1,4 +1,4 @@
-package com.crystal.mystia_izakaya.data;
+package com.crystal.mystia_izakaya.dataGen;
 
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.BlockModelProvider;

@@ -1,10 +1,7 @@
 package com.crystal.mystia_izakaya.client.gui.screen;
 
 import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
-import com.crystal.mystia_izakaya.client.item.AbstractFoodItem;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
-import com.crystal.mystia_izakaya.utils.FoodTagEnum;
-import com.crystal.mystia_izakaya.utils.TagModify;
 import com.crystal.mystia_izakaya.utils.UtilStaticMethod;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -17,7 +14,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -115,32 +111,10 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                 item = target.getItem();
             }
             if (item instanceof CookedMealItem cookedMealItem) {
-                TagModify tagModify = new TagModify();
-                tagModify.setFull(cookMenu.isFull());
                 ArrayList<String> negativeStrings = cookedMealItem.negativeTag.stream()
                         .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
                         .collect(Collectors.toCollection(ArrayList::new));
-                ArrayList<FoodTagEnum> positiveTags = new ArrayList<>(cookedMealItem.positiveTag);
-                List<ItemStack> ingredients = Arrays
-                        .stream(cookedMealItem.ingredients)
-                        .map(Item::getDefaultInstance)
-                        .toList();
-                //将多余食材的标签加入展示列表，并标记冲突
-                abstractCookMenu.getIngredientStream()
-                        .filter(itemStack -> !itemStack.isEmpty())
-                        .filter(itemStack -> !ingredients.contains(itemStack))
-                        .map(itemStack -> ((AbstractFoodItem) itemStack.getItem()).getTagEnums())
-                        .flatMap(List::stream)
-                        .forEach(foodTagEnum -> {
-                            positiveTags.add(foodTagEnum);
-                            tagModify.markConflict(foodTagEnum);
-                        });
-                //清除重复标签
-                ArrayList<String> finalStrings = positiveTags.stream()
-                        .distinct()
-                        .filter(foodTagEnum -> !tagModify.isConflict(foodTagEnum))
-                        .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
-                        .collect(Collectors.toCollection(ArrayList::new));
+                ArrayList<String> positiveStings = UtilStaticMethod.getPositiveStings(cookMenu, cookedMealItem);
                 guiGraphics.drawString(font, Component.translatable(cookedMealItem.getDescriptionId()), i + 15, j + 10, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 20, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystias_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15, j + 30, black, false);
@@ -148,13 +122,13 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
 
                 int stringLength = 0;
                 int stringHeight = 0;
-                for (int k = 0; k < finalStrings.size(); k++) {
-                    //guiGraphics.fill(i + 15 + stringLength * 10 - 2, j + 50 + stringHeight * 10 - 1,i + 15 + stringLength * 10 + finalStrings.get(k).length() * 9 + 1, j + 50 + stringHeight * 10 + 9,positiveOutColor);
-                    //guiGraphics.fill(i + 15 + stringLength * 10 - 1, j + 50 + stringHeight * 10,i + 15 + stringLength * 10 + finalStrings.get(k).length() * 9, j + 50 + stringHeight * 10 + 8,positiveInColor);
-                    guiGraphics.drawString(font, finalStrings.get(k), i + 15 + stringLength * 10, j + 50 + stringHeight * 10, positiveOutColor, false);
-                    stringLength += finalStrings.get(k).length();
-                    if (finalStrings.size() > k + 1) {
-                        if (stringLength + finalStrings.get(k + 1).length() > 10) {
+                for (int k = 0; k < positiveStings.size(); k++) {
+                    //guiGraphics.fill(i + 15 + stringLength * 10 - 2, j + 50 + stringHeight * 10 - 1,i + 15 + stringLength * 10 + positiveStings.get(k).length() * 9 + 1, j + 50 + stringHeight * 10 + 9,positiveOutColor);
+                    //guiGraphics.fill(i + 15 + stringLength * 10 - 1, j + 50 + stringHeight * 10,i + 15 + stringLength * 10 + positiveStings.get(k).length() * 9, j + 50 + stringHeight * 10 + 8,positiveInColor);
+                    guiGraphics.drawString(font, positiveStings.get(k), i + 15 + stringLength * 10, j + 50 + stringHeight * 10, positiveOutColor, false);
+                    stringLength += positiveStings.get(k).length();
+                    if (positiveStings.size() > k + 1) {
+                        if (stringLength + positiveStings.get(k + 1).length() > 10) {
                             stringLength = 0;
                             stringHeight++;
                         }

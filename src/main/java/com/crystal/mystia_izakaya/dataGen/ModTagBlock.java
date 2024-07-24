@@ -1,4 +1,4 @@
-package com.crystal.mystia_izakaya.data;
+package com.crystal.mystia_izakaya.dataGen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

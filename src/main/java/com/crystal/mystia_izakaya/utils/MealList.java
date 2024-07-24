@@ -8,6 +8,7 @@ import java.util.List;
 public class MealList {
     private static MealList instance;
     private final List<Item> meals;
+    private final FoodTagEnum[] food = FoodTagEnum.values();
 
     private MealList() {
         meals = List.of(ItemRegistry.Oedo_Boat_Feast.get(),
@@ -184,5 +185,9 @@ public class MealList {
 
     public List<Item> getMeals() {
         return meals;
+    }
+
+    public FoodTagEnum[] getFood() {
+        return food;
     }
 }

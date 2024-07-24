@@ -17,19 +17,20 @@ import java.util.ArrayList;
 
 import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
 
-public record MealInfoPacket(int cookTime, ArrayList<Item> cookedMealItems,
-                             BlockPos blockPos) implements CustomPacketPayload {
+public record MealInfoPacket(int cookTime, ArrayList<Item> cookedMealItems, BlockPos blockPos,
+                             byte[] tags) implements CustomPacketPayload {
     public static final CustomPacketPayload.Type<MealInfoPacket> TYPE = new CustomPacketPayload.Type<>(resourceLocation("meal_info"));
-    public static final StreamCodec<RegistryFriendlyByteBuf, ArrayList<Item>> COLLECTION_STREAM_CODEC =
+    public static final StreamCodec<RegistryFriendlyByteBuf, ArrayList<Item>> ITEM_COLLECTION_STREAM_CODEC =
             ByteBufCodecs.collection(
                     ArrayList::new,
                     ByteBufCodecs.registry(Registries.ITEM),
-                    7
-            );
+                    7);
+
     public static final StreamCodec<RegistryFriendlyByteBuf, MealInfoPacket> STREAM_CODEC = StreamCodec.composite(
             ByteBufCodecs.INT, MealInfoPacket::cookTime,
-            COLLECTION_STREAM_CODEC, MealInfoPacket::cookedMealItems,
+            ITEM_COLLECTION_STREAM_CODEC, MealInfoPacket::cookedMealItems,
             BlockPos.STREAM_CODEC, MealInfoPacket::blockPos,
+            ByteBufCodecs.BYTE_ARRAY, MealInfoPacket::tags,
             MealInfoPacket::new);
 
     public static void handle(MealInfoPacket message, IPayloadContext ctx) {
@@ -40,8 +41,8 @@ public record MealInfoPacket(int cookTime, ArrayList<Item> cookedMealItems,
                 cookerTE.cookTime = message.cookTime;
                 cookerTE.setItems(message.cookedMealItems);
                 cookerTE.lit = true;
+                cookerTE.setFoodTags(message.tags);
             }
-
         });
     }
 

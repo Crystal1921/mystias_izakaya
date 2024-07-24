@@ -30,6 +30,7 @@ public class MystiaIzakaya
         MenuRegistry.MENU_TYPE.register(modEventBus);
         RecipeTypeRegistry.RECIPE_TYPES.register(modEventBus);
         RecipeTypeRegistry.RECIPE_SERIALIZERS.register(modEventBus);
+        ComponentRegistry.REGISTRAR.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 

@@ -1,4 +1,4 @@
-package com.crystal.mystia_izakaya.data.builder;
+package com.crystal.mystia_izakaya.dataGen.builder;
 
 import com.crystal.mystia_izakaya.recipe.MealRecipe;
 import net.minecraft.advancements.Criterion;

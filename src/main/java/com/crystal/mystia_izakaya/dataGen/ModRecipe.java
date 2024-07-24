@@ -1,7 +1,7 @@
-package com.crystal.mystia_izakaya.data;
+package com.crystal.mystia_izakaya.dataGen;
 
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
-import com.crystal.mystia_izakaya.data.builder.MealRecipeBuilder;
+import com.crystal.mystia_izakaya.dataGen.builder.MealRecipeBuilder;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
