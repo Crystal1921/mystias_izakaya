@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
+import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
 
 public record MealInfoPacket(int cookTime, ArrayList<Item> cookedMealItems, BlockPos blockPos,
                              byte[] tags) implements CustomPacketPayload {

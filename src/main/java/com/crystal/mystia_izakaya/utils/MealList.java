@@ -1,5 +1,6 @@
 package com.crystal.mystia_izakaya.utils;
 
+import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import net.minecraft.world.item.Item;
 
@@ -185,6 +186,10 @@ public class MealList {
 
     public List<Item> getMeals() {
         return meals;
+    }
+
+    public List<CookedMealItem> getCookedMeals() {
+        return meals.stream().map(item -> (CookedMealItem) item).toList();
     }
 
     public FoodTagEnum[] getFood() {

@@ -13,7 +13,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.Objects;
 
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
+import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
 
 public class ModItem extends ItemModelProvider {
     public ModItem(PackOutput output, String modid, ExistingFileHelper existingFileHelper) {
@@ -23,6 +23,8 @@ public class ModItem extends ItemModelProvider {
     @Override
     protected void registerModels() {
         this.basicItem(ItemRegistry.MystiaFishingRod.get());
+        this.basicItem(ItemRegistry.RecipeBook.get());
+
         this.basicItem(ItemRegistry.Trout.get());
         this.basicItem(ItemRegistry.Lamprey.get());
         this.basicItem(ItemRegistry.Salmon.get());

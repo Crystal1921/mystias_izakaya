@@ -12,11 +12,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Objects;
 
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
+import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
 
 @JeiPlugin
 public class MystiaPlugin implements IModPlugin {
@@ -40,7 +41,7 @@ public class MystiaPlugin implements IModPlugin {
     }
 
     @Override
-    public ResourceLocation getPluginUid() {
+    public @NotNull ResourceLocation getPluginUid() {
         return UID;
     }
 }

@@ -12,7 +12,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
+import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
 
 public class MystiaFishingHookModel<T extends MystiaFishingHook> extends EntityModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor

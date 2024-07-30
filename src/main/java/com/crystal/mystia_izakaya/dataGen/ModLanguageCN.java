@@ -16,7 +16,8 @@ public class ModLanguageCN extends LanguageProvider {
     @Override
     protected void addTranslations() {
         this.add("itemGroup.mystia_izakaya", "东方夜雀食堂");
-        this.add("itemGroup.mystia_izakaya_meal", "食谱");
+        this.add("itemGroup.mystia_izakaya_meal", "菜肴");
+        this.add("gui.mystia_izakaya.meal", "食谱");
         this.add("gui.mystia_izakaya.level", "等级");
         this.add("gui.mystia_izakaya.cooking_time", "烹饪时间");
         this.add("gui.mystia_izakaya.tags", "标签");
@@ -24,6 +25,8 @@ public class ModLanguageCN extends LanguageProvider {
         this.add("gui.mystia_izakaya.progress", "进度");
 
         this.add(ItemRegistry.MystiaFishingRod.get(), "米斯蒂娅的鱼竿");
+        this.add(ItemRegistry.RecipeBook.get(), "米斯蒂娅的食谱");
+
         this.add(ItemRegistry.Grill_Block.get(), "烤架");
         this.add(ItemRegistry.Boiling_Pot.get(), "煮锅");
         this.add(ItemRegistry.Frying_Pan.get(), "油锅");

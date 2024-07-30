@@ -20,7 +20,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
+import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
 
 public class FishingHookRenderer extends EntityRenderer<MystiaFishingHook> {
     private final EntityModel<MystiaFishingHook> model;
@@ -68,7 +68,7 @@ public class FishingHookRenderer extends EntityRenderer<MystiaFishingHook> {
     private Vec3 getPlayerHandPos(Player pPlayer, float v, float pPartialTick) {
         int i = pPlayer.getMainArm() == HumanoidArm.RIGHT ? 1 : -1;
         ItemStack itemstack = pPlayer.getMainHandItem();
-        if (!itemstack.canPerformAction(net.neoforged.neoforge.common.ToolActions.FISHING_ROD_CAST)) {
+        if (!itemstack.canPerformAction(net.neoforged.neoforge.common.ItemAbilities.FISHING_ROD_CAST)) {
             i = -i;
         }
 

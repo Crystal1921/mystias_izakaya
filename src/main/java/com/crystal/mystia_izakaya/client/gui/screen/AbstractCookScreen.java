@@ -2,7 +2,7 @@ package com.crystal.mystia_izakaya.client.gui.screen;
 
 import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
-import com.crystal.mystia_izakaya.utils.UtilStaticMethod;
+import com.crystal.mystia_izakaya.utils.UtilMethod;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
+import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
 
 public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends AbstractContainerScreen<T> {
     final int yellow = Color.YELLOW.getRGB();
@@ -98,7 +98,7 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                     guiGraphics.fill(x, y + 18, x + 20, y + 20, yellow);
                     index = (x - i - 120) / 20 + (y - j - 10) / 20 * 5;
                 }
-                List<Item> items = UtilStaticMethod.getItems(menu.getItems(), menu.list.getMeals(), menu.cookerType);
+                List<Item> items = UtilMethod.getItems(menu.getItems(), menu.list.getMeals(), menu.cookerType);
                 if (!items.isEmpty()) {
                     for (int k = 0; k < items.size(); k++) {
                         guiGraphics.renderItem(items.get(k).getDefaultInstance(), i + 122 + k % 5 * 20, j + 13 + k / 5 * 20);
@@ -114,7 +114,7 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                 ArrayList<String> negativeStrings = cookedMealItem.negativeTag.stream()
                         .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
                         .collect(Collectors.toCollection(ArrayList::new));
-                ArrayList<String> positiveStings = UtilStaticMethod.getPositiveStings(cookMenu, cookedMealItem);
+                ArrayList<String> positiveStings = UtilMethod.getPositiveStings(cookMenu, cookedMealItem);
                 guiGraphics.drawString(font, Component.translatable(cookedMealItem.getDescriptionId()), i + 15, j + 10, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 20, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15, j + 30, black, false);

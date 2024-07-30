@@ -10,7 +10,7 @@ import net.minecraft.world.item.TooltipFlag;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.getRarity;
+import static com.crystal.mystia_izakaya.utils.ServerUtilMethod.getRarity;
 
 public abstract class AbstractFoodItem extends Item {
     int level;

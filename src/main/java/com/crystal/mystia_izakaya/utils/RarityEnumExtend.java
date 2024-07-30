@@ -5,7 +5,7 @@ import net.minecraft.network.chat.Style;
 
 import java.util.function.UnaryOperator;
 
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.prefix;
+import static com.crystal.mystia_izakaya.MystiaIzakaya.prefix;
 
 public class RarityEnumExtend {
     public static Object MystiasRarity(int idx, Class<?> type) {

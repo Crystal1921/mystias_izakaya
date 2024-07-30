@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.prefix;
+import static com.crystal.mystia_izakaya.MystiaIzakaya.prefix;
 
 public class MealRecipeBuilder implements RecipeBuilder {
     private final RecipeCategory category;

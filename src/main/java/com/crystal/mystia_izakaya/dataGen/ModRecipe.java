@@ -26,7 +26,13 @@ public class ModRecipe extends RecipeProvider {
                 .define('a', Items.STICK) // Define what the symbol represents
                 .define('b', Items.WHITE_WOOL)
                 .unlockedBy("mystia_fishing_rod", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.MystiaFishingRod))
-                .save(output); // Add data to builder
+                .save(output);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.RecipeBook.asItem())
+                .requires(Items.BOOK)
+                .requires(Items.WHEAT)
+                .unlockedBy("mystia_recipe_book", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.RecipeBook))
+                .save(output);
 
         CookeMealRecipe((CookedMealItem) ItemRegistry.Oedo_Boat_Feast.get(), output);
         CookeMealRecipe((CookedMealItem) ItemRegistry.Dragonsong_Peach.get(), output);
@@ -192,7 +198,7 @@ public class ModRecipe extends RecipeProvider {
         CookeMealRecipe((CookedMealItem) ItemRegistry.Rice_Ball.get(), output);
     }
 
-    private void CookeMealRecipe(CookedMealItem item, RecipeOutput output ) {
+    private void CookeMealRecipe(CookedMealItem item, RecipeOutput output) {
         MealRecipeBuilder.shapelessMeal(RecipeCategory.FOOD, item)
                 .requires(item.ingredients)
                 .save(output);

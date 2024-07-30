@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.resourceLocation;
+import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
 
 public class ModTagItem extends ItemTagsProvider {
     public static final TagKey<Item> COOKED_MEAL = TagKey.create(Registries.ITEM,resourceLocation("cooked_meal"));

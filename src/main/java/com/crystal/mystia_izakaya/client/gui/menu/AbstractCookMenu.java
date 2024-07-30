@@ -9,7 +9,7 @@ import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
 import com.crystal.mystia_izakaya.utils.MealList;
-import com.crystal.mystia_izakaya.utils.UtilStaticMethod;
+import com.crystal.mystia_izakaya.utils.UtilMethod;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
@@ -26,12 +26,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.crystal.mystia_izakaya.dataGen.ModTagItem.FOOD_INGREDIENTS;
-import static com.crystal.mystia_izakaya.utils.UtilStaticMethod.getPositiveIntList;
+import static com.crystal.mystia_izakaya.utils.UtilMethod.getPositiveIntList;
 
 public abstract class AbstractCookMenu extends AbstractContainerMenu {
     protected static final int INV_SIZE = 36;
@@ -46,19 +45,19 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
     }
 
     public boolean clickMenuButton(@NotNull Player pPlayer, int pId) {
-        List<Item> items = UtilStaticMethod.getItems(this.getItems(), this.list.getMeals(), this.cookerType);
+        List<Item> items = UtilMethod.getItems(this.getItems(), this.list.getMeals(), this.cookerType);
         boolean isCook = pPlayer.level().getBlockState(this.cookerTE.getBlockPos()).getValue(AbstractFurnaceBlock.LIT);
         if (pId < items.size() && !isCook && this.getItems().get(5).isEmpty()) {
             CookedMealItem item = (CookedMealItem) items.get(pId);
-            ArrayList<FoodTagEnum> foodTagEnumArrayList = UtilStaticMethod.getPositiveTags(this, item);
+            ArrayList<FoodTagEnum> foodTagEnumArrayList = UtilMethod.getPositiveTags(this, item);
             //判断黑暗料理
             if (foodTagEnumArrayList.stream().anyMatch(item.negativeTag::contains)) {
                 item = (CookedMealItem) ItemRegistry.Dark_Matter.get().asItem();
             }
-            this.cookerTE.foodTags = UtilStaticMethod.getPositiveTags(this, item);
+            this.cookerTE.foodTags = UtilMethod.getPositiveTags(this, item);
             ItemStack itemStack = new ItemStack(item);
             IntList intList = getPositiveIntList(this, item);
-            byte[] byteArray = UtilStaticMethod.getByteArray(intList);
+            byte[] byteArray = UtilMethod.getByteArray(intList);
             itemStack.set(ComponentRegistry.FOOD_TAG, new FoodTagComponent(intList));
             this.cookerTE.getItems().clear();
             this.cookerTE.setItem(6, itemStack);

@@ -1,61 +1,37 @@
 package com.crystal.mystia_izakaya.utils;
 
-import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
 import com.crystal.mystia_izakaya.client.item.AbstractFoodItem;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
+import com.mojang.blaze3d.vertex.PoseStack;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.stream.Collectors;
 
-public class UtilStaticMethod {
-    public static ResourceLocation resourceLocation(String name) {
-        return ResourceLocation.parse(prefix(name));
-    }
+public class UtilMethod {
+    public static final int positiveInColor = new Color(230, 180, 166).getRGB();
+    public static final int positiveOutColor = new Color(157, 84, 55).getRGB();
 
-    public static String prefix(String string) {
-        return MystiaIzakaya.MODID + ":" + string;
-    }
-
-    public static boolean containsAll(Item[] array1, Item[] array2) {
-        // 使用HashMap记录第一个数组中的每个元素及其出现的次数
-        Map<Item, Integer> itemCountMap = new HashMap<>();
-        for (Item item : array1) {
-            itemCountMap.put(item, itemCountMap.getOrDefault(item, 0) + 1);
-        }
-
-        // 检查第二个数组的每个元素是否在第一个数组中
-        for (Item item : array2) {
-            if (!itemCountMap.containsKey(item) || itemCountMap.get(item) <= 0) {
-                return false; // 若不存在或者次数不够，返回false
-            }
-            // 减少计数
-            itemCountMap.put(item, itemCountMap.get(item) - 1);
-        }
-
-        return true;
-    }
-
-    public static Rarity getRarity(int level) {
-        return switch (level) {
-            case 2 -> Rarity.UNCOMMON;
-            case 3 -> Rarity.RARE;
-            case 4 -> Rarity.EPIC;
-            case 5 -> Rarity.valueOf("MYSTIA_IZAKAYA_LEGEND");
-            default -> Rarity.COMMON;
-        };
-    }
-
+    /**
+     * @param itemStacks 物品列表
+     * @param meals      所有菜肴
+     * @param cookerType 筛选的厨具类型
+     * @return {@code List<Item>} 返回所有符合条件的菜肴
+     */
     public static List<Item> getItems(NonNullList<ItemStack> itemStacks, List<Item> meals, CookerTypeEnum cookerType) {
         List<Item> ingredients = itemStacks
                 .stream()
@@ -67,12 +43,12 @@ public class UtilStaticMethod {
                 .parallel()
                 .map(item -> (CookedMealItem) item)
                 .filter(item -> item.cookerTypeEnum == cookerType)
-                .filter(item -> containsAll(ingredients.toArray(new Item[0]), item.ingredients))
+                .filter(item -> new HashSet<>(ingredients).containsAll(Arrays.stream(item.ingredients).toList()))
                 .collect(Collectors.toList());
     }
 
     public static @NotNull ArrayList<FoodTagEnum> getPositiveTags(AbstractCookMenu cookMenu, CookedMealItem cookedMealItem) {
-        if (cookedMealItem.getDefaultInstance().is(ItemRegistry.Dark_Matter)){
+        if (cookedMealItem.getDefaultInstance().is(ItemRegistry.Dark_Matter)) {
             return new ArrayList<>();
         }
         TagModify tagModify = new TagModify();
@@ -111,12 +87,60 @@ public class UtilStaticMethod {
         return list;
     }
 
-    public static byte @NotNull [] getByteArray(IntList intList) {
+    @SuppressWarnings("deprecation")
+    public static byte[] getByteArray(IntList intList) {
         List<Integer> intArray = intList.stream().toList();
         byte[] byteArray = new byte[intArray.size()];
         for (int i = 0; i < intArray.size(); i++) {
             byteArray[i] = intArray.get(i).byteValue();
         }
         return byteArray;
+    }
+
+    @SuppressWarnings("deprecation")
+    //绘制自定义缩放的字体
+    public static void drawStringSize(GuiGraphics guiGraphics, Font pFont, Component pText, int pX, int pY, int pColor, boolean pDropShadow, float scale, boolean selected) {
+        PoseStack poseStack = guiGraphics.pose();
+        poseStack.pushPose();
+        poseStack.scale(scale, scale, scale);
+        int color = selected ? positiveOutColor : positiveInColor;
+        guiGraphics.fill((int) (pX / scale), (int) ((pY - 1) / scale), (int) ((pX + 26) / scale), (int) ((pY + 9) / scale), color);
+        pFont.drawInBatch(pText.getVisualOrderText(), pX / scale, pY / scale, pColor, pDropShadow, poseStack.last().pose(), guiGraphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
+        poseStack.popPose();
+        guiGraphics.flushIfUnmanaged();
+    }
+
+    public static int getBoxIndex(double pMouseX, double pMouseY, int i, int j, int totalBoxes) {
+        // 假设方框的尺寸和起始位置
+        final int BOX_WIDTH = 26;
+        final int BOX_HEIGHT = 9;
+        final int BOXES_PER_ROW = 4;
+        final int BOX_SPACING_X = 28;
+        final int BOX_SPACING_Y = 12;
+        final int OFFSET_X = 13;
+        final int OFFSET_Y = 23;
+        // 计算相对坐标
+        double relativeX = pMouseX - i - OFFSET_X;
+        double relativeY = pMouseY - j - OFFSET_Y;
+
+        // 检查相对坐标是否在可计算范围内
+        if (relativeX < 0 || relativeY < 0) {
+            return -1;
+        }
+
+        // 计算方框的列和行
+        int col = (int) (relativeX / BOX_SPACING_X);
+        int row = (int) (relativeY / BOX_SPACING_Y);
+
+        // 计算方框索引
+        int index = row * BOXES_PER_ROW + col;
+
+        // 检查是否超出方框总数或相对位置是否在方框范围内
+        if (col >= BOXES_PER_ROW || index >= totalBoxes ||
+                relativeX % BOX_SPACING_X >= BOX_WIDTH || relativeY % BOX_SPACING_Y >= BOX_HEIGHT) {
+            return -1;
+        }
+
+        return index;
     }
 }

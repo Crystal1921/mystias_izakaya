@@ -3,6 +3,7 @@ package com.crystal.mystia_izakaya;
 import com.crystal.mystia_izakaya.event.CommonEvent;
 import com.crystal.mystia_izakaya.network.MystiaNetwork;
 import com.crystal.mystia_izakaya.registry.*;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -35,5 +36,13 @@ public class MystiaIzakaya
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
         modEventBus.addListener(MystiaNetwork::registerPacket);
+    }
+
+    public static String prefix(String string) {
+        return MODID + ":" + string;
+    }
+
+    public static ResourceLocation resourceLocation(String name) {
+        return ResourceLocation.parse(prefix(name));
     }
 }
