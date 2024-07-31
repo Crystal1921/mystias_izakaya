@@ -23,6 +23,9 @@ public class ModLanguageCN extends LanguageProvider {
         this.add("gui.mystia_izakaya.tags", "标签");
         this.add("gui.mystia_izakaya.meal.jei", "夜雀食堂");
         this.add("gui.mystia_izakaya.progress", "进度");
+        this.add("gui.mystia_izakaya.confirm", "确认");
+        this.add("component.mystia_izakaya.required_cooker", "需求的厨具");
+        this.add("component.mystia_izakaya.required_ingredients", "需求的食材");
 
         this.add(ItemRegistry.MystiaFishingRod.get(), "米斯蒂娅的鱼竿");
         this.add(ItemRegistry.RecipeBook.get(), "米斯蒂娅的食谱");

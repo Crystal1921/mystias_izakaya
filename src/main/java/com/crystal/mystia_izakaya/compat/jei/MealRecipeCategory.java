@@ -1,4 +1,4 @@
-package com.crystal.mystia_izakaya.compat;
+package com.crystal.mystia_izakaya.compat.jei;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;

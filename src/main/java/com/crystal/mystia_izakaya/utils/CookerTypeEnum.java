@@ -22,6 +22,9 @@ public enum CookerTypeEnum {
     public Item getItem() {
         return item;
     }
+    public String getName() {
+        return name().toLowerCase();
+    }
     CookerTypeEnum(Item itemStack) {
         this.item = itemStack;
     }

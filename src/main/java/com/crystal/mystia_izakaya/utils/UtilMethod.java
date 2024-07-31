@@ -89,10 +89,9 @@ public class UtilMethod {
 
     @SuppressWarnings("deprecation")
     public static byte[] getByteArray(IntList intList) {
-        List<Integer> intArray = intList.stream().toList();
-        byte[] byteArray = new byte[intArray.size()];
-        for (int i = 0; i < intArray.size(); i++) {
-            byteArray[i] = intArray.get(i).byteValue();
+        byte[] byteArray = new byte[intList.size()];
+        for (int i = 0; i < intList.size(); i++) {
+            byteArray[i] = intList.get(i).byteValue();
         }
         return byteArray;
     }

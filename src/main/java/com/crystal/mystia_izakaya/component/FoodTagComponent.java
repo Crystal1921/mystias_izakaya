@@ -17,7 +17,7 @@ public record FoodTagComponent(IntList intList) {
             .map(IntArrayList::new, ArrayList::new);
     public static final Codec<FoodTagComponent> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             INT_LIST_CODEC.fieldOf("food_tags").forGetter(FoodTagComponent::intList)).apply(instance, instance.stable(FoodTagComponent::new)));
-    public static final StreamCodec<ByteBuf,FoodTagComponent> CODEC_STREAM = StreamCodec.composite(
+    public static final StreamCodec<ByteBuf,FoodTagComponent> STREAM_CODEC = StreamCodec.composite(
             INT_LIST_STREAM_CODEC, FoodTagComponent::intList,
             FoodTagComponent::new
     );

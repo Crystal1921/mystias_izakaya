@@ -1,8 +1,8 @@
 package com.crystal.mystia_izakaya.registry;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
-import com.crystal.mystia_izakaya.component.CookerTypeComponent;
 import com.crystal.mystia_izakaya.component.FoodTagComponent;
+import com.crystal.mystia_izakaya.component.TargetItemComponent;
 import net.minecraft.core.component.DataComponentType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -13,12 +13,13 @@ public class ComponentRegistry {
             "food_tags",
             builder -> builder
                     .persistent(FoodTagComponent.CODEC)
-                    .networkSynchronized(FoodTagComponent.CODEC_STREAM)
+                    .networkSynchronized(FoodTagComponent.STREAM_CODEC)
     );
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<CookerTypeComponent>> COOKER = REGISTRAR.registerComponentType(
-            "cooker_type",
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<TargetItemComponent>> TARGET_ITEM = REGISTRAR.registerComponentType(
+            "target_item",
             builder -> builder
-                    .persistent(CookerTypeComponent.CODEC)
-                    .networkSynchronized(CookerTypeComponent.CODEC_STREAM)
+                    .persistent(TargetItemComponent.CODEC)
+                    .networkSynchronized(TargetItemComponent.STREAM_CODEC)
     );
 }

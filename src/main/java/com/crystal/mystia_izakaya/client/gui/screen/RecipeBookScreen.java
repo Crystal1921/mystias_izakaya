@@ -3,23 +3,30 @@ package com.crystal.mystia_izakaya.client.gui.screen;
 import com.crystal.mystia_izakaya.client.gui.widget.MealEntry;
 import com.crystal.mystia_izakaya.client.gui.widget.MealListWidget;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
-import com.crystal.mystia_izakaya.component.CookerTypeComponent;
 import com.crystal.mystia_izakaya.component.FoodTagComponent;
+import com.crystal.mystia_izakaya.component.TargetItemComponent;
+import com.crystal.mystia_izakaya.network.TagsPacket;
+import com.crystal.mystia_izakaya.network.TargetIndexPacket;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
+import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
 import com.crystal.mystia_izakaya.utils.MealList;
 import com.crystal.mystia_izakaya.utils.UtilMethod;
 import com.mojang.blaze3d.platform.InputConstants;
+import it.unimi.dsi.fastutil.ints.IntArrayList;
+import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -32,6 +39,7 @@ import java.util.stream.Collectors;
 
 import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
 import static com.crystal.mystia_izakaya.utils.UtilMethod.drawStringSize;
+import static com.crystal.mystia_izakaya.utils.UtilMethod.getByteArray;
 
 public class RecipeBookScreen extends Screen {
     final int black = Color.BLACK.getRGB();
@@ -42,7 +50,6 @@ public class RecipeBookScreen extends Screen {
     List<FoodTagEnum> foodTagEnums = List.of(FoodTagEnum.values());
     ArrayList<FoodTagEnum> foodTagSelected = new ArrayList<>();
     List<CookerTypeEnum> cookerTypeEnums = List.of(CookerTypeEnum.values());
-    CookerTypeEnum cookerSelected;
     List<CookedMealItem> cookedMealItems = MealList.getInstance().getCookedMeals();
     final List<CookedMealItem> unsortedCookedMealItems = cookedMealItems;
     MealEntry selected;
@@ -60,10 +67,6 @@ public class RecipeBookScreen extends Screen {
         } else {
             foodTagSelected.add(FoodTagEnum.Empty);
         }
-        CookerTypeComponent cookerTypeComponent = recipeBookItem.get(ComponentRegistry.COOKER);
-        if (cookerTypeComponent != null) {
-            cookerSelected = cookerTypeEnums.get(cookerTypeComponent.cookerType());
-        }
         this.imageWidth = 230;
         this.imageHeight = 219;
     }
@@ -79,6 +82,11 @@ public class RecipeBookScreen extends Screen {
         this.mealListWidget = new MealListWidget(this, listWidth, j + 87, j + 108);
         this.mealListWidget.setX(i + 128);
         this.addRenderableWidget(mealListWidget);
+        this.addRenderableWidget(Button.builder(Component.translatable("gui.mystia_izakaya.confirm"), (button) ->
+                this.importEvent()).bounds(i + 50, j + 175, 40, 20).build());
+        reloadItems();
+        this.mealListWidget.setScrollAmount(0);
+        mealListWidget.refreshList();
     }
 
     public <T extends ObjectSelectionList.Entry<T>> void buildImageList(Consumer<T> modListViewConsumer, Function<CookedMealItem, T> newEntry) {
@@ -98,7 +106,6 @@ public class RecipeBookScreen extends Screen {
         }
 
         lastFilterText = search.getValue();
-        this.mealListWidget.setScrollAmount(0);
     }
 
     public void setSelected(MealEntry entry) {
@@ -114,6 +121,7 @@ public class RecipeBookScreen extends Screen {
         super.tick();
         if (!search.getValue().equals(lastFilterText)) {
             reloadItems();
+            this.mealListWidget.setScrollAmount(0);
             mealListWidget.refreshList();
         }
     }
@@ -125,6 +133,21 @@ public class RecipeBookScreen extends Screen {
 
     public Font getFontRenderer() {
         return font;
+    }
+
+    public void importEvent() {
+        if (selected != null) {
+            CookedMealItem cookedMealItem = selected.getCookedMealItem();
+            if (Minecraft.getInstance().player != null) {
+                ItemStack itemStack = Minecraft.getInstance().player.getMainHandItem();
+                if (itemStack.is(ItemRegistry.RecipeBook)) {
+                    int index = unsortedCookedMealItems.indexOf(cookedMealItem);
+                    itemStack.set(ComponentRegistry.TARGET_ITEM, new TargetItemComponent(index));
+                    PacketDistributor.sendToServer(new TargetIndexPacket(index));
+                    Minecraft.getInstance().setScreen(null);
+                }
+            }
+        }
     }
 
     @Override
@@ -163,11 +186,11 @@ public class RecipeBookScreen extends Screen {
         super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
-        renderInfo(guiGraphics, pMouseX, pMouseY, pPartialTick, i, j);
-        renderTags(guiGraphics, pMouseX, pMouseY, pPartialTick, i, j);
+        renderInfo(guiGraphics, i, j);
+        renderTags(guiGraphics, i, j);
     }
 
-    private void renderInfo(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick, int i, int j) {
+    private void renderInfo(@NotNull GuiGraphics guiGraphics, int i, int j) {
         if (selected != null) {
             int deltaX = 114;
             CookedMealItem cookedMealItem = selected.getCookedMealItem();
@@ -178,7 +201,6 @@ public class RecipeBookScreen extends Screen {
             List<String> positiveStings = cookedMealItem.positiveTag.stream()
                     .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
                     .collect(Collectors.toCollection(ArrayList::new));
-            ;
             int stringLength = 0;
             int stringHeight = 0;
             for (int k = 0; k < positiveStings.size(); k++) {
@@ -196,7 +218,7 @@ public class RecipeBookScreen extends Screen {
         }
     }
 
-    private void renderTags(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick, int i, int j) {
+    private void renderTags(@NotNull GuiGraphics guiGraphics, int i, int j) {
         for (int k = 0; k < foodTagEnums.size(); k++) {
             int stringX = i + k % 4 * 28 + 13;
             int stringY = j + k / 4 * 12 + 24;
@@ -210,6 +232,7 @@ public class RecipeBookScreen extends Screen {
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
         int index = UtilMethod.getBoxIndex(pMouseX, pMouseY, i, j, foodTagEnums.size());
+        //处理Tag点击事件
         if (index != -1) {
             if (index == 0) {
                 if (!foodTagSelected.contains(foodTagEnums.get(index))) {
@@ -221,9 +244,19 @@ public class RecipeBookScreen extends Screen {
                 foodTagSelected.remove(FoodTagEnum.Empty);
                 if (foodTagSelected.contains(foodTagEnum)) {
                     foodTagSelected.remove(foodTagEnum);
+                    if (foodTagSelected.isEmpty()) foodTagSelected.add(FoodTagEnum.Empty);
                 } else {
                     foodTagSelected.add(foodTagEnum);
                 }
+            }
+        }
+        if (Minecraft.getInstance().player != null) {
+            ItemStack itemStack = Minecraft.getInstance().player.getMainHandItem();
+            if (itemStack.is(ItemRegistry.RecipeBook)) {
+                IntList integerList = new IntArrayList();
+                foodTagSelected.forEach(foodTagEnum -> integerList.add(foodTagEnum.ordinal()));
+                itemStack.set(ComponentRegistry.FOOD_TAG, new FoodTagComponent(integerList));
+                PacketDistributor.sendToServer(new TagsPacket(getByteArray(integerList)));
             }
         }
         reloadItems();
