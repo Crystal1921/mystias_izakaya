@@ -46,7 +46,7 @@ public abstract class AbstractHorizontalBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING,LIT);
+        pBuilder.add(FACING, LIT);
     }
 
     @Override

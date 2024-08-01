@@ -1,8 +1,10 @@
 package com.crystal.mystia_izakaya.client.blockEntity;
 
+import com.crystal.mystia_izakaya.client.block.AbstractHorizontalBlock;
 import com.crystal.mystia_izakaya.component.FoodTagComponent;
 import com.crystal.mystia_izakaya.network.MealInfoPacket;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
+import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
 import com.crystal.mystia_izakaya.utils.MealList;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -15,7 +17,6 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,6 +28,7 @@ import java.util.stream.Collectors;
 
 public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity {
     private final FoodTagEnum[] foodTagEnums = MealList.getInstance().getFood();
+    public CookerTypeEnum cookerTypeEnum;
     public int cookTime = 0;
     public boolean isCook = false;
     public boolean lit = false;
@@ -46,10 +48,12 @@ public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity 
             }
             ItemStack stack = pBlockEntity.items.get(6);
             IntList list = new IntArrayList();
-            pBlockEntity.foodTags.forEach(foodTagEnum -> list.add(foodTagEnum.ordinal()));
-            stack.set(ComponentRegistry.FOOD_TAG, new FoodTagComponent(list));
+            if (!pBlockEntity.foodTags.isEmpty()) {
+                pBlockEntity.foodTags.forEach(foodTagEnum -> list.add(foodTagEnum.ordinal()));
+                stack.set(ComponentRegistry.FOOD_TAG, new FoodTagComponent(list));
+            }
             pBlockEntity.setItem(6, stack);
-            pState = pState.setValue(AbstractFurnaceBlock.LIT, true);
+            pState = pState.setValue(AbstractHorizontalBlock.LIT, true);
             pLevel.setBlock(pPos, pState, 3);
         }
         if (pBlockEntity.isCook) {
@@ -57,12 +61,16 @@ public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity 
             if (pBlockEntity.cookTime <= 0) {
                 pBlockEntity.isCook = false;
                 pBlockEntity.foodTags = new ArrayList<>();
-                pState = pState.setValue(AbstractFurnaceBlock.LIT, false);
+                pState = pState.setValue(AbstractHorizontalBlock.LIT, false);
                 pLevel.setBlock(pPos, pState, 3);
                 pBlockEntity.items.set(5, pBlockEntity.getItem(6));
                 pBlockEntity.setItem(6, ItemStack.EMPTY);
                 setChanged(pLevel, pPos, pState);
-                PacketDistributor.sendToAllPlayers(new MealInfoPacket(0, pBlockEntity.items.stream().map(ItemStack::getItem).collect(Collectors.toCollection(ArrayList::new)), pPos, new byte[]{0}));
+                PacketDistributor.sendToAllPlayers(
+                        new MealInfoPacket(0,
+                                pBlockEntity.items.stream().map(ItemStack::getItem).collect(Collectors.toCollection(ArrayList::new)),
+                                pPos,
+                                new byte[]{0}));
             }
         }
     }
@@ -111,8 +119,10 @@ public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity 
     }
 
     public void setFoodTags(byte[] tags) {
-        for (byte tag : tags) {
-            this.foodTags.add(foodTagEnums[tag]);
+        if (tags != null) {
+            for (byte tag : tags) {
+                this.foodTags.add(foodTagEnums[tag]);
+            }
         }
     }
 }

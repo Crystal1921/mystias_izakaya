@@ -11,6 +11,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -47,6 +48,12 @@ public class UtilMethod {
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param cookMenu 菜肴所在的容器
+     * @param cookedMealItem 菜肴
+     * @return 返回正确的菜肴标签
+     */
     public static @NotNull ArrayList<FoodTagEnum> getPositiveTags(AbstractCookMenu cookMenu, CookedMealItem cookedMealItem) {
         if (cookedMealItem.getDefaultInstance().is(ItemRegistry.Dark_Matter)) {
             return new ArrayList<>();
@@ -96,8 +103,11 @@ public class UtilMethod {
         return byteArray;
     }
 
-    @SuppressWarnings("deprecation")
-    //绘制自定义缩放的字体
+    /**
+     * @param pDropShadow 是否有阴影
+     * @param scale 字体大小
+     * @param selected 背景色是否加深
+     */
     public static void drawStringSize(GuiGraphics guiGraphics, Font pFont, Component pText, int pX, int pY, int pColor, boolean pDropShadow, float scale, boolean selected) {
         PoseStack poseStack = guiGraphics.pose();
         poseStack.pushPose();
@@ -109,6 +119,12 @@ public class UtilMethod {
         guiGraphics.flushIfUnmanaged();
     }
 
+    /**
+     *
+     * @param pMouseX 鼠标位置 X
+     * @param pMouseY 鼠标位置 Y
+     * @return 返回鼠标位置在标签列表中的第几个
+     */
     public static int getBoxIndex(double pMouseX, double pMouseY, int i, int j, int totalBoxes) {
         // 假设方框的尺寸和起始位置
         final int BOX_WIDTH = 26;
@@ -141,5 +157,18 @@ public class UtilMethod {
         }
 
         return index;
+    }
+
+    /**
+     * @param inventory 玩家背包
+     * @param cookedMealItem 目标菜肴
+     * @return 返回玩家身上是否有所有的菜肴原材料
+     */
+    public static boolean isIngredientsMatch(Inventory inventory, CookedMealItem cookedMealItem){
+        for (int i = 0; i < cookedMealItem.ingredients.length; i++) {
+            Item item = cookedMealItem.ingredients[i];
+            if (!inventory.contains(item.getDefaultInstance())) return false;
+        }
+        return true;
     }
 }
