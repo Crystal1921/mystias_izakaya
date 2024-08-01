@@ -35,4 +35,12 @@ public abstract class AbstractFoodItem extends Item {
     public List<FoodTagEnum> getTagEnums() {
         return Arrays.stream(tagEnums).toList();
     }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getLevel() {
+        return level;
+    }
 }

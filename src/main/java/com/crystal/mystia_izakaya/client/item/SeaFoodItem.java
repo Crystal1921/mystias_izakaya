@@ -15,6 +15,6 @@ public class SeaFoodItem extends AbstractFoodItem {
                         .effect(new MobEffectInstance(MobEffects.HUNGER, 300, 2), 1.0F)
                         .alwaysEdible()
                         .build())
-                , level, price, tagEnums,name);
-    }
+                , level, price, tagEnums,name);}
+
 }
