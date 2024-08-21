@@ -23,6 +23,6 @@ public class SteamerTE extends AbstractCookerTE {
 
     @Override
     protected @NotNull AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return new SteamerMenu(pContainerId, pInventory, this, this);
+        return new SteamerMenu(pContainerId, pInventory, this, this, this.dataAccess);
     }
 }

@@ -14,9 +14,7 @@ import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
@@ -37,11 +35,17 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
     public final MealList list = MealList.getInstance();
     public final AbstractCookerTE cookerTE;
     protected final int INV_START = 6;
+    private final ContainerData data;
     public CookerTypeEnum cookerType = CookerTypeEnum.EMPTY;
 
     protected AbstractCookMenu(@Nullable MenuType<?> pMenuType, int pContainerId, AbstractCookerTE pCookerTE) {
+        this(pMenuType, pContainerId, pCookerTE, new SimpleContainerData(1));
+    }
+
+    protected AbstractCookMenu(@Nullable MenuType<?> pMenuType, int pContainerId, AbstractCookerTE pCookerTE, ContainerData data) {
         super(pMenuType, pContainerId);
         this.cookerTE = pCookerTE;
+        this.data = data;
     }
 
     public boolean clickMenuButton(@NotNull Player pPlayer, int pId) {
@@ -61,6 +65,7 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
             itemStack.set(ComponentRegistry.FOOD_TAG, new FoodTagComponent(intList));
             this.cookerTE.getItems().clear();
             this.cookerTE.setItem(6, itemStack);
+            this.cookerTE.cookTotal = (int) (item.cookingTime * 20);
             PacketDistributor.sendToServer(new MealInfoPacket(
                     (int) item.cookingTime * 20,
                     cookerTE.getItems().stream().map(ItemStack::getItem).collect(Collectors.toCollection(ArrayList::new)),
@@ -138,5 +143,13 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
 
     public boolean isFull() {
         return this.getItems().stream().limit(5).filter(itemStack -> !itemStack.isEmpty()).toList().size() == 5;
+    }
+
+    public int getCookTime() {
+        return this.data.get(0);
+    }
+
+    public int getTotalTime() {
+        return this.data.get(1);
     }
 }

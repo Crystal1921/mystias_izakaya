@@ -23,6 +23,6 @@ public class CuttingBoardTE extends AbstractCookerTE {
 
     @Override
     protected @NotNull AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return new CuttingBoardMenu(pContainerId, pInventory, this,this);
+        return new CuttingBoardMenu(pContainerId, pInventory, this,this,this.dataAccess);
     }
 }

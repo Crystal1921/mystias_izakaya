@@ -9,6 +9,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
+import org.jetbrains.annotations.NotNull;
 
 public class CookerSerializer implements RecipeSerializer<MealRecipe> {
     private static final MapCodec<MealRecipe> CODEC = RecordCodecBuilder.mapCodec(
@@ -20,8 +21,8 @@ public class CookerSerializer implements RecipeSerializer<MealRecipe> {
                                     .listOf()
                                     .fieldOf("ingredients")
                                     .flatXmap(
-                                            p_301021_ -> {
-                                                Ingredient[] aingredient = p_301021_.toArray(Ingredient[]::new); // Neo skip the empty check and immediately create the array.
+                                            ingredientList -> {
+                                                Ingredient[] aingredient = ingredientList.toArray(Ingredient[]::new); // Neo skip the empty check and immediately create the array.
                                                 if (aingredient.length == 0) {
                                                     return DataResult.error(() -> "No ingredients for shapeless recipe");
                                                 } else {
@@ -42,12 +43,12 @@ public class CookerSerializer implements RecipeSerializer<MealRecipe> {
 
 
     @Override
-    public MapCodec<MealRecipe> codec() {
+    public @NotNull MapCodec<MealRecipe> codec() {
         return CODEC;
     }
 
     @Override
-    public StreamCodec<RegistryFriendlyByteBuf, MealRecipe> streamCodec() {
+    public @NotNull StreamCodec<RegistryFriendlyByteBuf, MealRecipe> streamCodec() {
         return STREAM_CODEC;
     }
 
@@ -56,7 +57,7 @@ public class CookerSerializer implements RecipeSerializer<MealRecipe> {
         CraftingBookCategory craftingbookcategory = friendlyByteBuf.readEnum(CraftingBookCategory.class);
         int i = friendlyByteBuf.readVarInt();
         NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i, Ingredient.EMPTY);
-        nonnulllist.replaceAll(p_319735_ -> Ingredient.CONTENTS_STREAM_CODEC.decode(friendlyByteBuf));
+        nonnulllist.replaceAll(ingredient -> Ingredient.CONTENTS_STREAM_CODEC.decode(friendlyByteBuf));
         ItemStack itemstack = ItemStack.STREAM_CODEC.decode(friendlyByteBuf);
         return new MealRecipe(s, craftingbookcategory, itemstack, nonnulllist);
     }

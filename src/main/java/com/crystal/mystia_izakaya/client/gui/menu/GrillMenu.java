@@ -9,22 +9,25 @@ import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.SimpleContainerData;
 import org.jetbrains.annotations.NotNull;
 
 public class GrillMenu extends AbstractCookMenu {
     private final ContainerLevelAccess access;
 
     public GrillMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
-        this(pContainerId, inventory, new SimpleContainer(6), (GrillTE) inventory.player.level().getBlockEntity(buf.readBlockPos()));
+        this(pContainerId, inventory, new SimpleContainer(6), (GrillTE) inventory.player.level().getBlockEntity(buf.readBlockPos()), new SimpleContainerData(2));
     }
 
-    public GrillMenu(int pContainerId, Inventory inventory, Container container, GrillTE blockEntity) {
-        super(MenuRegistry.Grill_Menu.get(), pContainerId, blockEntity);
+    public GrillMenu(int pContainerId, Inventory inventory, Container container, GrillTE blockEntity, ContainerData data) {
+        super(MenuRegistry.Grill_Menu.get(), pContainerId, blockEntity,data);
         this.access = ContainerLevelAccess.NULL;
         this.cookerType = CookerTypeEnum.Grill;
         addItems(container);
         addPlayerInventory(inventory);
+        addDataSlots(data);
     }
 
     @Override

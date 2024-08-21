@@ -4,6 +4,7 @@ import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
 import com.crystal.mystia_izakaya.client.gui.screen.RecipeBookScreen;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
+import com.crystal.mystia_izakaya.network.CookInfoPacket;
 import com.crystal.mystia_izakaya.network.MealInfoPacket;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
@@ -81,8 +82,10 @@ public class ClickEvent {
                     if (player.isCrouching()) {
                         //消耗材料后直接开始烹饪
                         cookerTE.cookTime = (int) (cookedMealItem.cookingTime * 20);
+                        cookerTE.cookTotal = (int) (cookedMealItem.cookingTime * 20);
                         cookerTE.setItem(6, cookedMealItem.getDefaultInstance());
                         cookerTE.lit = true;
+                        PacketDistributor.sendToAllPlayers(new CookInfoPacket(cookerTE.getBlockPos(), (int) (cookedMealItem.cookingTime * 20), (int) (cookedMealItem.cookingTime * 20)));
                         PacketDistributor.sendToAllPlayers(
                                 new MealInfoPacket((int) (cookedMealItem.cookingTime * 20),
                                         cookerTE.getItems().stream().map(ItemStack::getItem).collect(Collectors.toCollection(ArrayList::new)),
@@ -97,6 +100,7 @@ public class ClickEvent {
                     }
                 }
             }
+            event.setCanceled(true);
         }
     }
 }

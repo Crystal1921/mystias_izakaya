@@ -2,6 +2,7 @@ package com.crystal.mystia_izakaya.client.blockEntity;
 
 import com.crystal.mystia_izakaya.client.block.AbstractHorizontalBlock;
 import com.crystal.mystia_izakaya.component.FoodTagComponent;
+import com.crystal.mystia_izakaya.network.CookInfoPacket;
 import com.crystal.mystia_izakaya.network.MealInfoPacket;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
@@ -14,6 +15,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -27,9 +29,34 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity {
+    public static final int DATA_COUNT = 2;
+    protected final ContainerData dataAccess = new ContainerData() {
+        @Override
+        public int get(int pIndex) {
+            return switch (pIndex) {
+                case 0 -> AbstractCookerTE.this.cookTime;
+                case 1 -> AbstractCookerTE.this.cookTotal;
+                default -> 0;
+            };
+        }
+
+        @Override
+        public void set(int pIndex, int pValue) {
+            switch (pIndex) {
+                case 0 -> AbstractCookerTE.this.cookTime = pValue;
+                case 1 -> AbstractCookerTE.this.cookTotal = pValue;
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return DATA_COUNT;
+        }
+    };
     private final FoodTagEnum[] foodTagEnums = MealList.getInstance().getFood();
     public CookerTypeEnum cookerTypeEnum;
     public int cookTime = 0;
+    public int cookTotal = 0;
     public boolean isCook = false;
     public boolean lit = false;
     public ArrayList<FoodTagEnum> foodTags = new ArrayList<>();
@@ -43,6 +70,7 @@ public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity 
         if (pBlockEntity.lit) {
             pBlockEntity.lit = false;
             pBlockEntity.isCook = true;
+            pBlockEntity.cookTotal = pBlockEntity.cookTime;
             for (int i = 0; i < 5; i++) {
                 pBlockEntity.items.set(i, ItemStack.EMPTY);
             }
@@ -58,6 +86,9 @@ public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity 
         }
         if (pBlockEntity.isCook) {
             pBlockEntity.cookTime--;
+            if (pBlockEntity.cookTime % 5 == 0) {
+                PacketDistributor.sendToAllPlayers(new CookInfoPacket(pBlockEntity.getBlockPos(), pBlockEntity.cookTime, 0));
+            }
             if (pBlockEntity.cookTime <= 0) {
                 pBlockEntity.isCook = false;
                 pBlockEntity.foodTags = new ArrayList<>();
@@ -79,21 +110,19 @@ public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity 
     protected void loadAdditional(@NotNull CompoundTag pTag, HolderLookup.@NotNull Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        if (!this.tryLoadLootTable(pTag)) {
-            ContainerHelper.loadAllItems(pTag, this.items, pRegistries);
-            pTag.putInt("CookTime", this.cookTime);
-            pTag.putBoolean("IsCook", this.isCook);
-        }
+        ContainerHelper.loadAllItems(pTag, this.items, pRegistries);
+        this.cookTime = getPersistentData().getInt("CookTime");
+        this.cookTotal = getPersistentData().getInt("CookTotal");
+        this.isCook = getPersistentData().getBoolean("IsCook");
     }
 
     @Override
     protected void saveAdditional(@NotNull CompoundTag pTag, HolderLookup.@NotNull Provider pRegistries) {
         super.saveAdditional(pTag, pRegistries);
-        if (!this.trySaveLootTable(pTag)) {
-            ContainerHelper.saveAllItems(pTag, this.items, pRegistries);
-            pTag.putInt("CookTime", this.cookTime);
-            pTag.putBoolean("IsCook", this.isCook);
-        }
+        ContainerHelper.saveAllItems(pTag, this.items, pRegistries);
+        getPersistentData().putInt("CookTime", this.cookTime);
+        getPersistentData().putInt("CookTotal", this.cookTotal);
+        getPersistentData().putBoolean("IsCook", this.isCook);
     }
 
     @Override

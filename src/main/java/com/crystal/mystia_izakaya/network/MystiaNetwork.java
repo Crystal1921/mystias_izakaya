@@ -11,5 +11,6 @@ public class MystiaNetwork {
         registrar.playBidirectional(MealInfoPacket.TYPE,MealInfoPacket.STREAM_CODEC,MealInfoPacket::handle);
         registrar.playBidirectional(TagsPacket.TYPE, TagsPacket.STREAM_CODEC, TagsPacket::handle);
         registrar.playBidirectional(TargetIndexPacket.TYPE, TargetIndexPacket.STREAM_CODEC, TargetIndexPacket::handle);
+        registrar.playToClient(CookInfoPacket.TYPE, CookInfoPacket.STREAM_CODEC, CookInfoPacket::handle);
     }
 }

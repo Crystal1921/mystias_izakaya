@@ -59,10 +59,11 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
 
 
     @Override
-    protected void renderBg(@NotNull GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
+    protected void renderBg(@NotNull GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
-        pGuiGraphics.blit(BACKGROUND, i, j, 0, 0, this.imageWidth, this.imageHeight);
+        guiGraphics.blit(BACKGROUND, i, j, 0, 0, this.imageWidth, this.imageHeight);
+        renderCookProgress(guiGraphics, pMouseX, pMouseY, i, j);
     }
 
     @Override
@@ -72,12 +73,17 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
         renderMealItem(guiGraphics, pMouseX, pMouseY, i, j);
-        renderCookProgress(guiGraphics, pMouseX, pMouseY, i, j);
     }
 
     protected void renderCookProgress(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int i, int j) {
         if (this.menu instanceof AbstractCookMenu cookMenu) {
-
+            float cookTime = (float) cookMenu.getCookTime() / 20;
+            float totalTime = (float) cookMenu.getTotalTime() / 20;
+            float process = (totalTime - cookTime);
+            if (cookTime > 0) {
+                guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.progress").append(" : " + String.format("%.2f / %.2f s", process, totalTime)), i + 120, j + 10, black, false);
+                guiGraphics.drawString(font, Component.literal((int) ((1 - cookTime / totalTime) * 100) + " %"), i + 120, j + 25, black, false);
+            }
         }
     }
 
