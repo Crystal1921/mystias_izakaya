@@ -6,7 +6,6 @@ license="${mod_license}"
 
 issueTrackerURL="https://github.com/Crystal1921/mystias_izakaya/issues" #optional
 
-# A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 
 enumExtensions="META-INF/enumextensions.json"
@@ -17,13 +16,9 @@ version="${mod_version}" #mandatory
 
 displayName="${mod_name}" #mandatory
 
-# A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
-
 # A URL for the "homepage" for this mod, displayed in the mod UI
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
 
-# A file name (in the root of the mod JAR) containing a logo for display
 logoFile="logo.png" #optional
 
 credits="Dichroic Purpilion - Re零同人社, ZUN" #optional
@@ -48,17 +43,9 @@ ordering="NONE"
 # Side this dependency is applied on - BOTH, CLIENT, or SERVER
 side="BOTH"
 
-# Here's another dependency
 [[dependencies.${mod_id}]]
 modId="minecraft"
 type="required"
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
 versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
-
-# Features are specific properties of the game environment, that you may want to declare you require. This example declares
-# that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
-# stop your mod loading on the server for example.
-#[features.${mod_id}]
-#openGLVersion="[3.2,)"
