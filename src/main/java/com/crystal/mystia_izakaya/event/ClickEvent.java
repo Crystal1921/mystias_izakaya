@@ -2,16 +2,14 @@ package com.crystal.mystia_izakaya.event;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
-import com.crystal.mystia_izakaya.client.gui.screen.RecipeBookScreen;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.network.CookInfoPacket;
 import com.crystal.mystia_izakaya.network.MealInfoPacket;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import com.crystal.mystia_izakaya.utils.MealList;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -33,22 +31,6 @@ import static com.crystal.mystia_izakaya.utils.UtilMethod.isIngredientsMatch;
 @EventBusSubscriber(modid = MystiaIzakaya.MODID, value = Dist.CLIENT)
 public class ClickEvent {
     @SubscribeEvent
-    public static void onClickEvent(PlayerInteractEvent.RightClickItem event) {
-        if (event.getLevel().isClientSide()) {
-            Player player = event.getEntity();
-            ItemStack stack = player.getItemInHand(event.getHand());
-            if (stack.is(ItemRegistry.RecipeBook)) {
-                if (player.isCrouching()) {
-                    player.setItemInHand(InteractionHand.MAIN_HAND, ItemRegistry.RecipeBook.get().getDefaultInstance());
-                } else {
-                    Minecraft.getInstance().setScreen(new RecipeBookScreen(stack));
-                }
-            }
-        }
-    }
-
-
-    @SubscribeEvent
     public static void onRightClickEvent(PlayerInteractEvent.RightClickBlock event) {
         BlockPos blockPos = event.getPos();
         Level level = event.getLevel();
@@ -56,6 +38,10 @@ public class ClickEvent {
         Player player = event.getEntity();
         Inventory inventory = player.getInventory();
         ItemStack stack = player.getMainHandItem();
+        if (level.isClientSide && player.level().getBlockEntity(blockPos) instanceof AbstractCookerTE) {
+            event.setCancellationResult(InteractionResult.CONSUME);
+            event.setCanceled(true);
+        }
         if (!level.isClientSide()
                 && player.level().getBlockEntity(blockPos) instanceof AbstractCookerTE cookerTE
                 && stack.is(ItemRegistry.RecipeBook)
@@ -98,9 +84,10 @@ public class ClickEvent {
                             cookerTE.setItem(i, item.getDefaultInstance());
                         }
                     }
+                    event.setCancellationResult(InteractionResult.CONSUME);
+                    event.setCanceled(true);
                 }
             }
-            event.setCanceled(true);
         }
     }
 }
