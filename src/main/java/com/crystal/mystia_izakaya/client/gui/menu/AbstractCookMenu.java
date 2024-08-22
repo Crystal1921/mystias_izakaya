@@ -25,7 +25,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static com.crystal.mystia_izakaya.dataGen.ModTagItem.FOOD_INGREDIENTS;
 import static com.crystal.mystia_izakaya.utils.UtilMethod.getPositiveIntList;
@@ -37,10 +36,6 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
     protected final int INV_START = 6;
     private final ContainerData data;
     public CookerTypeEnum cookerType = CookerTypeEnum.EMPTY;
-
-    protected AbstractCookMenu(@Nullable MenuType<?> pMenuType, int pContainerId, AbstractCookerTE pCookerTE) {
-        this(pMenuType, pContainerId, pCookerTE, new SimpleContainerData(1));
-    }
 
     protected AbstractCookMenu(@Nullable MenuType<?> pMenuType, int pContainerId, AbstractCookerTE pCookerTE, ContainerData data) {
         super(pMenuType, pContainerId);
@@ -137,8 +132,8 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
         return itemStack;
     }
 
-    public Stream<ItemStack> getIngredientStream() {
-        return this.getItems().stream().limit(5);
+    public ArrayList<Item> getIngredientList() {
+        return this.getItems().stream().limit(5).filter(itemStack -> !itemStack.isEmpty()).map(ItemStack::getItem).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public boolean isFull() {

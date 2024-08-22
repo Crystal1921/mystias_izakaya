@@ -17,9 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -61,15 +59,22 @@ public class UtilMethod {
         TagModify tagModify = new TagModify();
         tagModify.setFull(cookMenu.isFull());
         ArrayList<FoodTagEnum> positiveTags = new ArrayList<>(cookedMealItem.positiveTag);
-        List<ItemStack> ingredients = Arrays
-                .stream(cookedMealItem.ingredients)
-                .map(Item::getDefaultInstance)
-                .toList();
-        //将多余食材的标签加入展示列表，并标记冲突
-        cookMenu.getIngredientStream()
-                .filter(itemStack -> !itemStack.isEmpty())
-                .filter(itemStack -> !ingredients.contains(itemStack))
-                .map(itemStack -> ((AbstractFoodItem) itemStack.getItem()).getTagEnums())
+        ArrayList<Item> ingredients = new ArrayList<>(Arrays.stream(cookedMealItem.ingredients).toList());
+
+        // 将多余食材的标签加入展示列表，并标记冲突
+        ArrayList<Item> menuItems = new ArrayList<>(cookMenu.getIngredientList()); // 确保menuItems是可修改的
+
+        Iterator<Item> iterator = menuItems.iterator();
+        while (iterator.hasNext()) {
+            Item item = iterator.next();
+            if (ingredients.contains(item)) {
+                ingredients.remove(item);
+                iterator.remove();
+            }
+        }
+
+        menuItems.stream()
+                .map(item -> ((AbstractFoodItem) item).getTagEnums())
                 .flatMap(List::stream)
                 .forEach(foodTagEnum -> {
                     positiveTags.add(foodTagEnum);
