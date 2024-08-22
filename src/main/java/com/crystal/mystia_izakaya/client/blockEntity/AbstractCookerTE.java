@@ -118,11 +118,11 @@ public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity 
 
     @Override
     protected void saveAdditional(@NotNull CompoundTag pTag, HolderLookup.@NotNull Provider pRegistries) {
-        super.saveAdditional(pTag, pRegistries);
         ContainerHelper.saveAllItems(pTag, this.items, pRegistries);
         getPersistentData().putInt("CookTime", this.cookTime);
         getPersistentData().putInt("CookTotal", this.cookTotal);
         getPersistentData().putBoolean("IsCook", this.isCook);
+        super.saveAdditional(pTag, pRegistries);
     }
 
     @Override
