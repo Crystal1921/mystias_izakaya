@@ -11,7 +11,6 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -162,18 +161,5 @@ public class UtilMethod {
         }
 
         return index;
-    }
-
-    /**
-     * @param inventory 玩家背包
-     * @param cookedMealItem 目标菜肴
-     * @return 返回玩家身上是否有所有的菜肴原材料
-     */
-    public static boolean isIngredientsMatch(Inventory inventory, CookedMealItem cookedMealItem){
-        for (int i = 0; i < cookedMealItem.ingredients.length; i++) {
-            Item item = cookedMealItem.ingredients[i];
-            if (!inventory.contains(item.getDefaultInstance())) return false;
-        }
-        return true;
     }
 }

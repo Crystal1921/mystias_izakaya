@@ -1,24 +1,19 @@
 package com.crystal.mystia_izakaya.client.item;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
-import com.crystal.mystia_izakaya.client.gui.screen.RecipeBookScreen;
 import com.crystal.mystia_izakaya.client.item.tooltip.RecordMealTooltip;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
-import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
 import com.crystal.mystia_izakaya.utils.MealList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -29,19 +24,6 @@ import java.util.Optional;
 public class RecipeBookItem extends Item {
     public RecipeBookItem() {
         super(new Item.Properties().rarity(Rarity.COMMON).stacksTo(1));
-    }
-
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-        ItemStack stack = pPlayer.getItemInHand(pUsedHand);
-        if (stack.is(ItemRegistry.RecipeBook)) {
-            if (pPlayer.isCrouching()) {
-                pPlayer.setItemInHand(InteractionHand.MAIN_HAND, ItemRegistry.RecipeBook.get().getDefaultInstance());
-            } else {
-                Minecraft.getInstance().setScreen(new RecipeBookScreen(stack));
-            }
-            return InteractionResultHolder.success(stack);
-        }
-        return InteractionResultHolder.pass(stack);
     }
 
     @Override
@@ -68,12 +50,13 @@ public class RecipeBookItem extends Item {
             pTooltipComponents.add(Component.translatable("component.mystia_izakaya.required_ingredients"));
             for (int i = 0; i < cookedMealItem.ingredients.length; i++) {
                 Item item = cookedMealItem.ingredients[i];
-                Player player = Minecraft.getInstance().player;
-                int color = Color.WHITE.getRGB();
-                if (player != null) {
-                    color = (player.getInventory().contains(item.getDefaultInstance())) ? Color.GREEN.getRGB() : Color.RED.getRGB();
+                try{
+                    Inventory inventory = Minecraft.getInstance().player.getInventory();
+                    int color = (inventory.contains(item.getDefaultInstance())) ? Color.GREEN.getRGB() : Color.RED.getRGB();
+                    pTooltipComponents.add(Component.translatable(item.getDescriptionId()).withColor(color));
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
                 }
-                pTooltipComponents.add(Component.translatable(item.getDescriptionId()).withColor(color));
             }
         } else if (foodTagComponent != null) {
             IntList intList = foodTagComponent.intList();

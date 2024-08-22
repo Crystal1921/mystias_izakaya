@@ -17,7 +17,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -26,9 +25,9 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-import static com.crystal.mystia_izakaya.utils.UtilMethod.isIngredientsMatch;
+import static com.crystal.mystia_izakaya.utils.ServerUtilMethod.isIngredientsMatch;
 
-@EventBusSubscriber(modid = MystiaIzakaya.MODID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = MystiaIzakaya.MODID)
 public class ClickEvent {
     @SubscribeEvent
     public static void onRightClickEvent(PlayerInteractEvent.RightClickBlock event) {
