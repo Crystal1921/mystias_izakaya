@@ -13,9 +13,9 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.entity.LivingEntity;
 
-public class MystiasHatModel extends EntityModel<LivingEntity> {
+public class MystiasHatModel extends HumanoidModel<LivingEntity> {
     public MystiasHatModel(ModelPart root) {
-        super(RenderType::entityCutoutNoCull);
+        super(root);
     }
     public static MeshDefinition setup(CubeDeformation deformation) {
         MeshDefinition meshdefinition = HumanoidModel.createMesh(deformation, 0);
@@ -36,6 +36,6 @@ public class MystiasHatModel extends EntityModel<LivingEntity> {
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int i1, int i2) {
-
+        this.head.render(poseStack, vertexConsumer, i, i1, i2);
     }
 }

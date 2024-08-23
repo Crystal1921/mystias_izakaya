@@ -1,6 +1,7 @@
 package com.crystal.mystia_izakaya.client.item;
 
 import com.crystal.mystia_izakaya.registry.ModelLayersRegistry;
+import com.crystal.mystia_izakaya.render.model.MystiasHatModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -23,7 +24,7 @@ public class MystiasHat extends ArmorItem {
         public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity living, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> model) {
             EntityModelSet models = Minecraft.getInstance().getEntityModels();
             ModelPart root = models.bakeLayer(ModelLayersRegistry.MYSTIAS_HAT);
-            return new HumanoidModel<>(root);
+            return new MystiasHatModel(root);
         }
     }: null;
     public MystiasHat(Type type) {

@@ -23,6 +23,7 @@ public class ModItem extends ItemModelProvider {
     @Override
     protected void registerModels() {
         this.basicItem(ItemRegistry.MystiaFishingRod.get());
+        this.basicItem(ItemRegistry.MystiasHat.get());
         this.basicItem(ItemRegistry.RecipeBook.get());
 
         this.basicItem(ItemRegistry.Trout.get());
