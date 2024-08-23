@@ -16,6 +16,7 @@ public class GroupRegistry {
             .icon(() -> ItemRegistry.MystiaFishingRod.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(ItemRegistry.MystiaFishingRod);
+                output.accept(ItemRegistry.MystiasHat);
                 output.accept(ItemRegistry.RecipeBook);
 
                 output.accept(ItemRegistry.Grill_Block);
