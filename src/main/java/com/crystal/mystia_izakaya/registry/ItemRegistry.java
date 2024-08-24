@@ -15,7 +15,7 @@ import static com.crystal.mystia_izakaya.utils.FoodTagEnum.*;
 public class ItemRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MystiaIzakaya.MODID);
     public static final DeferredItem<Item> MystiaFishingRod = ITEMS.register("mystia_fishing_rod", MystiaFishingRod::new);
-    public static final DeferredItem<Item> MystiasHat = ITEMS.register("mystias_hat", () -> new MystiasHat(ArmorItem.Type.HELMET));
+    public static final DeferredItem<Item> MystiasHat = ITEMS.register("mystias_hat", () -> new MystiasHatItem(ArmorItem.Type.HELMET));
     public static final DeferredItem<Item> RecipeBook = ITEMS.register("recipe_book", RecipeBookItem::new);
 
     public static final DeferredItem<Item> Grill_Block = ITEMS.register("grill", () -> new BlockItem(BlockRegistry.Grill.get(), new Item.Properties()));

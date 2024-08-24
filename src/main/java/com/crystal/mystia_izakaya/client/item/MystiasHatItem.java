@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
 
-public class MystiasHat extends ArmorItem {
+public class MystiasHatItem extends ArmorItem {
     public static final IClientItemExtensions ITEM_EXTENSIONS = FMLEnvironment.dist == Dist.CLIENT? new IClientItemExtensions() {
         @Override
         public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity living, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> model) {
@@ -27,9 +27,12 @@ public class MystiasHat extends ArmorItem {
             return new MystiasHatModel(root);
         }
     }: null;
-    public MystiasHat(Type type) {
+
+    public MystiasHatItem(Type type) {
         super(ArmorMaterials.IRON, type, new Item.Properties().stacksTo(1));
     }
+
+
 
     @Override
     public ResourceLocation getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, ArmorMaterial.Layer layer, boolean innerModel) {
