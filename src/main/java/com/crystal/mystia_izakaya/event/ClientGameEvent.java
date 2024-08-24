@@ -26,6 +26,9 @@ public class ClientGameEvent {
                     Minecraft.getInstance().setScreen(new RecipeBookScreen(stack));
                 }
             }
+            if (stack.is(ItemRegistry.MystiasHat) && player.isCrouching()) {
+                player.setItemInHand(InteractionHand.MAIN_HAND, ItemRegistry.MystiasHat.get().getDefaultInstance());
+            }
         }
     }
 }

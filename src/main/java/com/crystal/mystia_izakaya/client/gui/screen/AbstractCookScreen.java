@@ -32,12 +32,21 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
     final int maxY = 90;
     ResourceLocation BACKGROUND = resourceLocation("textures/gui/cooker_bg.png");
     AbstractCookMenu abstractCookMenu;
+    ArrayList<Item> menuItems;
+    ArrayList<String> negativeStrings = new ArrayList<>();
+    ArrayList<String> positiveStings = new ArrayList<>();
+    List<Item> possibleMeals;
+    Item targetItemNew = ItemStack.EMPTY.getItem();
+    Item targetItemOld = ItemStack.EMPTY.getItem();
+
 
     public AbstractCookScreen(T pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         this.abstractCookMenu = pMenu;
         this.imageWidth = 230;
         this.imageHeight = 219;
+        possibleMeals = UtilMethod.getItems(menu.getItems(), menu.list.getMeals(), menu.cookerType);
+        menuItems = new ArrayList<>(menu.getIngredientList());
     }
 
     @Override
@@ -89,10 +98,11 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
 
     protected void renderMealItem(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int i, int j) {
         if (this.menu instanceof AbstractCookMenu cookMenu) {
+            boolean isMenuItemEqual = menuItems.equals(menu.getIngredientList());
             ItemStack target = cookMenu.cookerTE.getItem(6);
-            Item item = ItemStack.EMPTY.getItem();
             if (target.isEmpty()) {
                 int index = 0;
+                //渲染选中方框
                 if (pMouseX > (i + minX) && pMouseX < (i + maxX) && pMouseY > (j + minY) && pMouseY < (j + maxY)) {
                     int dx = pMouseX - i;
                     int dy = pMouseY - j;
@@ -104,23 +114,33 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                     guiGraphics.fill(x, y + 18, x + 20, y + 20, yellow);
                     index = (x - i - 120) / 20 + (y - j - 10) / 20 * 5;
                 }
-                List<Item> items = UtilMethod.getItems(menu.getItems(), menu.list.getMeals(), menu.cookerType);
-                if (!items.isEmpty()) {
-                    for (int k = 0; k < items.size(); k++) {
-                        guiGraphics.renderItem(items.get(k).getDefaultInstance(), i + 122 + k % 5 * 20, j + 13 + k / 5 * 20);
+                //渲染可制作菜肴列表
+                if (!isMenuItemEqual) {
+                    possibleMeals = UtilMethod.getItems(menu.getItems(), menu.list.getMeals(), menu.cookerType);
+                }
+                menuItems = new ArrayList<>(menu.getIngredientList());
+                if (!possibleMeals.isEmpty()) {
+                    for (int k = 0; k < possibleMeals.size(); k++) {
+                        guiGraphics.renderItem(possibleMeals.get(k).getDefaultInstance(), i + 122 + k % 5 * 20, j + 13 + k / 5 * 20);
                     }
-                    if (index < items.size()) {
-                        item = items.get(index);
+                    if (index < possibleMeals.size()) {
+                        targetItemNew = possibleMeals.get(index);
                     }
+                } else {
+                    targetItemNew = ItemStack.EMPTY.getItem();
                 }
             } else {
-                item = target.getItem();
+                targetItemNew = target.getItem();
             }
-            if (item instanceof CookedMealItem cookedMealItem) {
-                ArrayList<String> negativeStrings = cookedMealItem.negativeTag.stream()
-                        .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
-                        .collect(Collectors.toCollection(ArrayList::new));
-                ArrayList<String> positiveStings = UtilMethod.getPositiveStings(cookMenu, cookedMealItem);
+            if (targetItemNew instanceof CookedMealItem cookedMealItem) {
+                if (!targetItemNew.equals(targetItemOld) || !isMenuItemEqual) {
+                    negativeStrings = cookedMealItem.negativeTag.stream()
+                            .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
+                            .collect(Collectors.toCollection(ArrayList::new));
+                    positiveStings = UtilMethod.getPositiveStings(cookMenu, cookedMealItem);
+                }
+                targetItemOld = targetItemNew;
+
                 guiGraphics.drawString(font, Component.translatable(cookedMealItem.getDescriptionId()), i + 15, j + 10, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.level").append(": " + cookedMealItem.level), i + 15, j + 20, black, false);
                 guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15, j + 30, black, false);

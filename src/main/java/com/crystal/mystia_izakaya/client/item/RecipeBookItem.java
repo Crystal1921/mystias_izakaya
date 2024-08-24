@@ -30,7 +30,7 @@ public class RecipeBookItem extends Item {
     public @NotNull Optional<TooltipComponent> getTooltipImage(@NotNull ItemStack itemstack) {
         var component = itemstack.get(ComponentRegistry.TARGET_ITEM);
         if (component != null) {
-            ItemStack itemStack = MealList.getInstance().getCookedMeals().get(component.target()).getDefaultInstance();
+            ItemStack itemStack = MealList.getInstance().getCookedMeals().get(component).getDefaultInstance();
             return Optional.of(new RecordMealTooltip(itemStack));
         } else {
             return Optional.empty();
@@ -43,7 +43,7 @@ public class RecipeBookItem extends Item {
         FoodTagEnum[] foodTagEnums = MealList.getInstance().getFood();
         var targetComponent = pStack.get(ComponentRegistry.TARGET_ITEM);
         if (targetComponent != null) {
-            CookedMealItem cookedMealItem = MealList.getInstance().getCookedMeals().get(targetComponent.target());
+            CookedMealItem cookedMealItem = MealList.getInstance().getCookedMeals().get(targetComponent);
             pTooltipComponents.add(Component.translatable("component.mystia_izakaya.required_cooker")
                     .append(" : ")
                     .append(Component.translatable("block.mystia_izakaya." + cookedMealItem.cookerTypeEnum.getName())));

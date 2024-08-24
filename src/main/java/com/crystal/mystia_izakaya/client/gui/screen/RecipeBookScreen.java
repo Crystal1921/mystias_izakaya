@@ -4,7 +4,6 @@ import com.crystal.mystia_izakaya.client.gui.widget.MealEntry;
 import com.crystal.mystia_izakaya.client.gui.widget.MealListWidget;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.component.FoodTagComponent;
-import com.crystal.mystia_izakaya.component.TargetItemComponent;
 import com.crystal.mystia_izakaya.network.TagsPacket;
 import com.crystal.mystia_izakaya.network.TargetIndexPacket;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
@@ -142,7 +141,7 @@ public class RecipeBookScreen extends Screen {
                 ItemStack itemStack = Minecraft.getInstance().player.getMainHandItem();
                 if (itemStack.is(ItemRegistry.RecipeBook)) {
                     int index = unsortedCookedMealItems.indexOf(cookedMealItem);
-                    itemStack.set(ComponentRegistry.TARGET_ITEM, new TargetItemComponent(index));
+                    itemStack.set(ComponentRegistry.TARGET_ITEM, index);
                     PacketDistributor.sendToServer(new TargetIndexPacket(index));
                     Minecraft.getInstance().setScreen(null);
                 }

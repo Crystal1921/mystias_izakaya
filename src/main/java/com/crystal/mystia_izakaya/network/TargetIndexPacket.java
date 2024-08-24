@@ -1,6 +1,5 @@
 package com.crystal.mystia_izakaya.network;
 
-import com.crystal.mystia_izakaya.component.TargetItemComponent;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import io.netty.buffer.ByteBuf;
@@ -26,8 +25,8 @@ public record TargetIndexPacket(int target) implements CustomPacketPayload {
         ctx.enqueueWork(() -> {
             Player player = ctx.player();
             ItemStack itemStack = player.getMainHandItem();
-            if (itemStack.is(ItemRegistry.RecipeBook)){
-                itemStack.set(ComponentRegistry.TARGET_ITEM,new TargetItemComponent(message.target));
+            if (itemStack.is(ItemRegistry.RecipeBook)) {
+                itemStack.set(ComponentRegistry.TARGET_ITEM, message.target);
             }
         });
     }
