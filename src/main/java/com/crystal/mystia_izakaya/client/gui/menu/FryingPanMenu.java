@@ -24,7 +24,7 @@ public class FryingPanMenu extends AbstractCookMenu {
         super(MenuRegistry.Frying_Pan_Menu.get(), pContainerId,fryingPanTE,data);
         this.access = ContainerLevelAccess.NULL;
         this.cookerType = CookerTypeEnum.Frying_Pan;
-        addItems(container);
+        addItems(container, fryingPanTE);
         addPlayerInventory(inventory);
         addDataSlots(data);
     }

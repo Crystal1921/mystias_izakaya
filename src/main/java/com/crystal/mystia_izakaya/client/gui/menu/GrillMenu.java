@@ -21,11 +21,11 @@ public class GrillMenu extends AbstractCookMenu {
         this(pContainerId, inventory, new SimpleContainer(6), (GrillTE) inventory.player.level().getBlockEntity(buf.readBlockPos()), new SimpleContainerData(2));
     }
 
-    public GrillMenu(int pContainerId, Inventory inventory, Container container, GrillTE blockEntity, ContainerData data) {
-        super(MenuRegistry.Grill_Menu.get(), pContainerId, blockEntity,data);
+    public GrillMenu(int pContainerId, Inventory inventory, Container container, GrillTE grillTE, ContainerData data) {
+        super(MenuRegistry.Grill_Menu.get(), pContainerId, grillTE,data);
         this.access = ContainerLevelAccess.NULL;
         this.cookerType = CookerTypeEnum.Grill;
-        addItems(container);
+        addItems(container, grillTE);
         addPlayerInventory(inventory);
         addDataSlots(data);
     }

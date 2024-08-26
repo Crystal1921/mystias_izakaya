@@ -24,7 +24,7 @@ public class SteamerMenu extends AbstractCookMenu {
         super(MenuRegistry.Steamer_Menu.get(), pContainerId,steamerTE,data);
         this.access = ContainerLevelAccess.NULL;
         this.cookerType = CookerTypeEnum.Steamer;
-        addItems(container);
+        addItems(container, steamerTE);
         addPlayerInventory(inventory);
         addDataSlots(data);
     }

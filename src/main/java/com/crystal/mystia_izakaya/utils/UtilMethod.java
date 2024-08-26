@@ -16,8 +16,8 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UtilMethod {
@@ -46,8 +46,7 @@ public class UtilMethod {
     }
 
     /**
-     *
-     * @param cookMenu 菜肴所在的容器
+     * @param cookMenu       菜肴所在的容器
      * @param cookedMealItem 菜肴
      * @return 返回正确的菜肴标签
      */
@@ -109,8 +108,8 @@ public class UtilMethod {
 
     /**
      * @param pDropShadow 是否有阴影
-     * @param scale 字体大小
-     * @param selected 背景色是否加深
+     * @param scale       字体大小
+     * @param selected    背景色是否加深
      */
     public static void drawStringSize(GuiGraphics guiGraphics, Font pFont, Component pText, int pX, int pY, int pColor, boolean pDropShadow, float scale, boolean selected) {
         PoseStack poseStack = guiGraphics.pose();
@@ -124,7 +123,6 @@ public class UtilMethod {
     }
 
     /**
-     *
      * @param pMouseX 鼠标位置 X
      * @param pMouseY 鼠标位置 Y
      * @return 返回鼠标位置在标签列表中的第几个

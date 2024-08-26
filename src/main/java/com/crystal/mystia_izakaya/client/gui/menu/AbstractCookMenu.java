@@ -18,6 +18,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -72,7 +73,7 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
         return false;
     }
 
-    protected void addItems(Container items) {
+    protected void addItems(Container items, AbstractCookerTE cookerTE) {
         for (int i = 0; i < 5; ++i) {
             addSlot(new Slot(items, i, 17 + i * 25, 110) {
                 @Override
@@ -90,6 +91,14 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
             @Override
             public boolean mayPlace(@NotNull ItemStack pStack) {
                 return false;
+            }
+
+            @Override
+            public void setChanged() {
+                this.container.setChanged();
+                if (cookerTE.getLevel() != null) {
+                    cookerTE.getLevel().sendBlockUpdated(cookerTE.getBlockPos(),cookerTE.getBlockState(),cookerTE.getBlockState(), Block.UPDATE_CLIENTS);
+                }
             }
         });
     }

@@ -26,7 +26,7 @@ public class CuttingBoardMenu extends AbstractCookMenu {
         this.access = ContainerLevelAccess.NULL;
         this.cookerType = CookerTypeEnum.Cutting_Board;
         this.
-        addItems(container);
+        addItems(container, cuttingBoardTE);
         addPlayerInventory(inventory);
         addDataSlots(data);
     }
