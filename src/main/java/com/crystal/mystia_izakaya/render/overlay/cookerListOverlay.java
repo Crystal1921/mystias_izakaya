@@ -58,6 +58,8 @@ public class cookerListOverlay implements LayeredDraw.Layer {
                             containers.add(new CookerInfo(cooker, cookedMeal, progress, isLit));
                         }
                     });
+                } else {
+                    containers.clear();
                 }
             }
 

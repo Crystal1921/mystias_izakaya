@@ -31,6 +31,6 @@ public class MealRecipe extends ShapelessRecipe {
 
     @Override
     public @NotNull RecipeType<?> getType() {
-        return RecipeTypeRegistry.GRILL_RECIPE.get();
+        return RecipeTypeRegistry.COOKED_MEAL_RECIPE.get();
     }
 }

@@ -16,5 +16,5 @@ public class RecipeTypeRegistry {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MystiaIzakaya.MODID);
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MealRecipe>> COOKING_SERIALIZER = RECIPE_SERIALIZERS.register("cooking_serializers", CookerSerializer::new);
-    public static final DeferredHolder<RecipeType<?>, RecipeType<MealRecipe>> GRILL_RECIPE = RECIPE_TYPES.register("grill_recipe", () -> RecipeType.simple(resourceLocation("grill_recipe")));
+    public static final DeferredHolder<RecipeType<?>, RecipeType<MealRecipe>> COOKED_MEAL_RECIPE = RECIPE_TYPES.register("cooked_meal_recipe", () -> RecipeType.simple(resourceLocation("cooked_meal_recipe")));
 }

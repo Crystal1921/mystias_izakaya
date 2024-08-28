@@ -4,7 +4,6 @@ import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.recipe.MealRecipe;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
-import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -35,7 +34,7 @@ public class MealRecipeCategory implements IRecipeCategory<MealRecipe> {
     private final Component localizedName;
 
     public MealRecipeCategory(IGuiHelper guiHelper) {
-        this.background = guiHelper.createBlankDrawable(160, 125);
+        this.background = guiHelper.createBlankDrawable(160, 48);
         this.slotDraw = guiHelper.getSlotDrawable();
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ItemRegistry.MystiaFishingRod.asItem()));
         this.localizedName = Component.translatable("gui.mystia_izakaya.meal.jei");
@@ -66,21 +65,20 @@ public class MealRecipeCategory implements IRecipeCategory<MealRecipe> {
         List<Ingredient> inputs = new ArrayList<>(recipe.getIngredients());
         ItemStack output = recipe.result;
         for (int i = 0; i < 5; i++) {
-            builder.addSlot(RecipeIngredientRole.INPUT, i * 24 + 16, 5).addItemStacks(getInput(inputs, i)).setBackground(slotDraw, -1, -1);
+            builder.addSlot(RecipeIngredientRole.INPUT, i * 24 + 4, 5).addItemStacks(getInput(inputs, i)).setBackground(slotDraw, -1, -1);
         }
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 64, 80).addItemStack(output).setBackground(slotDraw, -1, -1);
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 140, 5).addItemStack(output).setBackground(slotDraw, -1, -1);
     }
 
     @Override
     public void draw(MealRecipe recipe, @NotNull IRecipeSlotsView recipeSlotsView, GuiGraphics graphics, double mouseX, double mouseY) {
         CookedMealItem output = (CookedMealItem) recipe.result.getItem();
-        CookerTypeEnum cookerType = output.cookerTypeEnum;
         ItemStack cookerItem = output.cookerTypeEnum.getItem().getDefaultInstance();
         Font font = Minecraft.getInstance().font;
         float time = output.cookingTime;
         int darkGray = 0x555555;
         graphics.drawString(font, String.format("%.1f min", time), 16, 25, darkGray, false);
-        graphics.renderItem(cookerItem,64,40);
+        graphics.renderItem(cookerItem, 64, 25);
     }
 
     private List<ItemStack> getInput(List<Ingredient> inputs, int index) {

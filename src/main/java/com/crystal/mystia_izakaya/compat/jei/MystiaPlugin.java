@@ -31,7 +31,7 @@ public class MystiaPlugin implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager manager = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
-        List<RecipeHolder<MealRecipe>> recipes = manager.getAllRecipesFor(RecipeTypeRegistry.GRILL_RECIPE.get());
+        List<RecipeHolder<MealRecipe>> recipes = manager.getAllRecipesFor(RecipeTypeRegistry.COOKED_MEAL_RECIPE.get());
         registration.addRecipes(MealRecipeCategory.COOKED_MEAL, recipes.stream().map(RecipeHolder::value).toList());
     }
 

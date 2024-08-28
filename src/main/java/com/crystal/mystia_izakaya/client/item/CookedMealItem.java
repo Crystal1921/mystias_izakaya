@@ -44,7 +44,7 @@ public class CookedMealItem extends Item {
     public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         FoodTagComponent foodTagComponent = pStack.get(ComponentRegistry.FOOD_TAG);
         FoodTagEnum[] foodTagEnums = MealList.getInstance().getFood();
-        if (foodTagComponent != null){
+        if (foodTagComponent != null) {
             IntList intList = foodTagComponent.intList();
             intList.intStream().mapToObj(integer -> foodTagEnums[integer])
                     .filter(Objects::nonNull)
