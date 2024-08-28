@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/lotus_fish_lamps"
+    "layer0": "mystia_izakaya:item/recipe/lotus_fish_lamps"
   }
 }

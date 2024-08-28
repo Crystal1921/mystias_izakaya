@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/sea_urchin_sashimi"
+    "layer0": "mystia_izakaya:item/recipe/sea_urchin_sashimi"
   }
 }

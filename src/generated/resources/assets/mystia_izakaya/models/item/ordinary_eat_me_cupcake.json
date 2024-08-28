@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/ordinary_eat_me_cupcake"
+    "layer0": "mystia_izakaya:item/recipe/ordinary_eat_me_cupcake"
   }
 }

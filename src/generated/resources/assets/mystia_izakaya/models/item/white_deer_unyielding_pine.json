@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/white_deer_unyielding_pine"
+    "layer0": "mystia_izakaya:item/recipe/white_deer_unyielding_pine"
   }
 }

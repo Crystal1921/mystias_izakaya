@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/potato_croquettes"
+    "layer0": "mystia_izakaya:item/recipe/potato_croquettes"
   }
 }

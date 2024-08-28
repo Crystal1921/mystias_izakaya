@@ -135,7 +135,7 @@ public class UtilMethod {
         final int BOX_SPACING_X = 28;
         final int BOX_SPACING_Y = 12;
         final int OFFSET_X = 13;
-        final int OFFSET_Y = 23;
+        final int OFFSET_Y = 27;
         // 计算相对坐标
         double relativeX = pMouseX - i - OFFSET_X;
         double relativeY = pMouseY - j - OFFSET_Y;

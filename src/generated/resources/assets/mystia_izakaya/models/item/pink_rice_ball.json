@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/pink_rice_ball"
+    "layer0": "mystia_izakaya:item/recipe/pink_rice_ball"
   }
 }

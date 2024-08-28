@@ -24,6 +24,7 @@ import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
@@ -37,8 +38,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
-import static com.crystal.mystia_izakaya.utils.UtilMethod.drawStringSize;
-import static com.crystal.mystia_izakaya.utils.UtilMethod.getByteArray;
+import static com.crystal.mystia_izakaya.utils.UtilMethod.*;
 
 public class RecipeBookScreen extends Screen {
     final int black = Color.BLACK.getRGB();
@@ -75,14 +75,14 @@ public class RecipeBookScreen extends Screen {
         super.init();
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
-        this.search = new EditBox(getFontRenderer(), i + 10, j + 6, listWidth, 15, Component.translatable("fml.menu.mods.search"));
+        this.search = new EditBox(getFontRenderer(), i + 12, j + 9, 50, 15, Component.translatable("fml.menu.mods.search"));
         this.search.setFocused(false);
         this.addRenderableWidget(search);
         this.mealListWidget = new MealListWidget(this, listWidth, j + 87, j + 108);
         this.mealListWidget.setX(i + 128);
         this.addRenderableWidget(mealListWidget);
         this.addRenderableWidget(Button.builder(Component.translatable("gui.mystia_izakaya.confirm"), (button) ->
-                this.importEvent()).bounds(i + 50, j + 175, 40, 20).build());
+                this.importEvent()).bounds(i + 65, j + 9, 50, 15).build());
         reloadItems();
         this.mealListWidget.setScrollAmount(0);
         mealListWidget.refreshList();
@@ -187,16 +187,30 @@ public class RecipeBookScreen extends Screen {
         int j = (this.height - this.imageHeight) / 2;
         renderInfo(guiGraphics, i, j);
         renderTags(guiGraphics, i, j);
+        renderIngredient(guiGraphics, i, j);
+    }
+
+    private void renderIngredient(@NotNull GuiGraphics guiGraphics, int i, int j){
+        if (selected != null) {
+            CookedMealItem cookedMealItem = selected.getCookedMealItem();
+            Item[] ingredients = cookedMealItem.ingredients;
+            for (int k = 0; k < ingredients.length; k++) {
+                int x = i + k * 24 + 12;
+                int y = j + 177;
+                guiGraphics.fill(x, y, x + 16, y + 16, positiveInColor);
+                guiGraphics.renderItem(ingredients[k].getDefaultInstance(), x, y);
+            }
+        }
     }
 
     private void renderInfo(@NotNull GuiGraphics guiGraphics, int i, int j) {
         if (selected != null) {
             int deltaX = 114;
             CookedMealItem cookedMealItem = selected.getCookedMealItem();
-            guiGraphics.drawString(font, Component.translatable(cookedMealItem.getDescriptionId()), i + 15 + deltaX, j + 10, black, false);
-            guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.level").append(": " + cookedMealItem.level), i + 15 + deltaX, j + 20, black, false);
-            guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15 + deltaX, j + 30, black, false);
-            guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.tags").append(":"), i + 15 + deltaX, j + 40, black, false);
+            guiGraphics.drawString(font, Component.translatable(cookedMealItem.getDescriptionId()), i + 15 + deltaX, j + 8, black, false);
+            guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.level").append(": " + cookedMealItem.level), i + 15 + deltaX, j + 18, black, false);
+            guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.cooking_time").append(": " + cookedMealItem.cookingTime), i + 15 + deltaX, j + 28, black, false);
+            guiGraphics.drawString(font, Component.translatable("gui.mystia_izakaya.tags").append(":"), i + 15 + deltaX, j + 38, black, false);
             List<String> positiveStings = cookedMealItem.positiveTag.stream()
                     .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
                     .collect(Collectors.toCollection(ArrayList::new));
@@ -205,7 +219,7 @@ public class RecipeBookScreen extends Screen {
             for (int k = 0; k < positiveStings.size(); k++) {
                 //guiGraphics.fill(i + 15 + stringLength * 10 - 2, j + 50 + stringHeight * 10 - 1,i + 15 + stringLength * 10 + positiveStings.get(k).length() * 9 + 1, j + 50 + stringHeight * 10 + 9,positiveOutColor);
                 //guiGraphics.fill(i + 15 + stringLength * 10 - 1, j + 50 + stringHeight * 10,i + 15 + stringLength * 10 + positiveStings.get(k).length() * 9, j + 50 + stringHeight * 10 + 8,positiveInColor);
-                guiGraphics.drawString(font, positiveStings.get(k), i + 128 + stringLength * 10, j + 50 + stringHeight * 10, black, false);
+                guiGraphics.drawString(font, positiveStings.get(k), i + 128 + stringLength * 10, j + 48 + stringHeight * 10, black, false);
                 stringLength += positiveStings.get(k).length();
                 if (positiveStings.size() > k + 1) {
                     if (stringLength + positiveStings.get(k + 1).length() > 10) {
@@ -220,7 +234,7 @@ public class RecipeBookScreen extends Screen {
     private void renderTags(@NotNull GuiGraphics guiGraphics, int i, int j) {
         for (int k = 0; k < foodTagEnums.size(); k++) {
             int stringX = i + k % 4 * 28 + 13;
-            int stringY = j + k / 4 * 12 + 24;
+            int stringY = j + k / 4 * 12 + 28;
             boolean selected = foodTagSelected.contains(foodTagEnums.get(k));
             drawStringSize(guiGraphics, font, Component.translatable("mystia_izakaya." + foodTagEnums.get(k).name()), stringX, stringY, black, false, 0.75f, selected);
         }

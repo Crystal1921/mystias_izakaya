@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/rainbow_pan_fride_pork_buns"
+    "layer0": "mystia_izakaya:item/recipe/rainbow_pan_fride_pork_buns"
   }
 }

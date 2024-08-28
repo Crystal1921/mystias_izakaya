@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/kaguya_hime"
+    "layer0": "mystia_izakaya:item/recipe/kaguya_hime"
   }
 }

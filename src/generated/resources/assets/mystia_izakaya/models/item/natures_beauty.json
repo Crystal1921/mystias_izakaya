@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/natures_beauty"
+    "layer0": "mystia_izakaya:item/recipe/natures_beauty"
   }
 }

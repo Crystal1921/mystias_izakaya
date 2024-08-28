@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/urchin_raindrop_cake"
+    "layer0": "mystia_izakaya:item/recipe/urchin_raindrop_cake"
   }
 }

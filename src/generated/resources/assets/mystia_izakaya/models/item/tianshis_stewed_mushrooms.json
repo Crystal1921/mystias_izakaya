@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/tianshis_stewed_mushrooms"
+    "layer0": "mystia_izakaya:item/recipe/tianshis_stewed_mushrooms"
   }
 }

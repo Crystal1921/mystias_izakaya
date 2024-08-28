@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/moonlight_over_the_lotus_pond"
+    "layer0": "mystia_izakaya:item/recipe/moonlight_over_the_lotus_pond"
   }
 }

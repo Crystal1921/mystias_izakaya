@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/star_lotus_ship"
+    "layer0": "mystia_izakaya:item/recipe/star_lotus_ship"
   }
 }

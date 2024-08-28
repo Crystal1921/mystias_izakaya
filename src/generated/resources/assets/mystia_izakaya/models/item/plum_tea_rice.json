@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/plum_tea_rice"
+    "layer0": "mystia_izakaya:item/recipe/plum_tea_rice"
   }
 }

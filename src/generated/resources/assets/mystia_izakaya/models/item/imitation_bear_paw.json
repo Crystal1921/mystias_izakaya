@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/imitation_bear_paw"
+    "layer0": "mystia_izakaya:item/recipe/imitation_bear_paw"
   }
 }

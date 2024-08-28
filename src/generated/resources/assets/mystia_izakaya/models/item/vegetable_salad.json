@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/vegetable_salad"
+    "layer0": "mystia_izakaya:item/recipe/vegetable_salad"
   }
 }

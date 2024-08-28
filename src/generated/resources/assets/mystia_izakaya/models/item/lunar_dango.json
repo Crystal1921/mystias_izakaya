@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/lunar_dango"
+    "layer0": "mystia_izakaya:item/recipe/lunar_dango"
   }
 }

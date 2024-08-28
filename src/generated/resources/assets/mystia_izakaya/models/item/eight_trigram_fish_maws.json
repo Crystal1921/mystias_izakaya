@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/eight_trigram_fish_maws"
+    "layer0": "mystia_izakaya:item/recipe/eight_trigram_fish_maws"
   }
 }

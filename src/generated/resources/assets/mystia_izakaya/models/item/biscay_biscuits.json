@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/biscay_biscuits"
+    "layer0": "mystia_izakaya:item/recipe/biscay_biscuits"
   }
 }

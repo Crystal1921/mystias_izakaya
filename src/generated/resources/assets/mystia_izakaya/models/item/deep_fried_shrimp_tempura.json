@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/deep_fried_shrimp_tempura"
+    "layer0": "mystia_izakaya:item/recipe/deep_fried_shrimp_tempura"
   }
 }

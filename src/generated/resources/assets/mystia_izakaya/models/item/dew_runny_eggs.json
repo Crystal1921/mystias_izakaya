@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/dew_runny_eggs"
+    "layer0": "mystia_izakaya:item/recipe/dew_runny_eggs"
   }
 }

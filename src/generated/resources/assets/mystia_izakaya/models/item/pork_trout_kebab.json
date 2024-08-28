@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/pork_trout_kebab"
+    "layer0": "mystia_izakaya:item/recipe/pork_trout_kebab"
   }
 }

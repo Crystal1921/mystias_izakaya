@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/beef_wellington"
+    "layer0": "mystia_izakaya:item/recipe/beef_wellington"
   }
 }

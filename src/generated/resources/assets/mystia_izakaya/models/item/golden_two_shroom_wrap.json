@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/golden_two_shroom_wrap"
+    "layer0": "mystia_izakaya:item/recipe/golden_two_shroom_wrap"
   }
 }

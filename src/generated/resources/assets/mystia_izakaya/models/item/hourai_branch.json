@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/hourai_branch"
+    "layer0": "mystia_izakaya:item/recipe/hourai_branch"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/dragonsong_peach"
+    "layer0": "mystia_izakaya:item/recipe/dragonsong_peach"
   }
 }

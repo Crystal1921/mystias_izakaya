@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/buddha_jump_over_the_wall"
+    "layer0": "mystia_izakaya:item/recipe/buddha_jump_over_the_wall"
   }
 }

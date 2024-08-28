@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/boiled_tofu"
+    "layer0": "mystia_izakaya:item/recipe/boiled_tofu"
   }
 }

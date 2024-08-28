@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/seven_colored_yokan"
+    "layer0": "mystia_izakaya:item/recipe/seven_colored_yokan"
   }
 }

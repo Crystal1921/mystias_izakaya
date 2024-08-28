@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/baked_sweet_potato"
+    "layer0": "mystia_izakaya:item/recipe/baked_sweet_potato"
   }
 }

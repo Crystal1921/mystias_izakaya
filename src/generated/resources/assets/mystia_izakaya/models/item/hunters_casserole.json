@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/hunters_casserole"
+    "layer0": "mystia_izakaya:item/recipe/hunters_casserole"
   }
 }

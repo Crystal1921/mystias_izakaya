@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/toon_pancake"
+    "layer0": "mystia_izakaya:item/recipe/toon_pancake"
   }
 }

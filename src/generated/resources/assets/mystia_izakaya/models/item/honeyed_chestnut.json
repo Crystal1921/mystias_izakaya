@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/honeyed_chestnut"
+    "layer0": "mystia_izakaya:item/recipe/honeyed_chestnut"
   }
 }

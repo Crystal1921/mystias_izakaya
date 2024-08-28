@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/energy_skewer"
+    "layer0": "mystia_izakaya:item/recipe/energy_skewer"
   }
 }

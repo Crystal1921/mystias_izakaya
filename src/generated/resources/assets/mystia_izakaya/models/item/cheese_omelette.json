@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/cheese_omelette"
+    "layer0": "mystia_izakaya:item/recipe/cheese_omelette"
   }
 }

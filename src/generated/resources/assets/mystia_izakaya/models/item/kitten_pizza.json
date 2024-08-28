@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/kitten_pizza"
+    "layer0": "mystia_izakaya:item/recipe/kitten_pizza"
   }
 }

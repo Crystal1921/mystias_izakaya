@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/real_seafood_miso_soup"
+    "layer0": "mystia_izakaya:item/recipe/real_seafood_miso_soup"
   }
 }

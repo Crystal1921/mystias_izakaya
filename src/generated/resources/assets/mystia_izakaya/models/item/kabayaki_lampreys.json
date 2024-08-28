@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/kabayaki_lampreys"
+    "layer0": "mystia_izakaya:item/recipe/kabayaki_lampreys"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/lunar_lover_biscuit"
+    "layer0": "mystia_izakaya:item/recipe/lunar_lover_biscuit"
   }
 }

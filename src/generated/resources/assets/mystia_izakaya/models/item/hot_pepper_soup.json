@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/hot_pepper_soup"
+    "layer0": "mystia_izakaya:item/recipe/hot_pepper_soup"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/power_soup"
+    "layer0": "mystia_izakaya:item/recipe/power_soup"
   }
 }

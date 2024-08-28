@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/flowing_somen"
+    "layer0": "mystia_izakaya:item/recipe/flowing_somen"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/sakura_pudding"
+    "layer0": "mystia_izakaya:item/recipe/sakura_pudding"
   }
 }

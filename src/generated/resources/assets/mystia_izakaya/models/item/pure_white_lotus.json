@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/pure_white_lotus"
+    "layer0": "mystia_izakaya:item/recipe/pure_white_lotus"
   }
 }

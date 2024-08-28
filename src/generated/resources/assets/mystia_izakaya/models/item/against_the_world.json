@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/against_the_world"
+    "layer0": "mystia_izakaya:item/recipe/against_the_world"
   }
 }

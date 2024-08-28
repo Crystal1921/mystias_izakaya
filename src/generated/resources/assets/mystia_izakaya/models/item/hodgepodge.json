@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/hodgepodge"
+    "layer0": "mystia_izakaya:item/recipe/hodgepodge"
   }
 }

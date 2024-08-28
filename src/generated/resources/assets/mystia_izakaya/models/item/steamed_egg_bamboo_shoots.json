@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/steamed_egg_bamboo_shoots"
+    "layer0": "mystia_izakaya:item/recipe/steamed_egg_bamboo_shoots"
   }
 }

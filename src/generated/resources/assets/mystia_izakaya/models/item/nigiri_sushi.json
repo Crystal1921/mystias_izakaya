@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/nigiri_sushi"
+    "layer0": "mystia_izakaya:item/recipe/nigiri_sushi"
   }
 }

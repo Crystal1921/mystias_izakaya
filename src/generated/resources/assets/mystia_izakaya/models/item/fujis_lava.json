@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/fujis_lava"
+    "layer0": "mystia_izakaya:item/recipe/fujis_lava"
   }
 }

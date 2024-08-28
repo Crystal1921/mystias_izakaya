@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/mapo_tofu"
+    "layer0": "mystia_izakaya:item/recipe/mapo_tofu"
   }
 }

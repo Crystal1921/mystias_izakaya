@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/eel_bowl_with_egg"
+    "layer0": "mystia_izakaya:item/recipe/eel_bowl_with_egg"
   }
 }

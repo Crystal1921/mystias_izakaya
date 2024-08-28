@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/creamy_crab"
+    "layer0": "mystia_izakaya:item/recipe/creamy_crab"
   }
 }

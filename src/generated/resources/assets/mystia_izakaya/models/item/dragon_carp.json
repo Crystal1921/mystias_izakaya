@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/dragon_carp"
+    "layer0": "mystia_izakaya:item/recipe/dragon_carp"
   }
 }

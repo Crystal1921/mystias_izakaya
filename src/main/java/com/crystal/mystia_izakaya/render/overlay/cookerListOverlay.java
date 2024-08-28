@@ -69,7 +69,7 @@ public class cookerListOverlay implements LayeredDraw.Layer {
                 ItemStack cookedMeal = cookerInfo.cookedMeal;
                 if (!cooker.isEmpty()) {
                     int height = i * 18 + PADDING;
-                    guiGraphics.renderItem(cooker, 6, height - 6);
+                    guiGraphics.renderItem(cooker, 6, height - 4);
                     guiGraphics.renderItem(cookedMeal, 24, height - 4);
                     guiGraphics.fill(6,height - 4,80,height + 12,WHITE);
                     if (cookerInfo.isLit){

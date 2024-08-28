@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/gloomy_fruit_pie"
+    "layer0": "mystia_izakaya:item/recipe/gloomy_fruit_pie"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/unzan_cotton_candy"
+    "layer0": "mystia_izakaya:item/recipe/unzan_cotton_candy"
   }
 }

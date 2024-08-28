@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/urchin_steamed_egg"
+    "layer0": "mystia_izakaya:item/recipe/urchin_steamed_egg"
   }
 }

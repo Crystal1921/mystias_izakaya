@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/cubic_kedama_ice_cream"
+    "layer0": "mystia_izakaya:item/recipe/cubic_kedama_ice_cream"
   }
 }

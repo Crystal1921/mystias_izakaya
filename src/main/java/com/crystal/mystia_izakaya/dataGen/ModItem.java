@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -59,8 +60,6 @@ public class ModItem extends ItemModelProvider {
         this.basicItem(ItemRegistry.Tomato.get());
         this.basicItem(ItemRegistry.Broceoli.get());
 
-        this.basicItem(ItemRegistry.Grilled_Lamprey.get());
-
         this.basicItem(ItemRegistry.Egg.get());
         this.basicItem(ItemRegistry.Ginko_Nut.get());
         this.basicItem(ItemRegistry.Cicada_Slough.get());
@@ -91,13 +90,13 @@ public class ModItem extends ItemModelProvider {
         this.basicItem(ItemRegistry.Flower.get());
         this.basicItem(ItemRegistry.Creeping_Fig.get());
 
-        MealList.getInstance().getMeals().forEach(this::basicItem);
+        MealList.getInstance().getMeals().forEach(meal -> localItem(meal, "recipe/"));
 
-        this.blockItem(ItemRegistry.Grill_Block.get(), "block/grill");
-        this.blockItem(ItemRegistry.Boiling_Pot.get(), "block/boiling_pot");
-        this.blockItem(ItemRegistry.Frying_Pan.get(), "block/frying_pan");
-        this.blockItem(ItemRegistry.Steamer.get(), "block/steamer");
-        this.blockItem(ItemRegistry.Cutting_Board.get(), "block/cutting_board");
+        this.localItem(ItemRegistry.Grill_Block.get(), "cooker/");
+        this.localItem(ItemRegistry.Boiling_Pot.get(), "cooker/");
+        this.localItem(ItemRegistry.Frying_Pan.get(), "cooker/");
+        this.localItem(ItemRegistry.Steamer.get(), "cooker/");
+        this.localItem(ItemRegistry.Cutting_Board.get(), "cooker/");
     }
 
     public void blockItem(Item item, String path) {
@@ -115,5 +114,15 @@ public class ModItem extends ItemModelProvider {
                 .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(75, 135, 0).scale(0.4F, 0.4F, 0.4F).translation(0, 0, 0).end()
                 .end()
                 .parent(new ModelFile.UncheckedModelFile(resourceLocation(path)));
+    }
+
+    public ItemModelBuilder localItem(Item item, String filePath) {
+        return localItem(Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)),filePath);
+    }
+
+    public ItemModelBuilder localItem(ResourceLocation item, String filePath) {
+        return getBuilder(item.toString())
+                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                .texture("layer0", ResourceLocation.fromNamespaceAndPath(item.getNamespace(), "item/" + filePath + item.getPath()));
     }
 }

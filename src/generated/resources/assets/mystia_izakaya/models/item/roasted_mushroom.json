@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/roasted_mushroom"
+    "layer0": "mystia_izakaya:item/recipe/roasted_mushroom"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/mushroom_maidens_tip_tap_pot"
+    "layer0": "mystia_izakaya:item/recipe/mushroom_maidens_tip_tap_pot"
   }
 }

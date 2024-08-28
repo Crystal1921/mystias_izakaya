@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/peach_braised_pork"
+    "layer0": "mystia_izakaya:item/recipe/peach_braised_pork"
   }
 }

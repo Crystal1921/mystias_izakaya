@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/immortal_turkey"
+    "layer0": "mystia_izakaya:item/recipe/immortal_turkey"
   }
 }

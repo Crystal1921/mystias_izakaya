@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/tempura_platter"
+    "layer0": "mystia_izakaya:item/recipe/tempura_platter"
   }
 }

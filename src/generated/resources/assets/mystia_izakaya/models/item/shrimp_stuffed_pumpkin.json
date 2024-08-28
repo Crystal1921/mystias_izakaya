@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mystia_izakaya:item/shrimp_stuffed_pumpkin"
+    "layer0": "mystia_izakaya:item/recipe/shrimp_stuffed_pumpkin"
   }
 }
