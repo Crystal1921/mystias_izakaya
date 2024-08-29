@@ -16,6 +16,7 @@
       "item": "mystia_izakaya:ginko_nut"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:miasma_garden"

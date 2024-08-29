@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:honey"
     }
   ],
+  "ordinary": 1,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:cantonese_char_siu"

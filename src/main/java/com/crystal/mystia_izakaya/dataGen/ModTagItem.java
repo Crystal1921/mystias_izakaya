@@ -29,7 +29,7 @@ public class ModTagItem extends ItemTagsProvider {
     protected void addTags(HolderLookup.@NotNull Provider pProvider) {
         this.tag(ItemTags.FISHING_ENCHANTABLE).add(ItemRegistry.MystiaFishingRod.value());
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Crab.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Grill_Block.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Grill.get());
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Trout.get());
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lamprey.get());
         this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Salmon.get());

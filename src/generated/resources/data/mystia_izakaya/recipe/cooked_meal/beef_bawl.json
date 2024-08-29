@@ -7,6 +7,7 @@
       "item": "mystia_izakaya:beef"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:beef_bawl"

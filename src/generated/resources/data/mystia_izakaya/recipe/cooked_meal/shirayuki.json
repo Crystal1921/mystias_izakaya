@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:pufferfish"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:shirayuki"

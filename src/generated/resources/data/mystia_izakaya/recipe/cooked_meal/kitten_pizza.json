@@ -16,6 +16,7 @@
       "item": "mystia_izakaya:boar_meat"
     }
   ],
+  "ordinary": 1,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:kitten_pizza"

@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:cheese"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:cheese_omelette"

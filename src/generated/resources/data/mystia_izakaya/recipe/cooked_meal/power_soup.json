@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:seaweed"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:power_soup"

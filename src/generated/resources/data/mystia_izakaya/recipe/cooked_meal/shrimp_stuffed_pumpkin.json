@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:tofu"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:shrimp_stuffed_pumpkin"

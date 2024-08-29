@@ -16,6 +16,7 @@
       "item": "mystia_izakaya:honey"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:unconscious_youkai_mousse"

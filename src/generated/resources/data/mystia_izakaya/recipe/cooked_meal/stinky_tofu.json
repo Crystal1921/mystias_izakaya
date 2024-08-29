@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:chili"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:stinky_tofu"

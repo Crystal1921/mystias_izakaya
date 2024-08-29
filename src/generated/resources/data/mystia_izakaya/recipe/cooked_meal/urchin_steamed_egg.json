@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:egg"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:urchin_steamed_egg"

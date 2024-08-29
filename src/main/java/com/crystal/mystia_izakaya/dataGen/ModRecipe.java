@@ -201,6 +201,7 @@ public class ModRecipe extends RecipeProvider {
     private void CookeMealRecipe(CookedMealItem item, RecipeOutput output) {
         MealRecipeBuilder.shapelessMeal(RecipeCategory.FOOD, item)
                 .requires(item.ingredients)
+                .cooker(item.cookerTypeEnum)
                 .save(output);
     }
 }

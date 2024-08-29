@@ -8,7 +8,7 @@ public enum CookerTypeEnum {
     //煮锅
     Boiling_Pot(ItemRegistry.Boiling_Pot.get()),
     //烤架
-    Grill(ItemRegistry.Grill_Block.get()),
+    Grill(ItemRegistry.Grill.get()),
     //油锅
     Frying_Pan(ItemRegistry.Frying_Pan.get()),
     //蒸锅
@@ -22,9 +22,11 @@ public enum CookerTypeEnum {
     public Item getItem() {
         return item;
     }
+
     public String getName() {
         return name().toLowerCase();
     }
+
     CookerTypeEnum(Item itemStack) {
         this.item = itemStack;
     }

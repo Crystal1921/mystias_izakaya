@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:trout"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:golden_crispy_fish_cake"

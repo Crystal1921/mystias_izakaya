@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:bamboo_shoot"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:salmon_steak"

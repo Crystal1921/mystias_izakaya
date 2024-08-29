@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:pine_nut"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:pine_nut_cake"

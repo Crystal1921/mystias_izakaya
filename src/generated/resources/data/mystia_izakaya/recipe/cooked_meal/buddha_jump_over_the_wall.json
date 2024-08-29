@@ -19,6 +19,7 @@
       "item": "mystia_izakaya:truffle"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:buddha_jump_over_the_wall"

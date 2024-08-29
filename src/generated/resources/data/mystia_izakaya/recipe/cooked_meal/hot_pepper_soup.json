@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:tofu"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:hot_pepper_soup"

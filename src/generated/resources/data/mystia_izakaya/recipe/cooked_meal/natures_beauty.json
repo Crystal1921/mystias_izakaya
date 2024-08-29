@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:cream"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:natures_beauty"

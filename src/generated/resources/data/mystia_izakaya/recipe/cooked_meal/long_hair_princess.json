@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:shrimp"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:long_hair_princess"

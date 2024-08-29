@@ -19,6 +19,7 @@
       "item": "mystia_izakaya:truffle"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:beef_wellington"

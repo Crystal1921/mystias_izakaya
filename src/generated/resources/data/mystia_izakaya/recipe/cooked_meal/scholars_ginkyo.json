@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:honey"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:scholars_ginkyo"

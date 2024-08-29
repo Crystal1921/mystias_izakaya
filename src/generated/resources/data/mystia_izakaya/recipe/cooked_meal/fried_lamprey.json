@@ -7,6 +7,7 @@
       "item": "mystia_izakaya:lamprey"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:fried_lamprey"

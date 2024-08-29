@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:trout"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:real_seafood_miso_soup"

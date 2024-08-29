@@ -19,6 +19,7 @@
       "item": "mystia_izakaya:dew"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:palace_of_the_han"

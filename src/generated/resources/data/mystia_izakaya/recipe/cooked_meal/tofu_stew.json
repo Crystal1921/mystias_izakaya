@@ -7,6 +7,7 @@
       "item": "mystia_izakaya:tofu"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:tofu_stew"

@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:ice_cube"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:peach_shrimp_salad"

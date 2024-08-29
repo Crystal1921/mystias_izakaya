@@ -16,6 +16,7 @@
       "item": "mystia_izakaya:wagyo_beef"
     }
   ],
+  "ordinary": 1,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:all_meat_feast"

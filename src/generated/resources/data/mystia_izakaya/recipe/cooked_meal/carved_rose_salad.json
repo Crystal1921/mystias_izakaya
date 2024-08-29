@@ -7,6 +7,7 @@
       "item": "mystia_izakaya:radish"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:carved_rose_salad"

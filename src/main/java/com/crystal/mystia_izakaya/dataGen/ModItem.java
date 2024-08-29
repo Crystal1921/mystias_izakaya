@@ -92,7 +92,7 @@ public class ModItem extends ItemModelProvider {
 
         MealList.getInstance().getMeals().forEach(meal -> localItem(meal, "recipe/"));
 
-        this.localItem(ItemRegistry.Grill_Block.get(), "cooker/");
+        this.localItem(ItemRegistry.Grill.get(), "cooker/");
         this.localItem(ItemRegistry.Boiling_Pot.get(), "cooker/");
         this.localItem(ItemRegistry.Frying_Pan.get(), "cooker/");
         this.localItem(ItemRegistry.Steamer.get(), "cooker/");

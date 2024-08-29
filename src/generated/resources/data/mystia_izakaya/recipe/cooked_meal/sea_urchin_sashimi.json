@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:dew"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:sea_urchin_sashimi"

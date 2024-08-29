@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:pork"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:peach_braised_pork"

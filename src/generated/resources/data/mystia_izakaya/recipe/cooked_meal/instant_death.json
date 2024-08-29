@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:onion"
     }
   ],
+  "ordinary": 1,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:instant_death"

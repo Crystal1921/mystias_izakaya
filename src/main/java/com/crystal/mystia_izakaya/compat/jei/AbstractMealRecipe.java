@@ -1,17 +1,13 @@
 package com.crystal.mystia_izakaya.compat.jei;
 
-import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.recipe.MealRecipe;
-import com.crystal.mystia_izakaya.registry.ItemRegistry;
-import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -26,23 +22,17 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class MealRecipeCategory implements IRecipeCategory<MealRecipe> {
-    public static final RecipeType<MealRecipe> COOKED_MEAL = RecipeType.create(MystiaIzakaya.MODID, "cooked_meal", MealRecipe.class);
+public abstract class AbstractMealRecipe implements IRecipeCategory<MealRecipe> {
     private final IDrawable background;
     private final IDrawable icon;
     private final IDrawable slotDraw;
     private final Component localizedName;
 
-    public MealRecipeCategory(IGuiHelper guiHelper) {
+    public AbstractMealRecipe(IGuiHelper guiHelper, IDrawable icon) {
         this.background = guiHelper.createBlankDrawable(160, 48);
         this.slotDraw = guiHelper.getSlotDrawable();
-        this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ItemRegistry.MystiaFishingRod.asItem()));
+        this.icon = icon;
         this.localizedName = Component.translatable("gui.mystia_izakaya.meal.jei");
-    }
-
-    @Override
-    public @NotNull RecipeType<MealRecipe> getRecipeType() {
-        return COOKED_MEAL;
     }
 
     @Override

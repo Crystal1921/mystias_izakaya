@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:crab"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:creamy_crab"

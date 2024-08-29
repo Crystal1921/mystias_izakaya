@@ -19,6 +19,7 @@
       "item": "mystia_izakaya:radish"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:agony_oden"

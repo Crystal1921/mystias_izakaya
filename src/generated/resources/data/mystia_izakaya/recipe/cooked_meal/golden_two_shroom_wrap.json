@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:truffle"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:golden_two_shroom_wrap"

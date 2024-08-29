@@ -19,6 +19,7 @@
       "item": "mystia_izakaya:lunar_herb"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:star_lotus_ship"

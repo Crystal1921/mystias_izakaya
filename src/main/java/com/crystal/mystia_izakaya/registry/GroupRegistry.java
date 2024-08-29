@@ -19,7 +19,7 @@ public class GroupRegistry {
                 output.accept(ItemRegistry.MystiasHat);
                 output.accept(ItemRegistry.RecipeBook);
 
-                output.accept(ItemRegistry.Grill_Block);
+                output.accept(ItemRegistry.Grill);
                 output.accept(ItemRegistry.Boiling_Pot);
                 output.accept(ItemRegistry.Frying_Pan);
                 output.accept(ItemRegistry.Steamer);

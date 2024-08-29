@@ -19,6 +19,7 @@
       "item": "mystia_izakaya:beef"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:caution_hellish_spice"

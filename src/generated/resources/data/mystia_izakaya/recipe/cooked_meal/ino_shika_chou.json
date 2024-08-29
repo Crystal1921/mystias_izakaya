@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:lunar_herb"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:ino_shika_chou"

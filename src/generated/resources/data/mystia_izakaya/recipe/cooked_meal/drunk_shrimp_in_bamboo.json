@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:broceoli"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:drunk_shrimp_in_bamboo"

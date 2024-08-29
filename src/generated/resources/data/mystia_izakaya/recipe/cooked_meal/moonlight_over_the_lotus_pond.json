@@ -16,6 +16,7 @@
       "item": "mystia_izakaya:snow_fungus"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:moonlight_over_the_lotus_pond"

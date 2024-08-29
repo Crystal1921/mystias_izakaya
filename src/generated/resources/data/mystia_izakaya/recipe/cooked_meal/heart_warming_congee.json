@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:lotus_seed"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:heart_warming_congee"

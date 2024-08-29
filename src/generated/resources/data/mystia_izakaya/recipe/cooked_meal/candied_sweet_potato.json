@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:honey"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:candied_sweet_potato"

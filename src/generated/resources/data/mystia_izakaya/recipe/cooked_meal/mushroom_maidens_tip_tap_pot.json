@@ -16,6 +16,7 @@
       "item": "mystia_izakaya:chili"
     }
   ],
+  "ordinary": 0,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:mushroom_maidens_tip_tap_pot"

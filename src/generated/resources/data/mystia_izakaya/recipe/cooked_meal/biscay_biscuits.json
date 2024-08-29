@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:cheese"
     }
   ],
+  "ordinary": 1,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:biscay_biscuits"

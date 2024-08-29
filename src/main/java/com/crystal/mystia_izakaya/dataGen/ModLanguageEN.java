@@ -31,7 +31,7 @@ public class ModLanguageEN extends LanguageProvider {
         this.add(ItemRegistry.MystiasHat.get(), "Mystia's Hat");
         this.add(ItemRegistry.RecipeBook.get(), "Mystia's Recipe Book");
 
-        this.add(ItemRegistry.Grill_Block.get(), "Grill Block");
+        this.add(ItemRegistry.Grill.get(), "Grill Block");
         this.add(ItemRegistry.Boiling_Pot.get(), "Boiling Pot");
         this.add(ItemRegistry.Frying_Pan.get(), "Frying Pan");
         this.add(ItemRegistry.Steamer.get(), "Steamer");

@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:cheese"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:gloomy_fruit_pie"

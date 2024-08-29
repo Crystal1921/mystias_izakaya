@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:cicada_slough"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:crispy_spirals"

@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:butter"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:creamy_vegetable_chowder"

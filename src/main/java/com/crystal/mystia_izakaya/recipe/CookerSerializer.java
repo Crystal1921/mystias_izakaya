@@ -33,7 +33,8 @@ public class CookerSerializer implements RecipeSerializer<MealRecipe> {
                                             },
                                             DataResult::success
                                     )
-                                    .forGetter(ShapelessRecipe::getIngredients)
+                                    .forGetter(ShapelessRecipe::getIngredients),
+                            Codec.INT.fieldOf("ordinary").forGetter(mealRecipe -> mealRecipe.cookerTypeEnum.ordinal())
                     )
                     .apply(recipeInstance, MealRecipe::new));
 
@@ -59,7 +60,8 @@ public class CookerSerializer implements RecipeSerializer<MealRecipe> {
         NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i, Ingredient.EMPTY);
         nonnulllist.replaceAll(ingredient -> Ingredient.CONTENTS_STREAM_CODEC.decode(friendlyByteBuf));
         ItemStack itemstack = ItemStack.STREAM_CODEC.decode(friendlyByteBuf);
-        return new MealRecipe(s, craftingbookcategory, itemstack, nonnulllist);
+        int j = friendlyByteBuf.readVarInt();
+        return new MealRecipe(s, craftingbookcategory, itemstack, nonnulllist, j);
     }
 
     private void toNetwork(RegistryFriendlyByteBuf friendlyByteBuf, MealRecipe mealRecipe) {
@@ -72,5 +74,6 @@ public class CookerSerializer implements RecipeSerializer<MealRecipe> {
         }
 
         ItemStack.STREAM_CODEC.encode(friendlyByteBuf, mealRecipe.result);
+        friendlyByteBuf.writeVarInt(mealRecipe.cookerTypeEnum.ordinal());
     }
 }

@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:flour"
     }
   ],
+  "ordinary": 1,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:kitten_canele"

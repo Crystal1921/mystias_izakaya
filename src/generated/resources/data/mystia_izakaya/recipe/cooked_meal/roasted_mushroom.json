@@ -7,6 +7,7 @@
       "item": "mystia_izakaya:mushroom"
     }
   ],
+  "ordinary": 1,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:roasted_mushroom"

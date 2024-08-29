@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:chestnut"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:honeyed_chestnut"

@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:red_bean"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:peach_flower_crystal_ball"

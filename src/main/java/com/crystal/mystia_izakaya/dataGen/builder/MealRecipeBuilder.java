@@ -1,6 +1,7 @@
 package com.crystal.mystia_izakaya.dataGen.builder;
 
 import com.crystal.mystia_izakaya.recipe.MealRecipe;
+import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.core.NonNullList;
 import net.minecraft.data.recipes.RecipeBuilder;
@@ -22,6 +23,7 @@ public class MealRecipeBuilder implements RecipeBuilder {
     private final Item result;
     private final ItemStack resultStack; // Neo: add stack result support
     private final NonNullList<Ingredient> ingredients = NonNullList.create();
+    private int cookerTypeEnum = 0;
 
     public MealRecipeBuilder(RecipeCategory pCategory, ItemLike pResult, int pCount) {
         this(pCategory, new ItemStack(pResult, pCount));
@@ -39,6 +41,11 @@ public class MealRecipeBuilder implements RecipeBuilder {
 
     public MealRecipeBuilder requires(Item[] items) {
         Arrays.stream(items).toList().forEach(item -> this.ingredients.add(Ingredient.of(item)));
+        return this;
+    }
+
+    public MealRecipeBuilder cooker(CookerTypeEnum cookerTypeEnum) {
+        this.cookerTypeEnum = cookerTypeEnum.ordinal();
         return this;
     }
 
@@ -68,7 +75,8 @@ public class MealRecipeBuilder implements RecipeBuilder {
                 "cooked_meal",
                 RecipeBuilder.determineBookCategory(this.category),
                 this.resultStack,
-                this.ingredients
+                this.ingredients,
+                this.cookerTypeEnum
         );
         pRecipeOutput.accept(pId, mealRecipe, null);
     }

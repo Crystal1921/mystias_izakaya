@@ -7,6 +7,7 @@
       "item": "mystia_izakaya:pork"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:pork_rice_ball"

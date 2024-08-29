@@ -19,6 +19,7 @@
       "item": "mystia_izakaya:mushroom"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:mad_hatters_tea_party"

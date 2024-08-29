@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:pumpkin"
     }
   ],
+  "ordinary": 1,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:energy_skewer"

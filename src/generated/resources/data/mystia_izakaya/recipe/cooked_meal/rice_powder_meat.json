@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:iberico_pork"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:rice_powder_meat"

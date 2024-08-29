@@ -16,6 +16,7 @@
       "item": "mystia_izakaya:ginko_nut"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:little_sweet_poision"

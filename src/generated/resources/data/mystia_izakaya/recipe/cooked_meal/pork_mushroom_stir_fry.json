@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:pork"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:pork_mushroom_stir_fry"

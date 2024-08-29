@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:trout"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:pink_rice_ball"

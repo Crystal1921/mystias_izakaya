@@ -18,7 +18,7 @@ public class ItemRegistry {
     public static final DeferredItem<Item> MystiasHat = ITEMS.register("mystias_hat", () -> new MystiasHatItem(ArmorItem.Type.HELMET));
     public static final DeferredItem<Item> RecipeBook = ITEMS.register("recipe_book", RecipeBookItem::new);
 
-    public static final DeferredItem<Item> Grill_Block = ITEMS.register("grill", () -> new BlockItem(BlockRegistry.Grill.get(), new Item.Properties()));
+    public static final DeferredItem<Item> Grill = ITEMS.register("grill", () -> new BlockItem(BlockRegistry.Grill.get(), new Item.Properties()));
     public static final DeferredItem<Item> Boiling_Pot = ITEMS.register("boiling_pot", () -> new BlockItem(BlockRegistry.Boiling_Pot.get(), new Item.Properties()));
     public static final DeferredItem<Item> Frying_Pan = ITEMS.register("frying_pan", () -> new BlockItem(BlockRegistry.Frying_Pan.get(), new Item.Properties()));
     public static final DeferredItem<Item> Steamer = ITEMS.register("steamer", () -> new BlockItem(BlockRegistry.Steamer.get(), new Item.Properties()));

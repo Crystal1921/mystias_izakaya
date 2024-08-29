@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:dew"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:udumbara_cake"

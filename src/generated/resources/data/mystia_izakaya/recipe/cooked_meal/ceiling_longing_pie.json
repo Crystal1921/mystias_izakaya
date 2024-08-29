@@ -13,6 +13,7 @@
       "item": "mystia_izakaya:peach"
     }
   ],
+  "ordinary": 3,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:ceiling_longing_pie"

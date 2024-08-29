@@ -16,6 +16,7 @@
       "item": "mystia_izakaya:onion"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:cubic_kedama_volcanic_tofu"

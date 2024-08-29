@@ -10,6 +10,7 @@
       "item": "mystia_izakaya:peach"
     }
   ],
+  "ordinary": 4,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:peach_yatsuhashi"

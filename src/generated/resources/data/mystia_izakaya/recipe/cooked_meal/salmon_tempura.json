@@ -16,6 +16,7 @@
       "item": "mystia_izakaya:flour"
     }
   ],
+  "ordinary": 2,
   "result": {
     "count": 1,
     "id": "mystia_izakaya:salmon_tempura"
