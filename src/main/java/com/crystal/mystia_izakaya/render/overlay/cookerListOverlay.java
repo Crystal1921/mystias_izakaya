@@ -27,7 +27,6 @@ import java.util.List;
 public class cookerListOverlay implements LayeredDraw.Layer {
     public static final int BLACK = Color.BLACK.getRGB();
     public static final int WHITE = FastColor.ARGB32.color(128,Color.WHITE.getRGB());
-    public static final int PADDING = 6;
     private final List<CookerInfo> containers = new ArrayList<>();
 
     @Override
@@ -63,12 +62,16 @@ public class cookerListOverlay implements LayeredDraw.Layer {
                 }
             }
 
+            int guiWidth = guiGraphics.guiWidth() / 2;
+            int guiHeight = guiGraphics.guiHeight() / 2;
+            int containerSize = containers.size();
+
             for (int i = 0; i < containers.size(); i++) {
                 CookerInfo cookerInfo = containers.get(i);
                 ItemStack cooker = cookerInfo.cooker;
                 ItemStack cookedMeal = cookerInfo.cookedMeal;
                 if (!cooker.isEmpty()) {
-                    int height = i * 18 + PADDING;
+                    int height = (i - containerSize / 2) * 18 + guiHeight;
                     guiGraphics.renderItem(cooker, 6, height - 4);
                     guiGraphics.renderItem(cookedMeal, 24, height - 4);
                     guiGraphics.fill(6,height - 4,80,height + 12,WHITE);

@@ -48,7 +48,6 @@ public class RecipeBookScreen extends Screen {
     ResourceLocation BACKGROUND = resourceLocation("textures/gui/recipe_bg.png");
     List<FoodTagEnum> foodTagEnums = List.of(FoodTagEnum.values());
     ArrayList<FoodTagEnum> foodTagSelected = new ArrayList<>();
-    List<CookerTypeEnum> cookerTypeEnums = List.of(CookerTypeEnum.values());
     List<CookedMealItem> cookedMealItems = MealList.getInstance().getCookedMeals();
     final List<CookedMealItem> unsortedCookedMealItems = cookedMealItems;
     MealEntry selected;
@@ -236,7 +235,7 @@ public class RecipeBookScreen extends Screen {
             int stringX = i + k % 4 * 28 + 13;
             int stringY = j + k / 4 * 12 + 28;
             boolean selected = foodTagSelected.contains(foodTagEnums.get(k));
-            drawStringSize(guiGraphics, font, Component.translatable("mystia_izakaya." + foodTagEnums.get(k).name()), stringX, stringY, black, false, 0.75f, selected);
+            drawStringSize(guiGraphics, font, Component.translatable("mystia_izakaya." + foodTagEnums.get(k).name()), stringX, stringY, black, false, selected);
         }
     }
 

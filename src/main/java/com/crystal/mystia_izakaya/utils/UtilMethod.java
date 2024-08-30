@@ -108,10 +108,12 @@ public class UtilMethod {
 
     /**
      * @param pDropShadow 是否有阴影
-     * @param scale       字体大小
      * @param selected    背景色是否加深
      */
-    public static void drawStringSize(GuiGraphics guiGraphics, Font pFont, Component pText, int pX, int pY, int pColor, boolean pDropShadow, float scale, boolean selected) {
+    public static void drawStringSize(GuiGraphics guiGraphics, Font pFont, Component pText, int pX, int pY, int pColor, boolean pDropShadow, boolean selected) {
+        int width = pFont.width(pText.getString());
+        if (width <= 36) { width = 36;}
+        float scale = 24.0F / width;
         PoseStack poseStack = guiGraphics.pose();
         poseStack.pushPose();
         poseStack.scale(scale, scale, scale);
