@@ -30,7 +30,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class SteamerBlock extends AbstractHorizontalBlock {
     public static final MapCodec<SteamerBlock> CODEC = simpleCodec((properties) -> new SteamerBlock());
-    protected static final VoxelShape SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 4.0D, 13.0D);
+    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
     protected static final VoxelShape SHAPE1 = Block.box(1.0D, 4.0D, 1.0D, 15.0D, 5.0D, 15.0D);
 
     @Override

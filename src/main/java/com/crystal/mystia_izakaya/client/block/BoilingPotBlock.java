@@ -30,8 +30,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class BoilingPotBlock extends AbstractHorizontalBlock {
     public static final MapCodec<BoilingPotBlock> CODEC = simpleCodec((properties) -> new BoilingPotBlock());
-    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 6.0D, 14.0D);
-    protected static final VoxelShape SHAPE1 = Block.box(4.0D, 6.0D, 4.0D, 12.0D, 8.0D, 12.0D);
+    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D);
+    protected static final VoxelShape SHAPE1 = Block.box(7.0D, 7.0D, 7.0D, 9.0D, 8.0D, 9.0D);
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {

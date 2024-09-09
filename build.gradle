@@ -16,6 +16,9 @@ group = mod_group_id
 repositories {
     mavenLocal()
     mavenCentral()
+    flatDir {
+        dir "libs"
+    }
     maven {
         url "https://maven.shedaniel.me/"
         content {
@@ -150,6 +153,7 @@ configurations {
 
 dependencies {
     implementation "mezz.jei:jei-${project.minecraft_version}-neoforge:${project.jei_version}"
+    implementation "libs:touhoulittlemaid:1.21-release-1.1.12"
     implementation "curse.maven:jade-324717:5444008"
 
 }

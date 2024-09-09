@@ -26,6 +26,7 @@ public class ModLanguageEN extends LanguageProvider {
         this.add("gui.mystia_izakaya.confirm", "Confirm");
         this.add("component.mystia_izakaya.required_cooker", "Required Cooker");
         this.add("component.mystia_izakaya.required_ingredients", "Required Ingredients");
+        this.add("task.mystia_izakaya.mystia_meal", "Mystia's Izakaya");
 
         this.add(ItemRegistry.MystiaFishingRod.get(), "Mystia's Fishing Rod");
         this.add(ItemRegistry.MystiasHat.get(), "Mystia's Hat");

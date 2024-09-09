@@ -16,6 +16,7 @@ public class ItemRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MystiaIzakaya.MODID);
     public static final DeferredItem<Item> MystiaFishingRod = ITEMS.register("mystia_fishing_rod", MystiaFishingRod::new);
     public static final DeferredItem<Item> MystiasHat = ITEMS.register("mystias_hat", () -> new MystiasHatItem(ArmorItem.Type.HELMET));
+    public static final DeferredItem<Item> MystiasSeat = ITEMS.register("mystias_seat", () -> new BlockItem(BlockRegistry.Mystias_Seat.get(), new Item.Properties()));
     public static final DeferredItem<Item> RecipeBook = ITEMS.register("recipe_book", RecipeBookItem::new);
 
     public static final DeferredItem<Item> Grill = ITEMS.register("grill", () -> new BlockItem(BlockRegistry.Grill.get(), new Item.Properties()));
