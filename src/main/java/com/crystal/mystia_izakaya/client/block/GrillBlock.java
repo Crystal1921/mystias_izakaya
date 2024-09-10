@@ -4,6 +4,7 @@ import com.crystal.mystia_izakaya.client.blockEntity.GrillTE;
 import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -22,13 +23,15 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class GrillBlock extends AbstractHorizontalBlock {
     public static final MapCodec<GrillBlock> CODEC = simpleCodec((properties) -> new GrillBlock());
-    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D);
+    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 3.0D, 16.0D, 5.0D, 13.0D);
+    protected static final VoxelShape SHAPE1 = Block.box(3.0D, 0.0D, 0.0D, 13.0D, 5.0D, 16.0D);
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
@@ -58,7 +61,12 @@ public class GrillBlock extends AbstractHorizontalBlock {
 
     @SuppressWarnings("all")
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
+        Direction direction = pState.getValue(FACING);
+        switch (direction) {
+            case EAST, WEST: return SHAPE;
+            case NORTH, SOUTH: return SHAPE1;
+            default: return Shapes.empty();
+        }
     }
 
     @Override

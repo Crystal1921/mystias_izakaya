@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -30,8 +29,9 @@ import org.jetbrains.annotations.Nullable;
 
 public class BoilingPotBlock extends AbstractHorizontalBlock {
     public static final MapCodec<BoilingPotBlock> CODEC = simpleCodec((properties) -> new BoilingPotBlock());
-    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D);
-    protected static final VoxelShape SHAPE1 = Block.box(7.0D, 7.0D, 7.0D, 9.0D, 8.0D, 9.0D);
+    protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 1.0D, 12.0D);
+    protected static final VoxelShape SHAPE1 = Block.box(2.0D, 1.0D, 2.0D, 14.0D, 7.0D, 14.0D);
+    protected static final VoxelShape SHAPE2 = Block.box(7.0D, 7.0D, 7.0D, 9.0D, 8.0D, 9.0D);
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
@@ -61,7 +61,7 @@ public class BoilingPotBlock extends AbstractHorizontalBlock {
 
     @SuppressWarnings("all")
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Shapes.join(SHAPE1, SHAPE, BooleanOp.OR);
+        return Shapes.or(SHAPE, SHAPE1, SHAPE2);
     }
 
     @Nullable
@@ -88,9 +88,9 @@ public class BoilingPotBlock extends AbstractHorizontalBlock {
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         if (state.getValue(LIT)) {
-            double d0 = (double)pos.getX() + random.nextDouble();
+            double d0 = (double) pos.getX() + random.nextDouble();
             double d1 = pos.getY() + 0.15;
-            double d2 = (double)pos.getZ() + random.nextDouble();
+            double d2 = (double) pos.getZ() + random.nextDouble();
             if (random.nextDouble() < 0.1) {
                 level.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
             }
