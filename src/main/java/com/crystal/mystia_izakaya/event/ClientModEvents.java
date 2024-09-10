@@ -7,6 +7,7 @@ import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import com.crystal.mystia_izakaya.registry.EntityRegistry;
 import com.crystal.mystia_izakaya.registry.MenuRegistry;
 import com.crystal.mystia_izakaya.render.block.CookerRender;
+import com.crystal.mystia_izakaya.render.block.MystiasSeatRender;
 import com.crystal.mystia_izakaya.render.entity.FishingHookRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
@@ -40,6 +41,7 @@ public class ClientModEvents {
         event.registerBlockEntityRenderer(BlockEntityRegistry.CUTTING_BOARD.get(), CookerRender::new);
         event.registerBlockEntityRenderer(BlockEntityRegistry.FRYING_PAN.get(), CookerRender::new);
         event.registerBlockEntityRenderer(BlockEntityRegistry.STEAMER.get(), CookerRender::new);
+        event.registerBlockEntityRenderer(BlockEntityRegistry.MYSTIAS_SEAT.get(), MystiasSeatRender::new);
     }
 
     @SubscribeEvent

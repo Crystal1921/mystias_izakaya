@@ -24,8 +24,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.items.wrapper.InvWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -40,7 +38,11 @@ public class MystiasSeatBlock extends BaseEntityBlock {
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        return ItemInteractionResult.SUCCESS;
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (blockEntity instanceof MystiaSeatTE mystiaSeatTE) {
+            mystiaSeatTE.setItem(0, itemStack);
+            return ItemInteractionResult.SUCCESS;
+        } else return super.useItemOn(itemStack, state, level, pos, player, hand, hit);
     }
 
     public void startMaidSit(EntityMaid maid, BlockState state, Level worldIn, BlockPos pos) {
@@ -48,7 +50,7 @@ public class MystiasSeatBlock extends BaseEntityBlock {
             BlockEntity blockEntity = serverLevel.getBlockEntity(pos);
             if (blockEntity instanceof MystiaSeatTE seatTE) {
                 Direction face = state.getValue(FACING).getClockWise();
-                Vec3 position = new Vec3(0.5 + (double)face.getStepX() * 1.5, 0.1, 0.5 + (double)face.getStepZ() * 1.5);
+                Vec3 position = new Vec3(0.5 + (double) face.getStepX() * 1.5, 0.1, 0.5 + (double) face.getStepZ() * 1.5);
                 EntitySit newSitEntity = new EntitySit(worldIn, Vec3.atLowerCornerWithOffset(pos, position.x, position.y, position.z), MystiasSeatBlock, pos);
                 newSitEntity.setYRot(face.getOpposite().toYRot());
                 worldIn.addFreshEntity(newSitEntity);

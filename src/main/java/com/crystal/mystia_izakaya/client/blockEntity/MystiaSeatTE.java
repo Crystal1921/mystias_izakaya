@@ -21,6 +21,10 @@ public class MystiaSeatTE extends BaseContainerBlockEntity {
         super(BlockEntityRegistry.MYSTIAS_SEAT.get(), pos, blockState);
     }
 
+    public ItemStack getItem() {
+        return items.getFirst();
+    }
+
     public UUID getSitId() {
         return sitId;
     }
