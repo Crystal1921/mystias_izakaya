@@ -53,7 +53,6 @@ public class SteamerBlock extends AbstractHorizontalBlock {
         return createCookTicker(pLevel, pBlockEntityType, BlockEntityRegistry.STEAMER.get());
     }
 
-    @SuppressWarnings("all")
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return Shapes.or(SHAPE, SHAPE1, SHAPE2);
     }

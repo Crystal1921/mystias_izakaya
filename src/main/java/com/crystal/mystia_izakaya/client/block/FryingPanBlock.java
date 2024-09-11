@@ -55,21 +55,15 @@ public class FryingPanBlock extends AbstractHorizontalBlock {
         return createCookTicker(pLevel, pBlockEntityType, BlockEntityRegistry.FRYING_PAN.get());
     }
 
-    @SuppressWarnings("all")
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Direction direction = pState.getValue(FACING);
-        switch (direction) {
-            case EAST:
-                return SHAPE1;
-            case SOUTH:
-                return SHAPE2;
-            case WEST:
-                return SHAPE3;
-            case NORTH:
-                return SHAPE4;
-            default:
-                return Shapes.empty();
-        }
+        return switch (direction) {
+            case EAST -> SHAPE1;
+            case SOUTH -> SHAPE2;
+            case WEST -> SHAPE3;
+            case NORTH -> SHAPE4;
+            default -> Shapes.empty();
+        };
     }
 
     @Override

@@ -1,9 +1,9 @@
 package com.crystal.mystia_izakaya.client.block;
 
 import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
+import com.crystal.mystia_izakaya.utils.UtilMethod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -22,8 +22,6 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 
 import javax.annotation.Nullable;
 
-import static net.minecraft.world.Containers.dropItemStack;
-
 public abstract class AbstractHorizontalBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
@@ -37,16 +35,6 @@ public abstract class AbstractHorizontalBlock extends BaseEntityBlock {
             Level pLevel, BlockEntityType<T> pServerType, BlockEntityType<? extends AbstractCookerTE> pClientType
     ) {
         return pLevel.isClientSide ? null : createTickerHelper(pServerType, pClientType, AbstractCookerTE::serverTick);
-    }
-
-    public static void dropContents(Level pLevel, BlockPos pPos, Container pInventory) {
-        dropContents(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), pInventory);
-    }
-
-    private static void dropContents(Level pLevel, double pX, double pY, double pZ, Container pInventory) {
-        for (int i = 0; i < pInventory.getContainerSize() - 1; i++) {
-            dropItemStack(pLevel, pX, pY, pZ, pInventory.getItem(i));
-        }
     }
 
     @Override
@@ -73,7 +61,7 @@ public abstract class AbstractHorizontalBlock extends BaseEntityBlock {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             if (blockentity instanceof AbstractCookerTE abstractCookerTE) {
                 if (pLevel instanceof ServerLevel) {
-                    dropContents(pLevel, pPos, abstractCookerTE);
+                    UtilMethod.dropContents(pLevel, pPos, abstractCookerTE, abstractCookerTE.getContainerSize() - 1);
                 }
 
                 super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);

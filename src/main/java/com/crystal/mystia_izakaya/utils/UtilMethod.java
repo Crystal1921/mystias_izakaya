@@ -9,16 +9,21 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.List;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static net.minecraft.world.Containers.dropItemStack;
 
 public class UtilMethod {
     public static final int positiveInColor = new Color(230, 180, 166).getRGB();
@@ -161,5 +166,15 @@ public class UtilMethod {
         }
 
         return index;
+    }
+
+    public static void dropContents(Level pLevel, BlockPos pPos, Container pInventory, int num) {
+        dropContents(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), pInventory, num);
+    }
+
+    private static void dropContents(Level pLevel, double pX, double pY, double pZ, Container pInventory, int num) {
+        for (int i = 0; i < num; i++) {
+            dropItemStack(pLevel, pX, pY, pZ, pInventory.getItem(i));
+        }
     }
 }

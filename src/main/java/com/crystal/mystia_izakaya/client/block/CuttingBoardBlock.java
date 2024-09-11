@@ -48,17 +48,13 @@ public class CuttingBoardBlock extends AbstractHorizontalBlock {
         return createCookTicker(pLevel, pBlockEntityType, BlockEntityRegistry.CUTTING_BOARD.get());
     }
 
-    @SuppressWarnings("all")
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Direction direction = pState.getValue(FACING);
-        switch (direction) {
-            case EAST, WEST:
-                return SHAPE;
-            case NORTH, SOUTH:
-                return SHAPE1;
-            default:
-                return Shapes.empty();
-        }
+        return switch (direction) {
+            case EAST, WEST -> SHAPE;
+            case NORTH, SOUTH -> SHAPE1;
+            default -> Shapes.empty();
+        };
     }
 
     @Override

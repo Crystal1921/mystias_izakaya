@@ -58,8 +58,6 @@ public class BoilingPotBlock extends AbstractHorizontalBlock {
         return CODEC;
     }
 
-
-    @SuppressWarnings("all")
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return Shapes.or(SHAPE, SHAPE1, SHAPE2);
     }

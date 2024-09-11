@@ -37,6 +37,7 @@ public class ModLanguageCN extends LanguageProvider {
         this.add(ItemRegistry.Frying_Pan.get(), "油锅");
         this.add(ItemRegistry.Steamer.get(), "蒸锅");
         this.add(ItemRegistry.Cutting_Board.get(), "料理台");
+        this.add(ItemRegistry.MystiasSeat.get(), "夜雀食堂座椅");
 
         this.add(ItemRegistry.Trout.get(), "鳟鱼");
         this.add(ItemRegistry.Lamprey.get(), "八目鳗");
