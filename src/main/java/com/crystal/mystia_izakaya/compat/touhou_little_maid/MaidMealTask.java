@@ -3,7 +3,6 @@ package com.crystal.mystia_izakaya.compat.touhou_little_maid;
 import com.crystal.mystia_izakaya.client.block.MystiasSeatBlock;
 import com.crystal.mystia_izakaya.client.blockEntity.MystiaSeatTE;
 import com.crystal.mystia_izakaya.registry.PoiRegistry;
-import com.github.tartaricacid.touhoulittlemaid.block.BlockGomoku;
 import com.github.tartaricacid.touhoulittlemaid.entity.ai.brain.task.MaidCheckRateTask;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.github.tartaricacid.touhoulittlemaid.init.InitEntities;

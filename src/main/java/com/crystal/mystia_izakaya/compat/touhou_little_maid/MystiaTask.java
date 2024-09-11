@@ -40,4 +40,9 @@ public class MystiaTask implements IMaidTask {
         Pair<Integer, BehaviorControl<? super EntityMaid>> maidMealTask = Pair.of(5, new MaidMealTask(0.6f, 2));
         return Lists.newArrayList(maidMealTask);
     }
+
+    @Override
+    public boolean canSitInJoy(EntityMaid maid, String joyType) {
+        return true;
+    }
 }
