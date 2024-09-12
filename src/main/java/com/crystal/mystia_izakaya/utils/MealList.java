@@ -9,7 +9,7 @@ import java.util.List;
 public class MealList {
     private static MealList instance;
     private final List<Item> meals;
-    private final FoodTagEnum[] food = FoodTagEnum.values();
+    private final FoodTagEnum[] foodTags = FoodTagEnum.values();
 
     private MealList() {
         meals = List.of(ItemRegistry.Oedo_Boat_Feast.get(),
@@ -192,7 +192,7 @@ public class MealList {
         return meals.stream().map(item -> (CookedMealItem) item).toList();
     }
 
-    public FoodTagEnum[] getFood() {
-        return food;
+    public FoodTagEnum[] getFoodTags() {
+        return foodTags;
     }
 }

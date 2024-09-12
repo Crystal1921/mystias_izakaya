@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity {
     public static final int DATA_COUNT = 2;
-    private final FoodTagEnum[] foodTagEnums = MealList.getInstance().getFood();
+    private final FoodTagEnum[] foodTagEnums = MealList.getInstance().getFoodTags();
     public CookerTypeEnum cookerTypeEnum;
     public int cookTime = 0;
     public int cookTotal = 0;

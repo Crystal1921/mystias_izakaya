@@ -2,6 +2,7 @@ package com.crystal.mystia_izakaya.client.block;
 
 import com.crystal.mystia_izakaya.client.blockEntity.MystiaSeatTE;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
+import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import com.crystal.mystia_izakaya.utils.UtilMethod;
 import com.github.tartaricacid.touhoulittlemaid.entity.item.EntitySit;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
@@ -11,6 +12,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -39,19 +41,18 @@ import org.jetbrains.annotations.Nullable;
 public class MystiasSeatBlock extends BaseEntityBlock {
     public static final MapCodec<MystiasSeatBlock> CODEC = simpleCodec((properties) -> new MystiasSeatBlock());
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final String MystiasSeatBlock = "mystias_seat";
     protected static final VoxelShape SHAPE = Shapes.box(0.4375, 0, 0.4375, 0.5625, 0.625, 0.5625);
     protected static final VoxelShape SHAPE1 = Shapes.box(0.125, 0.625, 0.125, 0.875, 0.75, 0.875);
-    private static final String MystiasSeatBlock = "mystias_seat";
 
     public MystiasSeatBlock() {
         super(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion());
     }
 
     @javax.annotation.Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createCookTicker(
-            Level pLevel, BlockEntityType<T> pServerType, BlockEntityType<? extends MystiaSeatTE> pClientType
-    ) {
-        return pLevel.isClientSide ? null : createTickerHelper(pServerType, pClientType, MystiaSeatTE::serverTick);
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        return pLevel.isClientSide ? null : createTickerHelper(pBlockEntityType, BlockEntityRegistry.MYSTIAS_SEAT.get(), MystiaSeatTE::serverTick);
     }
 
     @Override
@@ -130,8 +131,12 @@ public class MystiasSeatBlock extends BaseEntityBlock {
         if (!pState.is(pNewState.getBlock())) {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             if (blockentity instanceof MystiaSeatTE mystiaSeatTE) {
-                if (pLevel instanceof ServerLevel) {
+                if (pLevel instanceof ServerLevel serverLevel) {
                     UtilMethod.dropContents(pLevel, pPos, mystiaSeatTE, mystiaSeatTE.getContainerSize());
+                    Entity entity = serverLevel.getEntity(mystiaSeatTE.getSitId());
+                    if (entity instanceof EntitySit) {
+                        entity.discard();
+                    }
                 }
                 super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
                 pLevel.updateNeighbourForOutputSignal(pPos, this);

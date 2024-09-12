@@ -40,7 +40,7 @@ public class RecipeBookItem extends Item {
     @Override
     public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         var foodTagComponent = pStack.get(ComponentRegistry.FOOD_TAG);
-        FoodTagEnum[] foodTagEnums = MealList.getInstance().getFood();
+        FoodTagEnum[] foodTagEnums = MealList.getInstance().getFoodTags();
         var targetComponent = pStack.get(ComponentRegistry.TARGET_ITEM);
         if (targetComponent != null) {
             CookedMealItem cookedMealItem = MealList.getInstance().getCookedMeals().get(targetComponent);
