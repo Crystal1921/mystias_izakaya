@@ -69,7 +69,7 @@ public class ClickEvent {
                 CookedMealItem cookedMealItem = MealList.getInstance().getCookedMeals().get(targetComponent);
                 if (cookedMealItem.cookerTypeEnum == cookerTE.cookerTypeEnum
                         && cookerTE.getItems().stream().allMatch(ItemStack::isEmpty)
-                        && isIngredientsMatch(inventory, cookedMealItem)) {
+                        && (isIngredientsMatch(inventory, cookedMealItem) || player.isCreative())) {
                     //非创造模式玩家背包内对应所需的食材全都减少1个
                     if (!player.isCreative()) {
                         for (int i = 0; i < cookedMealItem.ingredients.length; i++) {

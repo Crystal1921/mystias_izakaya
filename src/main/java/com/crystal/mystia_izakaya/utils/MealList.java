@@ -176,7 +176,6 @@ public class MealList {
                 ItemRegistry.Rice_Ball.get());
     }
 
-    // 提供公共的访问方法
     public static synchronized MealList getInstance() {
         if (instance == null) {
             instance = new MealList();

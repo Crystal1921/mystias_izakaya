@@ -66,6 +66,7 @@ public class MystiasSeatBlock extends BaseEntityBlock {
                     itemStack1.shrink(1);
                 }
                 player.setItemInHand(hand, itemStack1);
+                mystiaSeatTE.updateMeal(serverLevel);
                 serverLevel.sendBlockUpdated(pos, blockEntity.getBlockState(), blockEntity.getBlockState(), Block.UPDATE_CLIENTS);
                 return ItemInteractionResult.SUCCESS;
             }

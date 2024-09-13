@@ -1,12 +1,15 @@
 package com.crystal.mystia_izakaya.client.blockEntity;
 
+import com.crystal.mystia_izakaya.client.item.CookedMealItem;
+import com.crystal.mystia_izakaya.component.FoodTagComponent;
 import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
+import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.utils.MealList;
 import com.crystal.mystia_izakaya.utils.UtilMethod;
 import com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatText;
 import com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatTextType;
-import com.github.tartaricacid.touhoulittlemaid.entity.item.EntitySit;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
+import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -28,13 +31,11 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 import static com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatText.EMPTY_ICON_PATH;
 
 public class MystiaSeatTE extends BaseContainerBlockEntity {
-    private static final Random random = new Random();
     private final int CONTAINER_SIZE = 1;
     private final int gapTime = 100;
     private final String maid_uuid = "maid_uuid";
@@ -54,26 +55,78 @@ public class MystiaSeatTE extends BaseContainerBlockEntity {
             pBlockEntity.tick++;
             if (pBlockEntity.tick == pBlockEntity.gapTime) {
                 pBlockEntity.tick = 0;
-                Entity entity = serverLevel.getEntity(pBlockEntity.sitId);
-                if (entity instanceof EntitySit sit) {
-                    List<Entity> passengers = sit.getPassengers();
-                    if (!passengers.isEmpty()) {
-                        Entity first = passengers.getFirst();
-                        //经过一大堆判断保证拿到的是目标女仆
-                        if (first instanceof EntityMaid maid) {
-                            if (pBlockEntity.targetTags.isEmpty()) {
-                                pBlockEntity.targetTags = UtilMethod.getRandomTags(MealList.getInstance().getFoodTags(), 3);
-                            }
-                            StringBuilder sb = new StringBuilder();
-                            for (int i = 0; i < 2; i++) {
-                                sb.append(Component.translatable("mystia_izakaya." + MealList.getInstance().getFoodTags()[pBlockEntity.targetTags.get(i)]).getString()).append(" ");
-                            }
-                            maid.addChatBubble(System.currentTimeMillis() + (pBlockEntity.gapTime - 1) * 50, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, sb.toString()));
-                        }
+                EntityMaid maid = pBlockEntity.getEntityMaid(serverLevel);
+                if (maid != null) {
+                    if (pBlockEntity.targetTags.isEmpty()) {
+                        pBlockEntity.targetTags = UtilMethod.getRandomTags(MealList.getInstance().getFoodTags(), 3);
+                    }
+                    pBlockEntity.updateMeal(serverLevel);
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < 2; i++) {
+                        sb.append(Component.translatable("mystia_izakaya." + MealList.getInstance().getFoodTags()[pBlockEntity.targetTags.get(i)]).getString()).append(" ");
+                    }
+                    maid.addChatBubble(System.currentTimeMillis() + (pBlockEntity.gapTime - 1) * 50, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, sb.toString()));
+                }
+            }
+        }
+    }
+
+    public void updateMeal(ServerLevel serverLevel) {
+        EntityMaid entityMaid = getEntityMaid(serverLevel);
+        if (entityMaid != null) {
+            ItemStack item = items.getFirst();
+            if (item.getItem() instanceof CookedMealItem cookedMealItem) {
+                List<Byte> tagEnums;
+                FoodTagComponent foodTagComponent = item.get(ComponentRegistry.FOOD_TAG);
+                if (foodTagComponent != null) {
+                    IntList intList = foodTagComponent.intList();
+                    tagEnums = intList.intStream().mapToObj(integer -> (byte) integer).toList();
+                } else {
+                    tagEnums = cookedMealItem.positiveTag.stream().map(foodTagEnum -> (byte) foodTagEnum.ordinal()).toList();
+                }
+
+                int count = 0;
+                for (Byte element : targetTags) {
+                    if (tagEnums.contains(element)) {
+                        count++;
+                    }
+                }
+
+                switch (count) {
+                    case 0 -> {
+
+                    }
+                    case 1 -> {
+
+                    }
+                    case 2 -> {
+
+                    }
+                }
+
+                System.out.println(count);
+
+                items.clear();
+                this.targetTags = UtilMethod.getRandomTags(MealList.getInstance().getFoodTags(), 3);
+            }
+        }
+    }
+
+    @Nullable
+    private EntityMaid getEntityMaid(ServerLevel pLevel) {
+        if (sitId != null) {
+            Entity sit = pLevel.getEntity(sitId);
+            if (sit != null) {
+                List<Entity> passengers = sit.getPassengers();
+                if (!passengers.isEmpty()) {
+                    Entity first = passengers.getFirst();
+                    if (first instanceof EntityMaid maid) {
+                        return maid;
                     }
                 }
             }
         }
+        return null;
     }
 
     @Override
