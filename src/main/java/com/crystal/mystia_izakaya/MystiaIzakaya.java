@@ -3,24 +3,20 @@ package com.crystal.mystia_izakaya;
 import com.crystal.mystia_izakaya.event.CommonEvent;
 import com.crystal.mystia_izakaya.network.MystiaNetwork;
 import com.crystal.mystia_izakaya.registry.*;
-import net.minecraft.resources.ResourceLocation;
-import org.slf4j.Logger;
-
 import com.mojang.logging.LogUtils;
-
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import org.slf4j.Logger;
 
 @Mod(MystiaIzakaya.MODID)
-public class MystiaIzakaya
-{
+public class MystiaIzakaya {
     public static final String MODID = "mystia_izakaya";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public MystiaIzakaya(IEventBus modEventBus, ModContainer modContainer)
-    {
+    public MystiaIzakaya(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(CommonEvent::commonSetup);
 
         BlockRegistry.BLOCKS.register(modEventBus);

@@ -17,6 +17,7 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiRecord;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.Comparator;
@@ -52,7 +53,7 @@ public class MaidMealTask extends MaidCheckRateTask {
     }
 
     @Override
-    protected void start(ServerLevel worldIn, EntityMaid maid, long gameTimeIn) {
+    protected void start(@NotNull ServerLevel worldIn, EntityMaid maid, long gameTimeIn) {
         maid.getBrain().getMemory(InitEntities.TARGET_POS.get()).ifPresent((targetPos) -> {
             BlockPos pos = targetPos.currentBlockPosition();
             BlockState blockState = worldIn.getBlockState(pos);
