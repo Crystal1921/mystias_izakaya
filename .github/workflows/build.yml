@@ -12,13 +12,45 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
-      - name: Setup JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
-          distribution: 'temurin'
+          distribution: 'microsoft'
+          java-version: '21'
+          server-id: github
+          settings-path: ${{ github.workspace }}
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
       - name: Build with Gradle
-        uses: gradle/actions/setup-gradle@v3
+        run: |
+          chmod +x ./gradlew
+          ./gradlew build
+
+      - name: Create timestamp
+        id: create_timestamp
+        run: echo "::set-output name=timestamp::$(date '+%Y%m%d-%H%M%S')"
+        shell: bash
+
+      - name: Send file to Release
+        uses: softprops/action-gh-release@v2
         with:
-          arguments: build
+          tag_name: snapshot-${{ steps.create_timestamp.outputs.timestamp }}
+          body: ${{ github.event.head_commit.message }}
+          draft: false
+          prerelease: true
+          files: |
+            ./build/libs/*.jar
+
+      - name: Cleanup Gradle Cache
+        run: |
+          rm -f ~/.gradle/caches/modules-2/modules-2.lock
+          rm -f ~/.gradle/caches/modules-2/gc.properties
