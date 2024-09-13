@@ -42,6 +42,11 @@ jobs:
           chmod +x ./gradlew
           ./gradlew build
 
+      - name: Create timestamp
+        id: create_timestamp
+        run: echo "::set-output name=timestamp::$(date '+%Y%m%d-%H%M%S')"
+        shell: bash
+
       - name: Send file to Release
         uses: softprops/action-gh-release@v2
         env:
