@@ -1,13 +1,13 @@
-name: Build
+name: Gradle Package 1.21
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - main
+      - "main"
   pull_request:
     branches:
-      - main
-  workflow_dispatch:
+      - "main"
 
 jobs:
   build:
