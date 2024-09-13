@@ -12,11 +12,6 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
-      - name: Use PAT for some task
-        run: echo "Using the secret!"
-        env:
-          TOKEN: ${{ secrets.ACTION_SECRET }}
-
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -47,6 +42,8 @@ jobs:
 
       - name: Send file to Release
         uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTION_SECRET }}
         with:
           tag_name: snapshot-${{ steps.create_timestamp.outputs.timestamp }}
           body: ${{ github.event.head_commit.message }}
