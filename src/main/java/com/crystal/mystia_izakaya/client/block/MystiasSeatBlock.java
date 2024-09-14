@@ -60,7 +60,7 @@ public class MystiasSeatBlock extends BaseEntityBlock {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (level instanceof ServerLevel serverLevel && blockEntity instanceof MystiaSeatTE mystiaSeatTE) {
             if (itemStack.getItem() instanceof CookedMealItem) {
-                mystiaSeatTE.setItem(0, itemStack.getItem().getDefaultInstance());
+                mystiaSeatTE.setItem(0, itemStack);
                 ItemStack itemStack1 = itemStack.copy();
                 if (!player.isCreative()) {
                     itemStack1.shrink(1);

@@ -163,25 +163,4 @@ public class UtilMethod {
         return index;
     }
 
-    /**
-     *
-     * @param tags 总Tag列表
-     * @param count 目标列表的数量
-     * @return 返回目标数量的随机Tag数组
-     */
-    public static List<Byte> getRandomTags(FoodTagEnum[] tags, int count) {
-        if (count > tags.length) {
-            throw new IllegalArgumentException("Count cannot be greater than the number of available tags.");
-        }
-
-        List<FoodTagEnum> tagList = new ArrayList<>();
-        Collections.addAll(tagList, tags); // 将枚举数组转换为List
-
-        // 打乱列表顺序
-        Collections.shuffle(tagList);
-
-        // 选择前count个元素并转换回数组
-        return tagList.subList(0, count).stream().map(foodTagEnum -> (byte)(foodTagEnum.ordinal())).toList();
-    }
-
 }

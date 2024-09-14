@@ -5,7 +5,7 @@ import com.crystal.mystia_izakaya.component.FoodTagComponent;
 import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.utils.MealList;
-import com.crystal.mystia_izakaya.utils.UtilMethod;
+import com.crystal.mystia_izakaya.utils.ServerUtilMethod;
 import com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatText;
 import com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatTextType;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
@@ -31,6 +31,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import static com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatText.EMPTY_ICON_PATH;
@@ -38,8 +39,21 @@ import static com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatTex
 public class MystiaSeatTE extends BaseContainerBlockEntity {
     private final int CONTAINER_SIZE = 1;
     private final int gapTime = 100;
+    private final Random random = new Random();
     private final String maid_uuid = "maid_uuid";
     private final String target_tags = "target_tags";
+    private final List<String> bubbles1 = List.of(
+            "我开动了",
+            "就是这个味道",
+            "像这样偶尔吃一顿也不错");
+    private final List<String> bubbles2 = List.of(
+            "这一顿，就算花光所有钱也是值得的",
+            "不枉我特意攒钱来吃",
+            "好马配好鞍，好酒配好菜",
+            "积攒一天的疲劳被治愈了",
+            "太好吃了，我要介绍的我的世界去",
+            "你偷偷加了什么魔法吗，这么好吃",
+            "真可谓层层叠叠，色香味俱全啊");
     private NonNullList<ItemStack> items = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
     private List<Byte> targetTags = new ArrayList<>();
     private UUID sitId;
@@ -58,12 +72,15 @@ public class MystiaSeatTE extends BaseContainerBlockEntity {
                 EntityMaid maid = pBlockEntity.getEntityMaid(serverLevel);
                 if (maid != null) {
                     if (pBlockEntity.targetTags.isEmpty()) {
-                        pBlockEntity.targetTags = UtilMethod.getRandomTags(MealList.getInstance().getFoodTags(), 3);
+                        int tagNum;
+                        String modelId = maid.getModelId();
+                        tagNum = modelId.equals("touhou_little_maid:saigyouji_yuyuko") ? 3 : 2;
+                        pBlockEntity.targetTags = ServerUtilMethod.getRandomTags(MealList.getInstance().getFoodTags(), tagNum);
                     }
                     pBlockEntity.updateMeal(serverLevel);
                     StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < 2; i++) {
-                        sb.append(Component.translatable("mystia_izakaya." + MealList.getInstance().getFoodTags()[pBlockEntity.targetTags.get(i)]).getString()).append(" ");
+                    for (int i = 0; i < pBlockEntity.targetTags.size(); i++) {
+                        sb.append(MealList.getInstance().getFoodTags()[pBlockEntity.targetTags.get(i)].getCn()).append(" ");
                     }
                     maid.addChatBubble(System.currentTimeMillis() + (pBlockEntity.gapTime - 1) * 50, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, sb.toString()));
                 }
@@ -72,8 +89,8 @@ public class MystiaSeatTE extends BaseContainerBlockEntity {
     }
 
     public void updateMeal(ServerLevel serverLevel) {
-        EntityMaid entityMaid = getEntityMaid(serverLevel);
-        if (entityMaid != null) {
+        EntityMaid maid = getEntityMaid(serverLevel);
+        if (maid != null && !targetTags.isEmpty()) {
             ItemStack item = items.getFirst();
             if (item.getItem() instanceof CookedMealItem cookedMealItem) {
                 List<Byte> tagEnums;
@@ -93,21 +110,17 @@ public class MystiaSeatTE extends BaseContainerBlockEntity {
                 }
 
                 switch (count) {
-                    case 0 -> {
-
-                    }
-                    case 1 -> {
-
-                    }
-                    case 2 -> {
-
-                    }
+                    case 0 -> maid.addChatBubble(System.currentTimeMillis() + 2000, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, "简直是黑暗料理"));
+                    case 1 -> maid.addChatBubble(System.currentTimeMillis() + 2000, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, bubbles1.get(random.nextInt(bubbles1.size() - 1))));
+                    case 2 -> maid.addChatBubble(System.currentTimeMillis() + 2000, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, bubbles2.get(random.nextInt(bubbles2.size() - 1))));
+                    case 3 -> maid.addChatBubble(System.currentTimeMillis() + 2000, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, "还是很怀念小脆骨呢"));
+                    default -> maid.addChatBubble(System.currentTimeMillis() + 2000, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, "我是谁，我在哪里"));
                 }
 
                 System.out.println(count);
 
                 items.clear();
-                this.targetTags = UtilMethod.getRandomTags(MealList.getInstance().getFoodTags(), 3);
+                targetTags = new ArrayList<>();
             }
         }
     }
