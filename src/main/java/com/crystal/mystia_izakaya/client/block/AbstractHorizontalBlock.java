@@ -1,7 +1,7 @@
 package com.crystal.mystia_izakaya.client.block;
 
 import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
-import com.crystal.mystia_izakaya.utils.UtilMethod;
+import com.crystal.mystia_izakaya.utils.ServerUtilMethod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -61,7 +61,7 @@ public abstract class AbstractHorizontalBlock extends BaseEntityBlock {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             if (blockentity instanceof AbstractCookerTE abstractCookerTE) {
                 if (pLevel instanceof ServerLevel) {
-                    UtilMethod.dropContents(pLevel, pPos, abstractCookerTE, abstractCookerTE.getContainerSize() - 1);
+                    ServerUtilMethod.dropContents(pLevel, pPos, abstractCookerTE, abstractCookerTE.getContainerSize() - 1);
                 }
 
                 super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);

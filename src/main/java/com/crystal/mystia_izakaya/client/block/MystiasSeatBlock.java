@@ -3,7 +3,7 @@ package com.crystal.mystia_izakaya.client.block;
 import com.crystal.mystia_izakaya.client.blockEntity.MystiaSeatTE;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
-import com.crystal.mystia_izakaya.utils.UtilMethod;
+import com.crystal.mystia_izakaya.utils.ServerUtilMethod;
 import com.github.tartaricacid.touhoulittlemaid.entity.item.EntitySit;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.mojang.serialization.MapCodec;
@@ -133,7 +133,7 @@ public class MystiasSeatBlock extends BaseEntityBlock {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             if (blockentity instanceof MystiaSeatTE mystiaSeatTE) {
                 if (pLevel instanceof ServerLevel serverLevel) {
-                    UtilMethod.dropContents(pLevel, pPos, mystiaSeatTE, mystiaSeatTE.getContainerSize());
+                    ServerUtilMethod.dropContents(serverLevel, pPos, mystiaSeatTE, mystiaSeatTE.getContainerSize());
                     Entity entity = serverLevel.getEntity(mystiaSeatTE.getSitId());
                     if (entity instanceof EntitySit) {
                         entity.discard();
