@@ -4,6 +4,7 @@ import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.component.FoodTagComponent;
 import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
+import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import com.crystal.mystia_izakaya.utils.MealList;
 import com.crystal.mystia_izakaya.utils.ServerUtilMethod;
 import com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatText;
@@ -20,6 +21,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
@@ -115,6 +117,12 @@ public class MystiaSeatTE extends BaseContainerBlockEntity {
                     case 2 -> maid.addChatBubble(System.currentTimeMillis() + 2000, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, bubbles2.get(random.nextInt(bubbles2.size() - 1))));
                     case 3 -> maid.addChatBubble(System.currentTimeMillis() + 2000, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, "还是很怀念小脆骨呢"));
                     default -> maid.addChatBubble(System.currentTimeMillis() + 2000, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, "我是谁，我在哪里"));
+                }
+
+                if (count >= 2) {
+                    if (this.level != null && random.nextInt() < 0.1) {
+                        this.level.addFreshEntity(new ItemEntity(this.level,this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(), ItemRegistry.ChromeBall.toStack()));
+                    }
                 }
 
                 items.clear();

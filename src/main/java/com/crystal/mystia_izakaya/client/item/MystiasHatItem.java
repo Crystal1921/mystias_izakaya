@@ -52,7 +52,7 @@ public class MystiasHatItem extends ArmorItem {
         if (components != null) {
             List<BlockPos> blockPosList = components.posList();
             for (int i = 0; i < blockPosList.size(); i++) {
-                pTooltipComponents.add(Component.literal("Pos[" + i + "] : " + blockPosList.get(i).toShortString()));
+                pTooltipComponents.add(Component.literal("Pos[" + (i + 1) + "] : " + blockPosList.get(i).toShortString()));
             }
         }
     }

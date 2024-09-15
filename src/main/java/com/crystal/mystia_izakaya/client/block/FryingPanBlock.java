@@ -30,10 +30,10 @@ import org.jetbrains.annotations.Nullable;
 
 public class FryingPanBlock extends AbstractHorizontalBlock {
     public static final MapCodec<FryingPanBlock> CODEC = simpleCodec((properties) -> new FryingPanBlock());
-    protected static final VoxelShape SHAPE1 = Block.box(6.0D, 1.0D, 3.0D, 16.0D, 2.0D, 13.0D);
-    protected static final VoxelShape SHAPE2 = Block.box(3.0D, 1.0D, 6.0D, 13.0D, 2.0D, 16.0D);
-    protected static final VoxelShape SHAPE3 = Block.box(0.0D, 1.0D, 3.0D, 10.0D, 2.0D, 13.0D);
-    protected static final VoxelShape SHAPE4 = Block.box(3.0D, 1.0D, 0.0D, 13.0D, 2.0D, 10.0D);
+    protected static final VoxelShape SHAPE1 = Block.box(6.0D, 0.0D, 3.0D, 16.0D, 2.0D, 13.0D);
+    protected static final VoxelShape SHAPE2 = Block.box(3.0D, 0.0D, 6.0D, 13.0D, 2.0D, 16.0D);
+    protected static final VoxelShape SHAPE3 = Block.box(0.0D, 0.0D, 3.0D, 10.0D, 2.0D, 13.0D);
+    protected static final VoxelShape SHAPE4 = Block.box(3.0D, 0.0D, 0.0D, 13.0D, 2.0D, 10.0D);
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {

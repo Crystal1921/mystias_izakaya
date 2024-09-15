@@ -31,6 +31,7 @@ public class ModLanguageCN extends LanguageProvider {
         this.add(ItemRegistry.MystiaFishingRod.get(), "米斯蒂娅的鱼竿");
         this.add(ItemRegistry.MystiasHat.get(), "米斯蒂娅的厨师帽");
         this.add(ItemRegistry.RecipeBook.get(), "米斯蒂娅的食谱");
+        this.add(ItemRegistry.ChromeBall.get(), "土球");
 
         this.add(ItemRegistry.Grill.get(), "烤架");
         this.add(ItemRegistry.Boiling_Pot.get(), "煮锅");

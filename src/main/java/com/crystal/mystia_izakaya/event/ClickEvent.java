@@ -46,7 +46,7 @@ public class ClickEvent {
             if (component == null) {
                 stack.set(ComponentRegistry.COOKER_POS, new CookerPosComponent(List.of(blockPos)));
             } else {
-                List<BlockPos> blockPosList = component.posList();
+                List<BlockPos> blockPosList = new ArrayList<>(component.posList());
                 if (!blockPosList.contains(blockPos) && blockPosList.size() <= 7) {
                     blockPosList.add(blockPos);
                     stack.set(ComponentRegistry.COOKER_POS, new CookerPosComponent(blockPosList));

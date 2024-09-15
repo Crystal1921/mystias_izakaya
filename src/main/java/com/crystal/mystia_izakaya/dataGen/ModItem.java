@@ -26,6 +26,7 @@ public class ModItem extends ItemModelProvider {
         this.basicItem(ItemRegistry.MystiaFishingRod.get());
         this.basicItem(ItemRegistry.MystiasHat.get());
         this.basicItem(ItemRegistry.RecipeBook.get());
+        this.basicItem(ItemRegistry.ChromeBall.get());
 
         this.basicItem(ItemRegistry.Trout.get());
         this.basicItem(ItemRegistry.Lamprey.get());
