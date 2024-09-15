@@ -1,0 +1,47 @@
+{
+  "parent": "mystia_izakaya:cooker",
+  "criteria": {
+    "cubic_kedama_ice_cream": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mystia_izakaya:cubic_kedama_ice_cream"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "cubic_kedama_volcanic_tofu": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mystia_izakaya:cubic_kedama_volcanic_tofu"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.mystias_izakaya.moesumika.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mystia_izakaya:cubic_kedama_ice_cream"
+    },
+    "title": {
+      "translate": "advancement.mystias_izakaya.moesumika"
+    }
+  },
+  "requirements": [
+    [
+      "cubic_kedama_ice_cream"
+    ],
+    [
+      "cubic_kedama_volcanic_tofu"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

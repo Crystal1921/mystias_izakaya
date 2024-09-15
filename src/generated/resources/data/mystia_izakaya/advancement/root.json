@@ -1,0 +1,34 @@
+{
+  "criteria": {
+    "recipe_book": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mystia_izakaya:recipe_book"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": {
+      "translate": "advancement.mystias_izakaya.root.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mystia_izakaya:rice_ball"
+    },
+    "title": {
+      "translate": "advancement.mystias_izakaya.root"
+    }
+  },
+  "requirements": [
+    [
+      "recipe_book"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

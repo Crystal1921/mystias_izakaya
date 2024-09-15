@@ -183,7 +183,6 @@ public class MealList {
         cookerTypeMap.put(CookerTypeEnum.Frying_Pan, ItemRegistry.Frying_Pan.get());
         cookerTypeMap.put(CookerTypeEnum.Grill, ItemRegistry.Grill.get());
         cookerTypeMap.put(CookerTypeEnum.Steamer, ItemRegistry.Steamer.get());
-        cookerTypeMap.put(CookerTypeEnum.EMPTY, ItemRegistry.Dark_Matter.get());
     }
 
     public static synchronized MealList getInstance() {

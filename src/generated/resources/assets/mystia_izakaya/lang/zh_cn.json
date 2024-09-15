@@ -1,4 +1,12 @@
 {
+  "advancement.mystias_izakaya.chrome_ball": "土球",
+  "advancement.mystias_izakaya.chrome_ball.desc": "非常可爱土老师",
+  "advancement.mystias_izakaya.cooker": "锅碗瓢盆",
+  "advancement.mystias_izakaya.cooker.desc": "制作五种厨具",
+  "advancement.mystias_izakaya.moesumika": "毛玉彩蛋",
+  "advancement.mystias_izakaya.moesumika.desc": "偷偷告诉你，把女仆命名为moesumika",
+  "advancement.mystias_izakaya.root": "夜雀食堂",
+  "advancement.mystias_izakaya.root.desc": "温馨的食堂",
   "block.mystia_izakaya.boiling_pot": "煮锅",
   "block.mystia_izakaya.cutting_board": "料理台",
   "block.mystia_izakaya.frying_pan": "油锅",

@@ -1,4 +1,12 @@
 {
+  "advancement.mystias_izakaya.chrome_ball": "Chrome Ball",
+  "advancement.mystias_izakaya.chrome_ball.desc": "This is a hidden advancement, ustc_zzzz is very cute",
+  "advancement.mystias_izakaya.cooker": "Cookers",
+  "advancement.mystias_izakaya.cooker.desc": "Made five types of cookers",
+  "advancement.mystias_izakaya.moesumika": "Cubic Kedama Easter Egg",
+  "advancement.mystias_izakaya.moesumika.desc": "Secretly tell you, name your maid moesumika",
+  "advancement.mystias_izakaya.root": "Mystia's Izakaya",
+  "advancement.mystias_izakaya.root.desc": "Warm canteen",
   "block.mystia_izakaya.boiling_pot": "Boiling Pot",
   "block.mystia_izakaya.cutting_board": "Cutting Board",
   "block.mystia_izakaya.frying_pan": "Frying Pan",

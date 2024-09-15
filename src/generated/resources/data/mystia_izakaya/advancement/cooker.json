@@ -1,0 +1,86 @@
+{
+  "parent": "mystia_izakaya:root",
+  "criteria": {
+    "boiling_pot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mystia_izakaya:boiling_pot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "cutting_board": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mystia_izakaya:cutting_board"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "frying_pan": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mystia_izakaya:frying_pan"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "grill": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mystia_izakaya:grill"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "steamer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mystia_izakaya:steamer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.mystias_izakaya.cooker.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mystia_izakaya:boiling_pot"
+    },
+    "title": {
+      "translate": "advancement.mystias_izakaya.cooker"
+    }
+  },
+  "requirements": [
+    [
+      "frying_pan"
+    ],
+    [
+      "steamer"
+    ],
+    [
+      "boiling_pot"
+    ],
+    [
+      "grill"
+    ],
+    [
+      "cutting_board"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -28,6 +28,15 @@ public class ModLanguageEN extends LanguageProvider {
         this.add("component.mystia_izakaya.required_ingredients", "Required Ingredients");
         this.add("task.mystia_izakaya.mystia_meal", "Mystia's Izakaya");
 
+        this.add("advancement.mystias_izakaya.root", "Mystia's Izakaya");
+        this.add("advancement.mystias_izakaya.root.desc", "Warm canteen");
+        this.add("advancement.mystias_izakaya.chrome_ball", "Chrome Ball");
+        this.add("advancement.mystias_izakaya.chrome_ball.desc", "This is a hidden advancement, ustc_zzzz is very cute");
+        this.add("advancement.mystias_izakaya.cooker", "Cookers");
+        this.add("advancement.mystias_izakaya.cooker.desc", "Made five types of cookers");
+        this.add("advancement.mystias_izakaya.moesumika", "Cubic Kedama Easter Egg");
+        this.add("advancement.mystias_izakaya.moesumika.desc", "Secretly tell you, name your maid moesumika");
+
         this.add(ItemRegistry.MystiaFishingRod.get(), "Mystia's Fishing Rod");
         this.add(ItemRegistry.MystiasHat.get(), "Mystia's Hat");
         this.add(ItemRegistry.RecipeBook.get(), "Mystia's Recipe Book");

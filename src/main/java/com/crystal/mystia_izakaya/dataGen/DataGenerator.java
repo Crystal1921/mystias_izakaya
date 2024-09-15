@@ -9,6 +9,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -58,6 +59,12 @@ public class DataGenerator {
                 event.includeServer(),
                 (DataProvider.Factory<RecipeProvider>) pOutput -> new ModRecipe(pOutput,registries)
         );
+        //Advancement
+        event.getGenerator().addProvider(
+                event.includeServer(),
+                (DataProvider.Factory<AdvancementProvider>) pOutput -> new ModAdvancement(pOutput,registries,existingFileHelper)
+        );
+
         //Tags
         var blockTagsProvider = vanillaPack
                 .addProvider(packOutput -> new ModTagBlock(packOutput, registries,MystiaIzakaya.MODID , existingFileHelper));

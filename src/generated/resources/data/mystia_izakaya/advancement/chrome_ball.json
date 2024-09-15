@@ -1,0 +1,34 @@
+{
+  "parent": "mystia_izakaya:cooker",
+  "criteria": {
+    "chrome_ball": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mystia_izakaya:chrome_ball"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.mystias_izakaya.chrome_ball.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "mystia_izakaya:chrome_ball"
+    },
+    "title": {
+      "translate": "advancement.mystias_izakaya.chrome_ball"
+    }
+  },
+  "requirements": [
+    [
+      "chrome_ball"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
