@@ -54,8 +54,10 @@ public class CookedMealItem extends Item {
                     .filter(Objects::nonNull)
                     .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.GREEN.getRGB())));
         }
-        negativeTag.stream()
-                .filter(Objects::nonNull)
-                .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.RED.getRGB())));
+        if (!negativeTag.isEmpty()) {
+            negativeTag.stream()
+                    .filter(Objects::nonNull)
+                    .forEach(foodTagEnum -> pTooltipComponents.add(Component.translatable(MystiaIzakaya.MODID + "." + foodTagEnum.name()).withColor(Color.RED.getRGB())));
+        }
     }
 }

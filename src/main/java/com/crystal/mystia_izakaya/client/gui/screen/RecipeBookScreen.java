@@ -193,12 +193,15 @@ public class RecipeBookScreen extends Screen {
         if (selected != null) {
             CookedMealItem cookedMealItem = selected.getCookedMealItem();
             Item[] ingredients = cookedMealItem.ingredients;
+            CookerTypeEnum cookerTypeEnum = cookedMealItem.cookerTypeEnum;
+            ItemStack cooker = MealList.getInstance().getCookerTypeMap().get(cookerTypeEnum).getDefaultInstance();
             for (int k = 0; k < ingredients.length; k++) {
                 int x = i + k * 24 + 12;
-                int y = j + 177;
+                int y = j + 170;
                 guiGraphics.fill(x, y, x + 16, y + 16, positiveInColor);
                 guiGraphics.renderItem(ingredients[k].getDefaultInstance(), x, y);
             }
+            guiGraphics.renderItem(cooker, i + 2 * 24 + 12,j + 190);
         }
     }
 

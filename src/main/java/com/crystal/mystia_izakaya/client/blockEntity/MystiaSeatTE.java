@@ -117,8 +117,6 @@ public class MystiaSeatTE extends BaseContainerBlockEntity {
                     default -> maid.addChatBubble(System.currentTimeMillis() + 2000, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, "我是谁，我在哪里"));
                 }
 
-                System.out.println(count);
-
                 items.clear();
                 targetTags = new ArrayList<>();
             }

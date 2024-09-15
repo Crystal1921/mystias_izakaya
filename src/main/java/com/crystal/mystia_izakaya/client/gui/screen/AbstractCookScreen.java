@@ -166,7 +166,7 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                         stringHeight++;
                     }
                     for (int k = 0; k < negativeStrings.size(); k++) {
-                        guiGraphics.drawString(font, negativeStrings.get(k), i + 15 + stringLength * 10, j + 50 + stringHeight * 10, negativeInColor, false);
+                        guiGraphics.drawString(font, negativeStrings.get(k), i + 15 + stringLength * 10, j + 50 + stringHeight * 10, Color.RED.getRGB(), false);
                         stringLength += negativeStrings.get(k).length();
                         if (negativeStrings.size() > k + 1) {
                             if (stringLength + negativeStrings.get(k + 1).length() > 10) {

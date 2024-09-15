@@ -4,12 +4,15 @@ import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import net.minecraft.world.item.Item;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MealList {
     private static MealList instance;
     private final List<Item> meals;
     private final FoodTagEnum[] foodTags = FoodTagEnum.values();
+    private final Map<CookerTypeEnum, Item> cookerTypeMap = new HashMap<>();
 
     private MealList() {
         meals = List.of(ItemRegistry.Oedo_Boat_Feast.get(),
@@ -174,6 +177,13 @@ public class MealList {
                 ItemRegistry.Scones.get(),
                 ItemRegistry.Sea_Miso_soup.get(),
                 ItemRegistry.Rice_Ball.get());
+
+        cookerTypeMap.put(CookerTypeEnum.Boiling_Pot, ItemRegistry.Boiling_Pot.get());
+        cookerTypeMap.put(CookerTypeEnum.Cutting_Board, ItemRegistry.Cutting_Board.get());
+        cookerTypeMap.put(CookerTypeEnum.Frying_Pan, ItemRegistry.Frying_Pan.get());
+        cookerTypeMap.put(CookerTypeEnum.Grill, ItemRegistry.Grill.get());
+        cookerTypeMap.put(CookerTypeEnum.Steamer, ItemRegistry.Steamer.get());
+        cookerTypeMap.put(CookerTypeEnum.EMPTY, ItemRegistry.Dark_Matter.get());
     }
 
     public static synchronized MealList getInstance() {
@@ -193,5 +203,9 @@ public class MealList {
 
     public FoodTagEnum[] getFoodTags() {
         return foodTags;
+    }
+
+    public Map<CookerTypeEnum, Item> getCookerTypeMap() {
+        return cookerTypeMap;
     }
 }
