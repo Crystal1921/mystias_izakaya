@@ -30,7 +30,7 @@ public enum FoodTagEnum {
     Hot("灼热"),
     Strength_Boosting("力量涌现"),
     Peculiar("猎奇"),
-    Culture_Heritage("文化底蕴"),
+    Cultural_Heritage("文化底蕴"),
     Fungus("菌类"),
     Wonderful("不可思议"),
     Small_Portion("小巧"),

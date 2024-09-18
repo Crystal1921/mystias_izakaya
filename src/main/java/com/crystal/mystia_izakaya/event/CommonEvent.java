@@ -20,7 +20,7 @@ public class CommonEvent {
     @SubscribeEvent
     public static void commonSetup(final FMLCommonSetupEvent event)
     {
-        MystiaIzakaya.LOGGER.info("Do you have \"Culture Heritage\"");
+        MystiaIzakaya.LOGGER.info("Do you have \"Cultural Heritage\"");
         // Some common setup code
 //        MystiaIzakaya.LOGGER.info("HELLO FROM COMMON SETUP");
 //
