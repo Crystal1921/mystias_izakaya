@@ -20,14 +20,15 @@ public class CommonEvent {
     @SubscribeEvent
     public static void commonSetup(final FMLCommonSetupEvent event)
     {
+        MystiaIzakaya.LOGGER.info("Do you have \"Culture Heritage\"");
         // Some common setup code
-        MystiaIzakaya.LOGGER.info("HELLO FROM COMMON SETUP");
-
-        if (Config.logDirtBlock)
-            MystiaIzakaya.LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
-
-        MystiaIzakaya.LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-
-        Config.items.forEach((item) -> MystiaIzakaya.LOGGER.info("ITEM >> {}", item.toString()));
+//        MystiaIzakaya.LOGGER.info("HELLO FROM COMMON SETUP");
+//
+//        if (Config.logDirtBlock)
+//            MystiaIzakaya.LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
+//
+//        MystiaIzakaya.LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
+//
+//        Config.items.forEach((item) -> MystiaIzakaya.LOGGER.info("ITEM >> {}", item.toString()));
     }
 }
