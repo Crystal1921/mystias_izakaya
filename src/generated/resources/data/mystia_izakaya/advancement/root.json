@@ -12,7 +12,6 @@
     }
   },
   "display": {
-    "announce_to_chat": false,
     "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
     "description": {
       "translate": "advancement.mystias_izakaya.root.desc"

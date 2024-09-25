@@ -13,10 +13,10 @@
     }
   },
   "display": {
-    "announce_to_chat": false,
     "description": {
       "translate": "advancement.mystias_izakaya.chrome_ball.desc"
     },
+    "hidden": true,
     "icon": {
       "count": 1,
       "id": "mystia_izakaya:chrome_ball"

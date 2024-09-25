@@ -23,7 +23,6 @@
     }
   },
   "display": {
-    "announce_to_chat": false,
     "description": {
       "translate": "advancement.mystias_izakaya.moesumika.desc"
     },

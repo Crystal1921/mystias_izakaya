@@ -34,7 +34,7 @@ public class ModAdvancement extends AdvancementProvider {
                             Component.translatable("advancement.mystias_izakaya.root.desc"),
                             ResourceLocation.withDefaultNamespace("textures/gui/advancements/backgrounds/adventure.png"),
                             AdvancementType.TASK,
-                            true, false, false)
+                            true, true, false)
                     .addCriterion("recipe_book", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.RecipeBook))
                     .save(saver, MystiaIzakaya.MODID + ":root");
 
@@ -44,7 +44,7 @@ public class ModAdvancement extends AdvancementProvider {
                     Component.translatable("advancement.mystias_izakaya.cooker.desc"),
                     null,
                     AdvancementType.TASK,
-                    true, false, false);
+                    true, true, false);
             MealList.getInstance().getCookerTypeMap().forEach((cookerTypeEnum, item) -> cookerBuilder.addCriterion(cookerTypeEnum.getName(), InventoryChangeTrigger.TriggerInstance.hasItems(item)));
             AdvancementHolder cookers = cookerBuilder.save(saver, MystiaIzakaya.MODID + ":cooker");
 
@@ -54,7 +54,7 @@ public class ModAdvancement extends AdvancementProvider {
                             Component.translatable("advancement.mystias_izakaya.moesumika.desc"),
                             null,
                             AdvancementType.TASK,
-                            true, false, false)
+                            true, true, false)
                     .addCriterion("cubic_kedama_ice_cream", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.Cubic_Kedama_Ice_Cream))
                     .addCriterion("cubic_kedama_volcanic_tofu", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.Cubic_Kedama_Volcanic_Tofu))
                     .save(saver, MystiaIzakaya.MODID + ":moesumika");
@@ -65,7 +65,7 @@ public class ModAdvancement extends AdvancementProvider {
                             Component.translatable("advancement.mystias_izakaya.chrome_ball.desc"),
                             null,
                             AdvancementType.TASK,
-                            true, false, false)
+                            true, true, true)
                     .addCriterion("chrome_ball", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.ChromeBall))
                     .save(saver, MystiaIzakaya.MODID + ":chrome_ball");
         }
