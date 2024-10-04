@@ -12,7 +12,7 @@ public class GroupRegistry {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MystiaIzakaya.MODID);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MYSTIA_IZAKAYA = CREATIVE_MODE_TABS.register("mystia_izakaya", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.mystia_izakaya"))
-            .withTabsBefore(CreativeModeTabs.COMBAT)
+            .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
             .icon(() -> ItemRegistry.MystiaFishingRod.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(ItemRegistry.MystiaFishingRod);
