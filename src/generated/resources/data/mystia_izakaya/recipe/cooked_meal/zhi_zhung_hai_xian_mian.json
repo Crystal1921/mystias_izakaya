@@ -1,0 +1,40 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 10,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:ji_shang_jin_qiang_yu"
+    },
+    {
+      "item": "mystias_izakaya:hai_tai"
+    },
+    {
+      "item": "mystias_izakaya:xia"
+    },
+    {
+      "item": "mystias_izakaya:zhang_yu"
+    },
+    {
+      "item": "mystias_izakaya:pang_xie"
+    }
+  ],
+  "negative_tags": [
+    0
+  ],
+  "ordinary": 0,
+  "positive_tags": [
+    1,
+    5,
+    7,
+    8,
+    13,
+    15,
+    20
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:zhi_zhung_hai_xian_mian"
+  }
+}

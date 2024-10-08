@@ -1,0 +1,26 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 5,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:luo_bu"
+    }
+  ],
+  "negative_tags": [
+    4,
+    26
+  ],
+  "ordinary": 4,
+  "positive_tags": [
+    6,
+    11,
+    24,
+    25
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:liang_cai_diao_hua"
+  }
+}

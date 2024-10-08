@@ -1,0 +1,35 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 9,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:niu_rou"
+    },
+    {
+      "item": "mystias_izakaya:hei_yan"
+    },
+    {
+      "item": "mystias_izakaya:la_jiao"
+    },
+    {
+      "item": "mystias_izakaya:feng_mi"
+    }
+  ],
+  "negative_tags": [
+    40
+  ],
+  "ordinary": 1,
+  "positive_tags": [
+    3,
+    4,
+    9,
+    27,
+    34
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:hai_dao_xun_rou"
+  }
+}

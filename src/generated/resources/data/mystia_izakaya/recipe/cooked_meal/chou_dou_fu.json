@@ -1,0 +1,29 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 5,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:dou_fu"
+    },
+    {
+      "item": "mystias_izakaya:la_jiao"
+    }
+  ],
+  "negative_tags": [
+    21,
+    35
+  ],
+  "ordinary": 2,
+  "positive_tags": [
+    6,
+    18,
+    28,
+    38
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:chou_dou_fu"
+  }
+}

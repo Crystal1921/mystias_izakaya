@@ -1,0 +1,32 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 8,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:ban_li"
+    },
+    {
+      "item": "mystias_izakaya:mo_gu"
+    },
+    {
+      "item": "mystias_izakaya:song_lu"
+    }
+  ],
+  "negative_tags": [
+    0
+  ],
+  "ordinary": 0,
+  "positive_tags": [
+    6,
+    7,
+    18,
+    30,
+    34
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:tian_shi_ban_li_meng_gu"
+  }
+}

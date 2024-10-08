@@ -1,0 +1,34 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 9,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:nan_gua"
+    },
+    {
+      "item": "mystias_izakaya:xia"
+    },
+    {
+      "item": "mystias_izakaya:dou_fu"
+    }
+  ],
+  "negative_tags": [
+    0
+  ],
+  "ordinary": 3,
+  "positive_tags": [
+    5,
+    11,
+    13,
+    20,
+    21,
+    24,
+    34
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:nan_gua_xia_zhong"
+  }
+}

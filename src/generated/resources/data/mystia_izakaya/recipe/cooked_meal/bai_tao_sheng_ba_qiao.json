@@ -1,0 +1,30 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 5,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:nuo_mi"
+    },
+    {
+      "item": "mystias_izakaya:tao_zi"
+    }
+  ],
+  "negative_tags": [
+    4,
+    5,
+    20,
+    19
+  ],
+  "ordinary": 4,
+  "positive_tags": [
+    16,
+    21,
+    35
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:bai_tao_sheng_ba_qiao"
+  }
+}

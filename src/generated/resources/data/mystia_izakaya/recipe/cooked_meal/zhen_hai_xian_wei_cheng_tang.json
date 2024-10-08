@@ -1,0 +1,28 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 8,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:san_wen_yu"
+    },
+    {
+      "item": "mystias_izakaya:zun_yu"
+    }
+  ],
+  "negative_tags": [
+    0
+  ],
+  "ordinary": 0,
+  "positive_tags": [
+    5,
+    7,
+    11,
+    36
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:zhen_hai_xian_wei_cheng_tang"
+  }
+}

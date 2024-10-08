@@ -1,0 +1,27 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 5,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:mian_fen"
+    },
+    {
+      "item": "mystias_izakaya:zhi_shi"
+    }
+  ],
+  "negative_tags": [
+    40
+  ],
+  "ordinary": 1,
+  "positive_tags": [
+    13,
+    19,
+    26
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:bi_si_kai_wan_bing_gan"
+  }
+}

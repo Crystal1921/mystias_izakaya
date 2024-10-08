@@ -1,0 +1,41 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 12,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:pu_tao"
+    },
+    {
+      "item": "mystias_izakaya:xu_li"
+    },
+    {
+      "item": "mystias_izakaya:nai_you"
+    },
+    {
+      "item": "mystias_izakaya:yin_er"
+    }
+  ],
+  "negative_tags": [
+    4,
+    28,
+    12,
+    26
+  ],
+  "ordinary": 4,
+  "positive_tags": [
+    1,
+    8,
+    11,
+    18,
+    21,
+    24,
+    29,
+    25
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:he_tang_yue_she"
+  }
+}

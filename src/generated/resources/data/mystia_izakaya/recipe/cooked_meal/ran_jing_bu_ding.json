@@ -1,0 +1,40 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 8,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:feng_mi"
+    },
+    {
+      "item": "mystias_izakaya:pu_tao"
+    },
+    {
+      "item": "mystias_izakaya:ning_meng"
+    },
+    {
+      "item": "mystias_izakaya:ning_meng"
+    }
+  ],
+  "negative_tags": [
+    10,
+    19
+  ],
+  "ordinary": 3,
+  "positive_tags": [
+    1,
+    21,
+    23,
+    25,
+    27,
+    32,
+    33,
+    35,
+    40
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:ran_jing_bu_ding"
+  }
+}

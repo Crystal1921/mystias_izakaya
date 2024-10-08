@@ -1,0 +1,28 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 9,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:nuo_mi"
+    },
+    {
+      "item": "mystias_izakaya:nuo_mi"
+    }
+  ],
+  "negative_tags": [
+    4
+  ],
+  "ordinary": 4,
+  "positive_tags": [
+    13,
+    24,
+    28,
+    29
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:sou_ma_tuan_zi"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 8,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:pu_tao"
+    },
+    {
+      "item": "mystias_izakaya:ning_meng"
+    },
+    {
+      "item": "mystias_izakaya:zhi_shi"
+    }
+  ],
+  "negative_tags": [
+    0
+  ],
+  "ordinary": 4,
+  "positive_tags": [
+    34,
+    35,
+    40,
+    20,
+    19
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:yin_yu_shui_guo_pai"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 6,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:feng_mi"
+    },
+    {
+      "item": "mystias_izakaya:tao_zi"
+    }
+  ],
+  "negative_tags": [
+    10,
+    19
+  ],
+  "ordinary": 3,
+  "positive_tags": [
+    21,
+    24,
+    25,
+    32,
+    34,
+    35
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:yin_hua_bu_ding"
+  }
+}

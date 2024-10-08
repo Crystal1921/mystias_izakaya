@@ -1,0 +1,34 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 9,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:zun_yu"
+    },
+    {
+      "item": "mystias_izakaya:mian_fen"
+    },
+    {
+      "item": "mystias_izakaya:tao_zi"
+    }
+  ],
+  "negative_tags": [
+    4
+  ],
+  "ordinary": 3,
+  "positive_tags": [
+    1,
+    15,
+    12,
+    23,
+    24,
+    28,
+    34
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:yang_wang_tian_hua_ban_pai"
+  }
+}

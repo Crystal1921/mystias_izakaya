@@ -1,0 +1,35 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 10,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:tao_zi"
+    },
+    {
+      "item": "mystias_izakaya:xia"
+    },
+    {
+      "item": "mystias_izakaya:bing_kuai"
+    }
+  ],
+  "negative_tags": [
+    19,
+    4
+  ],
+  "ordinary": 4,
+  "positive_tags": [
+    5,
+    6,
+    11,
+    21,
+    24,
+    31,
+    35
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:bei_ji_tian_xia_mi_tao_se_la"
+  }
+}

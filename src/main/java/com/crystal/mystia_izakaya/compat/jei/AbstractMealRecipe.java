@@ -1,6 +1,5 @@
 package com.crystal.mystia_izakaya.compat.jei;
 
-import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.recipe.MealRecipe;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -62,10 +61,9 @@ public abstract class AbstractMealRecipe implements IRecipeCategory<MealRecipe> 
 
     @Override
     public void draw(MealRecipe recipe, @NotNull IRecipeSlotsView recipeSlotsView, GuiGraphics graphics, double mouseX, double mouseY) {
-        CookedMealItem output = (CookedMealItem) recipe.result.getItem();
-        ItemStack cookerItem = output.cookerTypeEnum.getItem().getDefaultInstance();
+        ItemStack cookerItem = recipe.cookerTypeEnum.getItem().getDefaultInstance();
         Font font = Minecraft.getInstance().font;
-        float time = output.cookingTime;
+        float time = recipe.cookingTime;
         int darkGray = 0x555555;
         graphics.drawString(font, String.format("%.1f min", time), 16, 25, darkGray, false);
         graphics.renderItem(cookerItem, 64, 25);

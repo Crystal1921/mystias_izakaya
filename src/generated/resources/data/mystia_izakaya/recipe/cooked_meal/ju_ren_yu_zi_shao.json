@@ -1,0 +1,35 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 12,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:mian_fen"
+    },
+    {
+      "item": "mystias_izakaya:mian_fen"
+    },
+    {
+      "item": "mystias_izakaya:ji_dan"
+    },
+    {
+      "item": "mystias_izakaya:ji_dan"
+    }
+  ],
+  "negative_tags": [
+    12
+  ],
+  "ordinary": 2,
+  "positive_tags": [
+    8,
+    13,
+    16,
+    21,
+    27
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:ju_ren_yu_zi_shao"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 5,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:yang_cong"
+    },
+    {
+      "item": "mystias_izakaya:tu_dou"
+    },
+    {
+      "item": "mystias_izakaya:nan_gua"
+    }
+  ],
+  "negative_tags": [
+    4,
+    5,
+    26
+  ],
+  "ordinary": 4,
+  "positive_tags": [
+    6,
+    11,
+    22,
+    25
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:shu_cai_zhuan_ji"
+  }
+}

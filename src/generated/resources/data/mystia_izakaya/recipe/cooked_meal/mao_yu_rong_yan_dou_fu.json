@@ -1,0 +1,36 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 8,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:dou_fu"
+    },
+    {
+      "item": "mystias_izakaya:la_jiao"
+    },
+    {
+      "item": "mystias_izakaya:niu_rou"
+    },
+    {
+      "item": "mystias_izakaya:yang_cong"
+    }
+  ],
+  "negative_tags": [
+    0
+  ],
+  "ordinary": 4,
+  "positive_tags": [
+    1,
+    6,
+    18,
+    20,
+    24,
+    31
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:mao_yu_rong_yan_dou_fu"
+  }
+}

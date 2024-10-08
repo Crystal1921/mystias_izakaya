@@ -1,0 +1,45 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 12,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:ji_shang_jin_qiang_yu"
+    },
+    {
+      "item": "mystias_izakaya:lu_rou"
+    },
+    {
+      "item": "mystias_izakaya:feng_mi"
+    },
+    {
+      "item": "mystias_izakaya:yue_guang_cao"
+    },
+    {
+      "item": "mystias_izakaya:song_lu"
+    }
+  ],
+  "negative_tags": [
+    0
+  ],
+  "ordinary": 3,
+  "positive_tags": [
+    1,
+    3,
+    4,
+    5,
+    8,
+    15,
+    18,
+    20,
+    21,
+    29,
+    30,
+    33
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:yu_yue_long_men"
+  }
+}

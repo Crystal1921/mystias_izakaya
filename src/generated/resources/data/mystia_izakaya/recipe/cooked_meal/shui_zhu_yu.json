@@ -1,0 +1,33 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 8,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:zun_yu"
+    },
+    {
+      "item": "mystias_izakaya:la_jiao"
+    }
+  ],
+  "negative_tags": [
+    21,
+    35,
+    25,
+    4
+  ],
+  "ordinary": 0,
+  "positive_tags": [
+    1,
+    5,
+    18,
+    26,
+    38,
+    39
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:shui_zhu_yu"
+  }
+}

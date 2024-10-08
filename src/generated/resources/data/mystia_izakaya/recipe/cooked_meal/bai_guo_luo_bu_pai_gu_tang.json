@@ -1,0 +1,32 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 6,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystias_izakaya:bai_guo"
+    },
+    {
+      "item": "mystias_izakaya:luo_bu"
+    },
+    {
+      "item": "mystias_izakaya:zhu_rou"
+    }
+  ],
+  "negative_tags": [
+    0
+  ],
+  "ordinary": 0,
+  "positive_tags": [
+    1,
+    4,
+    18,
+    26,
+    36
+  ],
+  "result": {
+    "count": 1,
+    "id": "mystias_izakaya:bai_guo_luo_bu_pai_gu_tang"
+  }
+}
