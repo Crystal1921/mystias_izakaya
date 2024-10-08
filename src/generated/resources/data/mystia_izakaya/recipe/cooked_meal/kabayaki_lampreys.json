@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 8,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -10,7 +11,15 @@
       "item": "mystia_izakaya:onion"
     }
   ],
+  "negative_tags": [],
   "ordinary": 2,
+  "positive_tags": [
+    5,
+    6,
+    10,
+    20,
+    23
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:kabayaki_lampreys"

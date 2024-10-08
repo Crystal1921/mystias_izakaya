@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 5,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -10,7 +11,18 @@
       "item": "mystia_izakaya:peach"
     }
   ],
+  "negative_tags": [
+    4,
+    5,
+    20,
+    19
+  ],
   "ordinary": 4,
+  "positive_tags": [
+    16,
+    21,
+    35
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:peach_yatsuhashi"

@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 18,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -10,7 +11,19 @@
       "item": "mystia_izakaya:boar_meat"
     }
   ],
+  "negative_tags": [
+    7
+  ],
   "ordinary": 1,
+  "positive_tags": [
+    1,
+    4,
+    8,
+    14,
+    29,
+    37,
+    39
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:niten_ichiryu"

@@ -1,13 +1,20 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 8,
   "group": "cooked_meal",
   "ingredients": [
     {
       "item": "mystia_izakaya:cicada_slough"
     }
   ],
+  "negative_tags": [],
   "ordinary": 2,
+  "positive_tags": [
+    2,
+    10,
+    28
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:fried_cicada_sloughs"

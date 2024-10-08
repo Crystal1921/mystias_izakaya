@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 12,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,20 @@
       "item": "mystia_izakaya:cicada_slough"
     }
   ],
+  "negative_tags": [],
   "ordinary": 3,
+  "positive_tags": [
+    1,
+    8,
+    13,
+    20,
+    22,
+    23,
+    24,
+    27,
+    28,
+    34
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:kabuto_steamed_cake"

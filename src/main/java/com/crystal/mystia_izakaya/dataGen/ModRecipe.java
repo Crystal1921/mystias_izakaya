@@ -12,6 +12,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
+import static com.crystal.mystia_izakaya.utils.UtilMethod.*;
+
 public class ModRecipe extends RecipeProvider {
     public ModRecipe(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pRegistries) {
         super(pOutput, pRegistries);
@@ -196,12 +198,17 @@ public class ModRecipe extends RecipeProvider {
         CookeMealRecipe((CookedMealItem) ItemRegistry.Scones.get(), output);
         CookeMealRecipe((CookedMealItem) ItemRegistry.Sea_Miso_soup.get(), output);
         CookeMealRecipe((CookedMealItem) ItemRegistry.Rice_Ball.get(), output);
+
+        CookeMealRecipe((CookedMealItem) ItemRegistry.Dark_Matter.get(), output);
     }
 
     private void CookeMealRecipe(CookedMealItem item, RecipeOutput output) {
         MealRecipeBuilder.shapelessMeal(RecipeCategory.FOOD, item)
                 .requires(item.ingredients)
                 .cooker(item.cookerTypeEnum)
+                .positiveTag(TagListToBytes(item.positiveTag))
+                .negativeTag(TagListToBytes(item.negativeTag))
+                .cookingTime((int) item.cookingTime)
                 .save(output);
     }
 }

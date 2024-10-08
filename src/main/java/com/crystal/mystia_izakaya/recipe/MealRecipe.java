@@ -8,19 +8,28 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.nio.ByteBuffer;
+
 public class MealRecipe extends ShapelessRecipe {
+    public static final MealRecipe EMPTY = new MealRecipe("cooked_meal", CraftingBookCategory.MISC, ItemStack.EMPTY, NonNullList.create(), 0, 943, ByteBuffer.allocate(1), ByteBuffer.allocate(1));
     public static final CookerTypeEnum[] cookers = CookerTypeEnum.values();
     public CraftingBookCategory category;
     public ItemStack result;
     public CookerTypeEnum cookerTypeEnum;
+    public int cookingTime;
+    public ByteBuffer positiveTag;
+    public ByteBuffer negativeTag;
     String group;
 
-    public MealRecipe(String pGroup, CraftingBookCategory pCategory, ItemStack pResult, NonNullList<Ingredient> pIngredients, int ordinary) {
+    public MealRecipe(String pGroup, CraftingBookCategory pCategory, ItemStack pResult, NonNullList<Ingredient> pIngredients, int ordinary, int cookingTime, ByteBuffer pPositiveTag, ByteBuffer pNegativeTag) {
         super(pGroup, pCategory, pResult, pIngredients);
         this.category = pCategory;
         this.result = pResult;
         this.group = pGroup;
-        this.cookerTypeEnum = cookers[ordinary];
+        this.cookerTypeEnum = CookerTypeEnum.values()[ordinary];
+        this.cookingTime = cookingTime;
+        this.positiveTag = pPositiveTag;
+        this.negativeTag = pNegativeTag;
     }
 
     @Override

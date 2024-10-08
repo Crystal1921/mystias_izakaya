@@ -2,7 +2,7 @@ package com.crystal.mystia_izakaya.dataGen;
 
 import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
-import com.crystal.mystia_izakaya.utils.MealList;
+import com.crystal.mystia_izakaya.utils.LocalMealList;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;
@@ -45,7 +45,7 @@ public class ModAdvancement extends AdvancementProvider {
                     null,
                     AdvancementType.TASK,
                     true, true, false);
-            MealList.getInstance().getCookerTypeMap().forEach((cookerTypeEnum, item) -> cookerBuilder.addCriterion(cookerTypeEnum.getName(), InventoryChangeTrigger.TriggerInstance.hasItems(item)));
+            LocalMealList.getInstance().getCookerTypeMap().forEach((cookerTypeEnum, item) -> cookerBuilder.addCriterion(cookerTypeEnum.getName(), InventoryChangeTrigger.TriggerInstance.hasItems(item)));
             AdvancementHolder cookers = cookerBuilder.save(saver, MystiaIzakaya.MODID + ":cooker");
 
             AdvancementHolder moesumika = Advancement.Builder.advancement().parent(cookers).display(

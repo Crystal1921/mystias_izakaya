@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 8,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -13,7 +14,14 @@
       "item": "mystia_izakaya:pork"
     }
   ],
+  "negative_tags": [],
   "ordinary": 2,
+  "positive_tags": [
+    4,
+    12,
+    31,
+    35
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:peach_braised_pork"

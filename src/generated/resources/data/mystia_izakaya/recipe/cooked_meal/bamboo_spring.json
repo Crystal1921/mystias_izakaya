@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 14,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,19 @@
       "item": "mystia_izakaya:lunar_herb"
     }
   ],
+  "negative_tags": [
+    28,
+    30
+  ],
   "ordinary": 3,
+  "positive_tags": [
+    1,
+    8,
+    14,
+    23,
+    24,
+    29
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:bamboo_spring"

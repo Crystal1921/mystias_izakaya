@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 12,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,18 @@
       "item": "mystia_izakaya:radish"
     }
   ],
+  "negative_tags": [],
   "ordinary": 0,
+  "positive_tags": [
+    1,
+    3,
+    4,
+    8,
+    13,
+    20,
+    26,
+    27
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:agony_oden"

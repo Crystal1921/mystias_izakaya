@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 12,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -13,7 +14,18 @@
       "item": "mystia_izakaya:bamboo_shoot"
     }
   ],
+  "negative_tags": [],
   "ordinary": 3,
+  "positive_tags": [
+    1,
+    4,
+    5,
+    8,
+    14,
+    20,
+    27,
+    31
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:imitation_bear_paw"

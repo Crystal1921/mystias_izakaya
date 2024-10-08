@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 10,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,18 @@
       "item": "mystia_izakaya:ginko_nut"
     }
   ],
+  "negative_tags": [
+    4
+  ],
   "ordinary": 3,
+  "positive_tags": [
+    1,
+    8,
+    21,
+    24,
+    32,
+    33
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:little_sweet_poision"

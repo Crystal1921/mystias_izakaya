@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 12,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,20 @@
       "item": "mystia_izakaya:dew"
     }
   ],
+  "negative_tags": [
+    10
+  ],
   "ordinary": 0,
+  "positive_tags": [
+    1,
+    5,
+    8,
+    9,
+    18,
+    28,
+    29,
+    36
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:palace_of_the_han"

@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 7,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,17 @@
       "item": "mystia_izakaya:flour"
     }
   ],
+  "negative_tags": [
+    21,
+    35
+  ],
   "ordinary": 2,
+  "positive_tags": [
+    13,
+    17,
+    22,
+    32
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:eggs_benedict"

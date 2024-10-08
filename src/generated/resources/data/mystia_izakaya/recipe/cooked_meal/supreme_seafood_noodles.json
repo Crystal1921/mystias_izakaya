@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 10,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,17 @@
       "item": "mystia_izakaya:crab"
     }
   ],
+  "negative_tags": [],
   "ordinary": 0,
+  "positive_tags": [
+    1,
+    5,
+    7,
+    8,
+    13,
+    15,
+    20
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:supreme_seafood_noodles"

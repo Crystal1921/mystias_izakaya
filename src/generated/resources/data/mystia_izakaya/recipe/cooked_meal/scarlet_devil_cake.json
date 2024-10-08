@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 8,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,15 @@
       "item": "mystia_izakaya:honey"
     }
   ],
+  "negative_tags": [],
   "ordinary": 4,
+  "positive_tags": [
+    17,
+    21,
+    24,
+    28,
+    33
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:scarlet_devil_cake"

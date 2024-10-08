@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 12,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,18 @@
       "item": "mystia_izakaya:ginko_nut"
     }
   ],
+  "negative_tags": [],
   "ordinary": 3,
+  "positive_tags": [
+    1,
+    4,
+    8,
+    9,
+    16,
+    24,
+    29,
+    34
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:kaguya_hime"

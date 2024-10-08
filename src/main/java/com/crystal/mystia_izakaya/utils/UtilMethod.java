@@ -1,8 +1,7 @@
 package com.crystal.mystia_izakaya.utils;
 
 import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
-import com.crystal.mystia_izakaya.client.item.AbstractFoodItem;
-import com.crystal.mystia_izakaya.client.item.CookedMealItem;
+import com.crystal.mystia_izakaya.recipe.MealRecipe;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -13,11 +12,13 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
-import java.util.List;
+import java.nio.ByteBuffer;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class UtilMethod {
@@ -30,7 +31,7 @@ public class UtilMethod {
      * @param cookerType 筛选的厨具类型
      * @return {@code List<Item>} 返回所有符合条件的菜肴
      */
-    public static List<Item> getItems(NonNullList<ItemStack> itemStacks, List<Item> meals, CookerTypeEnum cookerType) {
+    public static List<MealRecipe> getItems(NonNullList<ItemStack> itemStacks, List<MealRecipe> meals, CookerTypeEnum cookerType) {
         List<Item> ingredients = itemStacks
                 .stream()
                 .limit(5)//限定前五个格子为材料格
@@ -39,25 +40,26 @@ public class UtilMethod {
                 .toList();
         return meals.stream()
                 .parallel()
-                .map(item -> (CookedMealItem) item)
                 .filter(item -> item.cookerTypeEnum == cookerType)
-                .filter(item -> new HashSet<>(ingredients).containsAll(Arrays.stream(item.ingredients).toList()))
+                .filter(item -> new HashSet<>(ingredients).containsAll(IngredientToItem(item.getIngredients())))
                 .collect(Collectors.toList());
     }
 
     /**
-     * @param cookMenu       菜肴所在的容器
-     * @param cookedMealItem 菜肴
+     * @param cookMenu   菜肴所在的容器
+     * @param mealRecipe 菜肴
      * @return 返回正确的菜肴标签
      */
-    public static @NotNull ArrayList<FoodTagEnum> getPositiveTags(AbstractCookMenu cookMenu, CookedMealItem cookedMealItem) {
-        if (cookedMealItem.getDefaultInstance().is(ItemRegistry.Dark_Matter)) {
+    public static @NotNull ArrayList<FoodTagEnum> getPositiveTags(AbstractCookMenu cookMenu, MealRecipe mealRecipe) {
+        if (mealRecipe.result.is(ItemRegistry.Dark_Matter)) {
             return new ArrayList<>();
         }
         TagModify tagModify = new TagModify();
         tagModify.setFull(cookMenu.isFull());
-        ArrayList<FoodTagEnum> positiveTags = new ArrayList<>(cookedMealItem.positiveTag);
-        ArrayList<Item> ingredients = new ArrayList<>(Arrays.stream(cookedMealItem.ingredients).toList());
+        //菜肴正面标签
+        ArrayList<FoodTagEnum> positiveTags = BytesToTagList(mealRecipe.positiveTag.array());
+        //菜肴食材
+        ArrayList<Item> ingredients = IngredientToItem(mealRecipe.getIngredients());
 
         // 将多余食材的标签加入展示列表，并标记冲突
         ArrayList<Item> menuItems = new ArrayList<>(cookMenu.getIngredientList()); // 确保menuItems是可修改的
@@ -72,7 +74,7 @@ public class UtilMethod {
         }
 
         menuItems.stream()
-                .map(item -> ((AbstractFoodItem) item).getTagEnums())
+                .map(UtilMethod::getItemFoodTag)
                 .flatMap(List::stream)
                 .forEach(foodTagEnum -> {
                     positiveTags.add(foodTagEnum);
@@ -85,15 +87,15 @@ public class UtilMethod {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public static @NotNull ArrayList<String> getPositiveStings(AbstractCookMenu cookMenu, CookedMealItem cookedMealItem) {
-        return getPositiveTags(cookMenu, cookedMealItem).stream()
+    public static @NotNull ArrayList<String> getPositiveStings(AbstractCookMenu cookMenu, MealRecipe mealRecipe) {
+        return getPositiveTags(cookMenu, mealRecipe).stream()
                 .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public static @NotNull IntList getPositiveIntList(AbstractCookMenu cookMenu, CookedMealItem cookedMealItem) {
+    public static @NotNull IntList getPositiveIntList(AbstractCookMenu cookMenu, MealRecipe mealRecipe) {
         IntList list = new IntArrayList();
-        getPositiveTags(cookMenu, cookedMealItem).forEach(foodTagEnum -> list.add(foodTagEnum.ordinal()));
+        getPositiveTags(cookMenu, mealRecipe).forEach(foodTagEnum -> list.add(foodTagEnum.ordinal()));
         return list;
     }
 
@@ -112,7 +114,9 @@ public class UtilMethod {
      */
     public static void drawStringSize(GuiGraphics guiGraphics, Font pFont, Component pText, int pX, int pY, int pColor, boolean pDropShadow, boolean selected) {
         int width = pFont.width(pText.getString());
-        if (width <= 36) { width = 36;}
+        if (width <= 36) {
+            width = 36;
+        }
         float scale = 24.0F / width;
         PoseStack poseStack = guiGraphics.pose();
         poseStack.pushPose();
@@ -163,4 +167,38 @@ public class UtilMethod {
         return index;
     }
 
+    public static byte[] TagListToBytes(List<FoodTagEnum> enumList) {
+        // 创建一个 ByteBuffer，大小为枚举列表的大小
+        ByteBuffer byteBuffer = ByteBuffer.allocate(enumList.size());
+
+        // 将每个枚举的序列号（ordinal）放入 ByteBuffer
+        for (FoodTagEnum foodTag : enumList) {
+            byteBuffer.put((byte) foodTag.ordinal()); // 将 ordinal 转为 byte
+        }
+
+        // 返回 byte 数组
+        return byteBuffer.array();
+    }
+
+    public static ArrayList<FoodTagEnum> BytesToTagList(byte[] bytes) {
+        ArrayList<FoodTagEnum> enumList = new ArrayList<>();
+
+        for (byte b : bytes) {
+            // 将 byte 转换为枚举类型，使用 ordinal() 方法
+            int ordinal = Byte.toUnsignedInt(b); // 转换为无符号整数
+            FoodTagEnum foodTag = FoodTagEnum.values()[ordinal]; // 根据 ordinal 获取枚举
+            enumList.add(foodTag); // 添加到列表中
+        }
+
+        return enumList;
+    }
+
+    public static ArrayList<Item> IngredientToItem(NonNullList<Ingredient> ingredients) {
+        return ingredients.stream().map(ingredient -> ingredient.getItems()[0].getItem()).collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public static List<FoodTagEnum> getItemFoodTag(Item item) {
+        ItemStack itemStack = item.getDefaultInstance();
+        return itemStack.getTags().map(tagKey -> LocalMealList.getInstance().getFoodTypeMap().get(tagKey.location().getPath())).filter(Objects::nonNull).toList();
+    }
 }

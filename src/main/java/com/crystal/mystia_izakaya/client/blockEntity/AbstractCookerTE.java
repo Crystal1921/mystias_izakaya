@@ -5,7 +5,7 @@ import com.crystal.mystia_izakaya.component.FoodTagComponent;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
-import com.crystal.mystia_izakaya.utils.MealList;
+import com.crystal.mystia_izakaya.utils.LocalMealList;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.core.BlockPos;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 public abstract class AbstractCookerTE extends RandomizableContainerBlockEntity {
     public static final int DATA_COUNT = 2;
-    private final FoodTagEnum[] foodTagEnums = MealList.getInstance().getFoodTags();
+    private final FoodTagEnum[] foodTagEnums = LocalMealList.getInstance().getFoodTags();
     public CookerTypeEnum cookerTypeEnum;
     public int cookTime = 0;
     public int cookTotal = 0;

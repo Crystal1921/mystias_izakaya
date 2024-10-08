@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 14,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,19 @@
       "item": "mystia_izakaya:wagyo_beef"
     }
   ],
+  "negative_tags": [],
   "ordinary": 1,
+  "positive_tags": [
+    1,
+    8,
+    4,
+    12,
+    3,
+    14,
+    19,
+    26,
+    24
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:all_meat_feast"

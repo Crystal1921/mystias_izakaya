@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 7,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -13,7 +14,13 @@
       "item": "mystia_izakaya:beef"
     }
   ],
+  "negative_tags": [],
   "ordinary": 0,
+  "positive_tags": [
+    4,
+    7,
+    13
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:bamboo_meat_pot"

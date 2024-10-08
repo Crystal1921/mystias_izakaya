@@ -8,14 +8,14 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.world.item.ItemStack;
 
-public class GrillRecipe extends AbstractMealRecipe {
-    public static final RecipeType<MealRecipe> GRILL_MEAL = RecipeType.create(MystiaIzakaya.MODID, "grill_meal", MealRecipe.class);
-    public GrillRecipe(IGuiHelper guiHelper) {
+public class MealRecipeType extends AbstractMealRecipe {
+    public static final RecipeType<MealRecipe> MEAL_RECIPE_RECIPE_TYPE = RecipeType.create(MystiaIzakaya.MODID, "meal_recipe", MealRecipe.class);
+    public MealRecipeType(IGuiHelper guiHelper) {
         super(guiHelper,guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ItemRegistry.Grill.asItem())));
     }
 
     @Override
     public RecipeType<MealRecipe> getRecipeType() {
-        return GRILL_MEAL;
+        return MEAL_RECIPE_RECIPE_TYPE;
     }
 }

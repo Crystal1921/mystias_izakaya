@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 9,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,17 @@
       "item": "mystia_izakaya:honey"
     }
   ],
+  "negative_tags": [
+    40
+  ],
   "ordinary": 1,
+  "positive_tags": [
+    3,
+    4,
+    9,
+    27,
+    34
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:smoked_buccaneer"

@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 5,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -10,7 +11,13 @@
       "item": "mystia_izakaya:egg"
     }
   ],
+  "negative_tags": [],
   "ordinary": 2,
+  "positive_tags": [
+    5,
+    22,
+    23
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:eel_bowl_with_egg"

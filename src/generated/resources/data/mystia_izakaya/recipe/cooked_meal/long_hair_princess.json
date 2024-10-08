@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 5,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -10,7 +11,15 @@
       "item": "mystia_izakaya:shrimp"
     }
   ],
+  "negative_tags": [
+    28
+  ],
   "ordinary": 3,
+  "positive_tags": [
+    5,
+    13,
+    24
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:long_hair_princess"

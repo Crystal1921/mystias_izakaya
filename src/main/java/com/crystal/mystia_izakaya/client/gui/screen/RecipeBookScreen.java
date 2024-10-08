@@ -10,7 +10,7 @@ import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
-import com.crystal.mystia_izakaya.utils.MealList;
+import com.crystal.mystia_izakaya.utils.LocalMealList;
 import com.crystal.mystia_izakaya.utils.UtilMethod;
 import com.mojang.blaze3d.platform.InputConstants;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -48,7 +48,7 @@ public class RecipeBookScreen extends Screen {
     ResourceLocation BACKGROUND = resourceLocation("textures/gui/recipe_bg.png");
     List<FoodTagEnum> foodTagEnums = List.of(FoodTagEnum.values());
     ArrayList<FoodTagEnum> foodTagSelected = new ArrayList<>();
-    List<CookedMealItem> cookedMealItems = MealList.getInstance().getCookedMeals();
+    List<CookedMealItem> cookedMealItems = LocalMealList.getInstance().getCookedMeals();
     final List<CookedMealItem> unsortedCookedMealItems = cookedMealItems;
     MealEntry selected;
     EditBox search;
@@ -194,7 +194,7 @@ public class RecipeBookScreen extends Screen {
             CookedMealItem cookedMealItem = selected.getCookedMealItem();
             Item[] ingredients = cookedMealItem.ingredients;
             CookerTypeEnum cookerTypeEnum = cookedMealItem.cookerTypeEnum;
-            ItemStack cooker = MealList.getInstance().getCookerTypeMap().get(cookerTypeEnum).getDefaultInstance();
+            ItemStack cooker = LocalMealList.getInstance().getCookerTypeMap().get(cookerTypeEnum).getDefaultInstance();
             for (int k = 0; k < ingredients.length; k++) {
                 int x = i + k * 24 + 12;
                 int y = j + 170;

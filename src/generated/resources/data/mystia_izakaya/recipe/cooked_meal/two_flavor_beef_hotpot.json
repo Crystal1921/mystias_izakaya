@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 5,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,22 @@
       "item": "mystia_izakaya:truffle"
     }
   ],
+  "negative_tags": [
+    25,
+    33
+  ],
   "ordinary": 0,
+  "positive_tags": [
+    1,
+    4,
+    7,
+    14,
+    18,
+    26,
+    27,
+    30,
+    38
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:two_flavor_beef_hotpot"

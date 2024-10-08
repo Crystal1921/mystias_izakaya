@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 6,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,17 @@
       "item": "mystia_izakaya:butter"
     }
   ],
+  "negative_tags": [
+    21
+  ],
   "ordinary": 3,
+  "positive_tags": [
+    1,
+    13,
+    17,
+    20,
+    30
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:italian_risotto"

@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 15,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,20 @@
       "item": "mystia_izakaya:mushroom"
     }
   ],
+  "negative_tags": [
+    10
+  ],
   "ordinary": 3,
+  "positive_tags": [
+    1,
+    17,
+    21,
+    24,
+    30,
+    31,
+    33,
+    34
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:mad_hatters_tea_party"

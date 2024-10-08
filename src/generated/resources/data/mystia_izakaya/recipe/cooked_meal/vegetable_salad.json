@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 5,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -13,7 +14,18 @@
       "item": "mystia_izakaya:pumpkin"
     }
   ],
+  "negative_tags": [
+    4,
+    5,
+    26
+  ],
   "ordinary": 4,
+  "positive_tags": [
+    6,
+    11,
+    22,
+    25
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:vegetable_salad"

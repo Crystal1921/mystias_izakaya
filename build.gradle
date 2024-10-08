@@ -154,6 +154,7 @@ configurations {
 dependencies {
     implementation "mezz.jei:jei-${project.minecraft_version}-neoforge:${project.jei_version}"
     implementation "libs:touhoulittlemaid:1.21-release-1.1.12-hotfix"
+    implementation "libs:mystias_izakaya:neoforge-1.21-0.1.0-rc3"
     implementation "curse.maven:jade-324717:5444008"
 
 }

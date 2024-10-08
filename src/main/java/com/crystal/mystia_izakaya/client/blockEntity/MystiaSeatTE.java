@@ -5,7 +5,7 @@ import com.crystal.mystia_izakaya.component.FoodTagComponent;
 import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
-import com.crystal.mystia_izakaya.utils.MealList;
+import com.crystal.mystia_izakaya.utils.LocalMealList;
 import com.crystal.mystia_izakaya.utils.ServerUtilMethod;
 import com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatText;
 import com.github.tartaricacid.touhoulittlemaid.entity.chatbubble.ChatTextType;
@@ -78,12 +78,12 @@ public class MystiaSeatTE extends BaseContainerBlockEntity {
                         int tagNum;
                         String modelId = maid.getModelId();
                         tagNum = modelId.equals("touhou_little_maid:saigyouji_yuyuko") ? 3 : 2;
-                        pBlockEntity.targetTags = ServerUtilMethod.getRandomTags(MealList.getInstance().getFoodTags(), tagNum);
+                        pBlockEntity.targetTags = ServerUtilMethod.getRandomTags(LocalMealList.getInstance().getFoodTags(), tagNum);
                     }
                     pBlockEntity.updateMeal(serverLevel);
                     StringBuilder sb = new StringBuilder();
                     for (int i = 0; i < pBlockEntity.targetTags.size(); i++) {
-                        sb.append(MealList.getInstance().getFoodTags()[pBlockEntity.targetTags.get(i)].getCn()).append(" ");
+                        sb.append(LocalMealList.getInstance().getFoodTags()[pBlockEntity.targetTags.get(i)].getCn()).append(" ");
                     }
                     maid.addChatBubble(System.currentTimeMillis() + (pBlockEntity.gapTime - 1) * 50, new ChatText(ChatTextType.TEXT, EMPTY_ICON_PATH, sb.toString()));
                 }

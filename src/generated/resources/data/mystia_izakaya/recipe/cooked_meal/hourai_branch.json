@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 13,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,16 @@
       "item": "mystia_izakaya:venison"
     }
   ],
+  "negative_tags": [],
   "ordinary": 1,
+  "positive_tags": [
+    1,
+    4,
+    8,
+    9,
+    29,
+    37
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:hourai_branch"

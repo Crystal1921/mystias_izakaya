@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 11,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,18 @@
       "item": "mystia_izakaya:dew"
     }
   ],
+  "negative_tags": [],
   "ordinary": 3,
+  "positive_tags": [
+    1,
+    5,
+    9,
+    11,
+    18,
+    29,
+    31,
+    33
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:lotus_fish_lamps"

@@ -5,7 +5,7 @@ import com.crystal.mystia_izakaya.component.FoodTagComponent;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
-import com.crystal.mystia_izakaya.utils.MealList;
+import com.crystal.mystia_izakaya.utils.LocalMealList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
@@ -43,7 +43,7 @@ public class CookedMealItem extends Item {
     @Override
     public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         FoodTagComponent foodTagComponent = pStack.get(ComponentRegistry.FOOD_TAG);
-        FoodTagEnum[] foodTagEnums = MealList.getInstance().getFoodTags();
+        FoodTagEnum[] foodTagEnums = LocalMealList.getInstance().getFoodTags();
         if (foodTagComponent != null) {
             IntList intList = foodTagComponent.intList();
             intList.intStream().mapToObj(integer -> foodTagEnums[integer])

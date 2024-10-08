@@ -9,7 +9,7 @@ import com.crystal.mystia_izakaya.network.CookInfoPacket;
 import com.crystal.mystia_izakaya.network.MealInfoPacket;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
-import com.crystal.mystia_izakaya.utils.MealList;
+import com.crystal.mystia_izakaya.utils.LocalMealList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Inventory;
@@ -66,7 +66,7 @@ public class ClickEvent {
                 && !blockState.getValue(BlockStateProperties.LIT)) {
             var targetComponent = stack.get(ComponentRegistry.TARGET_ITEM);
             if (targetComponent != null) {
-                CookedMealItem cookedMealItem = MealList.getInstance().getCookedMeals().get(targetComponent);
+                CookedMealItem cookedMealItem = LocalMealList.getInstance().getCookedMeals().get(targetComponent);
                 if (cookedMealItem.cookerTypeEnum == cookerTE.cookerTypeEnum
                         && cookerTE.getItems().stream().allMatch(ItemStack::isEmpty)
                         && (isIngredientsMatch(inventory, cookedMealItem) || player.isCreative())) {

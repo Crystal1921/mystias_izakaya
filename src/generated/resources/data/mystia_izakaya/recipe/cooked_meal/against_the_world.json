@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 12,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,18 @@
       "item": "mystia_izakaya:truffle"
     }
   ],
+  "negative_tags": [],
   "ordinary": 4,
+  "positive_tags": [
+    1,
+    14,
+    25,
+    28,
+    30,
+    31,
+    33,
+    39
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:against_the_world"

@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 8,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -13,7 +14,14 @@
       "item": "mystia_izakaya:egg"
     }
   ],
+  "negative_tags": [],
   "ordinary": 0,
+  "positive_tags": [
+    4,
+    7,
+    13,
+    19
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:tonkotsu_ramen"

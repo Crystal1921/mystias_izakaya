@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 18,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,25 @@
       "item": "mystia_izakaya:peach"
     }
   ],
+  "negative_tags": [
+    30,
+    4,
+    15,
+    28,
+    22
+  ],
   "ordinary": 4,
+  "positive_tags": [
+    1,
+    8,
+    9,
+    11,
+    21,
+    25,
+    31,
+    35,
+    34
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:dragonsong_peach"

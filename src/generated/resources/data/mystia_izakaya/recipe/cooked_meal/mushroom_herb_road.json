@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 6,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -10,7 +11,14 @@
       "item": "mystia_izakaya:mushroom"
     }
   ],
+  "negative_tags": [],
   "ordinary": 0,
+  "positive_tags": [
+    11,
+    29,
+    30,
+    34
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:mushroom_herb_road"

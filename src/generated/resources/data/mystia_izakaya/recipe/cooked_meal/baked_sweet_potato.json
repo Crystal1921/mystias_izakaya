@@ -1,13 +1,23 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 6,
   "group": "cooked_meal",
   "ingredients": [
     {
       "item": "mystia_izakaya:sweet_potato"
     }
   ],
+  "negative_tags": [
+    12
+  ],
   "ordinary": 1,
+  "positive_tags": [
+    2,
+    7,
+    13,
+    21
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:baked_sweet_potato"

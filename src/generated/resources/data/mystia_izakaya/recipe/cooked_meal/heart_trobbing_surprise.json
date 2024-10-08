@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 12,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,19 @@
       "item": "mystia_izakaya:cream"
     }
   ],
+  "negative_tags": [
+    7
+  ],
   "ordinary": 3,
+  "positive_tags": [
+    1,
+    24,
+    27,
+    28,
+    31,
+    33,
+    34
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:heart_trobbing_surprise"

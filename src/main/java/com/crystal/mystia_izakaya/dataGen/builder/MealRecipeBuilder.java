@@ -14,6 +14,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.NotNull;
 
+import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 import static com.crystal.mystia_izakaya.MystiaIzakaya.prefix;
@@ -21,9 +22,12 @@ import static com.crystal.mystia_izakaya.MystiaIzakaya.prefix;
 public class MealRecipeBuilder implements RecipeBuilder {
     private final RecipeCategory category;
     private final Item result;
-    private final ItemStack resultStack; // Neo: add stack result support
+    private final ItemStack resultStack;
     private final NonNullList<Ingredient> ingredients = NonNullList.create();
     private int cookerTypeEnum = 0;
+    private int cookingTime = 0;
+    private ByteBuffer positiveTag;
+    private ByteBuffer negativeTag;
 
     public MealRecipeBuilder(RecipeCategory pCategory, ItemLike pResult, int pCount) {
         this(pCategory, new ItemStack(pResult, pCount));
@@ -46,6 +50,21 @@ public class MealRecipeBuilder implements RecipeBuilder {
 
     public MealRecipeBuilder cooker(CookerTypeEnum cookerTypeEnum) {
         this.cookerTypeEnum = cookerTypeEnum.ordinal();
+        return this;
+    }
+
+    public MealRecipeBuilder cookingTime(int cookingTime) {
+        this.cookingTime = cookingTime;
+        return this;
+    }
+
+    public MealRecipeBuilder positiveTag(byte[] positiveTag) {
+        this.positiveTag = ByteBuffer.wrap(positiveTag);
+        return this;
+    }
+
+    public MealRecipeBuilder negativeTag(byte[] negativeTag) {
+        this.negativeTag = ByteBuffer.wrap(negativeTag);
         return this;
     }
 
@@ -76,7 +95,10 @@ public class MealRecipeBuilder implements RecipeBuilder {
                 RecipeBuilder.determineBookCategory(this.category),
                 this.resultStack,
                 this.ingredients,
-                this.cookerTypeEnum
+                this.cookerTypeEnum,
+                this.cookingTime,
+                this.positiveTag,
+                this.negativeTag
         );
         pRecipeOutput.accept(pId, mealRecipe, null);
     }

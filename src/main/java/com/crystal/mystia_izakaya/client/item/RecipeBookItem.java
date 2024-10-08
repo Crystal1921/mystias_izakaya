@@ -4,7 +4,7 @@ import com.crystal.mystia_izakaya.MystiaIzakaya;
 import com.crystal.mystia_izakaya.client.item.tooltip.RecordMealTooltip;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.utils.FoodTagEnum;
-import com.crystal.mystia_izakaya.utils.MealList;
+import com.crystal.mystia_izakaya.utils.LocalMealList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -30,7 +30,7 @@ public class RecipeBookItem extends Item {
     public @NotNull Optional<TooltipComponent> getTooltipImage(@NotNull ItemStack itemstack) {
         var component = itemstack.get(ComponentRegistry.TARGET_ITEM);
         if (component != null) {
-            ItemStack itemStack = MealList.getInstance().getCookedMeals().get(component).getDefaultInstance();
+            ItemStack itemStack = LocalMealList.getInstance().getCookedMeals().get(component).getDefaultInstance();
             return Optional.of(new RecordMealTooltip(itemStack));
         } else {
             return Optional.empty();
@@ -40,10 +40,10 @@ public class RecipeBookItem extends Item {
     @Override
     public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         var foodTagComponent = pStack.get(ComponentRegistry.FOOD_TAG);
-        FoodTagEnum[] foodTagEnums = MealList.getInstance().getFoodTags();
+        FoodTagEnum[] foodTagEnums = LocalMealList.getInstance().getFoodTags();
         var targetComponent = pStack.get(ComponentRegistry.TARGET_ITEM);
         if (targetComponent != null) {
-            CookedMealItem cookedMealItem = MealList.getInstance().getCookedMeals().get(targetComponent);
+            CookedMealItem cookedMealItem = LocalMealList.getInstance().getCookedMeals().get(targetComponent);
             pTooltipComponents.add(Component.translatable("component.mystia_izakaya.required_cooker")
                     .append(" : ")
                     .append(Component.translatable("block.mystia_izakaya." + cookedMealItem.cookerTypeEnum.getName())));

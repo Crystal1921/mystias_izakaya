@@ -1,0 +1,18 @@
+{
+  "type": "mystia_izakaya:cooking_serializers",
+  "category": "misc",
+  "cooking_time": 4,
+  "group": "cooked_meal",
+  "ingredients": [
+    {
+      "item": "mystia_izakaya:chrome_ball"
+    }
+  ],
+  "negative_tags": [],
+  "ordinary": 5,
+  "positive_tags": [],
+  "result": {
+    "count": 1,
+    "id": "mystia_izakaya:dark_matter"
+  }
+}

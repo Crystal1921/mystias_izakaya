@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 12,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -10,7 +11,17 @@
       "item": "mystia_izakaya:crab"
     }
   ],
+  "negative_tags": [],
   "ordinary": 2,
+  "positive_tags": [
+    1,
+    8,
+    12,
+    15,
+    20,
+    23,
+    24
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:creamy_crab"

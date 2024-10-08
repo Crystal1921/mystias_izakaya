@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 14,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,19 @@
       "item": "mystia_izakaya:chili"
     }
   ],
+  "negative_tags": [],
   "ordinary": 0,
+  "positive_tags": [
+    1,
+    5,
+    10,
+    19,
+    20,
+    24,
+    26,
+    30,
+    38
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:mushroom_maidens_tip_tap_pot"

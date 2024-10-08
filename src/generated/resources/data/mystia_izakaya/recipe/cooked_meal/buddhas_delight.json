@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 12,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -19,7 +20,22 @@
       "item": "mystia_izakaya:lotus_seed"
     }
   ],
+  "negative_tags": [
+    4,
+    38
+  ],
   "ordinary": 0,
+  "positive_tags": [
+    1,
+    6,
+    8,
+    11,
+    20,
+    25,
+    29,
+    33,
+    34
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:buddhas_delight"

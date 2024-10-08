@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 10,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,17 @@
       "item": "mystia_izakaya:boar_meat"
     }
   ],
+  "negative_tags": [
+    25
+  ],
   "ordinary": 1,
+  "positive_tags": [
+    1,
+    13,
+    17,
+    30,
+    24
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:kitten_pizza"

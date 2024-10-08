@@ -1,20 +1,20 @@
 package com.crystal.mystia_izakaya.client.gui.menu;
 
 import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
-import com.crystal.mystia_izakaya.client.item.CookedMealItem;
 import com.crystal.mystia_izakaya.component.FoodTagComponent;
 import com.crystal.mystia_izakaya.network.MealInfoPacket;
+import com.crystal.mystia_izakaya.recipe.MealRecipe;
 import com.crystal.mystia_izakaya.registry.ComponentRegistry;
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
-import com.crystal.mystia_izakaya.utils.CookerTypeEnum;
-import com.crystal.mystia_izakaya.utils.FoodTagEnum;
-import com.crystal.mystia_izakaya.utils.MealList;
-import com.crystal.mystia_izakaya.utils.UtilMethod;
+import com.crystal.mystia_izakaya.utils.*;
 import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
@@ -28,11 +28,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.crystal.mystia_izakaya.dataGen.ModTagItem.FOOD_INGREDIENTS;
-import static com.crystal.mystia_izakaya.utils.UtilMethod.getPositiveIntList;
+import static com.crystal.mystia_izakaya.utils.UtilMethod.*;
 
 public abstract class AbstractCookMenu extends AbstractContainerMenu {
     protected static final int INV_SIZE = 36;
-    public final MealList list = MealList.getInstance();
+    public final LocalMealList list = LocalMealList.getInstance();
     public final AbstractCookerTE cookerTE;
     protected final int INV_START = 6;
     private final ContainerData data;
@@ -45,25 +45,25 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
     }
 
     public boolean clickMenuButton(@NotNull Player pPlayer, int pId) {
-        List<Item> items = UtilMethod.getItems(this.getItems(), this.list.getMeals(), this.cookerType);
+        List<MealRecipe> items = UtilMethod.getItems(this.getItems(), MealList.getInstance().getMealList(), this.cookerType);
         boolean isCook = pPlayer.level().getBlockState(this.cookerTE.getBlockPos()).getValue(AbstractFurnaceBlock.LIT);
         if (pId < items.size() && !isCook && this.getItems().get(5).isEmpty()) {
-            CookedMealItem item = (CookedMealItem) items.get(pId);
-            ArrayList<FoodTagEnum> foodTagEnumArrayList = UtilMethod.getPositiveTags(this, item);
+            MealRecipe mealRecipe = items.get(pId);
+            ArrayList<FoodTagEnum> foodTagEnumArrayList = UtilMethod.getPositiveTags(this, mealRecipe);
             //判断黑暗料理
-            if (foodTagEnumArrayList.stream().anyMatch(item.negativeTag::contains)) {
-                item = (CookedMealItem) ItemRegistry.Dark_Matter.get().asItem();
+            if (foodTagEnumArrayList.stream().anyMatch(BytesToTagList(mealRecipe.negativeTag.array())::contains)) {
+                mealRecipe = MealList.getInstance().getRecipeMap().get(ItemRegistry.Dark_Matter.get());
             }
-            this.cookerTE.foodTags = UtilMethod.getPositiveTags(this, item);
-            ItemStack itemStack = new ItemStack(item);
-            IntList intList = getPositiveIntList(this, item);
+            this.cookerTE.foodTags = UtilMethod.getPositiveTags(this, mealRecipe);
+            ItemStack itemStack = mealRecipe.result;
+            IntList intList = getPositiveIntList(this, mealRecipe);
             byte[] byteArray = UtilMethod.getByteArray(intList);
             itemStack.set(ComponentRegistry.FOOD_TAG, new FoodTagComponent(intList));
             this.cookerTE.getItems().clear();
             this.cookerTE.setItem(6, itemStack);
-            this.cookerTE.cookTotal = (int) (item.cookingTime * 20);
+            this.cookerTE.cookTotal = mealRecipe.cookingTime * 20;
             PacketDistributor.sendToServer(new MealInfoPacket(
-                    (int) item.cookingTime * 20,
+                    mealRecipe.cookingTime * 20,
                     cookerTE.getItems().stream().map(ItemStack::getItem).collect(Collectors.toCollection(ArrayList::new)),
                     cookerTE.getBlockPos(),
                     byteArray));
@@ -97,7 +97,7 @@ public abstract class AbstractCookMenu extends AbstractContainerMenu {
             public void setChanged() {
                 this.container.setChanged();
                 if (cookerTE.getLevel() != null) {
-                    cookerTE.getLevel().sendBlockUpdated(cookerTE.getBlockPos(),cookerTE.getBlockState(),cookerTE.getBlockState(), Block.UPDATE_CLIENTS);
+                    cookerTE.getLevel().sendBlockUpdated(cookerTE.getBlockPos(), cookerTE.getBlockState(), cookerTE.getBlockState(), Block.UPDATE_CLIENTS);
                 }
             }
         });

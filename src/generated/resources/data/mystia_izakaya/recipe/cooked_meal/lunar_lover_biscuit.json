@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 10,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,19 @@
       "item": "mystia_izakaya:lunar_herb"
     }
   ],
+  "negative_tags": [
+    4,
+    6,
+    5
+  ],
   "ordinary": 4,
+  "positive_tags": [
+    1,
+    21,
+    32,
+    24,
+    34
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:lunar_lover_biscuit"

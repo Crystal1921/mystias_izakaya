@@ -1,7 +1,7 @@
 package com.crystal.mystia_izakaya.dataGen;
 
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
-import com.crystal.mystia_izakaya.utils.MealList;
+import com.crystal.mystia_izakaya.utils.LocalMealList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -91,7 +91,7 @@ public class ModItem extends ItemModelProvider {
         this.basicItem(ItemRegistry.Flower.get());
         this.basicItem(ItemRegistry.Creeping_Fig.get());
 
-        MealList.getInstance().getMeals().forEach(meal -> localItem(meal, "recipe/"));
+        LocalMealList.getInstance().getLocalMeals().forEach(meal -> localItem(meal, "recipe/"));
 
         this.localItem(ItemRegistry.Grill.get(), "cooker/");
         this.localItem(ItemRegistry.Boiling_Pot.get(), "cooker/");

@@ -1,6 +1,7 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 24,
   "group": "cooked_meal",
   "ingredients": [
     {
@@ -16,7 +17,21 @@
       "item": "mystia_izakaya:dew"
     }
   ],
+  "negative_tags": [
+    14
+  ],
   "ordinary": 3,
+  "positive_tags": [
+    1,
+    5,
+    8,
+    9,
+    15,
+    24,
+    29,
+    31,
+    35
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:planet_mars"

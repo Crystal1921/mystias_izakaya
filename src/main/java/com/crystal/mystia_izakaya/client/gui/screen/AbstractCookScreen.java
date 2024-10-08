@@ -2,6 +2,8 @@ package com.crystal.mystia_izakaya.client.gui.screen;
 
 import com.crystal.mystia_izakaya.client.gui.menu.AbstractCookMenu;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
+import com.crystal.mystia_izakaya.recipe.MealRecipe;
+import com.crystal.mystia_izakaya.utils.MealList;
 import com.crystal.mystia_izakaya.utils.UtilMethod;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -35,9 +37,9 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
     ArrayList<Item> menuItems;
     ArrayList<String> negativeStrings = new ArrayList<>();
     ArrayList<String> positiveStings = new ArrayList<>();
-    List<Item> possibleMeals;
-    Item targetItemNew = ItemStack.EMPTY.getItem();
-    Item targetItemOld = ItemStack.EMPTY.getItem();
+    List<MealRecipe> possibleMeals;
+    MealRecipe targetItemNew = MealRecipe.EMPTY;
+    MealRecipe targetItemOld = MealRecipe.EMPTY;
 
 
     public AbstractCookScreen(T pMenu, Inventory pPlayerInventory, Component pTitle) {
@@ -45,7 +47,7 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
         this.abstractCookMenu = pMenu;
         this.imageWidth = 230;
         this.imageHeight = 219;
-        possibleMeals = UtilMethod.getItems(menu.getItems(), menu.list.getMeals(), menu.cookerType);
+        possibleMeals = UtilMethod.getItems(menu.getItems(), MealList.getInstance().getMealList(), menu.cookerType);
         menuItems = new ArrayList<>(menu.getIngredientList());
     }
 
@@ -116,28 +118,28 @@ public abstract class AbstractCookScreen<T extends AbstractCookMenu> extends Abs
                 }
                 //渲染可制作菜肴列表
                 if (!isMenuItemEqual) {
-                    possibleMeals = UtilMethod.getItems(menu.getItems(), menu.list.getMeals(), menu.cookerType);
+                    possibleMeals = UtilMethod.getItems(menu.getItems(), MealList.getInstance().getMealList(), menu.cookerType);
                 }
                 menuItems = new ArrayList<>(menu.getIngredientList());
                 if (!possibleMeals.isEmpty()) {
                     for (int k = 0; k < possibleMeals.size(); k++) {
-                        guiGraphics.renderItem(possibleMeals.get(k).getDefaultInstance(), i + 122 + k % 5 * 20, j + 13 + k / 5 * 20);
+                        guiGraphics.renderItem(possibleMeals.get(k).result, i + 122 + k % 5 * 20, j + 13 + k / 5 * 20);
                     }
                     if (index < possibleMeals.size()) {
                         targetItemNew = possibleMeals.get(index);
                     }
                 } else {
-                    targetItemNew = ItemStack.EMPTY.getItem();
+                    targetItemNew = MealRecipe.EMPTY;
                 }
             } else {
-                targetItemNew = target.getItem();
+                targetItemNew = MealList.getInstance().getRecipeMap().get(target.getItem());
             }
-            if (targetItemNew instanceof CookedMealItem cookedMealItem) {
+            if (targetItemNew.result.getItem() instanceof CookedMealItem cookedMealItem) {
                 if (!targetItemNew.equals(targetItemOld) || !isMenuItemEqual) {
                     negativeStrings = cookedMealItem.negativeTag.stream()
                             .map(foodTagEnum -> Component.translatable("mystia_izakaya." + foodTagEnum.name()).getString())
                             .collect(Collectors.toCollection(ArrayList::new));
-                    positiveStings = UtilMethod.getPositiveStings(cookMenu, cookedMealItem);
+                    positiveStings = UtilMethod.getPositiveStings(cookMenu, targetItemNew);
                 }
                 targetItemOld = targetItemNew;
 

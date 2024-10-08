@@ -1,13 +1,22 @@
 {
   "type": "mystia_izakaya:cooking_serializers",
   "category": "misc",
+  "cooking_time": 7,
   "group": "cooked_meal",
   "ingredients": [
     {
       "item": "mystia_izakaya:lamprey"
     }
   ],
+  "negative_tags": [
+    25
+  ],
   "ordinary": 2,
+  "positive_tags": [
+    5,
+    10,
+    23
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:fried_lamprey"
