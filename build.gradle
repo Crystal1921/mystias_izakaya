@@ -20,6 +20,10 @@ repositories {
         dir "libs"
     }
     maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
+    maven {
         url "https://maven.shedaniel.me/"
         content {
             includeGroup "me.shedaniel"
