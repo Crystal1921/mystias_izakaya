@@ -66,19 +66,19 @@
   },
   "requirements": [
     [
+      "frying_pan"
+    ],
+    [
       "grill"
     ],
     [
-      "frying_pan"
+      "boiling_pot"
     ],
     [
       "cutting_board"
     ],
     [
       "steamer"
-    ],
-    [
-      "boiling_pot"
     ]
   ],
   "sends_telemetry_event": true
