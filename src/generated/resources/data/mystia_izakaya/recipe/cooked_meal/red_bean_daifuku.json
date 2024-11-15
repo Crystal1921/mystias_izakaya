@@ -5,13 +5,15 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:red_bean"
+      "tag": "mystia_izakaya:red_bean"
     },
     {
-      "item": "mystia_izakaya:sticky_rice"
+      "tag": "mystia_izakaya:sticky_rice"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 4,
   "positive_tags": [
     16,

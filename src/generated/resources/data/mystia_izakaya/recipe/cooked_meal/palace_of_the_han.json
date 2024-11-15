@@ -5,19 +5,19 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:lamprey"
+      "tag": "mystia_izakaya:lamprey"
     },
     {
-      "item": "mystia_izakaya:tofu"
+      "tag": "mystia_izakaya:tofu"
     },
     {
-      "item": "mystia_izakaya:crab"
+      "tag": "mystia_izakaya:crab"
     },
     {
-      "item": "mystia_izakaya:bamboo"
+      "tag": "mystia_izakaya:bamboo"
     },
     {
-      "item": "mystia_izakaya:dew"
+      "tag": "mystia_izakaya:dew"
     }
   ],
   "negative_tags": [

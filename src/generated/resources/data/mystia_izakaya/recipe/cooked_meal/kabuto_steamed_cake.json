@@ -5,19 +5,21 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:flour"
+      "tag": "mystia_izakaya:flour"
     },
     {
-      "item": "mystia_izakaya:iberico_pork"
+      "tag": "mystia_izakaya:iberico_pork"
     },
     {
-      "item": "mystia_izakaya:honey"
+      "tag": "mystia_izakaya:honey"
     },
     {
-      "item": "mystia_izakaya:cicada_slough"
+      "tag": "mystia_izakaya:cicada_slough"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 3,
   "positive_tags": [
     1,

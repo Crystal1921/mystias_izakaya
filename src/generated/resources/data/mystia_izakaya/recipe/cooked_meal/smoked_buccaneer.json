@@ -5,16 +5,16 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:beef"
+      "tag": "mystia_izakaya:beef"
     },
     {
-      "item": "mystia_izakaya:black_salt"
+      "tag": "mystia_izakaya:black_salt"
     },
     {
-      "item": "mystia_izakaya:chili"
+      "tag": "mystia_izakaya:chili"
     },
     {
-      "item": "mystia_izakaya:honey"
+      "tag": "mystia_izakaya:honey"
     }
   ],
   "negative_tags": [

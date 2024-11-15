@@ -7,6 +7,7 @@ import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class SteamerRecipe extends AbstractMealRecipe {
     public static final RecipeType<MealRecipe> STEAMER_MEAL = RecipeType.create(MystiaIzakaya.MODID, "steamer_meal", MealRecipe.class);
@@ -16,7 +17,7 @@ public class SteamerRecipe extends AbstractMealRecipe {
     }
 
     @Override
-    public RecipeType<MealRecipe> getRecipeType() {
+    public @NotNull RecipeType<MealRecipe> getRecipeType() {
         return STEAMER_MEAL;
     }
 }

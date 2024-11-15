@@ -5,16 +5,18 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:seaweed"
+      "tag": "mystia_izakaya:seaweed"
     },
     {
-      "item": "mystia_izakaya:tofu"
+      "tag": "mystia_izakaya:tofu"
     },
     {
-      "item": "mystia_izakaya:trout"
+      "tag": "mystia_izakaya:trout"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 0,
   "positive_tags": [
     4,

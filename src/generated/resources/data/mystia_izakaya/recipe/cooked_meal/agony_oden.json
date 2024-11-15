@@ -5,22 +5,24 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:chili"
+      "tag": "mystia_izakaya:chili"
     },
     {
-      "item": "mystia_izakaya:chili"
+      "tag": "mystia_izakaya:chili"
     },
     {
-      "item": "mystia_izakaya:beef"
+      "tag": "mystia_izakaya:beef"
     },
     {
-      "item": "mystia_izakaya:tofu"
+      "tag": "mystia_izakaya:tofu"
     },
     {
-      "item": "mystia_izakaya:radish"
+      "tag": "mystia_izakaya:radish"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 0,
   "positive_tags": [
     1,

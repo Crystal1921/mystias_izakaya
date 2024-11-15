@@ -5,19 +5,19 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:cucumber"
+      "tag": "mystia_izakaya:cucumber"
     },
     {
-      "item": "mystia_izakaya:egg"
+      "tag": "mystia_izakaya:egg"
     },
     {
-      "item": "mystia_izakaya:radish"
+      "tag": "mystia_izakaya:radish"
     },
     {
-      "item": "mystia_izakaya:venison"
+      "tag": "mystia_izakaya:venison"
     },
     {
-      "item": "mystia_izakaya:lunar_herb"
+      "tag": "mystia_izakaya:lunar_herb"
     }
   ],
   "negative_tags": [

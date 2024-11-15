@@ -5,12 +5,16 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:chrome_ball"
+      "tag": "mystia_izakaya:empty"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 5,
-  "positive_tags": [],
+  "positive_tags": [
+    0
+  ],
   "result": {
     "count": 1,
     "id": "mystia_izakaya:dark_matter"

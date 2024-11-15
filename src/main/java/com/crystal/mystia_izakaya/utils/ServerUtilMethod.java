@@ -31,8 +31,8 @@ public class ServerUtilMethod {
      * @return 返回玩家身上是否有所有的菜肴原材料
      */
     public static boolean isIngredientsMatch(Inventory inventory, CookedMealItem cookedMealItem){
-        for (int i = 0; i < cookedMealItem.ingredients.length; i++) {
-            Item item = cookedMealItem.ingredients[i];
+        for (int i = 0; i < cookedMealItem.ingredients.size(); i++) {
+            Item item = cookedMealItem.ingredients.get(i).getItems()[0].getItem();
             if (!inventory.contains(item.getDefaultInstance())) return false;
         }
         return true;

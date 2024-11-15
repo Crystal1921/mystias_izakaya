@@ -5,7 +5,7 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:potato"
+      "tag": "mystia_izakaya:potato"
     }
   ],
   "negative_tags": [

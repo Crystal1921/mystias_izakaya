@@ -5,19 +5,19 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:pumpkin"
+      "tag": "mystia_izakaya:pumpkin"
     },
     {
-      "item": "mystia_izakaya:lotus_seed"
+      "tag": "mystia_izakaya:lotus_seed"
     },
     {
-      "item": "mystia_izakaya:tuna"
+      "tag": "mystia_izakaya:tuna"
     },
     {
-      "item": "mystia_izakaya:bingdi_lotus"
+      "tag": "mystia_izakaya:bingdi_lotus"
     },
     {
-      "item": "mystia_izakaya:lunar_herb"
+      "tag": "mystia_izakaya:lunar_herb"
     }
   ],
   "negative_tags": [

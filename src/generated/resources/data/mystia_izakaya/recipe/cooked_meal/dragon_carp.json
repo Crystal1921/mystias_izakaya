@@ -5,22 +5,24 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:premium_tuna"
+      "tag": "mystia_izakaya:premium_tuna"
     },
     {
-      "item": "mystia_izakaya:venison"
+      "tag": "mystia_izakaya:venison"
     },
     {
-      "item": "mystia_izakaya:honey"
+      "tag": "mystia_izakaya:honey"
     },
     {
-      "item": "mystia_izakaya:lunar_herb"
+      "tag": "mystia_izakaya:lunar_herb"
     },
     {
-      "item": "mystia_izakaya:truffle"
+      "tag": "mystia_izakaya:truffle"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 3,
   "positive_tags": [
     1,

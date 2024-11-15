@@ -5,16 +5,18 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:venison"
+      "tag": "mystia_izakaya:venison"
     },
     {
-      "item": "mystia_izakaya:truffle"
+      "tag": "mystia_izakaya:truffle"
     },
     {
-      "item": "mystia_izakaya:cicada_slough"
+      "tag": "mystia_izakaya:cicada_slough"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 0,
   "positive_tags": [
     1,

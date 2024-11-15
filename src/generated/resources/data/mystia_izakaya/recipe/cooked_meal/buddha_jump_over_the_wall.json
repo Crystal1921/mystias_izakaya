@@ -5,22 +5,24 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:wagyo_beef"
+      "tag": "mystia_izakaya:wagyo_beef"
     },
     {
-      "item": "mystia_izakaya:premium_tuna"
+      "tag": "mystia_izakaya:premium_tuna"
     },
     {
-      "item": "mystia_izakaya:iberico_pork"
+      "tag": "mystia_izakaya:iberico_pork"
     },
     {
-      "item": "mystia_izakaya:pufferfish"
+      "tag": "mystia_izakaya:pufferfish"
     },
     {
-      "item": "mystia_izakaya:truffle"
+      "tag": "mystia_izakaya:truffle"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 0,
   "positive_tags": [
     1,

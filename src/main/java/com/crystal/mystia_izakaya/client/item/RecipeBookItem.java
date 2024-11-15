@@ -48,8 +48,8 @@ public class RecipeBookItem extends Item {
                     .append(" : ")
                     .append(Component.translatable("block.mystia_izakaya." + cookedMealItem.cookerTypeEnum.getName())));
             pTooltipComponents.add(Component.translatable("component.mystia_izakaya.required_ingredients"));
-            for (int i = 0; i < cookedMealItem.ingredients.length; i++) {
-                Item item = cookedMealItem.ingredients[i];
+            for (int i = 0; i < cookedMealItem.ingredients.size(); i++) {
+                Item item = cookedMealItem.ingredients.get(i).getItems()[0].getItem();
                 try{
                     Inventory inventory = Minecraft.getInstance().player.getInventory();
                     int color = (inventory.contains(item.getDefaultInstance())) ? Color.GREEN.getRGB() : Color.RED.getRGB();

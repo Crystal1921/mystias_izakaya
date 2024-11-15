@@ -5,10 +5,10 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:tuna"
+      "tag": "mystia_izakaya:tuna"
     },
     {
-      "item": "mystia_izakaya:salmon"
+      "tag": "mystia_izakaya:salmon"
     }
   ],
   "negative_tags": [

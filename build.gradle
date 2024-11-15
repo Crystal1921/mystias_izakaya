@@ -157,7 +157,7 @@ configurations {
 
 dependencies {
     implementation "mezz.jei:jei-${project.minecraft_version}-neoforge:${project.jei_version}"
-    implementation "libs:touhoulittlemaid:1.21-release-1.1.12-hotfix"
+    implementation "maven.modrinth:touhou-little-maid:ZSKbmDse"
     implementation "maven.modrinth:mystiasizakaya:0.1.0-rc2-fix"
     implementation "curse.maven:jade-324717:5444008"
 

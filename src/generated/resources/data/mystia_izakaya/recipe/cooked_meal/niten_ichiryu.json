@@ -5,10 +5,10 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:iberico_pork"
+      "tag": "mystia_izakaya:iberico_pork"
     },
     {
-      "item": "mystia_izakaya:boar_meat"
+      "tag": "mystia_izakaya:boar_meat"
     }
   ],
   "negative_tags": [

@@ -5,13 +5,13 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:bamboo"
+      "tag": "mystia_izakaya:bamboo"
     },
     {
-      "item": "mystia_izakaya:shrimp"
+      "tag": "mystia_izakaya:shrimp"
     },
     {
-      "item": "mystia_izakaya:broceoli"
+      "tag": "mystia_izakaya:broceoli"
     }
   ],
   "negative_tags": [

@@ -5,16 +5,18 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:bamboo"
+      "tag": "mystia_izakaya:bamboo"
     },
     {
-      "item": "mystia_izakaya:bamboo_shoot"
+      "tag": "mystia_izakaya:bamboo_shoot"
     },
     {
-      "item": "mystia_izakaya:beef"
+      "tag": "mystia_izakaya:beef"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 0,
   "positive_tags": [
     4,

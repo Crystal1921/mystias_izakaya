@@ -72,8 +72,8 @@ public class ClickEvent {
                         && (isIngredientsMatch(inventory, cookedMealItem) || player.isCreative())) {
                     //非创造模式玩家背包内对应所需的食材全都减少1个
                     if (!player.isCreative()) {
-                        for (int i = 0; i < cookedMealItem.ingredients.length; i++) {
-                            Item item = cookedMealItem.ingredients[i];
+                        for (int i = 0; i < cookedMealItem.ingredients.size(); i++) {
+                            Item item = cookedMealItem.ingredients.get(i).getItems()[0].getItem();
                             for (int j = 0; j < inventory.getContainerSize(); j++) {
                                 ItemStack itemstack1 = inventory.getItem(j);
                                 if (itemstack1.is(item)) {
@@ -97,8 +97,8 @@ public class ClickEvent {
                                         new byte[]{0}));
                     } else {
                         //放入对应的材料
-                        for (int i = 0; i < cookedMealItem.ingredients.length; i++) {
-                            Item item = cookedMealItem.ingredients[i];
+                        for (int i = 0; i < cookedMealItem.ingredients.size(); i++) {
+                            Item item = cookedMealItem.ingredients.get(i).getItems()[0].getItem();
                             cookerTE.setItem(i, item.getDefaultInstance());
                         }
                     }

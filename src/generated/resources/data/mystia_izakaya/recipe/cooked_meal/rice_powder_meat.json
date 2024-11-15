@@ -5,13 +5,13 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:bamboo"
+      "tag": "mystia_izakaya:bamboo"
     },
     {
-      "item": "mystia_izakaya:dew"
+      "tag": "mystia_izakaya:dew"
     },
     {
-      "item": "mystia_izakaya:iberico_pork"
+      "tag": "mystia_izakaya:iberico_pork"
     }
   ],
   "negative_tags": [

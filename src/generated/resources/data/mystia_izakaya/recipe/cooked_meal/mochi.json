@@ -5,7 +5,7 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:sticky_rice"
+      "tag": "mystia_izakaya:sticky_rice"
     }
   ],
   "negative_tags": [

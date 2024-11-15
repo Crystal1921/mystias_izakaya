@@ -5,19 +5,19 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:flower"
+      "tag": "mystia_izakaya:flower"
     },
     {
-      "item": "mystia_izakaya:udunmbara"
+      "tag": "mystia_izakaya:udunmbara"
     },
     {
-      "item": "mystia_izakaya:lunar_herb"
+      "tag": "mystia_izakaya:lunar_herb"
     },
     {
-      "item": "mystia_izakaya:dew"
+      "tag": "mystia_izakaya:dew"
     },
     {
-      "item": "mystia_izakaya:cream"
+      "tag": "mystia_izakaya:cream"
     }
   ],
   "negative_tags": [

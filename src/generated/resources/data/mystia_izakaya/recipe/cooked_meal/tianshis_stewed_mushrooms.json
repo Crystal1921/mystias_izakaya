@@ -5,16 +5,18 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:chestnut"
+      "tag": "mystia_izakaya:chestnut"
     },
     {
-      "item": "mystia_izakaya:mushroom"
+      "tag": "mystia_izakaya:mushroom"
     },
     {
-      "item": "mystia_izakaya:truffle"
+      "tag": "mystia_izakaya:truffle"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 0,
   "positive_tags": [
     6,

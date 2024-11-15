@@ -5,10 +5,10 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:udunmbara"
+      "tag": "mystia_izakaya:udunmbara"
     },
     {
-      "item": "mystia_izakaya:dew"
+      "tag": "mystia_izakaya:dew"
     }
   ],
   "negative_tags": [

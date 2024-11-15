@@ -5,16 +5,16 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:udunmbara"
+      "tag": "mystia_izakaya:udunmbara"
     },
     {
-      "item": "mystia_izakaya:cream"
+      "tag": "mystia_izakaya:cream"
     },
     {
-      "item": "mystia_izakaya:grapes"
+      "tag": "mystia_izakaya:grapes"
     },
     {
-      "item": "mystia_izakaya:ginko_nut"
+      "tag": "mystia_izakaya:ginko_nut"
     }
   ],
   "negative_tags": [

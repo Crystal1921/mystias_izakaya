@@ -5,7 +5,7 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:lamprey"
+      "tag": "mystia_izakaya:lamprey"
     }
   ],
   "negative_tags": [

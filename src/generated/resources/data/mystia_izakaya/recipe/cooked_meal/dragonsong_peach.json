@@ -5,19 +5,19 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:cocoa_bean"
+      "tag": "mystia_izakaya:cocoa_bean"
     },
     {
-      "item": "mystia_izakaya:peach"
+      "tag": "mystia_izakaya:peach"
     },
     {
-      "item": "mystia_izakaya:peach"
+      "tag": "mystia_izakaya:peach"
     },
     {
-      "item": "mystia_izakaya:peach"
+      "tag": "mystia_izakaya:peach"
     },
     {
-      "item": "mystia_izakaya:peach"
+      "tag": "mystia_izakaya:peach"
     }
   ],
   "negative_tags": [

@@ -5,10 +5,10 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:sticky_rice"
+      "tag": "mystia_izakaya:sticky_rice"
     },
     {
-      "item": "mystia_izakaya:lunar_herb"
+      "tag": "mystia_izakaya:lunar_herb"
     }
   ],
   "negative_tags": [

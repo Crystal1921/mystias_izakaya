@@ -5,7 +5,7 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:seaweed"
+      "tag": "mystia_izakaya:seaweed"
     }
   ],
   "negative_tags": [

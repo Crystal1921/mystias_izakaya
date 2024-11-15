@@ -5,13 +5,15 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:snow_fungus"
+      "tag": "mystia_izakaya:snow_fungus"
     },
     {
-      "item": "mystia_izakaya:lotus_seed"
+      "tag": "mystia_izakaya:lotus_seed"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 0,
   "positive_tags": [
     11,

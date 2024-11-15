@@ -5,13 +5,15 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:mushroom"
+      "tag": "mystia_izakaya:mushroom"
     },
     {
-      "item": "mystia_izakaya:pork"
+      "tag": "mystia_izakaya:pork"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 2,
   "positive_tags": [
     4,

@@ -5,13 +5,13 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:grapes"
+      "tag": "mystia_izakaya:grapes"
     },
     {
-      "item": "mystia_izakaya:grapes"
+      "tag": "mystia_izakaya:grapes"
     },
     {
-      "item": "mystia_izakaya:lemon"
+      "tag": "mystia_izakaya:lemon"
     }
   ],
   "negative_tags": [

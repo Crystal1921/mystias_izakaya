@@ -5,19 +5,21 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:pufferfish"
+      "tag": "mystia_izakaya:pufferfish"
     },
     {
-      "item": "mystia_izakaya:plum"
+      "tag": "mystia_izakaya:plum"
     },
     {
-      "item": "mystia_izakaya:lamprey"
+      "tag": "mystia_izakaya:lamprey"
     },
     {
-      "item": "mystia_izakaya:ginko_nut"
+      "tag": "mystia_izakaya:ginko_nut"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 0,
   "positive_tags": [
     5,

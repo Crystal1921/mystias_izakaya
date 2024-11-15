@@ -5,19 +5,21 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:dew"
+      "tag": "mystia_izakaya:dew"
     },
     {
-      "item": "mystia_izakaya:tofu"
+      "tag": "mystia_izakaya:tofu"
     },
     {
-      "item": "mystia_izakaya:honey"
+      "tag": "mystia_izakaya:honey"
     },
     {
-      "item": "mystia_izakaya:egg"
+      "tag": "mystia_izakaya:egg"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 4,
   "positive_tags": [
     1,

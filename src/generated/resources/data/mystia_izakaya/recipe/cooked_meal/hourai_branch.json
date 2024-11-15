@@ -5,22 +5,24 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:bamboo"
+      "tag": "mystia_izakaya:bamboo"
     },
     {
-      "item": "mystia_izakaya:pork"
+      "tag": "mystia_izakaya:pork"
     },
     {
-      "item": "mystia_izakaya:salmon"
+      "tag": "mystia_izakaya:salmon"
     },
     {
-      "item": "mystia_izakaya:wagyo_beef"
+      "tag": "mystia_izakaya:wagyo_beef"
     },
     {
-      "item": "mystia_izakaya:venison"
+      "tag": "mystia_izakaya:venison"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 1,
   "positive_tags": [
     1,

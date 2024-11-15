@@ -5,13 +5,13 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:red_bean"
+      "tag": "mystia_izakaya:red_bean"
     },
     {
-      "item": "mystia_izakaya:egg"
+      "tag": "mystia_izakaya:egg"
     },
     {
-      "item": "mystia_izakaya:flour"
+      "tag": "mystia_izakaya:flour"
     }
   ],
   "negative_tags": [

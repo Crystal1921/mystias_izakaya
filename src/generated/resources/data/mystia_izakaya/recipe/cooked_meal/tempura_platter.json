@@ -5,19 +5,21 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:iberico_pork"
+      "tag": "mystia_izakaya:iberico_pork"
     },
     {
-      "item": "mystia_izakaya:truffle"
+      "tag": "mystia_izakaya:truffle"
     },
     {
-      "item": "mystia_izakaya:lamprey"
+      "tag": "mystia_izakaya:lamprey"
     },
     {
-      "item": "mystia_izakaya:lunar_herb"
+      "tag": "mystia_izakaya:lunar_herb"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 2,
   "positive_tags": [
     1,

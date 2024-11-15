@@ -5,19 +5,21 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:salmon"
+      "tag": "mystia_izakaya:salmon"
     },
     {
-      "item": "mystia_izakaya:butter"
+      "tag": "mystia_izakaya:butter"
     },
     {
-      "item": "mystia_izakaya:egg"
+      "tag": "mystia_izakaya:egg"
     },
     {
-      "item": "mystia_izakaya:flour"
+      "tag": "mystia_izakaya:flour"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 2,
   "positive_tags": [
     5,

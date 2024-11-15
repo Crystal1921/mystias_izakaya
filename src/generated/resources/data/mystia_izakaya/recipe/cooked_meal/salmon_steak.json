@@ -5,13 +5,15 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:salmon"
+      "tag": "mystia_izakaya:salmon"
     },
     {
-      "item": "mystia_izakaya:bamboo_shoot"
+      "tag": "mystia_izakaya:bamboo_shoot"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 2,
   "positive_tags": [
     4,

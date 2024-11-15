@@ -5,13 +5,13 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:tofu"
+      "tag": "mystia_izakaya:tofu"
     },
     {
-      "item": "mystia_izakaya:pork"
+      "tag": "mystia_izakaya:pork"
     },
     {
-      "item": "mystia_izakaya:chili"
+      "tag": "mystia_izakaya:chili"
     }
   ],
   "negative_tags": [

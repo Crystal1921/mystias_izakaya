@@ -5,22 +5,24 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:salmon"
+      "tag": "mystia_izakaya:salmon"
     },
     {
-      "item": "mystia_izakaya:tuna"
+      "tag": "mystia_izakaya:tuna"
     },
     {
-      "item": "mystia_izakaya:premium_tuna"
+      "tag": "mystia_izakaya:premium_tuna"
     },
     {
-      "item": "mystia_izakaya:trout"
+      "tag": "mystia_izakaya:trout"
     },
     {
-      "item": "mystia_izakaya:ice_cube"
+      "tag": "mystia_izakaya:ice_cube"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 4,
   "positive_tags": [
     1,

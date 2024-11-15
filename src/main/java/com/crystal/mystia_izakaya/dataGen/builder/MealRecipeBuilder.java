@@ -15,7 +15,6 @@ import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.NotNull;
 
 import java.nio.ByteBuffer;
-import java.util.Arrays;
 
 import static com.crystal.mystia_izakaya.MystiaIzakaya.prefix;
 
@@ -43,8 +42,8 @@ public class MealRecipeBuilder implements RecipeBuilder {
         return new MealRecipeBuilder(pCategory, pResult, 1);
     }
 
-    public MealRecipeBuilder requires(Item[] items) {
-        Arrays.stream(items).toList().forEach(item -> this.ingredients.add(Ingredient.of(item)));
+    public MealRecipeBuilder requires(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
         return this;
     }
 

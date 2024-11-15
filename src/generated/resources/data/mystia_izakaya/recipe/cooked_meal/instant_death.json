@@ -5,16 +5,18 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:boar_meat"
+      "tag": "mystia_izakaya:boar_meat"
     },
     {
-      "item": "mystia_izakaya:venison"
+      "tag": "mystia_izakaya:venison"
     },
     {
-      "item": "mystia_izakaya:onion"
+      "tag": "mystia_izakaya:onion"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 1,
   "positive_tags": [
     1,

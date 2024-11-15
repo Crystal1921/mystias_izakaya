@@ -5,19 +5,21 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:mushroom"
+      "tag": "mystia_izakaya:mushroom"
     },
     {
-      "item": "mystia_izakaya:shrimp"
+      "tag": "mystia_izakaya:shrimp"
     },
     {
-      "item": "mystia_izakaya:octopus"
+      "tag": "mystia_izakaya:octopus"
     },
     {
-      "item": "mystia_izakaya:chili"
+      "tag": "mystia_izakaya:chili"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 0,
   "positive_tags": [
     1,

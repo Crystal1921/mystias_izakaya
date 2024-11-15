@@ -5,16 +5,18 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:mushroom"
+      "tag": "mystia_izakaya:mushroom"
     },
     {
-      "item": "mystia_izakaya:onion"
+      "tag": "mystia_izakaya:onion"
     },
     {
-      "item": "mystia_izakaya:butter"
+      "tag": "mystia_izakaya:butter"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 3,
   "positive_tags": [
     6,

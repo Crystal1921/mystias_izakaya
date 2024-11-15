@@ -5,19 +5,21 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:premium_tuna"
+      "tag": "mystia_izakaya:premium_tuna"
     },
     {
-      "item": "mystia_izakaya:bingdi_lotus"
+      "tag": "mystia_izakaya:bingdi_lotus"
     },
     {
-      "item": "mystia_izakaya:lotus_seed"
+      "tag": "mystia_izakaya:lotus_seed"
     },
     {
-      "item": "mystia_izakaya:dew"
+      "tag": "mystia_izakaya:dew"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 3,
   "positive_tags": [
     1,

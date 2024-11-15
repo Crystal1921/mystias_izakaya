@@ -5,16 +5,18 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:iberico_pork"
+      "tag": "mystia_izakaya:iberico_pork"
     },
     {
-      "item": "mystia_izakaya:pufferfish"
+      "tag": "mystia_izakaya:pufferfish"
     },
     {
-      "item": "mystia_izakaya:bamboo_shoot"
+      "tag": "mystia_izakaya:bamboo_shoot"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 3,
   "positive_tags": [
     1,

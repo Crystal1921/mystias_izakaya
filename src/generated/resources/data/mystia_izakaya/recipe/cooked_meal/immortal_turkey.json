@@ -5,22 +5,24 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:flour"
+      "tag": "mystia_izakaya:flour"
     },
     {
-      "item": "mystia_izakaya:honey"
+      "tag": "mystia_izakaya:honey"
     },
     {
-      "item": "mystia_izakaya:potato"
+      "tag": "mystia_izakaya:potato"
     },
     {
-      "item": "mystia_izakaya:radish"
+      "tag": "mystia_izakaya:radish"
     },
     {
-      "item": "mystia_izakaya:onion"
+      "tag": "mystia_izakaya:onion"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 1,
   "positive_tags": [
     1,

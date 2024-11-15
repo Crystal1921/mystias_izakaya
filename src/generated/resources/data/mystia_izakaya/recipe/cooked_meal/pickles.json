@@ -5,13 +5,15 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:cucumber"
+      "tag": "mystia_izakaya:cucumber"
     },
     {
-      "item": "mystia_izakaya:black_salt"
+      "tag": "mystia_izakaya:black_salt"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 4,
   "positive_tags": [
     2,

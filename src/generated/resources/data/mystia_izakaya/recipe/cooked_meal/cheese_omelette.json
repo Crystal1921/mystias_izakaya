@@ -5,10 +5,10 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:egg"
+      "tag": "mystia_izakaya:egg"
     },
     {
-      "item": "mystia_izakaya:cheese"
+      "tag": "mystia_izakaya:cheese"
     }
   ],
   "negative_tags": [

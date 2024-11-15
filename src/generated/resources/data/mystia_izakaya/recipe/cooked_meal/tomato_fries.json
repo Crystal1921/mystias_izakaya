@@ -5,10 +5,10 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:tomato"
+      "tag": "mystia_izakaya:tomato"
     },
     {
-      "item": "mystia_izakaya:potato"
+      "tag": "mystia_izakaya:potato"
     }
   ],
   "negative_tags": [

@@ -5,13 +5,13 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:flour"
+      "tag": "mystia_izakaya:flour"
     },
     {
-      "item": "mystia_izakaya:honey"
+      "tag": "mystia_izakaya:honey"
     },
     {
-      "item": "mystia_izakaya:cicada_slough"
+      "tag": "mystia_izakaya:cicada_slough"
     }
   ],
   "negative_tags": [

@@ -5,13 +5,15 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:cream"
+      "tag": "mystia_izakaya:cream"
     },
     {
-      "item": "mystia_izakaya:crab"
+      "tag": "mystia_izakaya:crab"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 2,
   "positive_tags": [
     1,

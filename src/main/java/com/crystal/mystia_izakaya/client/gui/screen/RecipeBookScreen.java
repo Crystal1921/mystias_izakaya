@@ -24,8 +24,8 @@ import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 
@@ -189,19 +189,19 @@ public class RecipeBookScreen extends Screen {
         renderIngredient(guiGraphics, i, j);
     }
 
-    private void renderIngredient(@NotNull GuiGraphics guiGraphics, int i, int j){
+    private void renderIngredient(@NotNull GuiGraphics guiGraphics, int i, int j) {
         if (selected != null) {
             CookedMealItem cookedMealItem = selected.getCookedMealItem();
-            Item[] ingredients = cookedMealItem.ingredients;
+            List<Ingredient> ingredients = cookedMealItem.ingredients;
             CookerTypeEnum cookerTypeEnum = cookedMealItem.cookerTypeEnum;
             ItemStack cooker = LocalMealList.getInstance().getCookerTypeMap().get(cookerTypeEnum).getDefaultInstance();
-            for (int k = 0; k < ingredients.length; k++) {
+            for (int k = 0; k < ingredients.size(); k++) {
                 int x = i + k * 24 + 12;
                 int y = j + 170;
                 guiGraphics.fill(x, y, x + 16, y + 16, positiveInColor);
-                guiGraphics.renderItem(ingredients[k].getDefaultInstance(), x, y);
+                guiGraphics.renderItem(ingredients.get(k).getItems()[0], x, y);
             }
-            guiGraphics.renderItem(cooker, i + 2 * 24 + 12,j + 190);
+            guiGraphics.renderItem(cooker, i + 2 * 24 + 12, j + 190);
         }
     }
 

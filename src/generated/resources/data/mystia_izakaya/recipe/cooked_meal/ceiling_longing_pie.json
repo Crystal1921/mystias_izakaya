@@ -5,13 +5,13 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:trout"
+      "tag": "mystia_izakaya:trout"
     },
     {
-      "item": "mystia_izakaya:flour"
+      "tag": "mystia_izakaya:flour"
     },
     {
-      "item": "mystia_izakaya:peach"
+      "tag": "mystia_izakaya:peach"
     }
   ],
   "negative_tags": [

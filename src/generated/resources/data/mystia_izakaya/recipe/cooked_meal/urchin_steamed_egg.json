@@ -5,10 +5,10 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:sea_urchin"
+      "tag": "mystia_izakaya:sea_urchin"
     },
     {
-      "item": "mystia_izakaya:egg"
+      "tag": "mystia_izakaya:egg"
     }
   ],
   "negative_tags": [

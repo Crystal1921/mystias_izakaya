@@ -5,19 +5,19 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:cocoa_bean"
+      "tag": "mystia_izakaya:cocoa_bean"
     },
     {
-      "item": "mystia_izakaya:cream"
+      "tag": "mystia_izakaya:cream"
     },
     {
-      "item": "mystia_izakaya:flour"
+      "tag": "mystia_izakaya:flour"
     },
     {
-      "item": "mystia_izakaya:broceoli"
+      "tag": "mystia_izakaya:broceoli"
     },
     {
-      "item": "mystia_izakaya:mushroom"
+      "tag": "mystia_izakaya:mushroom"
     }
   ],
   "negative_tags": [

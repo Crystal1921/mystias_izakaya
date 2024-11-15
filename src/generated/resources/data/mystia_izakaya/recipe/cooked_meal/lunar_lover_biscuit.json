@@ -5,16 +5,16 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:butter"
+      "tag": "mystia_izakaya:butter"
     },
     {
-      "item": "mystia_izakaya:flour"
+      "tag": "mystia_izakaya:flour"
     },
     {
-      "item": "mystia_izakaya:egg"
+      "tag": "mystia_izakaya:egg"
     },
     {
-      "item": "mystia_izakaya:lunar_herb"
+      "tag": "mystia_izakaya:lunar_herb"
     }
   ],
   "negative_tags": [

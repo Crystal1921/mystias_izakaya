@@ -2,9 +2,11 @@ package com.crystal.mystia_izakaya.dataGen;
 
 import com.crystal.mystia_izakaya.registry.ItemRegistry;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -64,77 +66,157 @@ public class ModTagItem extends ItemTagsProvider {
     public static final TagKey<Item> HOT = TagKey.create(Registries.ITEM, resourceLocation("hot"));
     public static final TagKey<Item> FUNGUS = TagKey.create(Registries.ITEM, resourceLocation("fungus"));
 
+    public static final TagKey<Item> BEEF = TagKey.create(Registries.ITEM, resourceLocation("beef"));
+    public static final TagKey<Item> FLOWER = TagKey.create(Registries.ITEM, resourceLocation("flower"));
+    public static final TagKey<Item> CUTTING_BOARD = TagKey.create(Registries.ITEM, resourceLocation("cutting_board"));
+    public static final TagKey<Item> CREAM = TagKey.create(Registries.ITEM, resourceLocation("cream"));
+    public static final TagKey<Item> PUFFERFISH = TagKey.create(Registries.ITEM, resourceLocation("pufferfish"));
+    public static final TagKey<Item> CUCUMBER = TagKey.create(Registries.ITEM, resourceLocation("cucumber"));
+    public static final TagKey<Item> POTATO = TagKey.create(Registries.ITEM, resourceLocation("potato"));
+    public static final TagKey<Item> BLACK_SALT = TagKey.create(Registries.ITEM, resourceLocation("black_salt"));
+    public static final TagKey<Item> PORK = TagKey.create(Registries.ITEM, resourceLocation("pork"));
+    public static final TagKey<Item> TUNA = TagKey.create(Registries.ITEM, resourceLocation("tuna"));
+    public static final TagKey<Item> OCTOPUS = TagKey.create(Registries.ITEM, resourceLocation("octopus"));
+    public static final TagKey<Item> LAMPREY = TagKey.create(Registries.ITEM, resourceLocation("lamprey"));
+    public static final TagKey<Item> BINGDI_LOTUS = TagKey.create(Registries.ITEM, resourceLocation("bingdi_lotus"));
+    public static final TagKey<Item> IBERICO_PORK = TagKey.create(Registries.ITEM, resourceLocation("iberico_pork"));
+    public static final TagKey<Item> PINE_NUT = TagKey.create(Registries.ITEM, resourceLocation("pine_nut"));
+    public static final TagKey<Item> SEA_URCHIN = TagKey.create(Registries.ITEM, resourceLocation("sea_urchin"));
+    public static final TagKey<Item> COCOA_BEAN = TagKey.create(Registries.ITEM, resourceLocation("cocoa_bean"));
+    public static final TagKey<Item> LUNAR_HERB = TagKey.create(Registries.ITEM, resourceLocation("lunar_herb"));
+    public static final TagKey<Item> BROCEOLI = TagKey.create(Registries.ITEM, resourceLocation("broceoli"));
+    public static final TagKey<Item> SWEET_POTATO = TagKey.create(Registries.ITEM, resourceLocation("sweet_potato"));
+    public static final TagKey<Item> CREEPING_FIG = TagKey.create(Registries.ITEM, resourceLocation("creeping_fig"));
+    public static final TagKey<Item> ICE_CUBE = TagKey.create(Registries.ITEM, resourceLocation("ice_cube"));
+    public static final TagKey<Item> SALMON = TagKey.create(Registries.ITEM, resourceLocation("salmon"));
+    public static final TagKey<Item> SEAWEED = TagKey.create(Registries.ITEM, resourceLocation("seaweed"));
+    public static final TagKey<Item> GINKO_NUT = TagKey.create(Registries.ITEM, resourceLocation("ginko_nut"));
+    public static final TagKey<Item> BAMBOO_SHOOT = TagKey.create(Registries.ITEM, resourceLocation("bamboo_shoot"));
+    public static final TagKey<Item> LEMON = TagKey.create(Registries.ITEM, resourceLocation("lemon"));
+    public static final TagKey<Item> WAGYO_BEEF = TagKey.create(Registries.ITEM, resourceLocation("wagyo_beef"));
+    public static final TagKey<Item> CRAB = TagKey.create(Registries.ITEM, resourceLocation("crab"));
+    public static final TagKey<Item> MUSHROOM = TagKey.create(Registries.ITEM, resourceLocation("mushroom"));
+    public static final TagKey<Item> HONEY = TagKey.create(Registries.ITEM, resourceLocation("honey"));
+    public static final TagKey<Item> ONION = TagKey.create(Registries.ITEM, resourceLocation("onion"));
+    public static final TagKey<Item> GRILL = TagKey.create(Registries.ITEM, resourceLocation("grill"));
+    public static final TagKey<Item> LOTUS_SEED = TagKey.create(Registries.ITEM, resourceLocation("lotus_seed"));
+    public static final TagKey<Item> RADISH = TagKey.create(Registries.ITEM, resourceLocation("radish"));
+    public static final TagKey<Item> TOMATO = TagKey.create(Registries.ITEM, resourceLocation("tomato"));
+    public static final TagKey<Item> DEW = TagKey.create(Registries.ITEM, resourceLocation("dew"));
+    public static final TagKey<Item> GRAPES = TagKey.create(Registries.ITEM, resourceLocation("grapes"));
+    public static final TagKey<Item> RED_TOON = TagKey.create(Registries.ITEM, resourceLocation("red_toon"));
+    public static final TagKey<Item> BOILING_POT = TagKey.create(Registries.ITEM, resourceLocation("boiling_pot"));
+    public static final TagKey<Item> EGG = TagKey.create(Registries.ITEM, resourceLocation("egg"));
+    public static final TagKey<Item> TOFU = TagKey.create(Registries.ITEM, resourceLocation("tofu"));
+    public static final TagKey<Item> BOAR_MEAT = TagKey.create(Registries.ITEM, resourceLocation("boar_meat"));
+    public static final TagKey<Item> STEAMER = TagKey.create(Registries.ITEM, resourceLocation("steamer"));
+    public static final TagKey<Item> CHILI = TagKey.create(Registries.ITEM, resourceLocation("chili"));
+    public static final TagKey<Item> FRYING_PAN = TagKey.create(Registries.ITEM, resourceLocation("frying_pan"));
+    public static final TagKey<Item> PEACH = TagKey.create(Registries.ITEM, resourceLocation("peach"));
+    public static final TagKey<Item> PREMIUM_TUNA = TagKey.create(Registries.ITEM, resourceLocation("premium_tuna"));
+    public static final TagKey<Item> BUTTER = TagKey.create(Registries.ITEM, resourceLocation("butter"));
+    public static final TagKey<Item> PLUM = TagKey.create(Registries.ITEM, resourceLocation("plum"));
+    public static final TagKey<Item> STICKY_RICE = TagKey.create(Registries.ITEM, resourceLocation("sticky_rice"));
+    public static final TagKey<Item> RED_BEAN = TagKey.create(Registries.ITEM, resourceLocation("red_bean"));
+    public static final TagKey<Item> TROUT = TagKey.create(Registries.ITEM, resourceLocation("trout"));
+    public static final TagKey<Item> PUMPKIN = TagKey.create(Registries.ITEM, resourceLocation("pumpkin"));
+    public static final TagKey<Item> SNOW_FUNGUS = TagKey.create(Registries.ITEM, resourceLocation("snow_fungus"));
+    public static final TagKey<Item> CHESTNUT = TagKey.create(Registries.ITEM, resourceLocation("chestnut"));
+    public static final TagKey<Item> FLOUR = TagKey.create(Registries.ITEM, resourceLocation("flour"));
+    public static final TagKey<Item> BAMBOO = TagKey.create(Registries.ITEM, resourceLocation("bamboo"));
+    public static final TagKey<Item> VENISON = TagKey.create(Registries.ITEM, resourceLocation("venison"));
+    public static final TagKey<Item> TRUFFLE = TagKey.create(Registries.ITEM, resourceLocation("truffle"));
+    public static final TagKey<Item> CICADA_SLOUGH = TagKey.create(Registries.ITEM, resourceLocation("cicada_slough"));
+    public static final TagKey<Item> SHRIMP = TagKey.create(Registries.ITEM, resourceLocation("shrimp"));
+    public static final TagKey<Item> CHEESE = TagKey.create(Registries.ITEM, resourceLocation("cheese"));
+    public static final TagKey<Item> UDUNMBARA = TagKey.create(Registries.ITEM, resourceLocation("udunmbara"));
+
     public ModTagItem(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pLookupProvider, CompletableFuture<TagLookup<Block>> pBlockTags, String modId, @Nullable ExistingFileHelper existingFileHelper) {
         super(pOutput, pLookupProvider, pBlockTags, modId, existingFileHelper);
+    }
+
+    private static <T> ResourceKey<Registry<T>> createRegistryKey(String name) {
+        return ResourceKey.createRegistryKey(resourceLocation(name));
     }
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider pProvider) {
         this.tag(ItemTags.FISHING_ENCHANTABLE).add(ItemRegistry.MystiaFishingRod.value());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Crab.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Grill.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Trout.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lamprey.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Salmon.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Tuna.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Premium_Tuna.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pufferfish.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Shrimp.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Octopus.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Sea_Urchin.get());
+        LocalFoodIngredients();
+        LocalFoodAttributeTags();
+        LocalFoodTags();
 
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pork.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Beef.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Venison.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Boar_Meat.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Iberico_Pork.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Wagyo_Beef.get());
+        compat();
+    }
 
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Tofu.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Potato.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Onion.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pumpkin.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Radish.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Seaweed.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Mushroom.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Truffle.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Bamboo_Shoot.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cucumber.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Chestnut.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Red_Toon.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Tomato.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Broceoli.get());
+    private void LocalFoodTags() {
+        this.tag(BEEF).add(ItemRegistry.Beef.get());
+        this.tag(FLOWER).add(ItemRegistry.Flower.get());
+        this.tag(CUTTING_BOARD).add(ItemRegistry.Cutting_Board.get());
+        this.tag(CREAM).add(ItemRegistry.Cream.get());
+        this.tag(PUFFERFISH).add(ItemRegistry.Pufferfish.get());
+        this.tag(CUCUMBER).add(ItemRegistry.Cucumber.get());
+        this.tag(POTATO).add(ItemRegistry.Potato.get());
+        this.tag(BLACK_SALT).add(ItemRegistry.Black_Salt.get());
+        this.tag(PORK).add(ItemRegistry.Pork.get());
+        this.tag(TUNA).add(ItemRegistry.Tuna.get());
+        this.tag(OCTOPUS).add(ItemRegistry.Octopus.get());
+        this.tag(LAMPREY).add(ItemRegistry.Lamprey.get());
+        this.tag(BINGDI_LOTUS).add(ItemRegistry.Bingdi_Lotus.get());
+        this.tag(IBERICO_PORK).add(ItemRegistry.Iberico_Pork.get());
+        this.tag(PINE_NUT).add(ItemRegistry.Pine_Nut.get());
+        this.tag(SEA_URCHIN).add(ItemRegistry.Sea_Urchin.get());
+        this.tag(COCOA_BEAN).add(ItemRegistry.Cocoa_Bean.get());
+        this.tag(LUNAR_HERB).add(ItemRegistry.Lunar_Herb.get());
+        this.tag(BROCEOLI).add(ItemRegistry.Broceoli.get());
+        this.tag(SWEET_POTATO).add(ItemRegistry.Sweet_Potato.get());
+        this.tag(CREEPING_FIG).add(ItemRegistry.Creeping_Fig.get());
+        this.tag(ICE_CUBE).add(ItemRegistry.Ice_Cube.get());
+        this.tag(SALMON).add(ItemRegistry.Salmon.get());
+        this.tag(SEAWEED).add(ItemRegistry.Seaweed.get());
+        this.tag(GINKO_NUT).add(ItemRegistry.Ginko_Nut.get());
+        this.tag(BAMBOO_SHOOT).add(ItemRegistry.Bamboo_Shoot.get());
+        this.tag(LEMON).add(ItemRegistry.Lemon.get());
+        this.tag(WAGYO_BEEF).add(ItemRegistry.Wagyo_Beef.get());
+        this.tag(CRAB).add(ItemRegistry.Crab.get());
+        this.tag(MUSHROOM).add(ItemRegistry.Mushroom.get());
+        this.tag(HONEY).add(ItemRegistry.Honey.get());
+        this.tag(ONION).add(ItemRegistry.Onion.get());
+        this.tag(GRILL).add(ItemRegistry.Grill.get());
+        this.tag(LOTUS_SEED).add(ItemRegistry.Lotus_Seed.get());
+        this.tag(RADISH).add(ItemRegistry.Radish.get());
+        this.tag(TOMATO).add(ItemRegistry.Tomato.get());
+        this.tag(DEW).add(ItemRegistry.Dew.get());
+        this.tag(GRAPES).add(ItemRegistry.Grapes.get());
+        this.tag(RED_TOON).add(ItemRegistry.Red_Toon.get());
+        this.tag(BOILING_POT).add(ItemRegistry.Boiling_Pot.get());
+        this.tag(EGG).add(ItemRegistry.Egg.get());
+        this.tag(TOFU).add(ItemRegistry.Tofu.get());
+        this.tag(BOAR_MEAT).add(ItemRegistry.Boar_Meat.get());
+        this.tag(STEAMER).add(ItemRegistry.Steamer.get());
+        this.tag(CHILI).add(ItemRegistry.Chili.get());
+        this.tag(FRYING_PAN).add(ItemRegistry.Frying_Pan.get());
+        this.tag(PEACH).add(ItemRegistry.Peach.get());
+        this.tag(PREMIUM_TUNA).add(ItemRegistry.Premium_Tuna.get());
+        this.tag(BUTTER).add(ItemRegistry.Butter.get());
+        this.tag(PLUM).add(ItemRegistry.Plum.get());
+        this.tag(STICKY_RICE).add(ItemRegistry.Sticky_Rice.get());
+        this.tag(RED_BEAN).add(ItemRegistry.Red_Bean.get());
+        this.tag(TROUT).add(ItemRegistry.Trout.get());
+        this.tag(PUMPKIN).add(ItemRegistry.Pumpkin.get());
+        this.tag(SNOW_FUNGUS).add(ItemRegistry.Snow_Fungus.get());
+        this.tag(CHESTNUT).add(ItemRegistry.Chestnut.get());
+        this.tag(FLOUR).add(ItemRegistry.Flour.get());
+        this.tag(BAMBOO).add(ItemRegistry.Bamboo.get());
+        this.tag(VENISON).add(ItemRegistry.Venison.get());
+        this.tag(TRUFFLE).add(ItemRegistry.Truffle.get());
+        this.tag(CICADA_SLOUGH).add(ItemRegistry.Cicada_Slough.get());
+        this.tag(SHRIMP).add(ItemRegistry.Shrimp.get());
+        this.tag(CHEESE).add(ItemRegistry.Cheese.get());
+        this.tag(UDUNMBARA).add(ItemRegistry.Udunmbara.get());
+    }
 
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Egg.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Ginko_Nut.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cicada_Slough.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Dew.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Flour.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Sticky_Rice.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Ice_Cube.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Grapes.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cream.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lemon.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lotus_Seed.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pine_Nut.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Red_Bean.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cocoa_Bean.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Snow_Fungus.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Peach.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Honey.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Udunmbara.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Butter.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Bamboo.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lunar_Herb.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Chili.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Black_Salt.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Bingdi_Lotus.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cheese.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Sweet_Potato.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Plum.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Flower.get());
-        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Creeping_Fig.get());
-
+    private void LocalFoodAttributeTags() {
         this.tag(FRESH).add(ItemRegistry.Crab.get());
         this.tag(FRESH).add(ItemRegistry.Sea_Urchin.get());
         this.tag(FRESH).add(ItemRegistry.Octopus.get());
@@ -262,8 +344,72 @@ public class ModTagItem extends ItemTagsProvider {
         this.tag(SALTY).add(ItemRegistry.Cheese.get());
         this.tag(SALTY).add(ItemRegistry.Plum.get());
         this.tag(SOUR).add(ItemRegistry.Lemon.get());
+    }
 
-        compat();
+    private void LocalFoodIngredients() {
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Crab.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Grill.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Trout.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lamprey.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Salmon.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Tuna.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Premium_Tuna.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pufferfish.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Shrimp.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Octopus.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Sea_Urchin.get());
+
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pork.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Beef.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Venison.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Boar_Meat.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Iberico_Pork.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Wagyo_Beef.get());
+
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Tofu.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Potato.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Onion.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pumpkin.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Radish.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Seaweed.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Mushroom.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Truffle.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Bamboo_Shoot.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cucumber.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Chestnut.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Red_Toon.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Tomato.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Broceoli.get());
+
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Egg.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Ginko_Nut.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cicada_Slough.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Dew.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Flour.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Sticky_Rice.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Ice_Cube.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Grapes.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cream.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lemon.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lotus_Seed.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Pine_Nut.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Red_Bean.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cocoa_Bean.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Snow_Fungus.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Peach.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Honey.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Udunmbara.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Butter.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Bamboo.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Lunar_Herb.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Chili.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Black_Salt.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Bingdi_Lotus.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Cheese.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Sweet_Potato.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Plum.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Flower.get());
+        this.tag(FOOD_INGREDIENTS).add(ItemRegistry.Creeping_Fig.get());
     }
 
     private void compat() {

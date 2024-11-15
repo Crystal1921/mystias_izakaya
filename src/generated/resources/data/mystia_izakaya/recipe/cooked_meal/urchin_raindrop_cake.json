@@ -5,16 +5,16 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:sea_urchin"
+      "tag": "mystia_izakaya:sea_urchin"
     },
     {
-      "item": "mystia_izakaya:snow_fungus"
+      "tag": "mystia_izakaya:snow_fungus"
     },
     {
-      "item": "mystia_izakaya:tuna"
+      "tag": "mystia_izakaya:tuna"
     },
     {
-      "item": "mystia_izakaya:dew"
+      "tag": "mystia_izakaya:dew"
     }
   ],
   "negative_tags": [

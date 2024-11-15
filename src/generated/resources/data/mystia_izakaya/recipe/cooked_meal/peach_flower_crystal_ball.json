@@ -5,13 +5,13 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:peach"
+      "tag": "mystia_izakaya:peach"
     },
     {
-      "item": "mystia_izakaya:creeping_fig"
+      "tag": "mystia_izakaya:creeping_fig"
     },
     {
-      "item": "mystia_izakaya:red_bean"
+      "tag": "mystia_izakaya:red_bean"
     }
   ],
   "negative_tags": [

@@ -14,10 +14,12 @@ import net.minecraft.world.item.ItemDisplayContext;
 public class MystiasSeatRender implements BlockEntityRenderer<MystiaSeatTE> {
     private final ItemRenderer itemRenderer;
     private final EntityRenderDispatcher entityRenderDispatcher;
+
     public MystiasSeatRender(BlockEntityRendererProvider.Context ctx) {
         this.itemRenderer = ctx.getItemRenderer();
         this.entityRenderDispatcher = ctx.getEntityRenderer();
     }
+
     @Override
     public void render(MystiaSeatTE blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         if (blockEntity.getItem().getItem() instanceof CookedMealItem cookedMealItem) {

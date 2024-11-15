@@ -5,19 +5,19 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:beef"
+      "tag": "mystia_izakaya:beef"
     },
     {
-      "item": "mystia_izakaya:wagyo_beef"
+      "tag": "mystia_izakaya:wagyo_beef"
     },
     {
-      "item": "mystia_izakaya:chili"
+      "tag": "mystia_izakaya:chili"
     },
     {
-      "item": "mystia_izakaya:radish"
+      "tag": "mystia_izakaya:radish"
     },
     {
-      "item": "mystia_izakaya:truffle"
+      "tag": "mystia_izakaya:truffle"
     }
   ],
   "negative_tags": [

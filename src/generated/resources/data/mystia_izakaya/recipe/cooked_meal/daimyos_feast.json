@@ -5,13 +5,13 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:iberico_pork"
+      "tag": "mystia_izakaya:iberico_pork"
     },
     {
-      "item": "mystia_izakaya:pufferfish"
+      "tag": "mystia_izakaya:pufferfish"
     },
     {
-      "item": "mystia_izakaya:wagyo_beef"
+      "tag": "mystia_izakaya:wagyo_beef"
     }
   ],
   "negative_tags": [

@@ -5,10 +5,10 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:ginko_nut"
+      "tag": "mystia_izakaya:ginko_nut"
     },
     {
-      "item": "mystia_izakaya:honey"
+      "tag": "mystia_izakaya:honey"
     }
   ],
   "negative_tags": [

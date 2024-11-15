@@ -5,13 +5,13 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:venison"
+      "tag": "mystia_izakaya:venison"
     },
     {
-      "item": "mystia_izakaya:ginko_nut"
+      "tag": "mystia_izakaya:ginko_nut"
     },
     {
-      "item": "mystia_izakaya:pine_nut"
+      "tag": "mystia_izakaya:pine_nut"
     }
   ],
   "negative_tags": [

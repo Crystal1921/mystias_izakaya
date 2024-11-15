@@ -5,19 +5,21 @@
   "group": "cooked_meal",
   "ingredients": [
     {
-      "item": "mystia_izakaya:seaweed"
+      "tag": "mystia_izakaya:seaweed"
     },
     {
-      "item": "mystia_izakaya:grapes"
+      "tag": "mystia_izakaya:grapes"
     },
     {
-      "item": "mystia_izakaya:udunmbara"
+      "tag": "mystia_izakaya:udunmbara"
     },
     {
-      "item": "mystia_izakaya:dew"
+      "tag": "mystia_izakaya:dew"
     }
   ],
-  "negative_tags": [],
+  "negative_tags": [
+    0
+  ],
   "ordinary": 3,
   "positive_tags": [
     1,
