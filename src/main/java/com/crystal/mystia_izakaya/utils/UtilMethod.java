@@ -10,6 +10,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
@@ -59,19 +60,28 @@ public class UtilMethod {
         //菜肴正面标签
         ArrayList<FoodTagEnum> positiveTags = BytesToTagList(mealRecipe.positiveTag.array());
         //菜肴食材
-        NonNullList<Ingredient> ingredients = mealRecipe.getIngredients();
+        ArrayList<Ingredient> mealIngredients = new ArrayList<>(mealRecipe.getIngredients());
 
         // 将多余食材的标签加入展示列表，并标记冲突
-        ArrayList<Ingredient> menuItems = new ArrayList<>(cookMenu.getIngredientList()).stream()
-                .map(Ingredient::of)
-                .collect(Collectors.toCollection(ArrayList::new)); // 确保menuItems是可修改的
+        ArrayList<ItemStack> menuItems = cookMenu.getIngredientList().stream().map(Item::getDefaultInstance).collect(Collectors.toCollection(ArrayList::new));
 
-        Iterator<Ingredient> iterator = menuItems.iterator();
-        while (iterator.hasNext()) {
-            Ingredient item = iterator.next();
-            if (ingredients.contains(item)) {
-                ingredients.remove(item);
-                iterator.remove();
+        Iterator<ItemStack> menuIterator = menuItems.iterator();
+
+        while (menuIterator.hasNext()) {
+            ItemStack item = menuIterator.next();
+            Iterator<Ingredient> ingredientIterator = mealIngredients.iterator();
+
+            // 遍历 mealIngredients，检查是否有匹配的 Predicate
+            boolean shouldRemove = false;
+            while (ingredientIterator.hasNext()) {
+                Ingredient ingredient = ingredientIterator.next();
+                if (ingredient.test(item)) {
+                    ingredientIterator.remove(); // 移除匹配的 Predicate
+                    shouldRemove = true;
+                }
+            }
+            if (shouldRemove) {
+                menuIterator.remove(); // 移除匹配的 menuItem
             }
         }
 
@@ -205,8 +215,7 @@ public class UtilMethod {
     }
 
     @SuppressWarnings("deprecation")
-    public static List<FoodTagEnum> getItemFoodTag(Ingredient ingredient) {
-        ItemStack itemStack = ingredient.getItems()[0];
+    public static List<FoodTagEnum> getItemFoodTag(ItemStack itemStack) {
         return itemStack.getItem().builtInRegistryHolder().tags().map(tagKey -> LocalMealList.getInstance().getFoodTypeMap().get(tagKey.location().getPath())).filter(Objects::nonNull).toList();
     }
 
