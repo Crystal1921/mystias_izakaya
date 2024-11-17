@@ -10,15 +10,16 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.nio.ByteBuffer;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class UtilMethod {
@@ -32,16 +33,15 @@ public class UtilMethod {
      * @return {@code List<Item>} 返回所有符合条件的菜肴
      */
     public static List<MealRecipe> getItems(NonNullList<ItemStack> itemStacks, List<MealRecipe> meals, CookerTypeEnum cookerType) {
-        List<Item> ingredients = itemStacks
+        List<ItemStack> ingredients = itemStacks
                 .stream()
                 .limit(5)//限定前五个格子为材料格
                 .filter(itemStack -> !itemStack.isEmpty())
-                .map(ItemStack::getItem)
                 .toList();
         return meals.stream()
                 .parallel()
                 .filter(item -> item.cookerTypeEnum == cookerType)
-                .filter(item -> new HashSet<>(ingredients).containsAll(IngredientToItem(item.getIngredients())))
+                .filter(item -> isMatchedRecipe(ingredients, item.getIngredients()))
                 .collect(Collectors.toList());
     }
 
@@ -59,14 +59,16 @@ public class UtilMethod {
         //菜肴正面标签
         ArrayList<FoodTagEnum> positiveTags = BytesToTagList(mealRecipe.positiveTag.array());
         //菜肴食材
-        ArrayList<Item> ingredients = IngredientToItem(mealRecipe.getIngredients());
+        NonNullList<Ingredient> ingredients = mealRecipe.getIngredients();
 
         // 将多余食材的标签加入展示列表，并标记冲突
-        ArrayList<Item> menuItems = new ArrayList<>(cookMenu.getIngredientList()); // 确保menuItems是可修改的
+        ArrayList<Ingredient> menuItems = new ArrayList<>(cookMenu.getIngredientList()).stream()
+                .map(Ingredient::of)
+                .collect(Collectors.toCollection(ArrayList::new)); // 确保menuItems是可修改的
 
-        Iterator<Item> iterator = menuItems.iterator();
+        Iterator<Ingredient> iterator = menuItems.iterator();
         while (iterator.hasNext()) {
-            Item item = iterator.next();
+            Ingredient item = iterator.next();
             if (ingredients.contains(item)) {
                 ingredients.remove(item);
                 iterator.remove();
@@ -112,6 +114,7 @@ public class UtilMethod {
      * @param pDropShadow 是否有阴影
      * @param selected    背景色是否加深
      */
+    @SuppressWarnings("deprecation")
     public static void drawStringSize(GuiGraphics guiGraphics, Font pFont, Component pText, int pX, int pY, int pColor, boolean pDropShadow, boolean selected) {
         int width = pFont.width(pText.getString());
         if (width <= 36) {
@@ -142,23 +145,20 @@ public class UtilMethod {
         final int BOX_SPACING_Y = 12;
         final int OFFSET_X = 13;
         final int OFFSET_Y = 27;
-        // 计算相对坐标
+
         double relativeX = pMouseX - i - OFFSET_X;
         double relativeY = pMouseY - j - OFFSET_Y;
 
-        // 检查相对坐标是否在可计算范围内
         if (relativeX < 0 || relativeY < 0) {
             return -1;
         }
 
-        // 计算方框的列和行
         int col = (int) (relativeX / BOX_SPACING_X);
         int row = (int) (relativeY / BOX_SPACING_Y);
 
         // 计算方框索引
         int index = row * BOXES_PER_ROW + col;
 
-        // 检查是否超出方框总数或相对位置是否在方框范围内
         if (col >= BOXES_PER_ROW || index >= totalBoxes ||
                 relativeX % BOX_SPACING_X >= BOX_WIDTH || relativeY % BOX_SPACING_Y >= BOX_HEIGHT) {
             return -1;
@@ -167,6 +167,12 @@ public class UtilMethod {
         return index;
     }
 
+    /**
+     * 将标签列表为数组
+     *
+     * @param enumList 标签列表
+     * @return 按枚举类的索引转换成数字
+     */
     public static byte[] TagListToBytes(List<FoodTagEnum> enumList) {
         // 创建一个 ByteBuffer，大小为枚举列表的大小
         ByteBuffer byteBuffer = ByteBuffer.allocate(enumList.size());
@@ -180,25 +186,50 @@ public class UtilMethod {
         return byteBuffer.array();
     }
 
+    /**
+     * 将数据转为标签列表
+     *
+     * @param bytes 数字标签数组
+     * @return 按枚举类的索引转换成标签
+     */
     public static ArrayList<FoodTagEnum> BytesToTagList(byte[] bytes) {
         ArrayList<FoodTagEnum> enumList = new ArrayList<>();
 
         for (byte b : bytes) {
-            // 将 byte 转换为枚举类型，使用 ordinal() 方法
-            int ordinal = Byte.toUnsignedInt(b); // 转换为无符号整数
-            FoodTagEnum foodTag = FoodTagEnum.values()[ordinal]; // 根据 ordinal 获取枚举
-            enumList.add(foodTag); // 添加到列表中
+            int ordinal = Byte.toUnsignedInt(b);
+            FoodTagEnum foodTag = FoodTagEnum.values()[ordinal];
+            enumList.add(foodTag);
         }
 
         return enumList;
     }
 
-    public static ArrayList<Item> IngredientToItem(NonNullList<Ingredient> ingredients) {
-        return ingredients.stream().map(ingredient -> ingredient.getItems()[0].getItem()).collect(Collectors.toCollection(ArrayList::new));
+    @SuppressWarnings("deprecation")
+    public static List<FoodTagEnum> getItemFoodTag(Ingredient ingredient) {
+        ItemStack itemStack = ingredient.getItems()[0];
+        return itemStack.getItem().builtInRegistryHolder().tags().map(tagKey -> LocalMealList.getInstance().getFoodTypeMap().get(tagKey.location().getPath())).filter(Objects::nonNull).toList();
     }
 
-    public static List<FoodTagEnum> getItemFoodTag(Item item) {
-        ItemStack itemStack = item.getDefaultInstance();
-        return itemStack.getTags().map(tagKey -> LocalMealList.getInstance().getFoodTypeMap().get(tagKey.location().getPath())).filter(Objects::nonNull).toList();
+    /**
+     * 容器的物品是否包含配方所需的
+     *
+     * @param items       容器内的物品
+     * @param ingredients 配方需要的材料
+     */
+    public static boolean isMatchedRecipe(List<ItemStack> items, NonNullList<Ingredient> ingredients) {
+        for (Ingredient ingredient : ingredients) {
+            boolean matched = false;
+            for (ItemStack itemStack : items) {
+                if (ingredient.test(itemStack)) {
+                    matched = true;
+                    break;
+                }
+            }
+            if (!matched) {
+                return false;
+            }
+        }
+        return true;
     }
+
 }

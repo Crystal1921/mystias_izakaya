@@ -66,12 +66,6 @@
   },
   "requirements": [
     [
-      "frying_pan"
-    ],
-    [
-      "grill"
-    ],
-    [
       "boiling_pot"
     ],
     [
@@ -79,6 +73,12 @@
     ],
     [
       "steamer"
+    ],
+    [
+      "frying_pan"
+    ],
+    [
+      "grill"
     ]
   ],
   "sends_telemetry_event": true
