@@ -2,13 +2,10 @@ package com.crystal.mystia_izakaya.client.block;
 
 import com.crystal.mystia_izakaya.client.blockEntity.MystiaSeatTE;
 import com.crystal.mystia_izakaya.client.item.CookedMealItem;
-import com.crystal.mystia_izakaya.registry.BlockEntityRegistry;
 import com.crystal.mystia_izakaya.utils.ServerUtilMethod;
 import com.github.tartaricacid.touhoulittlemaid.entity.item.EntitySit;
-import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -23,15 +20,12 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -41,7 +35,7 @@ import org.jetbrains.annotations.Nullable;
 public class MystiasSeatBlock extends BaseEntityBlock {
     public static final MapCodec<MystiasSeatBlock> CODEC = simpleCodec((properties) -> new MystiasSeatBlock());
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public static final String MystiasSeatBlock = "mystias_seat";
+    public static final String MystiasSeat = "mystias_seat";
     protected static final VoxelShape SHAPE = Shapes.box(0.4375, 0, 0.4375, 0.5625, 0.625, 0.5625);
     protected static final VoxelShape SHAPE1 = Shapes.box(0.125, 0.625, 0.125, 0.875, 0.75, 0.875);
 
@@ -49,24 +43,18 @@ public class MystiasSeatBlock extends BaseEntityBlock {
         super(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion());
     }
 
-    @javax.annotation.Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return pLevel.isClientSide ? null : createTickerHelper(pBlockEntityType, BlockEntityRegistry.MYSTIAS_SEAT.get(), MystiaSeatTE::serverTick);
-    }
-
     @Override
     public ItemInteractionResult useItemOn(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (level instanceof ServerLevel serverLevel && blockEntity instanceof MystiaSeatTE mystiaSeatTE) {
             if (itemStack.getItem() instanceof CookedMealItem) {
-                mystiaSeatTE.setItem(0, itemStack);
+                mystiaSeatTE.setItem(0, itemStack.getItem().getDefaultInstance());
                 ItemStack itemStack1 = itemStack.copy();
                 if (!player.isCreative()) {
                     itemStack1.shrink(1);
                 }
                 player.setItemInHand(hand, itemStack1);
-                mystiaSeatTE.updateMeal(serverLevel);
+                serverLevel.sendBlockUpdated(pos, blockEntity.getBlockState(), blockEntity.getBlockState(), Block.UPDATE_CLIENTS);
                 return ItemInteractionResult.SUCCESS;
             }
             if (itemStack.isEmpty() && !mystiaSeatTE.getItem(0).isEmpty()) {
@@ -80,22 +68,7 @@ public class MystiasSeatBlock extends BaseEntityBlock {
         return super.useItemOn(itemStack, state, level, pos, player, hand, hit);
     }
 
-    public void startMaidSit(EntityMaid maid, BlockState state, Level worldIn, BlockPos pos) {
-        if (worldIn instanceof ServerLevel serverLevel) {
-            BlockEntity blockEntity = serverLevel.getBlockEntity(pos);
-            if (blockEntity instanceof MystiaSeatTE seatTE) {
-                Direction face = state.getValue(FACING).getClockWise();
-                Vec3 position = new Vec3(0.5 + (double) face.getStepX() * 1.5, 0.1, 0.5 + (double) face.getStepZ() * 1.5);
-                EntitySit newSitEntity = new EntitySit(worldIn, Vec3.atLowerCornerWithOffset(pos, position.x, position.y, position.z), MystiasSeatBlock, pos);
-                newSitEntity.setYRot(face.getOpposite().toYRot());
-                worldIn.addFreshEntity(newSitEntity);
-                seatTE.setSitId(newSitEntity.getUUID());
-                seatTE.setChanged();
-                maid.startRiding(newSitEntity);
-            }
-        }
-    }
-
+    @SuppressWarnings("deprecation")
     public @NotNull RenderShape getRenderShape(@NotNull BlockState blockState) {
         return RenderShape.MODEL;
     }

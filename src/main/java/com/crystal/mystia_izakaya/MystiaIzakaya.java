@@ -29,6 +29,7 @@ public class MystiaIzakaya {
         RecipeTypeRegistry.RECIPE_SERIALIZERS.register(modEventBus);
         ComponentRegistry.REGISTRAR.register(modEventBus);
         PoiRegistry.POI_TYPES.register(modEventBus);
+        MemoryTypeRegister.MEMORY_MODULE_TYPES.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 

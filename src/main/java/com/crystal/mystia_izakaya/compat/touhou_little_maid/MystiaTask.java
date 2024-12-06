@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
-import static com.crystal.mystia_izakaya.client.block.MystiasSeatBlock.MystiasSeatBlock;
+import static com.crystal.mystia_izakaya.client.block.MystiasSeatBlock.MystiasSeat;
 
 public class MystiaTask implements IMaidTask {
     @Override
@@ -38,12 +38,17 @@ public class MystiaTask implements IMaidTask {
 
     @Override
     public List<Pair<Integer, BehaviorControl<? super EntityMaid>>> createBrainTasks(EntityMaid entityMaid) {
-        Pair<Integer, BehaviorControl<? super EntityMaid>> maidMealTask = Pair.of(5, new MaidMealTask(0.6f, 2));
+        Pair<Integer, BehaviorControl<? super EntityMaid>> maidMealTask = Pair.of(5, new MaidSeatTask(0.6f, 2));
         return Lists.newArrayList(maidMealTask);
     }
 
     @Override
+    public @NotNull List<Pair<Integer, BehaviorControl<? super EntityMaid>>> createRideBrainTasks(EntityMaid maid) {
+        return Lists.newArrayList(Pair.of(5, new MaidMealTask()));
+    }
+
+    @Override
     public boolean canSitInJoy(@NotNull EntityMaid maid, String joyType) {
-        return joyType.equals(MystiasSeatBlock);
+        return joyType.equals(MystiasSeat);
     }
 }
