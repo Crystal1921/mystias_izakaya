@@ -47,10 +47,3 @@ type="required"
 versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
-
-[[dependencies.${ mod_id }]]
-modId = "touhou_little_maid"
-mandatory = true
-versionRange = "${touhou_little_maid_version_range}"
-ordering = "NONE"
-side = "BOTH"

@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -36,8 +37,6 @@ public class MystiasSeatBlock extends BaseEntityBlock {
     public static final MapCodec<MystiasSeatBlock> CODEC = simpleCodec((properties) -> new MystiasSeatBlock());
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final String MystiasSeat = "mystias_seat";
-    protected static final VoxelShape SHAPE = Shapes.box(0.4375, 0, 0.4375, 0.5625, 0.625, 0.5625);
-    protected static final VoxelShape SHAPE1 = Shapes.box(0.125, 0.625, 0.125, 0.875, 0.75, 0.875);
 
     public MystiasSeatBlock() {
         super(BlockBehaviour.Properties.of().strength(2.5F).noOcclusion());
@@ -74,7 +73,7 @@ public class MystiasSeatBlock extends BaseEntityBlock {
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Shapes.or(SHAPE, SHAPE1);
+        return makeShape();
     }
 
     @Override
@@ -117,5 +116,14 @@ public class MystiasSeatBlock extends BaseEntityBlock {
                 super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
             }
         }
+    }
+
+    public VoxelShape makeShape(){
+        VoxelShape shape = Shapes.empty();
+        shape = Shapes.join(shape, Shapes.box(0.375, 0, 0.375, 0.625, 0.0625, 0.625), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.4375, 0.0625, 0.4375, 0.5625, 0.5625, 0.5625), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.1875, 0.5625, 0.1875, 0.8125, 0.625, 0.8125), BooleanOp.OR);
+
+        return shape;
     }
 }
