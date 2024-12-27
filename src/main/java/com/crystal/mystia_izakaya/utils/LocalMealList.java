@@ -177,8 +177,7 @@ public class LocalMealList {
                 ItemRegistry.Pork_Rice_Ball.get(),
                 ItemRegistry.Scones.get(),
                 ItemRegistry.Sea_Miso_soup.get(),
-                ItemRegistry.Rice_Ball.get(),
-                ItemRegistry.Dark_Matter.get());
+                ItemRegistry.Rice_Ball.get());
 
         cookerTypeMap.put(CookerTypeEnum.Boiling_Pot, ItemRegistry.Boiling_Pot.get());
         cookerTypeMap.put(CookerTypeEnum.Cutting_Board, ItemRegistry.Cutting_Board.get());
