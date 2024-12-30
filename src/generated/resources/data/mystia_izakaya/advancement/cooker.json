@@ -66,10 +66,10 @@
   },
   "requirements": [
     [
-      "boiling_pot"
+      "cutting_board"
     ],
     [
-      "cutting_board"
+      "boiling_pot"
     ],
     [
       "steamer"

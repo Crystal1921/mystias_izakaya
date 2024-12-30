@@ -446,7 +446,7 @@ public class ModTagItem extends ItemTagsProvider {
         this.tag(ONION).add(MIItem.YANG_CONG.get());
         this.tag(LOTUS_SEED).add(MIItem.LIAN_ZI.get());
         this.tag(RADISH).add(MIItem.LUO_BU.get());
-        this.tag(TOMATO).add(MIItem.TU_DOU.get());
+        this.tag(TOMATO).add(MIItem.XI_HONG_SHI.get());
         this.tag(DEW).add(MIItem.LU_SHUI.get());
         this.tag(GRAPES).add(MIItem.PU_TAO.get());
         this.tag(RED_TOON).add(MIItem.XIANG_CHUN.get());
@@ -464,7 +464,7 @@ public class ModTagItem extends ItemTagsProvider {
         this.tag(PUMPKIN).add(MIItem.NAN_GUA.get());
         this.tag(SNOW_FUNGUS).add(MIItem.YIN_ER.get());
         this.tag(CHESTNUT).add(MIItem.BAN_LI.get());
-        this.tag(FLOUR).add(MIItem.NAI_YOU.get());
+        this.tag(FLOUR).add(MIItem.MIAN_FEN.get());
         this.tag(BAMBOO).add(MIItem.ZHU_ZI.get());
         this.tag(VENISON).add(MIItem.LU_ROU.get());
         this.tag(TRUFFLE).add(MIItem.SONG_LU.get());
