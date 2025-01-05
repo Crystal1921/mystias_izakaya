@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:broceoli",
-    "mystias_izakaya:xi_lan_hua"
+    {
+      "id": "mystias_izakaya:xi_lan_hua",
+      "required": false
+    }
   ]
 }

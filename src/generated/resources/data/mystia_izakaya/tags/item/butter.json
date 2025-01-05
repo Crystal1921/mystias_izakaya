@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:butter",
-    "mystias_izakaya:huang_you"
+    {
+      "id": "mystias_izakaya:huang_you",
+      "required": false
+    }
   ]
 }

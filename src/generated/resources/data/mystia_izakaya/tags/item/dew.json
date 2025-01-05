@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:dew",
-    "mystias_izakaya:lu_shui"
+    {
+      "id": "mystias_izakaya:lu_shui",
+      "required": false
+    }
   ]
 }

@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:chili",
-    "mystias_izakaya:la_jiao"
+    {
+      "id": "mystias_izakaya:la_jiao",
+      "required": false
+    }
   ]
 }

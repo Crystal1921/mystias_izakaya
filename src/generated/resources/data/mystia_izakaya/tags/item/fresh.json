@@ -15,20 +15,65 @@
     "mystia_izakaya:mushroom",
     "mystia_izakaya:truffle",
     "mystia_izakaya:cheese",
-    "mystias_izakaya:pang_xie",
-    "mystias_izakaya:hai_dan",
-    "mystias_izakaya:zhang_yu",
-    "mystias_izakaya:xia",
-    "mystias_izakaya:he_tun",
-    "mystias_izakaya:ji_shang_jin_qiang_yu",
-    "mystias_izakaya:jin_qiang_yu",
-    "mystias_izakaya:san_wen_yu",
-    "mystias_izakaya:ba_mu_man",
-    "mystias_izakaya:zun_yu",
-    "mystias_izakaya:yang_cong",
-    "mystias_izakaya:hai_tai",
-    "mystias_izakaya:mo_gu",
-    "mystias_izakaya:song_lu",
-    "mystias_izakaya:zhi_shi"
+    {
+      "id": "mystias_izakaya:pang_xie",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:hai_dan",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:zhang_yu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:xia",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:he_tun",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:ji_shang_jin_qiang_yu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:jin_qiang_yu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:san_wen_yu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:ba_mu_man",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:zun_yu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:yang_cong",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:hai_tai",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:mo_gu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:song_lu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:zhi_shi",
+      "required": false
+    }
   ]
 }

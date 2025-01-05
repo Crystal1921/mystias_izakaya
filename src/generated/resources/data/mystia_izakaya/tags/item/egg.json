@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:egg",
-    "mystias_izakaya:ji_dan"
+    {
+      "id": "mystias_izakaya:ji_dan",
+      "required": false
+    }
   ]
 }

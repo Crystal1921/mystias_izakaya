@@ -3,8 +3,17 @@
     "mystia_izakaya:pumpkin",
     "mystia_izakaya:flour",
     "mystia_izakaya:sweet_potato",
-    "mystias_izakaya:nan_gua",
-    "mystias_izakaya:mian_fen",
-    "mystias_izakaya:di_gua"
+    {
+      "id": "mystias_izakaya:nan_gua",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:mian_fen",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:di_gua",
+      "required": false
+    }
   ]
 }

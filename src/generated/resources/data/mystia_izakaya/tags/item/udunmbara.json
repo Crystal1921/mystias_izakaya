@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:udunmbara",
-    "mystias_izakaya:huan_tan_hua"
+    {
+      "id": "mystias_izakaya:huan_tan_hua",
+      "required": false
+    }
   ]
 }

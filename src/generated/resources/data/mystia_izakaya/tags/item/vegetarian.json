@@ -14,19 +14,61 @@
     "mystia_izakaya:red_toon",
     "mystia_izakaya:tomato",
     "mystia_izakaya:broceoli",
-    "mystias_izakaya:dou_fu",
-    "mystias_izakaya:tu_dou",
-    "mystias_izakaya:yang_cong",
-    "mystias_izakaya:nan_gua",
-    "mystias_izakaya:luo_bu",
-    "mystias_izakaya:hai_tai",
-    "mystias_izakaya:mo_gu",
-    "mystias_izakaya:song_lu",
-    "mystias_izakaya:zhu_sun",
-    "mystias_izakaya:huang_gua",
-    "mystias_izakaya:ban_li",
-    "mystias_izakaya:chun_chun",
-    "mystias_izakaya:xi_hong_shi",
-    "mystias_izakaya:xi_lan_hua"
+    {
+      "id": "mystias_izakaya:dou_fu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:tu_dou",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:yang_cong",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:nan_gua",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:luo_bu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:hai_tai",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:mo_gu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:song_lu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:zhu_sun",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:huang_gua",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:ban_li",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:chun_chun",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:xi_hong_shi",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:xi_lan_hua",
+      "required": false
+    }
   ]
 }

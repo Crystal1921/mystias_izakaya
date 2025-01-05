@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:lunar_herb",
-    "mystias_izakaya:yue_guang_cao"
+    {
+      "id": "mystias_izakaya:yue_guang_cao",
+      "required": false
+    }
   ]
 }

@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:lemon",
-    "mystias_izakaya:ning_meng"
+    {
+      "id": "mystias_izakaya:ning_meng",
+      "required": false
+    }
   ]
 }

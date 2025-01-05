@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:cocoa_bean",
-    "mystias_izakaya:ke_ke_dou"
+    {
+      "id": "mystias_izakaya:ke_ke_dou",
+      "required": false
+    }
   ]
 }

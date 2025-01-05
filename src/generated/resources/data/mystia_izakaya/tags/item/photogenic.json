@@ -3,8 +3,17 @@
     "mystia_izakaya:ginko_nut",
     "mystia_izakaya:bamboo",
     "mystia_izakaya:flower",
-    "mystias_izakaya:bai_guo",
-    "mystias_izakaya:zhu_zi",
-    "mystias_izakaya:xian_hua"
+    {
+      "id": "mystias_izakaya:bai_guo",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:zhu_zi",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:xian_hua",
+      "required": false
+    }
   ]
 }

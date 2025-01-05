@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:pork",
-    "mystias_izakaya:zhu_rou"
+    {
+      "id": "mystias_izakaya:zhu_rou",
+      "required": false
+    }
   ]
 }

@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:sticky_rice",
-    "mystias_izakaya:nuo_mi"
+    {
+      "id": "mystias_izakaya:nuo_mi",
+      "required": false
+    }
   ]
 }

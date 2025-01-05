@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:chestnut",
-    "mystias_izakaya:ban_li"
+    {
+      "id": "mystias_izakaya:ban_li",
+      "required": false
+    }
   ]
 }

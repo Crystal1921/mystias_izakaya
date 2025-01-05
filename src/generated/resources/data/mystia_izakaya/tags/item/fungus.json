@@ -3,8 +3,17 @@
     "mystia_izakaya:mushroom",
     "mystia_izakaya:truffle",
     "mystia_izakaya:snow_fungus",
-    "mystias_izakaya:mo_gu",
-    "mystias_izakaya:song_lu",
-    "mystias_izakaya:yin_er"
+    {
+      "id": "mystias_izakaya:mo_gu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:song_lu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:yin_er",
+      "required": false
+    }
   ]
 }

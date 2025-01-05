@@ -69,9 +69,6 @@
       "cutting_board"
     ],
     [
-      "boiling_pot"
-    ],
-    [
       "steamer"
     ],
     [
@@ -79,6 +76,9 @@
     ],
     [
       "grill"
+    ],
+    [
+      "boiling_pot"
     ]
   ],
   "sends_telemetry_event": true

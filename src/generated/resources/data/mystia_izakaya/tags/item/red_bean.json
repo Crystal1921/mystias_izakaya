@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:red_bean",
-    "mystias_izakaya:hong_dou"
+    {
+      "id": "mystias_izakaya:hong_dou",
+      "required": false
+    }
   ]
 }

@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:ginko_nut",
-    "mystias_izakaya:bai_guo"
+    {
+      "id": "mystias_izakaya:bai_guo",
+      "required": false
+    }
   ]
 }

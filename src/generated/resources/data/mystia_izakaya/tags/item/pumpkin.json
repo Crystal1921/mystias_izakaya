@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:pumpkin",
-    "mystias_izakaya:nan_gua"
+    {
+      "id": "mystias_izakaya:nan_gua",
+      "required": false
+    }
   ]
 }

@@ -4,9 +4,21 @@
     "mystia_izakaya:octopus",
     "mystia_izakaya:pufferfish",
     "mystia_izakaya:premium_tuna",
-    "mystias_izakaya:hai_dan",
-    "mystias_izakaya:zhang_yu",
-    "mystias_izakaya:he_tun",
-    "mystias_izakaya:ji_shang_jin_qiang_yu"
+    {
+      "id": "mystias_izakaya:hai_dan",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:zhang_yu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:he_tun",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:ji_shang_jin_qiang_yu",
+      "required": false
+    }
   ]
 }

@@ -3,8 +3,17 @@
     "mystia_izakaya:grapes",
     "mystia_izakaya:lemon",
     "mystia_izakaya:peach",
-    "mystias_izakaya:pu_tao",
-    "mystias_izakaya:ning_meng",
-    "mystias_izakaya:tao_zi"
+    {
+      "id": "mystias_izakaya:pu_tao",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:ning_meng",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:tao_zi",
+      "required": false
+    }
   ]
 }

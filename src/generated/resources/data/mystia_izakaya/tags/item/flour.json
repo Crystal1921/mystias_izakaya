@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:flour",
-    "mystias_izakaya:mian_fen"
+    {
+      "id": "mystias_izakaya:mian_fen",
+      "required": false
+    }
   ]
 }

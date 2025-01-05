@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:bingdi_lotus",
-    "mystias_izakaya:bing_di_lian"
+    {
+      "id": "mystias_izakaya:bing_di_lian",
+      "required": false
+    }
   ]
 }

@@ -1,6 +1,9 @@
 {
   "values": [
     "mystia_izakaya:potato",
-    "mystias_izakaya:tu_dou"
+    {
+      "id": "mystias_izakaya:tu_dou",
+      "required": false
+    }
   ]
 }

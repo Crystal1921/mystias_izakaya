@@ -7,12 +7,33 @@
     "mystia_izakaya:broceoli",
     "mystia_izakaya:cream",
     "mystia_izakaya:red_bean",
-    "mystias_izakaya:dou_fu",
-    "mystias_izakaya:tu_dou",
-    "mystias_izakaya:huang_gua",
-    "mystias_izakaya:ban_li",
-    "mystias_izakaya:xi_lan_hua",
-    "mystias_izakaya:nai_you",
-    "mystias_izakaya:hong_dou"
+    {
+      "id": "mystias_izakaya:dou_fu",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:tu_dou",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:huang_gua",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:ban_li",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:xi_lan_hua",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:nai_you",
+      "required": false
+    },
+    {
+      "id": "mystias_izakaya:hong_dou",
+      "required": false
+    }
   ]
 }
