@@ -12,6 +12,7 @@ import net.minecraft.client.gui.LayeredDraw;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -24,10 +25,13 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.crystal.mystia_izakaya.MystiaIzakaya.resourceLocation;
+
 public class cookerListOverlay implements LayeredDraw.Layer {
     public static final int BLACK = Color.BLACK.getRGB();
     public static final int WHITE = FastColor.ARGB32.color(128,Color.WHITE.getRGB());
     private final List<CookerInfo> containers = new ArrayList<>();
+    private static final ResourceLocation CONFIRM_SPRITE = ResourceLocation.withDefaultNamespace("container/beacon/confirm");
 
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, @NotNull DeltaTracker deltaTracker) {
@@ -37,6 +41,9 @@ public class cookerListOverlay implements LayeredDraw.Layer {
         Options options = minecraft.options;
         Player player = minecraft.player;
         if (player == null || world == null || options.hideGui) {
+            return;
+        }
+        if (player.isSpectator()) {
             return;
         }
         ItemStack stack = player.getInventory().getArmor(3);
@@ -77,6 +84,8 @@ public class cookerListOverlay implements LayeredDraw.Layer {
                     guiGraphics.fill(6,height - 4,80,height + 12,WHITE);
                     if (cookerInfo.isLit){
                         guiGraphics.drawString(font, Component.literal((int) ((1 - cookerInfo.progress) * 100) + " %"), 48, height, BLACK, false);
+                    } else if (!cookedMeal.isEmpty()){
+                        guiGraphics.blitSprite(CONFIRM_SPRITE, 44,height - 4,16,16);
                     }
                 }
 
