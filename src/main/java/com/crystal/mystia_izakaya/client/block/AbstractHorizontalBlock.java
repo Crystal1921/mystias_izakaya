@@ -1,9 +1,14 @@
 package com.crystal.mystia_izakaya.client.block;
 
 import com.crystal.mystia_izakaya.client.blockEntity.AbstractCookerTE;
+import com.crystal.mystia_izakaya.client.blockEntity.BoilingPotTE;
 import com.crystal.mystia_izakaya.utils.ServerUtilMethod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -19,6 +24,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
@@ -35,6 +42,25 @@ public abstract class AbstractHorizontalBlock extends BaseEntityBlock {
             Level pLevel, BlockEntityType<T> pServerType, BlockEntityType<? extends AbstractCookerTE> pClientType
     ) {
         return pLevel.isClientSide ? null : createTickerHelper(pServerType, pClientType, AbstractCookerTE::serverTick);
+    }
+
+    @Override
+    protected @NotNull InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
+        if (pLevel.isClientSide) {
+            return InteractionResult.SUCCESS;
+        } else {
+            ServerPlayer serverPlayer = (ServerPlayer) pPlayer;
+            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+            if (blockEntity instanceof BoilingPotTE boilingPotTE) {
+                if (!boilingPotTE.getItem(5).isEmpty()) {
+                    ItemStack item = boilingPotTE.getItem(5);
+                    serverPlayer.addItem(item);
+                    boilingPotTE.setItem(5, ItemStack.EMPTY);
+                    pLevel.sendBlockUpdated(blockEntity.getBlockPos(), blockEntity.getBlockState(), blockEntity.getBlockState(), 3);
+                }
+            }
+            return InteractionResult.CONSUME;
+        }
     }
 
     @Override

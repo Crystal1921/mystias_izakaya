@@ -37,6 +37,7 @@ public class FryingPanBlock extends AbstractHorizontalBlock {
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
+        super.useWithoutItem(pState, pLevel, pPos, pPlayer, pHitResult);
         if (pLevel.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {

@@ -45,9 +45,7 @@ public class CookerSerializer implements RecipeSerializer<MealRecipe> {
                     )
                     .apply(recipeInstance, MealRecipe::new));
 
-    public final StreamCodec<RegistryFriendlyByteBuf, MealRecipe> STREAM_CODEC = StreamCodec.of(
-            this::toNetwork, this::fromNetwork
-    );
+    public final StreamCodec<RegistryFriendlyByteBuf, MealRecipe> STREAM_CODEC = StreamCodec.of(this::toNetwork, this::fromNetwork);
 
 
     @Override

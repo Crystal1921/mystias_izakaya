@@ -35,6 +35,10 @@ public class BoilingPotBlock extends AbstractHorizontalBlock {
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
+        InteractionResult interactionResult = super.useWithoutItem(pState, pLevel, pPos, pPlayer, pHitResult);
+        if (interactionResult == InteractionResult.CONSUME) {
+            return interactionResult;
+        }
         if (pLevel.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
@@ -43,7 +47,7 @@ public class BoilingPotBlock extends AbstractHorizontalBlock {
             if (blockEntity instanceof BoilingPotTE boilingPotTE) {
                 serverPlayer.openMenu(boilingPotTE, friendlyByteBuf -> friendlyByteBuf.writeBlockPos(pPos));
             }
-            return InteractionResult.CONSUME;
+            return InteractionResult.SUCCESS;
         }
     }
 
